@@ -5,7 +5,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Pixelsphere',
-  description: 'Pixelsphere',
+  description: 'Pixelsphere Creatives',
   generator: 'Pixelsphere',
 }
 
