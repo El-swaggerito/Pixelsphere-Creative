@@ -48,7 +48,7 @@ function FAQItem({ question, answer, defaultOpen = false }: FAQItemProps) {
 
 export default function ContactPage() {
   return (
-    <main className="pt-10">
+    <main className="lg:pt-10 sm:pt-0">
       {/* Hero Section with Contact Image */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         <HeroBackground className="pt-32">
