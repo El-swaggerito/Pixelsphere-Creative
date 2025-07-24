@@ -4,6 +4,8 @@ import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import { Check, Globe, Smartphone, Zap, Shield } from "lucide-react"
+import PageTransition from "@/components/PageTransition";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function WebsiteServicesPage() {
   const services = [
@@ -58,7 +60,8 @@ export default function WebsiteServicesPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <PageTransition>
+      <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24 sm:pt-0">
         {/* Background Pattern */}
@@ -81,6 +84,7 @@ export default function WebsiteServicesPage() {
       </section>
 
       {/* Services Grid */}
+      <AnimatedSection>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -112,8 +116,10 @@ export default function WebsiteServicesPage() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Process Section */}
+      <AnimatedSection>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -135,17 +141,23 @@ export default function WebsiteServicesPage() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
-      {/* CTA Section */}
-      <CTASection
-        title="Ready to Build Your Website?"
-        description="Let's create a website that drives results for your business."
-        buttonText="Get Started"
-        backgroundImage="/images/cta-bg.png"
-      />
-
-      <FinalCTA />
-      <Footer />
+      <AnimatedSection>
+        <CTASection
+          title="Ready to Build Your Website?"
+          description="Let's create a website that drives results for your business."
+          buttonText="Get Started"
+          backgroundImage="/images/cta-bg.png"
+        />
+      </AnimatedSection>
+      <AnimatedSection>
+        <FinalCTA />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Footer />
+      </AnimatedSection>
     </div>
+    </PageTransition>
   )
 }

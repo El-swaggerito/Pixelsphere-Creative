@@ -7,6 +7,7 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import WorkCTA from "@/components/work-cta"
+import AnimatedSection from "@/components/AnimatedSection";
 
 // Mock blog data - you can replace this with actual data fetching
 const getBlogPost = (slug: string) => {
@@ -296,6 +297,7 @@ export default function BlogSinglePage({ params }: { params: { slug: string } })
       <Header currentPage="blog" textColor="black" background="white"/>
 
       {/* Breadcrumb */}
+      <AnimatedSection>
       <section className="py-4 bg-gray-50 border-b pt-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center text-sm text-gray-600">
@@ -311,8 +313,10 @@ export default function BlogSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Blog Post Header */}
+      <AnimatedSection>
       <section className="py-12 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Badge className={`${post.categoryColor} mb-4`}>{post.category}</Badge>
@@ -370,8 +374,10 @@ export default function BlogSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Blog Content */}
+      <AnimatedSection>
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* After Completing This Course */}
@@ -491,8 +497,10 @@ export default function BlogSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* More Courses For You */}
+      <AnimatedSection>
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">More Courses For You</h2>
@@ -526,8 +534,10 @@ export default function BlogSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Related Courses */}
+      <AnimatedSection>
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">Related Courses</h2>
@@ -547,10 +557,17 @@ export default function BlogSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
-      <WorkCTA />
-      <FinalCTA />
-      <Footer />
+      <AnimatedSection>
+        <WorkCTA />
+      </AnimatedSection>
+      <AnimatedSection>
+        <FinalCTA />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Footer />
+      </AnimatedSection>
     </div>
   )
 }

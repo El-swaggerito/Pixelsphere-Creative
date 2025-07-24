@@ -7,6 +7,7 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import WorkCTA from "@/components/work-cta"
+import AnimatedSection from "@/components/AnimatedSection";
 
 // Mock work data - you can replace this with actual data fetching
 const getWorkProject = (slug: string) => {
@@ -198,6 +199,7 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
       <Header currentPage="work" textColor="black" background="white"/>
 
       {/* Breadcrumb */}
+      <AnimatedSection>
       <section className="py-4 bg-gray-50 border-b pt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center text-sm text-gray-600">
@@ -213,8 +215,10 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Project Hero */}
+      <AnimatedSection>
       <section className="pt-8 pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Project Title */}
@@ -291,8 +295,10 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Design Showcase 2 */}
+      <AnimatedSection>
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-6xl mx-auto">
@@ -306,8 +312,10 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Project Goal */}
+      <AnimatedSection>
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Project Goal</h2>
@@ -320,8 +328,10 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Product Branding */}
+      <AnimatedSection>
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Product Branding</h2>
@@ -334,8 +344,10 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Design Showcase 3 */}
+      <AnimatedSection>
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-6xl mx-auto">
@@ -349,8 +361,10 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* User Statement & Problem List */}
+      <AnimatedSection>
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
@@ -387,8 +401,10 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Solutions */}
+      <AnimatedSection>
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 flex items-center">
@@ -405,8 +421,10 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Final Design Showcase */}
+      <AnimatedSection>
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-6xl mx-auto">
@@ -420,8 +438,10 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Client Feedback */}
+      <AnimatedSection>
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">Client Feedback</h2>
@@ -440,10 +460,17 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
           </Card>
         </div>
       </section>
+      </AnimatedSection>
 
-      <WorkCTA />
-      <FinalCTA />
-      <Footer />
+      <AnimatedSection>
+        <WorkCTA />
+      </AnimatedSection>
+      <AnimatedSection>
+        <FinalCTA />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Footer />
+      </AnimatedSection>
     </div>
   )
 }

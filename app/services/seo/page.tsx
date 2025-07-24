@@ -4,6 +4,8 @@ import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import { Check, Search, FileText, Link, BarChart, MapPin } from "lucide-react"
+import PageTransition from "@/components/PageTransition";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function SEOServicesPage() {
   const services = [
@@ -63,7 +65,8 @@ export default function SEOServicesPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <PageTransition>
+      <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24 sm:pt-0">
         {/* Background Pattern */}
@@ -86,6 +89,7 @@ export default function SEOServicesPage() {
       </section>
 
       {/* Services Grid */}
+      <AnimatedSection>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -117,8 +121,10 @@ export default function SEOServicesPage() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Process Section */}
+      <AnimatedSection>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -140,17 +146,23 @@ export default function SEOServicesPage() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
-      {/* CTA Section */}
-      <CTASection
-        title="Ready to Improve Your Search Rankings?"
-        description="Let's help you get found by more customers through effective SEO strategies."
-        buttonText="Start SEO Project"
-        backgroundImage="/images/cta-bg.png"
-      />
-
-      <FinalCTA />
-      <Footer />
+      <AnimatedSection>
+        <CTASection
+          title="Ready to Improve Your Search Rankings?"
+          description="Let's help you get found by more customers through effective SEO strategies."
+          buttonText="Start SEO Project"
+          backgroundImage="/images/cta-bg.png"
+        />
+      </AnimatedSection>
+      <AnimatedSection>
+        <FinalCTA />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Footer />
+      </AnimatedSection>
     </div>
+    </PageTransition>
   )
 }

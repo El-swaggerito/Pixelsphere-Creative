@@ -4,6 +4,8 @@ import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import { Check, Users, Layout, MousePointer, Layers, TestTube } from "lucide-react"
+import PageTransition from "@/components/PageTransition";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function UIUXServicesPage() {
   const services = [
@@ -63,7 +65,8 @@ export default function UIUXServicesPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <PageTransition>
+      <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24 sm:pt-0">
         {/* Background Pattern */}
@@ -86,6 +89,7 @@ export default function UIUXServicesPage() {
       </section>
 
       {/* Services Grid */}
+      <AnimatedSection>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -117,8 +121,10 @@ export default function UIUXServicesPage() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Process Section */}
+      <AnimatedSection>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -140,17 +146,23 @@ export default function UIUXServicesPage() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
-      {/* CTA Section */}
-      <CTASection
-        title="Ready to Improve Your User Experience?"
-        description="Let's create digital experiences that your users will love and remember."
-        buttonText="Start Your UX Project"
-        backgroundImage="/images/cta-bg.png"
-      />
-
-      <FinalCTA />
-      <Footer />
+      <AnimatedSection>
+        <CTASection
+          title="Ready to Improve Your User Experience?"
+          description="Let's create digital experiences that your users will love and remember."
+          buttonText="Start Your UX Project"
+          backgroundImage="/images/cta-bg.png"
+        />
+      </AnimatedSection>
+      <AnimatedSection>
+        <FinalCTA />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Footer />
+      </AnimatedSection>
     </div>
+    </PageTransition>
   )
 }
