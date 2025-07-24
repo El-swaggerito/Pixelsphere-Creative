@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -13,18 +14,18 @@ export default function Footer() {
             <div className="mb-8">
               <div className="text-lg font-semibold mb-4">Follow us</div>
               <div className="flex space-x-4">
-                <div className="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer">
-                  <span className="text-white text-sm">f</span>
-                </div>
-                <div className="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer">
-                  <span className="text-white text-sm">ig</span>
-                </div>
-                <div className="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer">
-                  <span className="text-white text-sm">tw</span>
-                </div>
-                <div className="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer">
-                  <span className="text-white text-sm">in</span>
-                </div>
+                <Link href="#" className="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer" aria-label="Facebook">
+                  <Facebook className="text-white w-5 h-5" />
+                </Link>
+                <Link href="#" className="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer" aria-label="Instagram">
+                  <Instagram className="text-white w-5 h-5" />
+                </Link>
+                <Link href="#" className="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer" aria-label="Twitter">
+                  <Twitter className="text-white w-5 h-5" />
+                </Link>
+                <Link href="#" className="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer" aria-label="LinkedIn">
+                  <Linkedin className="text-white w-5 h-5" />
+                </Link>
               </div>
             </div>
           </div>

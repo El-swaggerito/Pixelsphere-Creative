@@ -1,30 +1,70 @@
-# Recreate UI exactly
+# Pixelsphere Creatives
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+A modern, feature-rich digital agency website built with Next.js, React, TailwindCSS, and best-in-class UI/UX practices.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/muhammad-zayyad-mukhtars-projects/v0-pixelsphere-creatives)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/PFmFA8Vjq9P)
+---
 
-## Overview
+## ✨ Features Implemented
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+### 1. Gradient/Glassy Navbar
+- Fixed navbar at the top of every page.
+- Uses a multi-layered gradient (radial orange/purple glows + blue linear gradient) with a glassy blur effect.
+- White text and subtle shadow for readability.
+- On the Work page, the navbar background is solid white with blue text for contrast.
 
-## Deployment
+### 2. Full-Width Dropdown Services Menu
+- Services dropdown is full-width, flush under the navbar, and overlays the entire hero/content area.
+- Dropdown uses the same gradient/glassy background as the hero and navbar for a seamless look.
+- Responsive grid layout for service categories and links.
+- Dropdown menu overlays the page with a semi-transparent black backdrop for focus.
+- Closes on outside click or Escape key.
+- Keyboard accessible and screen reader friendly.
 
-Your project is live at:
+### 3. Fixed Navbar with Content Padding
+- All main content and hero sections have `pt-20` (padding-top) to ensure nothing is hidden behind the fixed navbar.
+- Consistent spacing across all pages.
 
-**[https://vercel.com/muhammad-zayyad-mukhtars-projects/v0-pixelsphere-creatives](https://vercel.com/muhammad-zayyad-mukhtars-projects/v0-pixelsphere-creatives)**
+### 4. Hero Section Improvements
+- Hero content is vertically spaced for visual balance.
+- Decorative SVGs and background gradients for a modern look.
+- Responsive typography and layout.
 
-## Build your app
+### 5. Social Media Icons in Footer
+- Footer includes crisp, accessible icons for Facebook, Instagram, Twitter (X), and LinkedIn using lucide-react.
+- Each icon is ready to be linked to your real social media profiles.
 
-Continue building your app on:
+### 6. Removal of Unwanted Overlays/Panels
+- Online Status Overlay and Auto-Response Panel have been removed from the Contact page for a cleaner UI.
 
-**[https://v0.dev/chat/projects/PFmFA8Vjq9P](https://v0.dev/chat/projects/PFmFA8Vjq9P)**
+### 7. Work Page White Navbar
+- The Work page uses a white navbar for a distinct, professional look.
+- All other pages retain the gradient/glassy navbar.
 
-## How It Works
+---
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## 🛠️ Tech Stack
+- Next.js 15
+- React 19
+- TailwindCSS
+- Lucide React Icons
+- TypeScript
+
+---
+
+## 📄 Documentation Policy
+- **Every new feature or UI/UX improvement must be documented in this README.**
+- Use clear sections and bullet points for each feature.
+- Update this file immediately after implementing a new feature.
+
+---
+
+## 🚀 Getting Started
+1. Clone the repo
+2. Install dependencies: `npm install` or `pnpm install`
+3. Run the dev server: `npm run dev` or `pnpm dev`
+4. Visit `http://localhost:3000`
+
+---
+
+## 📬 License
+All rights reserved by © Besnik creative 2025

@@ -195,10 +195,10 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
 
   return (
     <div className="min-h-screen bg-white">
-      <Header currentPage="work" textColor="black" />
+      <Header currentPage="work" textColor="black" background="white"/>
 
       {/* Breadcrumb */}
-      <section className="py-4 bg-gray-50 border-b">
+      <section className="py-4 bg-gray-50 border-b pt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center text-sm text-gray-600">
             <Link href="/" className="hover:text-orange-600">

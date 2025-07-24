@@ -3,16 +3,69 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronDown } from "lucide-react"
-import { useState, useRef, useEffect } from "react"
+import React, { useState, useRef, useEffect, useCallback } from "react"
 
 interface HeaderProps {
-  currentPage?: string
-  textColor?: "white" | "black"
+  currentPage?: string;
+  textColor?: "white" | "black";
+  background?: "white" | "gradient";
 }
 
-export default function Header({ currentPage = "home", textColor = "white" }: HeaderProps) {
+export default function Header({ currentPage = "home", textColor = "white", background = "gradient" }: HeaderProps) {
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+
+  // Debug: Log state changes
+  useEffect(() => {
+    console.log("[DEBUG] isServicesOpen:", isServicesOpen)
+    if (isServicesOpen) {
+      console.log("[DEBUG] Services dropdown rendered")
+    }
+  }, [isServicesOpen])
+
+  // Handle click outside and Escape key
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsServicesOpen(false)
+      }
+    }
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsServicesOpen(false)
+      }
+    }
+    if (isServicesOpen) {
+      document.addEventListener("mousedown", handleClickOutside)
+      document.addEventListener("keydown", handleEscape)
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+      document.removeEventListener("keydown", handleEscape)
+    }
+  }, [isServicesOpen])
+
+  // Keyboard navigation: focus first link when opened
+  useEffect(() => {
+    if (isServicesOpen && dropdownRef.current) {
+      const firstLink = dropdownRef.current.querySelector("a") as HTMLElement
+      if (firstLink) firstLink.focus()
+    }
+  }, [isServicesOpen])
+
+  // Toggle handler
+  const handleToggleDropdown = useCallback(() => {
+    setIsServicesOpen((prev) => {
+      console.log("[DEBUG] Services button clicked, toggling:", !prev)
+      return !prev
+    })
+  }, [])
 
   const serviceCategories = [
     {
@@ -94,21 +147,24 @@ export default function Header({ currentPage = "home", textColor = "white" }: He
     }
   }
 
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsServicesOpen(false)
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
-
   return (
-    <header className="relative z-20 w-full">
+    <header
+      className={`fixed top-0 left-0 w-full z-[60] shadow-sm ${background === "white" ? "bg-white text-blue-900" : "text-white"}`}
+      style={background === "white"
+        ? { borderBottom: "1px solid rgba(0,0,0,0.05)" }
+        : {
+            background: `
+              radial-gradient(circle at 15% 40%, rgba(255, 115, 0, 0.15) 0%, transparent 60%),
+              radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 55%),
+              linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 35%, #2563eb 60%, #3b82f6 85%, #60a5fa 100%)
+            `,
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
+            borderBottom: "1px solid rgba(255,255,255,0.05)",
+          }
+      }
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
@@ -116,7 +172,7 @@ export default function Header({ currentPage = "home", textColor = "white" }: He
               PixelSphere
             </Link>
           </div>
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8" aria-label="Main navigation">
             <Link
               href="/"
               className={`${
@@ -130,64 +186,99 @@ export default function Header({ currentPage = "home", textColor = "white" }: He
 
             <div className="relative" ref={dropdownRef}>
               <button
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
-                className={`flex items-center space-x-1 ${
+                ref={buttonRef}
+                onClick={handleToggleDropdown}
+                aria-haspopup="true"
+                aria-expanded={isServicesOpen}
+                aria-controls="services-dropdown"
+                className={`flex items-center space-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 transition-shadow ${
                   currentPage?.startsWith("services")
                     ? `${textColor === "black" ? "text-gray-900 hover:text-orange-600" : "text-white hover:text-orange-300"} font-medium`
                     : `${textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"}`
                 }`}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "ArrowDown" && !isServicesOpen) {
+                    setIsServicesOpen(true)
+                  }
+                }}
               >
                 <span>Services</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`} />
               </button>
 
               {isServicesOpen && (
-                <div className="fixed left-0 top-full w-full bg-white shadow-xl border-t border-gray-200 z-50">
-                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                    <div className="grid grid-cols-5 gap-12">
-                      {serviceCategories.map((category, index) => (
-                        <div key={index} className="space-y-6">
-                          <Link
-                            href={category.href}
-                            onClick={() => setIsServicesOpen(false)}
-                            className="flex items-center space-x-3 group"
-                          >
-                            <div
-                              className={`w-3 h-3 rounded-full ${
-                                category.color === "blue"
-                                  ? "bg-blue-500"
-                                  : category.color === "orange"
-                                    ? "bg-orange-500"
-                                    : category.color === "green"
-                                      ? "bg-green-500"
-                                      : category.color === "purple"
-                                        ? "bg-purple-500"
-                                        : "bg-gray-500"
-                              }`}
-                            ></div>
-                            <h3
-                              className={`font-semibold text-lg ${getColorClasses(category.color)} group-hover:text-orange-600 transition-colors`}
+                <>
+                  <div
+                    className="fixed inset-0 bg-black/50 z-40"
+                    onClick={() => setIsServicesOpen(false)}
+                    aria-hidden="true"
+                  />
+                  <div
+                    id="services-dropdown"
+                    className="fixed left-0 right-0 top-[80px] w-screen min-h-screen max-w-none rounded-b-xl border-t border-orange-600 z-50 p-8 animate-fade-in"
+                    style={{
+                      background: `
+                        radial-gradient(circle at 15% 40%, rgba(255, 115, 0, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 55%),
+                        linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 35%, #2563eb 60%, #3b82f6 85%, #60a5fa 100%)
+                      `,
+                      backdropFilter: "blur(10px)",
+                      WebkitBackdropFilter: "blur(10px)",
+                    }}
+                    role="menu"
+                    aria-label="Services submenu"
+                    tabIndex={-1}
+                  >
+                    <div className="max-w-7xl mx-auto">
+                      <div className="grid grid-cols-2 md:grid-cols-5 gap-x-8 gap-y-6 w-full min-w-0">
+                        {serviceCategories.map((category, index) => (
+                          <div key={index} className="space-y-6 px-6 min-w-0 w-full overflow-visible">
+                            <Link
+                              href={category.href}
+                              onClick={() => setIsServicesOpen(false)}
+                              className="flex items-center space-x-3 group whitespace-normal break-words text-base font-semibold text-white"
+                              tabIndex={0}
                             >
-                              {category.title}
-                            </h3>
-                          </Link>
-                          <div className="space-y-3">
-                            {category.services.map((service, serviceIndex) => (
-                              <Link
-                                key={serviceIndex}
-                                href={service.href}
-                                className="block text-gray-600 hover:text-orange-600 transition-colors text-sm pl-6"
-                                onClick={() => setIsServicesOpen(false)}
+                              <div
+                                className={`w-3 h-3 rounded-full ${
+                                  category.color === "blue"
+                                    ? "bg-blue-300"
+                                    : category.color === "orange"
+                                      ? "bg-orange-200"
+                                      : category.color === "green"
+                                        ? "bg-green-200"
+                                        : category.color === "purple"
+                                          ? "bg-purple-200"
+                                          : "bg-white/70"
+                                }`}
+                              ></div>
+                              <h3
+                                className={`font-semibold text-lg group-hover:text-blue-900 transition-colors whitespace-normal break-words text-white`}
                               >
-                                ✦ {service.name}
-                              </Link>
-                            ))}
+                                {category.title}
+                              </h3>
+                            </Link>
+                            <div className="space-y-3">
+                              {category.services.map((service, serviceIndex) => (
+                                <Link
+                                  key={serviceIndex}
+                                  href={service.href}
+                                  className="block text-white/90 hover:text-blue-900 transition-colors text-sm pl-6 whitespace-normal break-words"
+                                  onClick={() => setIsServicesOpen(false)}
+                                  tabIndex={0}
+                                >
+                                  ✦ {service.name}
+                                </Link>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </>
               )}
             </div>
 

@@ -141,10 +141,10 @@ export default function BlogPage() {
   ]
 
   return (
-    <div className="min-h-screen">
+    <main className="pt-20">
       {/* Header */}
       <div>
-        <Header currentPage="blog" textColor="black" />
+        <Header currentPage="blog" background="white" textColor="black"/>
       </div>
 
       {/* Hero Section */}
@@ -266,6 +266,6 @@ export default function BlogPage() {
 
       <FinalCTA />
       <Footer />
-    </div>
+    </main>
   )
 }

@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -10,7 +11,7 @@ import HeroBackground from "@/components/hero-background"
 import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
-;("use client")
+
 
 import { useState } from "react"
 
@@ -47,10 +48,10 @@ function FAQItem({ question, answer, defaultOpen = false }: FAQItemProps) {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <main className="pt-10">
       {/* Hero Section with Contact Image */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
-        <HeroBackground>
+        <HeroBackground className="pt-32">
           <Header currentPage="contact" />
 
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,57 +81,6 @@ export default function ContactPage() {
                     height={600}
                     className="w-full h-auto"
                   />
-
-                  {/* Online Status Overlay */}
-                  <div className="absolute top-8 left-4 bg-white rounded-lg shadow-lg p-4 w-48">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-gray-700 font-medium">Online</span>
-                      <span className="text-gray-500 text-sm">14 People</span>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-8 h-8 bg-orange-400 rounded-full flex items-center justify-center text-white text-xs font-medium">
-                          EH
-                        </div>
-                        <span className="text-gray-700 text-sm">Esther Howard</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center text-white text-xs font-medium">
-                          RK
-                        </div>
-                        <span className="text-gray-700 text-sm">Robert Kale</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-white text-xs font-medium">
-                          TJ
-                        </div>
-                        <span className="text-gray-700 text-sm">Tyler John</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Auto-Response Panel */}
-                  <div className="absolute top-8 right-4 bg-white rounded-lg shadow-lg p-4 w-64">
-                    <h3 className="font-semibold text-gray-900 mb-3">Auto-Response</h3>
-                    <div className="flex space-x-1 mb-4">
-                      <button className="bg-gray-800 text-white px-3 py-1 rounded text-sm">Chat</button>
-                      <button className="text-gray-600 px-3 py-1 rounded text-sm">Email</button>
-                      <button className="text-gray-600 px-3 py-1 rounded text-sm">Number</button>
-                    </div>
-                    <div className="space-y-2 mb-4">
-                      <div className="flex justify-between">
-                        <span className="text-gray-700 text-sm">New welcome message</span>
-                        <span className="font-semibold">6537</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-700 text-sm">Online Welcome Message</span>
-                        <span className="font-semibold">436</span>
-                      </div>
-                    </div>
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full text-sm">
-                      + New Auto-Response
-                    </Button>
-                  </div>
                 </div>
               </div>
             </div>
@@ -422,6 +372,6 @@ export default function ContactPage() {
 
       <FinalCTA />
       <Footer />
-    </div>
+    </main>
   )
 }

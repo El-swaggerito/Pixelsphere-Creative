@@ -293,10 +293,10 @@ export default function BlogSinglePage({ params }: { params: { slug: string } })
 
   return (
     <div className="min-h-screen">
-      <Header currentPage="blog" textColor="black" />
+      <Header currentPage="blog" textColor="black" background="white"/>
 
       {/* Breadcrumb */}
-      <section className="py-4 bg-gray-50 border-b">
+      <section className="py-4 bg-gray-50 border-b pt-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center text-sm text-gray-600">
             <Link href="/" className="hover:text-orange-600">

@@ -20,7 +20,7 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <main className="pt-20">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col overflow-hidden">
         <HeroBackground>
@@ -35,7 +35,7 @@ export default function HomePage() {
           <Header currentPage="home" />
 
           {/* Hero Content */}
-          <div className="flex-1 flex items-center justify-center relative z-20 px-4 sm:px-6 lg:px-8">
+          <div className="flex-1 flex items-center justify-center relative z-20 pt-10 px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-8">
                 Empowering Businesses Through
@@ -686,6 +686,6 @@ export default function HomePage() {
 
       <FinalCTA />
       <Footer />
-    </div>
+    </main>
   )
 }
