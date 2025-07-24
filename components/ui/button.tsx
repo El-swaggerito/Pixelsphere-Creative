@@ -48,12 +48,12 @@ const AnimatedButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => (
     <MotionButton
       ref={ref}
-      className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, size, className }))}
       whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.97 }}
-      {...props}
-    />
-  )
+        {...props}
+      />
+    )
 );
 AnimatedButton.displayName = "AnimatedButton";
 

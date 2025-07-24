@@ -54,7 +54,7 @@ export default function ConsultationAuditPage() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24 sm:pt-0">
         {/* Background Pattern */}
@@ -137,18 +137,18 @@ export default function ConsultationAuditPage() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <CTASection
-          title="Ready for Expert Analysis?"
-          description="Get professional insights that will help you make informed decisions and drive growth."
-          buttonText="Schedule Consultation"
-          backgroundImage="/images/cta-bg.png"
-        />
+      <CTASection
+        title="Ready for Expert Analysis?"
+        description="Get professional insights that will help you make informed decisions and drive growth."
+        buttonText="Schedule Consultation"
+        backgroundImage="/images/cta-bg.png"
+      />
       </AnimatedSection>
       <AnimatedSection>
-        <FinalCTA />
+      <FinalCTA />
       </AnimatedSection>
       <AnimatedSection>
-        <Footer />
+      <Footer />
       </AnimatedSection>
     </div>
     </PageTransition>

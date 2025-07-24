@@ -144,142 +144,142 @@ export default function BlogPage() {
 
   return (
     <PageTransition>
-      <main className="pt-20">
-        {/* Header */}
-        <div>
-          <Header currentPage="blog" background="white" textColor="black"/>
-        </div>
+    <main className="pt-20">
+      {/* Header */}
+      <div>
+        <Header currentPage="blog" background="white" textColor="black"/>
+      </div>
 
-        {/* Hero Section */}
+      {/* Hero Section */}
         <AnimatedSection>
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">Resources and insights</h1>
-            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-              The latest industry news, interviews, technologies, and resources.
-            </p>
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">Resources and insights</h1>
+          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+            The latest industry news, interviews, technologies, and resources.
+          </p>
 
-            {/* Search Bar */}
-            <div className="max-w-2xl mx-auto mb-8">
-              <div className="relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="What do you want to learn?"
-                  className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                />
-                <Button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-2">
-                  Search
-                </Button>
-              </div>
-            </div>
-
-            {/* Filter Tags */}
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
-              <span className="text-gray-600 font-medium">Popular:</span>
-              <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
-                UX
-              </Badge>
-              <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
-                Website
-              </Badge>
-              <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
-                Freelancing
-              </Badge>
-              <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
-                E-commerce
-              </Badge>
-              <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
-                About Mika
-              </Badge>
-            </div>
-          </div>
-        </section>
-        </AnimatedSection>
-
-        {/* Category Tabs */}
-        <AnimatedSection>
-        <section className="py-8 bg-white border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-wrap justify-center gap-8">
-              <button className="text-gray-900 font-medium border-b-2 border-orange-500 pb-2">All Courses</button>
-              <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Design</button>
-              <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Graphic Design</button>
-              <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Websites</button>
-              <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Products</button>
-              <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Branding</button>
-              <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Software Engineering</button>
-              <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Programs</button>
-            </div>
-          </div>
-        </section>
-        </AnimatedSection>
-
-        {/* Blog Grid */}
-        <AnimatedSection>
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post) => (
-                <Link key={post.id} href={`/blog/${post.slug}`}>
-                  <Card className="overflow-hidden shadow-md hover:shadow-xl transition-shadow group cursor-pointer">
-                    <div className="aspect-video relative overflow-hidden">
-                      <Image
-                        src={post.image || "/placeholder.svg"}
-                        alt={post.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <CardContent className="p-6">
-                      <Badge className={`${post.categoryColor} mb-3`}>{post.category}</Badge>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3 flex items-center group-hover:text-orange-600 transition-colors">
-                        {post.title}
-                        <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </h3>
-                      <p className="text-gray-600 mb-6 leading-relaxed">{post.description}</p>
-                      <div className="flex items-center">
-                        <div className="w-10 h-10 bg-gray-300 rounded-full mr-3 overflow-hidden">
-                          <Image
-                            src={post.author.avatar || "/placeholder.svg"}
-                            alt={post.author.name}
-                            width={40}
-                            height={40}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <div>
-                          <div className="text-sm font-medium text-gray-900">{post.author.name}</div>
-                          <div className="text-sm text-gray-500">{post.author.date}</div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-
-            {/* Load More Button */}
-            <div className="text-center mt-16">
-              <Button variant="outline" className="text-orange-600 border-orange-600 hover:bg-orange-50 bg-transparent">
-                <ArrowRight className="mr-2 h-4 w-4 rotate-90" />
-                Load more
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="What do you want to learn?"
+                className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              />
+              <Button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-2">
+                Search
               </Button>
             </div>
           </div>
-        </section>
+
+          {/* Filter Tags */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <span className="text-gray-600 font-medium">Popular:</span>
+            <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
+              UX
+            </Badge>
+            <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
+              Website
+            </Badge>
+            <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
+              Freelancing
+            </Badge>
+            <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
+              E-commerce
+            </Badge>
+            <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
+              About Mika
+            </Badge>
+          </div>
+        </div>
+      </section>
+        </AnimatedSection>
+
+      {/* Category Tabs */}
+        <AnimatedSection>
+      <section className="py-8 bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center gap-8">
+            <button className="text-gray-900 font-medium border-b-2 border-orange-500 pb-2">All Courses</button>
+            <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Design</button>
+            <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Graphic Design</button>
+            <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Websites</button>
+            <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Products</button>
+            <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Branding</button>
+            <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Software Engineering</button>
+            <button className="text-gray-600 hover:text-gray-900 font-medium pb-2">Programs</button>
+          </div>
+        </div>
+      </section>
+        </AnimatedSection>
+
+      {/* Blog Grid */}
+        <AnimatedSection>
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map((post) => (
+              <Link key={post.id} href={`/blog/${post.slug}`}>
+                <Card className="overflow-hidden shadow-md hover:shadow-xl transition-shadow group cursor-pointer">
+                  <div className="aspect-video relative overflow-hidden">
+                    <Image
+                      src={post.image || "/placeholder.svg"}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <CardContent className="p-6">
+                    <Badge className={`${post.categoryColor} mb-3`}>{post.category}</Badge>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3 flex items-center group-hover:text-orange-600 transition-colors">
+                      {post.title}
+                      <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed">{post.description}</p>
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 bg-gray-300 rounded-full mr-3 overflow-hidden">
+                        <Image
+                          src={post.author.avatar || "/placeholder.svg"}
+                          alt={post.author.name}
+                          width={40}
+                          height={40}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <div className="text-sm font-medium text-gray-900">{post.author.name}</div>
+                        <div className="text-sm text-gray-500">{post.author.date}</div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+
+          {/* Load More Button */}
+          <div className="text-center mt-16">
+            <Button variant="outline" className="text-orange-600 border-orange-600 hover:bg-orange-50 bg-transparent">
+              <ArrowRight className="mr-2 h-4 w-4 rotate-90" />
+              Load more
+            </Button>
+          </div>
+        </div>
+      </section>
         </AnimatedSection>
 
         <AnimatedSection>
-          <WorkCTA />
+      <WorkCTA />
         </AnimatedSection>
         <AnimatedSection>
-          <FinalCTA />
+      <FinalCTA />
         </AnimatedSection>
         <AnimatedSection>
-          <Footer />
+      <Footer />
         </AnimatedSection>
-      </main>
+    </main>
     </PageTransition>
   )
 }

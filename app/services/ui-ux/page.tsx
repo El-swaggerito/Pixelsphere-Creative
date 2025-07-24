@@ -66,7 +66,7 @@ export default function UIUXServicesPage() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24 sm:pt-0">
         {/* Background Pattern */}
@@ -149,18 +149,18 @@ export default function UIUXServicesPage() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <CTASection
-          title="Ready to Improve Your User Experience?"
-          description="Let's create digital experiences that your users will love and remember."
-          buttonText="Start Your UX Project"
-          backgroundImage="/images/cta-bg.png"
-        />
+      <CTASection
+        title="Ready to Improve Your User Experience?"
+        description="Let's create digital experiences that your users will love and remember."
+        buttonText="Start Your UX Project"
+        backgroundImage="/images/cta-bg.png"
+      />
       </AnimatedSection>
       <AnimatedSection>
-        <FinalCTA />
+      <FinalCTA />
       </AnimatedSection>
       <AnimatedSection>
-        <Footer />
+      <Footer />
       </AnimatedSection>
     </div>
     </PageTransition>

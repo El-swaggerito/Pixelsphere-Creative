@@ -66,7 +66,7 @@ export default function SEOServicesPage() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24 sm:pt-0">
         {/* Background Pattern */}
@@ -149,18 +149,18 @@ export default function SEOServicesPage() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <CTASection
-          title="Ready to Improve Your Search Rankings?"
-          description="Let's help you get found by more customers through effective SEO strategies."
-          buttonText="Start SEO Project"
-          backgroundImage="/images/cta-bg.png"
-        />
+      <CTASection
+        title="Ready to Improve Your Search Rankings?"
+        description="Let's help you get found by more customers through effective SEO strategies."
+        buttonText="Start SEO Project"
+        backgroundImage="/images/cta-bg.png"
+      />
       </AnimatedSection>
       <AnimatedSection>
-        <FinalCTA />
+      <FinalCTA />
       </AnimatedSection>
       <AnimatedSection>
-        <Footer />
+      <Footer />
       </AnimatedSection>
     </div>
     </PageTransition>

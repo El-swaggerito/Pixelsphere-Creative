@@ -61,7 +61,7 @@ export default function WebsiteServicesPage() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24 sm:pt-0">
         {/* Background Pattern */}
@@ -144,18 +144,18 @@ export default function WebsiteServicesPage() {
       </AnimatedSection>
 
       <AnimatedSection>
-        <CTASection
-          title="Ready to Build Your Website?"
-          description="Let's create a website that drives results for your business."
-          buttonText="Get Started"
-          backgroundImage="/images/cta-bg.png"
-        />
+      <CTASection
+        title="Ready to Build Your Website?"
+        description="Let's create a website that drives results for your business."
+        buttonText="Get Started"
+        backgroundImage="/images/cta-bg.png"
+      />
       </AnimatedSection>
       <AnimatedSection>
-        <FinalCTA />
+      <FinalCTA />
       </AnimatedSection>
       <AnimatedSection>
-        <Footer />
+      <Footer />
       </AnimatedSection>
     </div>
     </PageTransition>
