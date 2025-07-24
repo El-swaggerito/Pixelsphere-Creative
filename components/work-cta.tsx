@@ -17,7 +17,7 @@ export default function WorkCTA({
   buttonText = "Request Quote",
 }: WorkCTAProps) {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
       {/* Blue gradient background with curved lines */}
       <div
         className="absolute inset-0"
@@ -54,34 +54,34 @@ export default function WorkCTA({
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl lg:text-5xl font-bold text-white mb-2">{title}</h2>
-        <h2 className="text-4xl lg:text-5xl font-bold text-white mb-12">{subtitle}</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2">{title}</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 sm:mb-12">{subtitle}</h2>
 
-        <div className="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16 mb-12">
+        <div className="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-8 md:space-x-16 mb-8 sm:mb-12">
           <div className="text-center">
-            <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Mail className="h-8 w-8 text-white" />
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <Mail className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
             </div>
-            <div className="text-white/80 text-sm mb-2">Email Address</div>
-            <div className="text-white text-xl font-medium">{email}</div>
+            <div className="text-white/80 text-xs sm:text-sm mb-1 sm:mb-2">Email Address</div>
+            <div className="text-white text-base sm:text-lg md:text-xl font-medium">{email}</div>
           </div>
 
           <div className="text-center">
-            <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Phone className="h-8 w-8 text-white" />
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <Phone className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
             </div>
-            <div className="text-white/80 text-sm mb-2">Phone Number</div>
-            <div className="text-white text-xl font-medium">{phone}</div>
+            <div className="text-white/80 text-xs sm:text-sm mb-1 sm:mb-2">Phone Number</div>
+            <div className="text-white text-base sm:text-lg md:text-xl font-medium">{phone}</div>
           </div>
         </div>
 
         <Button
           size="lg"
-          className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-medium rounded-lg"
+          className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium rounded-lg w-full sm:w-auto"
         >
           {buttonText}
-          <div className="ml-3 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
-            <ArrowRight className="h-3 w-3 text-white" />
+          <div className="ml-3 w-5 h-5 sm:w-6 sm:h-6 bg-white/20 rounded-full flex items-center justify-center">
+            <ArrowRight className="h-2 w-2 sm:h-3 sm:w-3 text-white" />
           </div>
         </Button>
       </div>

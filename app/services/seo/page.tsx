@@ -1,5 +1,4 @@
 import Header from "@/components/header"
-import HeroBackground from "@/components/hero-background"
 import SectionHeader from "@/components/section-header"
 import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
@@ -66,16 +65,24 @@ export default function SEOServicesPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
-        <HeroBackground>
-          <Header currentPage="services" />
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">SEO Services</h1>
-            <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
-              Improve your search engine rankings and drive more organic traffic to your website.
-            </p>
-          </div>
-        </HeroBackground>
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[url('/images/isometric-grid-1.png')] bg-repeat opacity-20"></div>
+        </div>
+
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-orange-500/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-32 h-32 bg-blue-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-500"></div>
+
+        <Header currentPage="services" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">SEO Services</h1>
+          <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
+            Improve your search engine rankings and drive more organic traffic to your website.
+          </p>
+        </div>
       </section>
 
       {/* Services Grid */}

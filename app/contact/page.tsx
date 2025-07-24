@@ -231,10 +231,10 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
                     <p className="text-gray-600 mb-2">Our friendly team is here to help.</p>
                     <a
-                      href="mailto:https://pixelsphere.vercel.app/contact"
+                      href="mailto:https://info@pixelsphere.ca"
                       className="text-blue-600 hover:text-blue-700"
                     >
-                      https://pixelsphere.vercel.app/contact
+                      info@pixelsphere.ca
                     </a>
                   </div>
                 </div>
@@ -246,8 +246,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
                     <p className="text-gray-600 mb-2">Mon-Fri from 8am to 5pm.</p>
-                    <a href="tel:+15550000000" className="text-blue-600 hover:text-blue-700">
-                      +1 (555) 000-0000
+                    <a href="tel:+5145127873" className="text-blue-600 hover:text-blue-700">
+                      +(514) 512-7873
                     </a>
                   </div>
                 </div>
@@ -259,7 +259,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">Office</h3>
                     <p className="text-gray-600 mb-2">Come say hello at our office HQ.</p>
-                    <p className="text-gray-700">100 Smith Street Canada</p>
+                    <p className="text-gray-700">Serving clients worldwide</p>
                   </div>
                 </div>
               </div>

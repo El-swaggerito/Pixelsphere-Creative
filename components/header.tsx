@@ -2,17 +2,18 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ChevronDown } from "lucide-react"
-import React, { useState, useRef, useEffect, useCallback } from "react"
+import { ChevronDown, Menu, X } from "lucide-react"
+import { useState, useRef, useEffect, useCallback } from "react"
 
 interface HeaderProps {
-  currentPage?: string;
-  textColor?: "white" | "black";
-  background?: "white" | "gradient";
+  currentPage?: string
+  textColor?: "white" | "black"
+  background?: "white" | "gradient"
 }
 
 export default function Header({ currentPage = "home", textColor = "white", background = "gradient" }: HeaderProps) {
   const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
 
@@ -39,9 +40,10 @@ export default function Header({ currentPage = "home", textColor = "white", back
     function handleEscape(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setIsServicesOpen(false)
+        setIsMobileMenuOpen(false)
       }
     }
-    if (isServicesOpen) {
+    if (isServicesOpen || isMobileMenuOpen) {
       document.addEventListener("mousedown", handleClickOutside)
       document.addEventListener("keydown", handleEscape)
     }
@@ -49,7 +51,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
       document.removeEventListener("mousedown", handleClickOutside)
       document.removeEventListener("keydown", handleEscape)
     }
-  }, [isServicesOpen])
+  }, [isServicesOpen, isMobileMenuOpen])
 
   // Keyboard navigation: focus first link when opened
   useEffect(() => {
@@ -150,32 +152,38 @@ export default function Header({ currentPage = "home", textColor = "white", back
   return (
     <header
       className={`fixed top-0 left-0 w-full z-[60] shadow-sm ${background === "white" ? "bg-white text-blue-900" : "text-white"}`}
-      style={background === "white"
-        ? { borderBottom: "1px solid rgba(0,0,0,0.05)" }
-        : {
-            background: `
+      style={
+        background === "white"
+          ? { borderBottom: "1px solid rgba(0,0,0,0.05)" }
+          : {
+              background: `
               radial-gradient(circle at 15% 40%, rgba(255, 115, 0, 0.15) 0%, transparent 60%),
               radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
               radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 55%),
               linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 35%, #2563eb 60%, #3b82f6 85%, #60a5fa 100%)
             `,
-            backdropFilter: "blur(10px)",
-            WebkitBackdropFilter: "blur(10px)",
-            borderBottom: "1px solid rgba(255,255,255,0.05)",
-          }
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+              borderBottom: "1px solid rgba(255,255,255,0.05)",
+            }
       }
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           <div className="flex items-center">
-            <Link href="/" className={`text-2xl font-bold ${textColor === "black" ? "text-gray-900" : "text-white"}`}>
+            <Link
+              href="/"
+              className={`text-xl sm:text-2xl font-bold ${textColor === "black" ? "text-gray-900" : "text-white"}`}
+            >
               PixelSphere
             </Link>
           </div>
-          <nav className="hidden md:flex space-x-8" aria-label="Main navigation">
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-6 lg:space-x-8" aria-label="Main navigation">
             <Link
               href="/"
-              className={`${
+              className={`text-sm lg:text-base ${
                 currentPage === "home"
                   ? `${textColor === "black" ? "text-gray-900 hover:text-orange-600" : "text-white hover:text-orange-300"} font-medium`
                   : `${textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"}`
@@ -191,7 +199,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
                 aria-haspopup="true"
                 aria-expanded={isServicesOpen}
                 aria-controls="services-dropdown"
-                className={`flex items-center space-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 transition-shadow ${
+                className={`flex items-center space-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 transition-shadow text-sm lg:text-base ${
                   currentPage?.startsWith("services")
                     ? `${textColor === "black" ? "text-gray-900 hover:text-orange-600" : "text-white hover:text-orange-300"} font-medium`
                     : `${textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"}`
@@ -204,7 +212,9 @@ export default function Header({ currentPage = "home", textColor = "white", back
                 }}
               >
                 <span>Services</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`} />
+                <ChevronDown
+                  className={`w-3 h-3 lg:w-4 lg:h-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`}
+                />
               </button>
 
               {isServicesOpen && (
@@ -216,7 +226,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
                   />
                   <div
                     id="services-dropdown"
-                    className="fixed left-0 right-0 top-[80px] w-screen min-h-screen max-w-none rounded-b-xl border-t border-orange-600 z-50 p-8 animate-fade-in"
+                    className="fixed left-0 right-0 top-[64px] sm:top-[80px] w-screen min-h-screen max-w-none rounded-b-xl border-t border-orange-600 z-50 p-4 sm:p-8 animate-fade-in"
                     style={{
                       background: `
                         radial-gradient(circle at 15% 40%, rgba(255, 115, 0, 0.15) 0%, transparent 60%),
@@ -232,17 +242,20 @@ export default function Header({ currentPage = "home", textColor = "white", back
                     tabIndex={-1}
                   >
                     <div className="max-w-7xl mx-auto">
-                      <div className="grid grid-cols-2 md:grid-cols-5 gap-x-8 gap-y-6 w-full min-w-0">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-4 sm:gap-x-8 gap-y-6 w-full min-w-0">
                         {serviceCategories.map((category, index) => (
-                          <div key={index} className="space-y-6 px-6 min-w-0 w-full overflow-visible">
+                          <div
+                            key={index}
+                            className="space-y-4 sm:space-y-6 px-3 sm:px-6 min-w-0 w-full overflow-visible"
+                          >
                             <Link
                               href={category.href}
                               onClick={() => setIsServicesOpen(false)}
-                              className="flex items-center space-x-3 group whitespace-normal break-words text-base font-semibold text-white"
+                              className="flex items-center space-x-2 sm:space-x-3 group whitespace-normal break-words text-sm sm:text-base font-semibold text-white"
                               tabIndex={0}
                             >
                               <div
-                                className={`w-3 h-3 rounded-full ${
+                                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${
                                   category.color === "blue"
                                     ? "bg-blue-300"
                                     : category.color === "orange"
@@ -255,17 +268,17 @@ export default function Header({ currentPage = "home", textColor = "white", back
                                 }`}
                               ></div>
                               <h3
-                                className={`font-semibold text-lg group-hover:text-blue-900 transition-colors whitespace-normal break-words text-white`}
+                                className={`font-semibold text-base sm:text-lg group-hover:text-blue-900 transition-colors whitespace-normal break-words text-white`}
                               >
                                 {category.title}
                               </h3>
                             </Link>
-                            <div className="space-y-3">
+                            <div className="space-y-2 sm:space-y-3">
                               {category.services.map((service, serviceIndex) => (
                                 <Link
                                   key={serviceIndex}
                                   href={service.href}
-                                  className="block text-white/90 hover:text-blue-900 transition-colors text-sm pl-6 whitespace-normal break-words"
+                                  className="block text-white/90 hover:text-blue-900 transition-colors text-xs sm:text-sm pl-4 sm:pl-6 whitespace-normal break-words"
                                   onClick={() => setIsServicesOpen(false)}
                                   tabIndex={0}
                                 >
@@ -284,7 +297,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
 
             <Link
               href="/about"
-              className={`${
+              className={`text-sm lg:text-base ${
                 currentPage === "about"
                   ? `${textColor === "black" ? "text-gray-900 hover:text-orange-600" : "text-white hover:text-orange-300"} font-medium`
                   : `${textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"}`
@@ -294,7 +307,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
             </Link>
             <Link
               href="/work"
-              className={`${
+              className={`text-sm lg:text-base ${
                 currentPage === "work"
                   ? `${textColor === "black" ? "text-gray-900 hover:text-orange-600" : "text-white hover:text-orange-300"} font-medium`
                   : `${textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"}`
@@ -304,7 +317,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
             </Link>
             <Link
               href="/blog"
-              className={`${
+              className={`text-sm lg:text-base ${
                 currentPage === "blog"
                   ? `${textColor === "black" ? "text-gray-900 hover:text-orange-600" : "text-white hover:text-orange-300"} font-medium`
                   : `${textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"}`
@@ -314,7 +327,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
             </Link>
             <Link
               href="/contact"
-              className={`${
+              className={`text-sm lg:text-base ${
                 currentPage === "contact"
                   ? `${textColor === "black" ? "text-gray-900 hover:text-orange-600" : "text-white hover:text-orange-300"} font-medium`
                   : `${textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"}`
@@ -323,10 +336,111 @@ export default function Header({ currentPage = "home", textColor = "white", back
               Contact
             </Link>
           </nav>
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium">
+
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center space-x-2">
+            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg font-medium text-sm">
+              Contact Us
+            </Button>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`p-2 rounded-md ${textColor === "black" ? "text-gray-900" : "text-white"}`}
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
+
+          {/* Desktop Contact Button */}
+          <Button className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white px-4 lg:px-6 py-2 rounded-lg font-medium text-sm lg:text-base">
             Contact Us
           </Button>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t z-50">
+            <div className="px-4 py-6 space-y-4">
+              <Link
+                href="/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block text-base font-medium ${
+                  currentPage === "home" ? "text-orange-600" : "text-gray-900"
+                } hover:text-orange-600`}
+              >
+                Home
+              </Link>
+
+              <div className="space-y-2">
+                <button
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className="flex items-center justify-between w-full text-left text-base font-medium text-gray-900 hover:text-orange-600"
+                >
+                  Services
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`} />
+                </button>
+
+                {isServicesOpen && (
+                  <div className="pl-4 space-y-3 border-l-2 border-orange-200">
+                    {serviceCategories.map((category, index) => (
+                      <Link
+                        key={index}
+                        href={category.href}
+                        onClick={() => {
+                          setIsServicesOpen(false)
+                          setIsMobileMenuOpen(false)
+                        }}
+                        className="block text-sm font-semibold text-gray-800 hover:text-orange-600"
+                      >
+                        {category.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <Link
+                href="/about"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block text-base font-medium ${
+                  currentPage === "about" ? "text-orange-600" : "text-gray-900"
+                } hover:text-orange-600`}
+              >
+                About Us
+              </Link>
+
+              <Link
+                href="/work"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block text-base font-medium ${
+                  currentPage === "work" ? "text-orange-600" : "text-gray-900"
+                } hover:text-orange-600`}
+              >
+                Work
+              </Link>
+
+              <Link
+                href="/blog"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block text-base font-medium ${
+                  currentPage === "blog" ? "text-orange-600" : "text-gray-900"
+                } hover:text-orange-600`}
+              >
+                Blog
+              </Link>
+
+              <Link
+                href="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block text-base font-medium ${
+                  currentPage === "contact" ? "text-orange-600" : "text-gray-900"
+                } hover:text-orange-600`}
+              >
+                Contact
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   )
