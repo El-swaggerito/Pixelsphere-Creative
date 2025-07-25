@@ -11,6 +11,8 @@ import HeroBackground from "@/components/hero-background"
 import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
+import PageTransition from "@/components/PageTransition";
+import AnimatedSection from "@/components/AnimatedSection";
 
 
 import { useState } from "react"
@@ -48,6 +50,7 @@ function FAQItem({ question, answer, defaultOpen = false }: FAQItemProps) {
 
 export default function ContactPage() {
   return (
+    <PageTransition>
     <main className="lg:pt-10 sm:pt-0">
       {/* Hero Section with Contact Image */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
@@ -89,6 +92,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
+        <AnimatedSection>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
@@ -267,8 +271,10 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
       {/* FAQ Section */}
+        <AnimatedSection>
       <section className="py-20 bg-gray-50 relative overflow-hidden">
         {/* Orange decorative shape - top right edge */}
         <div className="absolute top-8 right-0 opacity-80 z-0">
@@ -361,17 +367,23 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
-      {/* CTA Section - Using Reusable Component */}
+        <AnimatedSection>
       <CTASection
         title="Crafting Digital Experiences That Make Brands Stand Out"
         description="We design and develop websites and applications that help startups and businesses grow, connect, and thrive online."
         buttonText="Contact Us"
         backgroundImage="/images/cta-bg.png"
       />
-
+        </AnimatedSection>
+        <AnimatedSection>
       <FinalCTA />
+        </AnimatedSection>
+        <AnimatedSection>
       <Footer />
+        </AnimatedSection>
     </main>
+    </PageTransition>
   )
 }

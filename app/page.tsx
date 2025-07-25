@@ -11,6 +11,8 @@ import CTASection from "@/components/cta-section"
 import StatsDisplay from "@/components/stats-display"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
+import PageTransition from "@/components/PageTransition";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function HomePage() {
   const stats = [
@@ -20,6 +22,7 @@ export default function HomePage() {
   ]
 
   return (
+    <PageTransition>
     <main className="pt-16 sm:pt-20">
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col overflow-hidden">
@@ -82,6 +85,7 @@ export default function HomePage() {
       </section>
 
       {/* Who We Are Section */}
+        <AnimatedSection>
       <section className="py-12 sm:py-16 md:py-20 bg-white relative overflow-hidden">
         {/* Decorative dots pattern */}
         <div className="absolute top-6 left-6 sm:top-12 sm:left-12 opacity-20">
@@ -124,8 +128,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
       {/* Services Section */}
+        <AnimatedSection>
       <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -203,19 +209,22 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
+        <AnimatedSection>
       <CTASection
         title="Crafting Digital Experiences That Make Brands Stand Out"
         description="Ready to transform your digital presence? Let's create something extraordinary together."
         buttonText="Start Your Project"
         backgroundImage="/images/cta-bg.png"
       />
+        </AnimatedSection>
 
       {/* Portfolio Section */}
+        <AnimatedSection>
       <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader label="OUR WORKS" title="Brands That Perform, Connect, and Last" />
-
           <div className="space-y-12 sm:space-y-16 md:space-y-20">
             {/* Project 1 - DRIP AND GRIND */}
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
@@ -442,8 +451,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
       {/* Testimonials Section */}
+        <AnimatedSection>
       <section
         className="py-12 sm:py-16 md:py-19 relative overflow-hidden"
         style={{
@@ -640,12 +651,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
       {/* Blog Section */}
+        <AnimatedSection>
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader label="BLOG" title="Read our Blog" />
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <Link href="/blog/build-professional-website" className="block group">
               <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer">
@@ -754,9 +766,15 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
+        <AnimatedSection>
       <FinalCTA />
+        </AnimatedSection>
+        <AnimatedSection>
       <Footer />
+        </AnimatedSection>
     </main>
+    </PageTransition>
   )
 }

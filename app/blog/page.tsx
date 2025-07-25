@@ -8,6 +8,8 @@ import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import WorkCTA from "@/components/work-cta"
 import Link from "next/link"
+import PageTransition from "@/components/PageTransition";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function BlogPage() {
   const blogPosts = [
@@ -141,6 +143,7 @@ export default function BlogPage() {
   ]
 
   return (
+    <PageTransition>
     <main className="pt-20">
       {/* Header */}
       <div>
@@ -148,6 +151,7 @@ export default function BlogPage() {
       </div>
 
       {/* Hero Section */}
+        <AnimatedSection>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">Resources and insights</h1>
@@ -191,8 +195,10 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
       {/* Category Tabs */}
+        <AnimatedSection>
       <section className="py-8 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-8">
@@ -207,8 +213,10 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
       {/* Blog Grid */}
+        <AnimatedSection>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -260,12 +268,18 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
-      {/* Work CTA Section */}
+        <AnimatedSection>
       <WorkCTA />
-
+        </AnimatedSection>
+        <AnimatedSection>
       <FinalCTA />
+        </AnimatedSection>
+        <AnimatedSection>
       <Footer />
+        </AnimatedSection>
     </main>
+    </PageTransition>
   )
 }

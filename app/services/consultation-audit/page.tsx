@@ -4,6 +4,8 @@ import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import { Check, MessageCircle, Globe, Eye } from "lucide-react"
+import PageTransition from "@/components/PageTransition";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function ConsultationAuditPage() {
   const services = [
@@ -51,6 +53,7 @@ export default function ConsultationAuditPage() {
   ]
 
   return (
+    <PageTransition>
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24 sm:pt-0">
@@ -74,6 +77,7 @@ export default function ConsultationAuditPage() {
       </section>
 
       {/* Services Grid */}
+      <AnimatedSection>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -105,8 +109,10 @@ export default function ConsultationAuditPage() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Process Section */}
+      <AnimatedSection>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -128,17 +134,23 @@ export default function ConsultationAuditPage() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
-      {/* CTA Section */}
+      <AnimatedSection>
       <CTASection
         title="Ready for Expert Analysis?"
         description="Get professional insights that will help you make informed decisions and drive growth."
         buttonText="Schedule Consultation"
         backgroundImage="/images/cta-bg.png"
       />
-
+      </AnimatedSection>
+      <AnimatedSection>
       <FinalCTA />
+      </AnimatedSection>
+      <AnimatedSection>
       <Footer />
+      </AnimatedSection>
     </div>
+    </PageTransition>
   )
 }

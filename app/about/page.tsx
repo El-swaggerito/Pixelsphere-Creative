@@ -10,6 +10,8 @@ import CTASection from "@/components/cta-section"
 import StatsDisplay from "@/components/stats-display"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
+import PageTransition from "@/components/PageTransition";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function AboutPage() {
   const stats = [
@@ -19,6 +21,7 @@ export default function AboutPage() {
   ]
 
   return (
+    <PageTransition>
     <main className="lg:pt-12">
       {/* About Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
@@ -56,6 +59,7 @@ export default function AboutPage() {
       </section>
 
       {/* Who We Are Section */}
+        <AnimatedSection>
       <section className="py-20 bg-white relative overflow-hidden">
         {/* Decorative dots pattern */}
         <div className="absolute top-12 left-12 opacity-20">
@@ -67,6 +71,7 @@ export default function AboutPage() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimatedSection>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <Image
@@ -94,10 +99,13 @@ export default function AboutPage() {
               <StatsDisplay stats={stats} />
             </div>
           </div>
+            </AnimatedSection>
         </div>
       </section>
+        </AnimatedSection>
 
       {/* Services Section */}
+        <AnimatedSection>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader label="OUR SERVICES" title="We craft identities that move, resonate, and endure" />
@@ -201,6 +209,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
       <CTASection
         title="Crafting Digital Experiences That Make Brands Stand Out"
@@ -210,6 +219,7 @@ export default function AboutPage() {
       />
 
       {/* Insight-Driven Strategy Section */}
+        <AnimatedSection>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -270,8 +280,10 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
       {/* Strategic Brand Partner Section */}
+        <AnimatedSection>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -317,9 +329,15 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
+        <AnimatedSection>
       <FinalCTA />
+        </AnimatedSection>
+        <AnimatedSection>
       <Footer />
+        </AnimatedSection>
     </main>
+    </PageTransition>
   )
 }

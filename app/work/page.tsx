@@ -9,9 +9,12 @@ import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import WorkCTA from "@/components/work-cta"
 import Link from "next/link"
+import PageTransition from "@/components/PageTransition";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function WorkPage() {
   return (
+    <PageTransition>
     <div className="min-h-screen bg-white">
       {/* Work Hero Section - Similar to Home Page */}
       <section className="relative min-h-screen flex flex-col overflow-hidden">
@@ -61,6 +64,7 @@ export default function WorkPage() {
       </section>
 
       {/* Portfolio Section */}
+        <AnimatedSection>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader label="OUR WORKS" title="Brands That Perform, Connect, and Last" />
@@ -501,12 +505,20 @@ export default function WorkPage() {
           </div>
         </div>
       </section>
+        </AnimatedSection>
 
       {/* Work CTA Section */}
+        <AnimatedSection>
       <WorkCTA />
+        </AnimatedSection>
 
+        <AnimatedSection>
       <FinalCTA />
+        </AnimatedSection>
+        <AnimatedSection>
       <Footer />
+        </AnimatedSection>
     </div>
+    </PageTransition>
   )
 }
