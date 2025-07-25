@@ -7,7 +7,7 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import WorkCTA from "@/components/work-cta"
-import AnimatedSection from "@/components/AnimatedSection";
+import AnimatedSection from "@/components/AnimatedSection"
 
 // Mock work data - you can replace this with actual data fetching
 const getWorkProject = (slug: string) => {
@@ -196,42 +196,114 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
 
   return (
     <div className="min-h-screen bg-white">
-      <Header currentPage="work" textColor="black" background="white"/>
+      <Header currentPage="work" textColor="black" background="white" />
 
       {/* Breadcrumb */}
       <AnimatedSection>
-      <section className="py-4 bg-gray-50 border-b pt-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center text-sm text-gray-600">
-            <Link href="/" className="hover:text-orange-600">
-              Home
-            </Link>
-            <ChevronRight className="h-4 w-4 mx-2" />
-            <Link href="/work" className="hover:text-orange-600">
-              Work
-            </Link>
-            <ChevronRight className="h-4 w-4 mx-2" />
-            <span className="text-gray-900">{project.title}</span>
+        <section className="py-4 bg-gray-50 border-b pt-32">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center text-sm text-gray-600">
+              <Link href="/" className="hover:text-orange-600">
+                Home
+              </Link>
+              <ChevronRight className="h-4 w-4 mx-2" />
+              <Link href="/work" className="hover:text-orange-600">
+                Portfolio
+              </Link>
+              <ChevronRight className="h-4 w-4 mx-2" />
+              <span className="text-gray-900">{project.title}</span>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </AnimatedSection>
 
       {/* Project Hero */}
       <AnimatedSection>
-      <section className="pt-8 pb-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Project Title */}
-          <div className="text-center mb-16">
-            <h1 className="text-6xl lg:text-7xl font-bold text-gray-900 mb-4">{project.title}</h1>
-            <h2 className="text-2xl lg:text-3xl font-medium text-gray-600">Drip and Grind - RALPH EDWARDS</h2>
-          </div>
+        <section className="pt-8 pb-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Project Title */}
+            <div className="text-center mb-16">
+              <h1 className="text-6xl lg:text-7xl font-bold text-gray-900 mb-4">{project.title}</h1>
+              <h2 className="text-2xl lg:text-3xl font-medium text-gray-600">Drip and Grind - RALPH EDWARDS</h2>
+            </div>
 
-          {/* Hero Design Showcase - Isometric Grid Image */}
-          <div className="relative mb-16">
+            {/* Hero Design Showcase - Isometric Grid Image */}
+            <div className="relative mb-16">
+              <div className="w-full max-w-6xl mx-auto">
+                <Image
+                  src="/images/isometric-grid-1.png"
+                  alt="Isometric design showcase grid"
+                  width={1200}
+                  height={600}
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+
+            {/* Project Details & Brief Description */}
+            <div className="grid lg:grid-cols-4 gap-12">
+              {/* Left Sidebar - Project Details */}
+              <div className="lg:col-span-1">
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-sm font-medium text-gray-500 mb-1">Services I Provide</div>
+                    <ul className="list-disc pl-4">
+                      {project.servicesProvided?.map((service, index) => (
+                        <li key={index} className="text-gray-900 font-medium">
+                          {service}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-gray-500 mb-1">Project Duration</div>
+                    <div className="text-gray-900 font-medium">{project.duration}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-gray-500 mb-1">Client</div>
+                    <div className="text-gray-900 font-medium">{project.client}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-gray-500 mb-1">Client Designation</div>
+                    <div className="text-gray-900 font-medium">{project.clientDesignation}</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Content - Brief Description */}
+              <div className="lg:col-span-3">
+                <h2 className="text-3xl font-bold text-gray-900 mb-8">Client/Project Brief Description</h2>
+                <div className="prose prose-lg text-gray-700 mb-8">
+                  {project.briefDescription.split("\n\n").map((paragraph, index) => (
+                    <p key={index} className="mb-6 leading-relaxed text-lg">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                  <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-medium">
+                    Launch Project - Live Preview
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="border-orange-500 text-orange-500 px-8 py-3 text-lg font-medium bg-transparent hover:bg-orange-50"
+                  >
+                    View Case Study On Behance
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      {/* Design Showcase 2 */}
+      <AnimatedSection>
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-6xl mx-auto">
               <Image
-                src="/images/isometric-grid-1.png"
+                src="/images/isometric-grid-2.png"
                 alt="Isometric design showcase grid"
                 width={1200}
                 height={600}
@@ -239,227 +311,155 @@ export default function WorkSinglePage({ params }: { params: { slug: string } })
               />
             </div>
           </div>
-
-          {/* Project Details & Brief Description */}
-          <div className="grid lg:grid-cols-4 gap-12">
-            {/* Left Sidebar - Project Details */}
-            <div className="lg:col-span-1">
-              <div className="space-y-6">
-                <div>
-                  <div className="text-sm font-medium text-gray-500 mb-1">Services I Provide</div>
-                  <ul className="list-disc pl-4">
-                    {project.servicesProvided?.map((service, index) => (
-                      <li key={index} className="text-gray-900 font-medium">
-                        {service}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-gray-500 mb-1">Project Duration</div>
-                  <div className="text-gray-900 font-medium">{project.duration}</div>
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-gray-500 mb-1">Client</div>
-                  <div className="text-gray-900 font-medium">{project.client}</div>
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-gray-500 mb-1">Client Designation</div>
-                  <div className="text-gray-900 font-medium">{project.clientDesignation}</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Content - Brief Description */}
-            <div className="lg:col-span-3">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Client/Project Brief Description</h2>
-              <div className="prose prose-lg text-gray-700 mb-8">
-                {project.briefDescription.split("\n\n").map((paragraph, index) => (
-                  <p key={index} className="mb-6 leading-relaxed text-lg">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-medium">
-                  Launch Project - Live Preview
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-orange-500 text-orange-500 px-8 py-3 text-lg font-medium bg-transparent hover:bg-orange-50"
-                >
-                  View Case Study On Behance
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      </AnimatedSection>
-
-      {/* Design Showcase 2 */}
-      <AnimatedSection>
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="w-full max-w-6xl mx-auto">
-            <Image
-              src="/images/isometric-grid-2.png"
-              alt="Isometric design showcase grid"
-              width={1200}
-              height={600}
-              className="w-full h-auto"
-            />
-          </div>
-        </div>
-      </section>
+        </section>
       </AnimatedSection>
 
       {/* Project Goal */}
       <AnimatedSection>
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Project Goal</h2>
-          <div className="prose prose-lg text-gray-700">
-            {project.projectGoal.split("\n\n").map((paragraph, index) => (
-              <p key={index} className="mb-6 leading-relaxed text-lg">
-                {paragraph}
-              </p>
-            ))}
+        <section className="py-16 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Project Goal</h2>
+            <div className="prose prose-lg text-gray-700">
+              {project.projectGoal.split("\n\n").map((paragraph, index) => (
+                <p key={index} className="mb-6 leading-relaxed text-lg">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </AnimatedSection>
 
       {/* Product Branding */}
       <AnimatedSection>
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Product Branding</h2>
-          <div className="prose prose-lg text-gray-700">
-            {project.productBranding.split("\n\n").map((paragraph, index) => (
-              <p key={index} className="mb-6 leading-relaxed text-lg">
-                {paragraph}
-              </p>
-            ))}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Product Branding</h2>
+            <div className="prose prose-lg text-gray-700">
+              {project.productBranding.split("\n\n").map((paragraph, index) => (
+                <p key={index} className="mb-6 leading-relaxed text-lg">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </AnimatedSection>
 
       {/* Design Showcase 3 */}
       <AnimatedSection>
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="w-full max-w-6xl mx-auto">
-            <Image
-              src="/images/isometric-grid-3.png"
-              alt="Isometric design showcase grid"
-              width={1200}
-              height={600}
-              className="w-full h-auto"
-            />
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-6xl mx-auto">
+              <Image
+                src="/images/isometric-grid-3.png"
+                alt="Isometric design showcase grid"
+                width={1200}
+                height={600}
+                className="w-full h-auto"
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </AnimatedSection>
 
       {/* User Statement & Problem List */}
       <AnimatedSection>
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16">
-            {/* User Statement */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-                <span className="text-4xl mr-3">👤</span>
-                User Statement
-              </h2>
-              <div className="prose prose-lg text-gray-700">
-                {project.userStatement.split("\n\n").map((paragraph, index) => (
-                  <p key={index} className="mb-6 leading-relaxed text-lg">
-                    {paragraph}
-                  </p>
-                ))}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16">
+              {/* User Statement */}
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
+                  <span className="text-4xl mr-3">👤</span>
+                  User Statement
+                </h2>
+                <div className="prose prose-lg text-gray-700">
+                  {project.userStatement.split("\n\n").map((paragraph, index) => (
+                    <p key={index} className="mb-6 leading-relaxed text-lg">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Problem List */}
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
+                  <span className="text-4xl mr-3">⚠️</span>
+                  Problem List
+                </h2>
+                <ul className="space-y-4">
+                  {project.problemList.map((problem, index) => (
+                    <li key={index} className="flex items-start">
+                      <div className="w-2 h-2 bg-red-500 rounded-full mt-3 mr-4 flex-shrink-0"></div>
+                      <span className="text-gray-700 text-lg leading-relaxed">{problem}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-
-            {/* Problem List */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-                <span className="text-4xl mr-3">⚠️</span>
-                Problem List
-              </h2>
-              <ul className="space-y-4">
-                {project.problemList.map((problem, index) => (
-                  <li key={index} className="flex items-start">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-3 mr-4 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-lg leading-relaxed">{problem}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </AnimatedSection>
 
       {/* Solutions */}
       <AnimatedSection>
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 flex items-center">
-            <span className="text-4xl mr-3 text-green-500">✅</span>
-            Solution
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {project.solutions.map((solution, index) => (
-              <div key={index} className="flex items-start">
-                <div className="w-5 h-5 bg-orange-500 rounded-full mt-1.5 mr-4 flex-shrink-0"></div>
-                <span className="text-gray-700 text-lg leading-relaxed">{solution}</span>
-              </div>
-            ))}
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-12 flex items-center">
+              <span className="text-4xl mr-3 text-green-500">✅</span>
+              Solution
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {project.solutions.map((solution, index) => (
+                <div key={index} className="flex items-start">
+                  <div className="w-5 h-5 bg-orange-500 rounded-full mt-1.5 mr-4 flex-shrink-0"></div>
+                  <span className="text-gray-700 text-lg leading-relaxed">{solution}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </AnimatedSection>
 
       {/* Final Design Showcase */}
       <AnimatedSection>
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="w-full max-w-6xl mx-auto">
-            <Image
-              src="/images/isometric-grid-4.png"
-              alt="Final isometric design showcase grid"
-              width={1200}
-              height={600}
-              className="w-full h-auto"
-            />
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-6xl mx-auto">
+              <Image
+                src="/images/isometric-grid-4.png"
+                alt="Final isometric design showcase grid"
+                width={1200}
+                height={600}
+                className="w-full h-auto"
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </AnimatedSection>
 
       {/* Client Feedback */}
       <AnimatedSection>
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">Client Feedback</h2>
-          <Card className="p-12 bg-gray-50 border-none shadow-lg">
-            <CardContent className="p-0">
-              <div className="flex justify-center mb-6">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="h-6 w-6 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <blockquote className="text-2xl text-gray-700 mb-8 italic leading-relaxed">
-                "{project.clientFeedback.quote}"
-              </blockquote>
-              <div className="text-gray-900 font-semibold text-lg">{project.clientFeedback.client}</div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+        <section className="py-16 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-12">Client Feedback</h2>
+            <Card className="p-12 bg-gray-50 border-none shadow-lg">
+              <CardContent className="p-0">
+                <div className="flex justify-center mb-6">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star key={star} className="h-6 w-6 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <blockquote className="text-2xl text-gray-700 mb-8 italic leading-relaxed">
+                  "{project.clientFeedback.quote}"
+                </blockquote>
+                <div className="text-gray-900 font-semibold text-lg">{project.clientFeedback.client}</div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
       </AnimatedSection>
 
       <AnimatedSection>

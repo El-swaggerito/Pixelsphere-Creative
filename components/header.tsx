@@ -13,11 +13,7 @@ interface HeaderProps {
   background?: "white" | "gradient"
 }
 
-export default function Header({
-  currentPage = "home",
-  textColor = "white",
-  background = "gradient",
-}: HeaderProps) {
+export default function Header({ currentPage = "home", textColor = "white", background = "gradient" }: HeaderProps) {
   const [isDesktopServicesOpen, setIsDesktopServicesOpen] = useState(false)
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -27,6 +23,16 @@ export default function Header({
   const mobileMenuRef = useRef<HTMLDivElement>(null)
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null)
   const pathname = usePathname()
+
+  // Navigate to contact form function
+  const navigateToContact = () => {
+    const contactForm = document.getElementById("contact-form")
+    if (contactForm) {
+      contactForm.scrollIntoView({ behavior: "smooth" })
+    } else {
+      window.location.href = "/contact#contact-form"
+    }
+  }
 
   // Close menus on route change
   useEffect(() => {
@@ -104,7 +110,7 @@ export default function Header({
       ],
     },
     {
-      title: "UI UX",
+      title: "UI UX",
       href: "/services/ui-ux",
       color: "blue",
       services: [
@@ -117,7 +123,7 @@ export default function Header({
       ],
     },
     {
-      title: "Consultation & Audit",
+      title: "Consultation & Audit",
       href: "/services/consultation-audit",
       color: "green",
       services: [
@@ -143,7 +149,7 @@ export default function Header({
   ]
 
   return (
-    <header
+    <motion.header
       className={`fixed top-0 left-0 w-full z-30 shadow-sm ${
         background === "white" ? "bg-white text-blue-900" : "text-white"
       }`}
@@ -162,41 +168,44 @@ export default function Header({
               borderBottom: "1px solid rgba(255,255,255,0.05)",
             }
       }
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <Link
-              href="/"
-              className={`text-xl sm:text-2xl font-bold ${
-                textColor === "black" ? "text-gray-900" : "text-white"
-              }`}
-            >
-              PixelSphere
-            </Link>
+            <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
+              <Link
+                href="/"
+                className={`text-xl sm:text-2xl font-bold ${textColor === "black" ? "text-gray-900" : "text-white"}`}
+              >
+                PixelSphere
+              </Link>
+            </motion.div>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6 lg:space-x-8" aria-label="Main navigation">
-            <Link
-              href="/"
-              className={`text-sm lg:text-base ${
-                currentPage === "home"
-                  ? `${
-                      textColor === "black"
-                        ? "text-gray-900 hover:text-orange-600"
-                        : "text-white hover:text-orange-300"
-                    } font-medium`
-                  : `${
-                      textColor === "black"
-                        ? "text-gray-700 hover:text-gray-900"
-                        : "text-white/80 hover:text-white"
-                    }`
-              }`}
-            >
-              Home
-            </Link>
+            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <Link
+                href="/"
+                className={`text-sm lg:text-base ${
+                  currentPage === "home"
+                    ? `${
+                        textColor === "black"
+                          ? "text-gray-900 hover:text-orange-600"
+                          : "text-white hover:text-orange-300"
+                      } font-medium`
+                    : `${
+                        textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"
+                      }`
+                }`}
+              >
+                Home
+              </Link>
+            </motion.div>
 
             {/* Services Dropdown */}
             <div className="relative">
@@ -214,12 +223,10 @@ export default function Header({
                           : "text-white hover:text-orange-300"
                       } font-medium`
                     : `${
-                        textColor === "black"
-                          ? "text-gray-700 hover:text-gray-900"
-                          : "text-white/80 hover:text-white"
+                        textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"
                       }`
                 }`}
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <span>Services</span>
@@ -266,7 +273,7 @@ export default function Header({
                       tabIndex={-1}
                     >
                       <div className="max-w-7xl mx-auto">
-                        <motion.div 
+                        <motion.div
                           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-4 sm:gap-x-8 gap-y-6 w-full min-w-0"
                           initial="hidden"
                           animate="visible"
@@ -276,9 +283,9 @@ export default function Header({
                               opacity: 1,
                               transition: {
                                 staggerChildren: 0.1,
-                                delayChildren: 0.1
-                              }
-                            }
+                                delayChildren: 0.1,
+                              },
+                            },
                           }}
                         >
                           {serviceCategories.map((category, index) => (
@@ -287,17 +294,14 @@ export default function Header({
                               className="space-y-4 sm:space-y-6 px-3 sm:px-6 min-w-0 w-full overflow-visible"
                               variants={{
                                 hidden: { opacity: 0, y: 20 },
-                                visible: { 
-                                  opacity: 1, 
+                                visible: {
+                                  opacity: 1,
                                   y: 0,
-                                  transition: { duration: 0.4, ease: "easeOut" }
-                                }
+                                  transition: { duration: 0.4, ease: "easeOut" },
+                                },
                               }}
                             >
-                              <motion.div
-                                whileHover={{ scale: 1.02, x: 5 }}
-                                transition={{ duration: 0.2 }}
-                              >
+                              <motion.div whileHover={{ scale: 1.02, x: 5 }} transition={{ duration: 0.2 }}>
                                 <Link
                                   href={category.href}
                                   className="flex items-center space-x-2 sm:space-x-3 group whitespace-normal break-words text-sm sm:text-base font-semibold text-white"
@@ -309,12 +313,12 @@ export default function Header({
                                       category.color === "blue"
                                         ? "bg-blue-300"
                                         : category.color === "orange"
-                                        ? "bg-orange-200"
-                                        : category.color === "green"
-                                        ? "bg-green-200"
-                                        : category.color === "purple"
-                                        ? "bg-purple-200"
-                                        : "bg-white/70"
+                                          ? "bg-orange-200"
+                                          : category.color === "green"
+                                            ? "bg-green-200"
+                                            : category.color === "purple"
+                                              ? "bg-purple-200"
+                                              : "bg-white/70"
                                     }`}
                                     whileHover={{ scale: 1.3, rotate: 360 }}
                                     transition={{ duration: 0.3 }}
@@ -324,7 +328,7 @@ export default function Header({
                                   </h3>
                                 </Link>
                               </motion.div>
-                              <motion.div 
+                              <motion.div
                                 className="space-y-2 sm:space-y-3"
                                 initial="hidden"
                                 animate="visible"
@@ -334,9 +338,9 @@ export default function Header({
                                     opacity: 1,
                                     transition: {
                                       staggerChildren: 0.05,
-                                      delayChildren: 0.2
-                                    }
-                                  }
+                                      delayChildren: 0.2,
+                                    },
+                                  },
                                 }}
                               >
                                 {category.services.map((service) => (
@@ -344,11 +348,11 @@ export default function Header({
                                     key={service.name}
                                     variants={{
                                       hidden: { opacity: 0, x: -10 },
-                                      visible: { 
-                                        opacity: 1, 
+                                      visible: {
+                                        opacity: 1,
                                         x: 0,
-                                        transition: { duration: 0.3 }
-                                      }
+                                        transition: { duration: 0.3 },
+                                      },
                                     }}
                                     whileHover={{ x: 5, scale: 1.02 }}
                                     transition={{ duration: 0.2 }}
@@ -381,87 +385,90 @@ export default function Header({
               </AnimatePresence>
             </div>
 
-            <Link
-              href="/about"
-              className={`text-sm lg:text-base ${
-                currentPage === "about"
-                  ? `${
-                      textColor === "black"
-                        ? "text-gray-900 hover:text-orange-600"
-                        : "text-white hover:text-orange-300"
-                    } font-medium`
-                  : `${
-                      textColor === "black"
-                        ? "text-gray-700 hover:text-gray-900"
-                        : "text-white/80 hover:text-white"
-                    }`
-              }`}
-            >
-              About Us
-            </Link>
-            <Link
-              href="/work"
-              className={`text-sm lg:text-base ${
-                currentPage === "work"
-                  ? `${
-                      textColor === "black"
-                        ? "text-gray-900 hover:text-orange-600"
-                        : "text-white hover:text-orange-300"
-                    } font-medium`
-                  : `${
-                      textColor === "black"
-                        ? "text-gray-700 hover:text-gray-900"
-                        : "text-white/80 hover:text-white"
-                    }`
-              }`}
-            >
-              Work
-            </Link>
-            <Link
-              href="/blog"
-              className={`text-sm lg:text-base ${
-                currentPage === "blog"
-                  ? `${
-                      textColor === "black"
-                        ? "text-gray-900 hover:text-orange-600"
-                        : "text-white hover:text-orange-300"
-                    } font-medium`
-                  : `${
-                      textColor === "black"
-                        ? "text-gray-700 hover:text-gray-900"
-                        : "text-white/80 hover:text-white"
-                    }`
-              }`}
-            >
-              Blog
-            </Link>
-            <Link
-              href="/contact"
-              className={`text-sm lg:text-base ${
-                currentPage === "contact"
-                  ? `${
-                      textColor === "black"
-                        ? "text-gray-900 hover:text-orange-600"
-                        : "text-white hover:text-orange-300"
-                    } font-medium`
-                  : `${
-                      textColor === "black"
-                        ? "text-gray-700 hover:text-gray-900"
-                        : "text-white/80 hover:text-white"
-                    }`
-              }`}
-            >
-              Contact
-            </Link>
+            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <Link
+                href="/about"
+                className={`text-sm lg:text-base ${
+                  currentPage === "about"
+                    ? `${
+                        textColor === "black"
+                          ? "text-gray-900 hover:text-orange-600"
+                          : "text-white hover:text-orange-300"
+                      } font-medium`
+                    : `${
+                        textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"
+                      }`
+                }`}
+              >
+                About Us
+              </Link>
+            </motion.div>
+
+            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <Link
+                href="/work"
+                className={`text-sm lg:text-base ${
+                  currentPage === "work"
+                    ? `${
+                        textColor === "black"
+                          ? "text-gray-900 hover:text-orange-600"
+                          : "text-white hover:text-orange-300"
+                      } font-medium`
+                    : `${
+                        textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"
+                      }`
+                }`}
+              >
+                Portfolio
+              </Link>
+            </motion.div>
+
+            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <Link
+                href="/blog"
+                className={`text-sm lg:text-base ${
+                  currentPage === "blog"
+                    ? `${
+                        textColor === "black"
+                          ? "text-gray-900 hover:text-orange-600"
+                          : "text-white hover:text-orange-300"
+                      } font-medium`
+                    : `${
+                        textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"
+                      }`
+                }`}
+              >
+                Blog
+              </Link>
+            </motion.div>
+
+            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <Link
+                href="/contact"
+                className={`text-sm lg:text-base ${
+                  currentPage === "contact"
+                    ? `${
+                        textColor === "black"
+                          ? "text-gray-900 hover:text-orange-600"
+                          : "text-white hover:text-orange-300"
+                      } font-medium`
+                    : `${
+                        textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"
+                      }`
+                }`}
+              >
+                Contact
+              </Link>
+            </motion.div>
           </nav>
 
           {/* Mobile toggles */}
           <div className="md:hidden flex items-center space-x-2">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200"
+                onClick={navigateToContact}
+              >
                 Contact Us
               </Button>
             </motion.div>
@@ -483,105 +490,167 @@ export default function Header({
           </div>
 
           {/* Desktop Contact */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white px-4 lg:px-6 py-2 rounded-lg font-medium text-sm lg:text-base transition-all duration-200">
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="hidden md:block">
+            <Button
+              className="bg-orange-500 hover:bg-orange-600 text-white px-4 lg:px-6 py-2 rounded-lg font-medium text-sm lg:text-base transition-all duration-200"
+              onClick={navigateToContact}
+            >
               Contact Us
             </Button>
           </motion.div>
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div
-            ref={mobileMenuRef}
-            className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t z-50"
-          >
-            <div className="px-4 py-6 space-y-4">
-              <Link
-                href="/"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block text-base font-medium ${
-                  currentPage === "home" ? "text-orange-600" : "text-gray-900"
-                } hover:text-orange-600`}
-              >
-                Home
-              </Link>
-
-              {/* Mobile Services */}
-              <div className="space-y-2">
-                <button
-                  onClick={() => setIsMobileServicesOpen((prev) => !prev)}
-                  className="flex items-center justify-between w-full text-base font-medium text-gray-900 hover:text-orange-600"
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              ref={mobileMenuRef}
+              className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t z-50"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="px-4 py-6 space-y-4">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 }}
+                  whileHover={{ x: 5 }}
                 >
-                  Services
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${
-                      isMobileServicesOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {isMobileServicesOpen && (
-                  <div className="pl-4 space-y-3 border-l-2 border-orange-200">
-                    {serviceCategories.map((category) => (
-                      <Link
-                        key={category.title}
-                        href={category.href}
-                        onClick={() => {
-                          setIsMobileServicesOpen(false)
-                          setIsMobileMenuOpen(false)
-                        }}
-                        className="block text-sm font-semibold text-gray-800 hover:text-orange-600"
-                      >
-                        {category.title}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+                  <Link
+                    href="/"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block text-base font-medium ${
+                      currentPage === "home" ? "text-orange-600" : "text-gray-900"
+                    } hover:text-orange-600`}
+                  >
+                    Home
+                  </Link>
+                </motion.div>
 
-              <Link
-                href="/about"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block text-base font-medium ${
-                  currentPage === "about" ? "text-orange-600" : "text-gray-900"
-                } hover:text-orange-600`}
-              >
-                About Us
-              </Link>
-              <Link
-                href="/work"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block text-base font-medium ${
-                  currentPage === "work" ? "text-orange-600" : "text-gray-900"
-                } hover	text-orange-600`}
-              >
-                Work
-              </Link>
-              <Link
-                href="/blog"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block text-base font-medium ${
-                  currentPage === "blog" ? "text-orange-600" : "text-gray-900"
-                } hover:text-orange-600`}
-              >
-                Blog
-              </Link>
-              <Link
-                href="/contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block text-base font-medium ${
-                  currentPage === "contact" ? "text-orange-600" : "text-gray-900"
-                } hover:text-orange-600`}
-              >
-                Contact
-              </Link>
-            </div>
-          </div>
-        )}
+                {/* Mobile Services */}
+                <motion.div
+                  className="space-y-2"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <button
+                    onClick={() => setIsMobileServicesOpen((prev) => !prev)}
+                    className="flex items-center justify-between w-full text-base font-medium text-gray-900 hover:text-orange-600"
+                  >
+                    Services
+                    <motion.div animate={{ rotate: isMobileServicesOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
+                      <ChevronDown className="w-4 h-4 transition-transform" />
+                    </motion.div>
+                  </button>
+                  <AnimatePresence>
+                    {isMobileServicesOpen && (
+                      <motion.div
+                        className="pl-4 space-y-3 border-l-2 border-orange-200"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {serviceCategories.map((category, index) => (
+                          <motion.div
+                            key={category.title}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 * index }}
+                            whileHover={{ x: 5 }}
+                          >
+                            <Link
+                              href={category.href}
+                              onClick={() => {
+                                setIsMobileServicesOpen(false)
+                                setIsMobileMenuOpen(false)
+                              }}
+                              className="block text-sm font-semibold text-gray-800 hover:text-orange-600"
+                            >
+                              {category.title}
+                            </Link>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 }}
+                  whileHover={{ x: 5 }}
+                >
+                  <Link
+                    href="/about"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block text-base font-medium ${
+                      currentPage === "about" ? "text-orange-600" : "text-gray-900"
+                    } hover:text-orange-600`}
+                  >
+                    About Us
+                  </Link>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 }}
+                  whileHover={{ x: 5 }}
+                >
+                  <Link
+                    href="/work"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block text-base font-medium ${
+                      currentPage === "work" ? "text-orange-600" : "text-gray-900"
+                    } hover:text-orange-600`}
+                  >
+                    Portfolio
+                  </Link>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 }}
+                  whileHover={{ x: 5 }}
+                >
+                  <Link
+                    href="/blog"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block text-base font-medium ${
+                      currentPage === "blog" ? "text-orange-600" : "text-gray-900"
+                    } hover:text-orange-600`}
+                  >
+                    Blog
+                  </Link>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                  whileHover={{ x: 5 }}
+                >
+                  <Link
+                    href="/contact"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block text-base font-medium ${
+                      currentPage === "contact" ? "text-orange-600" : "text-gray-900"
+                    } hover:text-orange-600`}
+                  >
+                    Contact
+                  </Link>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </header>
+    </motion.header>
   )
 }
