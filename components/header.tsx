@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { useState, useRef, useEffect, useCallback } from "react"
 import { usePathname } from "next/navigation"
+import { motion, AnimatePresence } from "framer-motion"
 
 interface HeaderProps {
   currentPage?: string
@@ -199,13 +200,13 @@ export default function Header({
 
             {/* Services Dropdown */}
             <div className="relative">
-              <button
+              <motion.button
                 ref={buttonRef}
                 onClick={handleToggleDesktopDropdown}
                 aria-haspopup="true"
                 aria-expanded={isDesktopServicesOpen}
                 aria-controls="services-dropdown"
-                className={`flex items-center space-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 transition-shadow text-sm lg:text-base ${
+                className={`flex items-center space-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 transition-all duration-200 text-sm lg:text-base ${
                   currentPage?.startsWith("services")
                     ? `${
                         textColor === "black"
@@ -218,90 +219,166 @@ export default function Header({
                           : "text-white/80 hover:text-white"
                       }`
                 }`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <span>Services</span>
-                <ChevronDown
-                  className={`w-3 h-3 lg:w-4 lg:h-4 transition-transform ${
-                    isDesktopServicesOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+                <motion.div
+                  animate={{ rotate: isDesktopServicesOpen ? 180 : 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                  <ChevronDown className="w-3 h-3 lg:w-4 lg:h-4" />
+                </motion.div>
+              </motion.button>
 
-              {isDesktopServicesOpen && (
-                <>
-                  <div
-                    className="fixed inset-0 bg-black/50 z-40"
-                    onClick={() => setIsDesktopServicesOpen(false)}
-                    aria-hidden="true"
-                  />
-                  <div
-                    ref={dropdownRef}
-                    id="services-dropdown"
-                    className="fixed left-0 right-0 top-[64px] sm:top-[80px] w-screen min-h-screen max-w-none rounded-b-xl border-t border-orange-600 z-50 p-4 sm:p-8 animate-fade-in"
-                    style={{
-                      background: `
-                        radial-gradient(circle at 15% 40%, rgba(255, 115, 0, 0.15) 0%, transparent 60%),
-                        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 55%),
-                        linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 35%, #2563eb 60%, #3b82f6 85%, #60a5fa 100%)
-                      `,
-                      backdropFilter: "blur(10px)",
-                      WebkitBackdropFilter: "blur(10px)",
-                    }}
-                    role="menu"
-                    aria-label="Services submenu"
-                    tabIndex={-1}
-                  >
-                    <div className="max-w-7xl mx-auto">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-4 sm:gap-x-8 gap-y-6 w-full min-w-0">
-                        {serviceCategories.map((category) => (
-                          <div
-                            key={category.title}
-                            className="space-y-4 sm:space-y-6 px-3 sm:px-6 min-w-0 w-full overflow-visible"
-                          >
-                            <Link
-                              href={category.href}
-                              className="flex items-center space-x-2 sm:space-x-3 group whitespace-normal break-words text-sm sm:text-base font-semibold text-white"
-                              tabIndex={0}
-                              onClick={() => setIsDesktopServicesOpen(false)}
+              <AnimatePresence>
+                {isDesktopServicesOpen && (
+                  <>
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="fixed inset-0 bg-black/50 z-40"
+                      onClick={() => setIsDesktopServicesOpen(false)}
+                      aria-hidden="true"
+                    />
+                    <motion.div
+                      ref={dropdownRef}
+                      id="services-dropdown"
+                      initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="fixed left-0 right-0 top-[64px] sm:top-[80px] w-screen min-h-screen max-w-none rounded-b-xl border-t border-orange-600 z-50 p-4 sm:p-8"
+                      style={{
+                        background: `
+                          radial-gradient(circle at 15% 40%, rgba(255, 115, 0, 0.15) 0%, transparent 60%),
+                          radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                          radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 55%),
+                          linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 35%, #2563eb 60%, #3b82f6 85%, #60a5fa 100%)
+                        `,
+                        backdropFilter: "blur(10px)",
+                        WebkitBackdropFilter: "blur(10px)",
+                      }}
+                      role="menu"
+                      aria-label="Services submenu"
+                      tabIndex={-1}
+                    >
+                      <div className="max-w-7xl mx-auto">
+                        <motion.div 
+                          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-4 sm:gap-x-8 gap-y-6 w-full min-w-0"
+                          initial="hidden"
+                          animate="visible"
+                          variants={{
+                            hidden: { opacity: 0 },
+                            visible: {
+                              opacity: 1,
+                              transition: {
+                                staggerChildren: 0.1,
+                                delayChildren: 0.1
+                              }
+                            }
+                          }}
+                        >
+                          {serviceCategories.map((category, index) => (
+                            <motion.div
+                              key={category.title}
+                              className="space-y-4 sm:space-y-6 px-3 sm:px-6 min-w-0 w-full overflow-visible"
+                              variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                visible: { 
+                                  opacity: 1, 
+                                  y: 0,
+                                  transition: { duration: 0.4, ease: "easeOut" }
+                                }
+                              }}
                             >
-                              <div
-                                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${
-                                  category.color === "blue"
-                                    ? "bg-blue-300"
-                                    : category.color === "orange"
-                                    ? "bg-orange-200"
-                                    : category.color === "green"
-                                    ? "bg-green-200"
-                                    : category.color === "purple"
-                                    ? "bg-purple-200"
-                                    : "bg-white/70"
-                                }`}
-                              ></div>
-                              <h3 className="font-semibold text-base sm:text-lg group-hover:text-blue-900 transition-colors whitespace-normal break-words text-white">
-                                {category.title}
-                              </h3>
-                            </Link>
-                            <div className="space-y-2 sm:space-y-3">
-                              {category.services.map((service) => (
+                              <motion.div
+                                whileHover={{ scale: 1.02, x: 5 }}
+                                transition={{ duration: 0.2 }}
+                              >
                                 <Link
-                                  key={service.name}
-                                  href={service.href}
-                                  className="block text-white/90 hover:text-blue-900 transition-colors text-xs sm:text-sm pl-4 sm:pl-6 whitespace-normal break-words"
+                                  href={category.href}
+                                  className="flex items-center space-x-2 sm:space-x-3 group whitespace-normal break-words text-sm sm:text-base font-semibold text-white"
                                   tabIndex={0}
                                   onClick={() => setIsDesktopServicesOpen(false)}
                                 >
-                                  ✦ {service.name}
+                                  <motion.div
+                                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${
+                                      category.color === "blue"
+                                        ? "bg-blue-300"
+                                        : category.color === "orange"
+                                        ? "bg-orange-200"
+                                        : category.color === "green"
+                                        ? "bg-green-200"
+                                        : category.color === "purple"
+                                        ? "bg-purple-200"
+                                        : "bg-white/70"
+                                    }`}
+                                    whileHover={{ scale: 1.3, rotate: 360 }}
+                                    transition={{ duration: 0.3 }}
+                                  />
+                                  <h3 className="font-semibold text-base sm:text-lg group-hover:text-blue-900 transition-colors whitespace-normal break-words text-white">
+                                    {category.title}
+                                  </h3>
                                 </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
+                              </motion.div>
+                              <motion.div 
+                                className="space-y-2 sm:space-y-3"
+                                initial="hidden"
+                                animate="visible"
+                                variants={{
+                                  hidden: { opacity: 0 },
+                                  visible: {
+                                    opacity: 1,
+                                    transition: {
+                                      staggerChildren: 0.05,
+                                      delayChildren: 0.2
+                                    }
+                                  }
+                                }}
+                              >
+                                {category.services.map((service) => (
+                                  <motion.div
+                                    key={service.name}
+                                    variants={{
+                                      hidden: { opacity: 0, x: -10 },
+                                      visible: { 
+                                        opacity: 1, 
+                                        x: 0,
+                                        transition: { duration: 0.3 }
+                                      }
+                                    }}
+                                    whileHover={{ x: 5, scale: 1.02 }}
+                                    transition={{ duration: 0.2 }}
+                                  >
+                                    <Link
+                                      href={service.href}
+                                      className="block text-white/90 hover:text-blue-900 transition-colors text-xs sm:text-sm pl-4 sm:pl-6 whitespace-normal break-words"
+                                      tabIndex={0}
+                                      onClick={() => setIsDesktopServicesOpen(false)}
+                                    >
+                                      <motion.span
+                                        className="inline-block mr-2"
+                                        whileHover={{ rotate: 360, scale: 1.2 }}
+                                        transition={{ duration: 0.3 }}
+                                      >
+                                        ✦
+                                      </motion.span>
+                                      {service.name}
+                                    </Link>
+                                  </motion.div>
+                                ))}
+                              </motion.div>
+                            </motion.div>
+                          ))}
+                        </motion.div>
                       </div>
-                    </div>
-                  </div>
-                </>
-              )}
+                    </motion.div>
+                  </>
+                )}
+              </AnimatePresence>
             </div>
 
             <Link
@@ -380,23 +457,40 @@ export default function Header({
 
           {/* Mobile toggles */}
           <div className="md:hidden flex items-center space-x-2">
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg font-medium text-sm">
-              Contact Us
-            </Button>
-            <button
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200">
+                Contact Us
+              </Button>
+            </motion.div>
+            <motion.button
               ref={mobileMenuButtonRef}
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-              className={`p-2 ${textColor === "black" ? "text-gray-900" : "text-white"}`}
+              className={`p-2 ${textColor === "black" ? "text-gray-900" : "text-white"} transition-all duration-200`}
               aria-label="Toggle mobile menu"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+              <motion.div
+                animate={{ rotate: isMobileMenuOpen ? 90 : 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </motion.div>
+            </motion.button>
           </div>
 
           {/* Desktop Contact */}
-          <Button className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white px-4 lg:px-6 py-2 rounded-lg font-medium text-sm lg:text-base">
-            Contact Us
-          </Button>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white px-4 lg:px-6 py-2 rounded-lg font-medium text-sm lg:text-base transition-all duration-200">
+              Contact Us
+            </Button>
+          </motion.div>
         </div>
 
         {/* Mobile Navigation */}
