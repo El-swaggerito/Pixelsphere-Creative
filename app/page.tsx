@@ -9,7 +9,6 @@ import Header from "@/components/header"
 import HeroBackground from "@/components/hero-background"
 import SectionHeader from "@/components/section-header"
 import CTASection from "@/components/cta-section"
-import StatsDisplay from "@/components/stats-display"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import PageTransition from "@/components/PageTransition"
@@ -17,11 +16,6 @@ import AnimatedSection from "@/components/AnimatedSection"
 import { motion } from "framer-motion"
 
 export default function HomePage() {
-  const stats = [
-    { label: "Projects completed", value: "200+" },
-    { label: "Client retention rate", value: "95%" },
-    { label: "Years of experience", value: "5" },
-  ]
 
   const navigateToContact = () => {
     window.location.href = "/contact#contact-form"
@@ -32,7 +26,7 @@ export default function HomePage() {
       <main className="pt-16 sm:pt-20">
         {/* Hero Section */}
         <section className="relative min-h-screen flex flex-col overflow-hidden">
-          <HeroBackground>
+          <HeroBackground className="">
             {/* Decorative vector line at top left */}
             <motion.div
               className="absolute top-4 left-4 sm:top-8 sm:left-8 z-10"
@@ -75,13 +69,12 @@ export default function HomePage() {
             <div className="flex-1 flex items-center justify-center relative z-20 pt-8 sm:pt-10 px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-4xl mx-auto">
                 <motion.h1
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6 sm:mb-8"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
                   Empowering Businesses Through
-                  <br className="hidden sm:block" />
                   <span className="block sm:inline"> Tailored Technology Solutions</span>
                 </motion.h1>
                 <motion.p
@@ -217,7 +210,6 @@ export default function HomePage() {
                     creativity, and clarity.
                   </motion.p>
 
-                  <StatsDisplay stats={stats} />
                 </div>
               </div>
             </div>

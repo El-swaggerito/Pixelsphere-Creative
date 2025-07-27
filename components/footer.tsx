@@ -17,14 +17,16 @@ export default function Footer() {
               PixelSphere
             </motion.div>
             <p className="text-blue-200 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-              We start with a discovery call to understand your company. The problems you are facing.
+            Empowering businesses through tailored technology solutions that inspire connections and drive growth.
             </p>
             <div className="mb-6 sm:mb-8">
               <div className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Follow us</div>
               <div className="flex space-x-3 sm:space-x-4">
                 <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.3 }}>
                   <Link
-                    href="#"
+                    href="https://web.facebook.com/people/PixelSphere-Creatives/pfbid0B6rspCn3TZcKihRrx2KwjyQ9UsFSDkoErGH9SpySwX4i68BH2J1195s4j5HG7W4Dl/"
+                    rel="noopener noreferrer nofollow" 
+                    target="_blank"
                     className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer"
                     aria-label="Facebook"
                   >
@@ -34,6 +36,8 @@ export default function Footer() {
                 <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.3 }}>
                   <Link
                     href="#"
+                    rel="noopener noreferrer nofollow" 
+                    target="_blank"
                     className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer"
                     aria-label="Instagram"
                   >
@@ -43,6 +47,8 @@ export default function Footer() {
                 <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.3 }}>
                   <Link
                     href="#"
+                    rel="noopener noreferrer nofollow" 
+                    target="_blank"
                     className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer"
                     aria-label="Twitter"
                   >
@@ -52,6 +58,7 @@ export default function Footer() {
                 <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.3 }}>
                   <Link
                     href="#"
+                    
                     className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer"
                     aria-label="LinkedIn"
                   >
@@ -63,40 +70,40 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Solutions</h3>
+            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Quick Links</h3>
             <ul className="space-y-2 sm:space-y-3 text-blue-200 text-sm sm:text-base">
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="#" className="hover:text-white transition-colors">
-                    SEO Services
+                    Home
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="#" className="hover:text-white transition-colors">
-                    Social Media
+                    About Us
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="#" className="hover:text-white transition-colors">
-                    Pay-per-click
+                    Portfolio
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="#" className="hover:text-white transition-colors">
-                    Web Analytics
+                    Blog
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="#" className="hover:text-white transition-colors">
-                    Web Development
+                    Contact
                   </Link>
                 </motion.div>
               </li>
@@ -104,7 +111,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Industries</h3>
+            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Services</h3>
             <ul className="space-y-2 sm:space-y-3 text-blue-200 text-sm sm:text-base">
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>

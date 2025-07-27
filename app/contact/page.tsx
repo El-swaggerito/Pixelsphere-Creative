@@ -108,10 +108,10 @@ export default function ContactPage() {
 
   return (
     <PageTransition>
-      <main className="lg:pt-10 sm:pt-0">
+      <main className="lg:pt-20 sm:pt-0">
         {/* Hero Section with Contact Image */}
         <section className="relative min-h-[80vh] flex items-center overflow-hidden">
-          <HeroBackground className="pt-32">
+          <HeroBackground>
             <Header currentPage="contact" />
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

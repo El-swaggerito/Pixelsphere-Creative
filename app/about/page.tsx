@@ -7,7 +7,6 @@ import Header from "@/components/header"
 import HeroBackground from "@/components/hero-background"
 import SectionHeader from "@/components/section-header"
 import CTASection from "@/components/cta-section"
-import StatsDisplay from "@/components/stats-display"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import PageTransition from "@/components/PageTransition";
@@ -96,7 +95,6 @@ export default function AboutPage() {
                 clarity.
               </p>
 
-              <StatsDisplay stats={stats} />
             </div>
           </div>
             </AnimatedSection>

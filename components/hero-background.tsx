@@ -4,9 +4,10 @@ import { motion } from "framer-motion"
 
 interface HeroBackgroundProps {
   children: ReactNode
+  className?: string;
 }
 
-export default function HeroBackground({ children }: HeroBackgroundProps) {
+export default function HeroBackground({ children, className }: HeroBackgroundProps) {
   return (
     <div className="relative min-h-screen w-full bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 overflow-hidden">
       {/* Animated gradient overlay */}
