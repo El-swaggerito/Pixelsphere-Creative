@@ -74,35 +74,35 @@ export default function Footer() {
             <ul className="space-y-2 sm:space-y-3 text-blue-200 text-sm sm:text-base">
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/" className="hover:text-white transition-colors">
                     Home
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/about" className="hover:text-white transition-colors">
                     About Us
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/work" className="hover:text-white transition-colors">
                     Portfolio
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/blog" className="hover:text-white transition-colors">
                     Blog
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/contact" className="hover:text-white transition-colors">
                     Contact
                   </Link>
                 </motion.div>

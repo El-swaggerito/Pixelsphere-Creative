@@ -1,147 +1,17 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Search, ArrowRight } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import WorkCTA from "@/components/work-cta"
-import Link from "next/link"
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
+import BlogCard from "@/components/BlogCard";
+import { blogPosts } from "@/data/blogPosts";
 
 export default function BlogPage() {
-  const blogPosts = [
-    {
-      id: 1,
-      image: "/images/blog-office-workspace.png",
-      category: "Design",
-      categoryColor: "bg-blue-100 text-blue-800",
-      title: "Build a Professional Website...",
-      description: "How do you create compelling presentations that wow your colleagues and impress your managers?",
-      author: {
-        name: "Mariana Astorino",
-        avatar: "/placeholder.svg?height=40&width=40",
-        date: "20 Jan 2024",
-      },
-      slug: "build-professional-website",
-    },
-    {
-      id: 2,
-      image: "/images/blog-office-laptops.png",
-      category: "Product",
-      categoryColor: "bg-purple-100 text-purple-800",
-      title: "Migrating to Linear 101",
-      description:
-        "Linear helps streamline software projects, sprints, tasks, and bug tracking. Here's how to get started.",
-      author: {
-        name: "Phoenix Baker",
-        avatar: "/placeholder.svg?height=40&width=40",
-        date: "19 Jan 2024",
-      },
-      slug: "migrating-to-linear",
-    },
-    {
-      id: 3,
-      image: "/images/blog-desk-setup.png",
-      category: "Software Engineering",
-      categoryColor: "bg-green-100 text-green-800",
-      title: "Building your API Stack",
-      description: "The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.",
-      author: {
-        name: "Lana Steiner",
-        avatar: "/placeholder.svg?height=40&width=40",
-        date: "18 Jan 2024",
-      },
-      slug: "building-api-stack",
-    },
-    {
-      id: 4,
-      image: "/images/blog-mountain-landscape.png",
-      category: "Management",
-      categoryColor: "bg-orange-100 text-orange-800",
-      title: "Bill Walsh leadership lessons",
-      description: "Like to know the secrets of transforming a 2-14 team into a 3x Super Bowl winning Dynasty?",
-      author: {
-        name: "Alec Whitten",
-        avatar: "/placeholder.svg?height=40&width=40",
-        date: "17 Jan 2024",
-      },
-      slug: "bill-walsh-leadership-lessons",
-    },
-    {
-      id: 5,
-      image: "/images/blog-team-meeting.png",
-      category: "Design",
-      categoryColor: "bg-blue-100 text-blue-800",
-      title: "PM mental models",
-      description: "Mental models are simple expressions of complex processes or relationships.",
-      author: {
-        name: "Demi Wilkinson",
-        avatar: "/placeholder.svg?height=40&width=40",
-        date: "16 Jan 2024",
-      },
-      slug: "pm-mental-models",
-    },
-    {
-      id: 6,
-      image: "/images/blog-minimal-desk.png",
-      category: "Product",
-      categoryColor: "bg-purple-100 text-purple-800",
-      title: "What is Wireframing?",
-      description: "Introduction to Wireframing and its Principles. Learn from the best in the industry.",
-      author: {
-        name: "Candice Wu",
-        avatar: "/placeholder.svg?height=40&width=40",
-        date: "15 Jan 2024",
-      },
-      slug: "what-is-wireframing",
-    },
-    {
-      id: 7,
-      image: "/images/blog-kitchen-work.png",
-      category: "Design",
-      categoryColor: "bg-blue-100 text-blue-800",
-      title: "How collaboration makes us better designers",
-      description: "Collaboration can make our teams stronger, and our individual designs better.",
-      author: {
-        name: "Natali Craig",
-        avatar: "/placeholder.svg?height=40&width=40",
-        date: "14 Jan 2024",
-      },
-      slug: "how-collaboration-makes-us-better-designers",
-    },
-    {
-      id: 8,
-      image: "/images/blog-man-headphones.png",
-      category: "Design",
-      categoryColor: "bg-blue-100 text-blue-800",
-      title: "Our top 10 Javascript frameworks to use",
-      description: "JavaScript frameworks make development easy with extensive features and functionalities.",
-      author: {
-        name: "Drew Cano",
-        avatar: "/placeholder.svg?height=40&width=40",
-        date: "13 Jan 2024",
-      },
-      slug: "top-10-javascript-frameworks",
-    },
-    {
-      id: 9,
-      image: "/images/blog-woman-headphones.png",
-      category: "Customer Success",
-      categoryColor: "bg-pink-100 text-pink-800",
-      title: "Podcast: Creating a better CX Community",
-      description: "Starting a community doesn't need to be complicated, but how do you get started?",
-      author: {
-        name: "Orlando Diggs",
-        avatar: "/placeholder.svg?height=40&width=40",
-        date: "12 Jan 2024",
-      },
-      slug: "creating-better-cx-community",
-    },
-  ]
-
   return (
     <PageTransition>
     <main className="pt-20">
@@ -220,42 +90,8 @@ export default function BlogPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <Link key={post.id} href={`/blog/${post.slug}`}>
-                <Card className="overflow-hidden shadow-md hover:shadow-xl transition-shadow group cursor-pointer">
-                  <div className="aspect-video relative overflow-hidden">
-                    <Image
-                      src={post.image || "/placeholder.svg"}
-                      alt={post.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <CardContent className="p-6">
-                    <Badge className={`${post.categoryColor} mb-3`}>{post.category}</Badge>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3 flex items-center group-hover:text-orange-600 transition-colors">
-                      {post.title}
-                      <ArrowRight className="ml-2 h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed">{post.description}</p>
-                    <div className="flex items-center">
-                      <div className="w-10 h-10 bg-gray-300 rounded-full mr-3 overflow-hidden">
-                        <Image
-                          src={post.author.avatar || "/placeholder.svg"}
-                          alt={post.author.name}
-                          width={40}
-                          height={40}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <div className="text-sm font-medium text-gray-900">{post.author.name}</div>
-                        <div className="text-sm text-gray-500">{post.author.date}</div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
+            {blogPosts.map((post, index) => (
+              <BlogCard key={post.id} post={post} index={index} />
             ))}
           </div>
 
