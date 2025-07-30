@@ -37,7 +37,7 @@ export default function HomePage() {
       <main className="pt-16 sm:pt-20">
         {/* Hero Section */}
         <section className="relative min-h-screen flex flex-col overflow-hidden">
-          <HeroBackground className="">
+          <HeroBackground>
             {/* Decorative vector line at top left */}
             <motion.div
               className="absolute top-4 left-4 sm:top-8 sm:left-8 z-10"
@@ -77,7 +77,7 @@ export default function HomePage() {
             <Header currentPage="home" />
 
             {/* Hero Content */}
-            <div className="flex-1 flex items-center justify-center relative z-20 pt-8 sm:pt-10 px-4 sm:px-6 lg:px-8">
+            <div className="flex-1 flex items-center justify-center relative pt-8 sm:pt-10 px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-4xl mx-auto">
                 <motion.h1
                   className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8"

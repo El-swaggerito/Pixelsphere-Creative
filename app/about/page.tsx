@@ -13,11 +13,7 @@ import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export default function AboutPage() {
-  const stats = [
-    { label: "Projects completed", value: "200+" },
-    { label: "Client retention rate", value: "95%" },
-    { label: "Years of experience", value: "5" },
-  ]
+  
 
   return (
     <PageTransition>
