@@ -6,6 +6,7 @@ import { ChevronDown, Menu, X } from "lucide-react"
 import { useState, useRef, useEffect, useCallback } from "react"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
 
 interface HeaderProps {
   currentPage?: string
@@ -181,7 +182,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
                 href="/"
                 className={`text-xl sm:text-2xl font-bold ${textColor === "black" ? "text-gray-900" : "text-white"}`}
               >
-                PixelSphere
+               <Image src="/images/company-logo.png" alt="" width={150} height={100} />
               </Link>
             </motion.div>
           </div>

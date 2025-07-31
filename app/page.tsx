@@ -85,11 +85,7 @@ export default function HomePage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
-                  Empowering Businesses Through
-                  <span className="block sm:inline">
-                    {" "}
-                    Tailored Technology Solutions
-                  </span>
+                  Empowering Businesses Through Tailored Technology Solutions
                 </motion.h1>
                 <motion.p
                   className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto px-4 sm:px-0"
@@ -133,7 +129,7 @@ export default function HomePage() {
 
             {/* Design Collection Images - Positioned at very bottom */}
             <motion.div
-              className="relative z-20 mt-auto"
+              className="relative z-20 -mt-16 sm:-mt-24" // Added negative margin
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
@@ -440,7 +436,7 @@ export default function HomePage() {
                   </React.Fragment>
                 ))}
               </div>
-              
+
               {/* View All Button */}
               <div className="text-center mt-12">
                 <motion.div
@@ -448,8 +444,8 @@ export default function HomePage() {
                   transition={{ duration: 0.2 }}
                   className="inline-block"
                 >
-                  <Link 
-                    href="/work" 
+                  <Link
+                    href="/work"
                     className="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-colors duration-300"
                   >
                     View All Projects
@@ -460,7 +456,7 @@ export default function HomePage() {
             </div>
           </section>
         </AnimatedSection>
-        
+
         {/* Testimonials Section */}
         <AnimatedSection>
           <section
@@ -879,37 +875,44 @@ export default function HomePage() {
         </AnimatedSection>
         {/* Blog Section */}
         <AnimatedSection>
-  <section className="py-12 sm:py-16 md:py-20 bg-white">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <SectionHeader label="BLOG" title="Read our Blog" />
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-        {blogPosts
-          .filter(post => post.featured)
-          .slice(0, 3)
-          .map((post, index) => (
-            <BlogCard key={post.id} post={post} index={index} className={index === 2 ? "sm:col-span-2 lg:col-span-1" : ""} />
-          ))}
-      </div>
-      
-      {/* View All Button */}
-      <div className="text-center mt-12">
-        <motion.div
-          whileHover={{ y: -5 }}
-          transition={{ duration: 0.2 }}
-          className="inline-block"
-        >
-          <Link 
-            href="/blog" 
-            className="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-colors duration-300"
-          >
-            View All Articles
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </motion.div>
-      </div>
-    </div>
-  </section>
-</AnimatedSection>
+          <section className="py-12 sm:py-16 md:py-20 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <SectionHeader label="BLOG" title="Read our Blog" />
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {blogPosts
+                  .filter((post) => post.featured)
+                  .slice(0, 3)
+                  .map((post, index) => (
+                    <BlogCard
+                      key={post.id}
+                      post={post}
+                      index={index}
+                      className={
+                        index === 2 ? "sm:col-span-2 lg:col-span-1" : ""
+                      }
+                    />
+                  ))}
+              </div>
+
+              {/* View All Button */}
+              <div className="text-center mt-12">
+                <motion.div
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.2 }}
+                  className="inline-block"
+                >
+                  <Link
+                    href="/blog"
+                    className="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-colors duration-300"
+                  >
+                    View All Articles
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+        </AnimatedSection>
         <AnimatedSection>
           <FinalCTA />
         </AnimatedSection>

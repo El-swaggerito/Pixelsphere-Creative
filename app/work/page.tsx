@@ -1,30 +1,30 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-import Header from "@/components/header"
-import HeroBackground from "@/components/hero-background"
-import SectionHeader from "@/components/section-header"
-import Footer from "@/components/footer"
-import FinalCTA from "@/components/final-cta"
-import WorkCTA from "@/components/work-cta"
-import PageTransition from "@/components/PageTransition"
-import AnimatedSection from "@/components/AnimatedSection"
-import { motion } from "framer-motion"
-import ProjectCard from "@/components/ProjectCard"
-import { projects } from "@/data/projects"
-import React from "react"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Header from "@/components/header";
+import HeroBackground from "@/components/hero-background";
+import SectionHeader from "@/components/section-header";
+import Footer from "@/components/footer";
+import FinalCTA from "@/components/final-cta";
+import WorkCTA from "@/components/work-cta";
+import PageTransition from "@/components/PageTransition";
+import AnimatedSection from "@/components/AnimatedSection";
+import { motion } from "framer-motion";
+import ProjectCard from "@/components/ProjectCard";
+import { projects } from "@/data/projects";
+import React from "react";
 
 export default function WorkPage() {
   const scrollToContactForm = () => {
-    const contactForm = document.getElementById("contact-form")
+    const contactForm = document.getElementById("contact-form");
     if (contactForm) {
-      contactForm.scrollIntoView({ behavior: "smooth" })
+      contactForm.scrollIntoView({ behavior: "smooth" });
     } else {
-      window.location.href = "/contact#contact-form"
+      window.location.href = "/contact#contact-form";
     }
-  }
+  };
 
   return (
     <PageTransition>
@@ -33,12 +33,40 @@ export default function WorkPage() {
         <section className="relative min-h-screen flex flex-col overflow-hidden">
           <HeroBackground>
             {/* Decorative vector line at top left */}
-            <div className="absolute top-8 left-8 z-10">
-              <svg width="120" height="60" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 50 Q 30 10, 60 30 T 110 20" stroke="rgba(255,255,255,0.2)" strokeWidth="2" fill="none" />
-                <path d="M5 40 Q 25 5, 55 25 T 105 15" stroke="rgba(255,255,255,0.1)" strokeWidth="1" fill="none" />
+            <motion.div
+              className="absolute top-4 left-4 sm:top-8 sm:left-8 z-10"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
+              <svg
+                width="80"
+                height="40"
+                viewBox="0 0 120 60"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="sm:w-[120px] sm:h-[60px]"
+              >
+                <motion.path
+                  d="M10 50 Q 30 10, 60 30 T 110 20"
+                  stroke="rgba(255,255,255,0.2)"
+                  strokeWidth="2"
+                  fill="none"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 2, ease: "easeInOut" }}
+                />
+                <motion.path
+                  d="M5 40 Q 25 5, 55 25 T 105 15"
+                  stroke="rgba(255,255,255,0.1)"
+                  strokeWidth="1"
+                  fill="none"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 2, delay: 0.5, ease: "easeInOut" }}
+                />
               </svg>
-            </div>
+            </motion.div>
 
             <Header currentPage="work" />
 
@@ -46,7 +74,7 @@ export default function WorkPage() {
             <div className="flex-1 flex items-center justify-center relative z-20 pt-32 px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-4xl mx-auto">
                 <motion.h1
-                  className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-8"
+                  className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-8 font-sora"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
@@ -59,9 +87,8 @@ export default function WorkPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  Crafting engaging brand experiences begins with innovative approach to design and development. Our
-                  portfolio showcases a diverse range of projects that reflect our commitment to delivering exceptional
-                  results for our clients.
+                  Crafting engaging brand experiences begins with innovative
+                  approach to design and development.
                 </motion.p>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
@@ -75,7 +102,10 @@ export default function WorkPage() {
                     className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-medium rounded-lg"
                   >
                     View Our Portfolio
-                    <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </motion.div>
                   </Button>
@@ -85,7 +115,7 @@ export default function WorkPage() {
 
             {/* Design Collection Images - Same as Home Page */}
             <motion.div
-              className="relative z-20 mt-auto"
+              className="relative z-20 -mt-16 sm:-mt-24" // Added negative margin
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.8 }}
@@ -107,7 +137,10 @@ export default function WorkPage() {
         <AnimatedSection>
           <section className="py-20 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <SectionHeader label="OUR PORTFOLIO" title="Brands That Perform, Connect, and Last" />
+              <SectionHeader
+                label="OUR PORTFOLIO"
+                title="Brands That Perform, Connect, and Last"
+              />
 
               {/* Filter Tabs */}
               <motion.div
@@ -147,7 +180,9 @@ export default function WorkPage() {
                 {projects.map((project, index) => (
                   <React.Fragment key={project.slug}>
                     <ProjectCard {...project} />
-                    {index < projects.length - 1 && <hr className="border-orange-200" />}
+                    {index < projects.length - 1 && (
+                      <hr className="border-orange-200" />
+                    )}
                   </React.Fragment>
                 ))}
               </div>
@@ -168,5 +203,5 @@ export default function WorkPage() {
         </AnimatedSection>
       </div>
     </PageTransition>
-  )
+  );
 }

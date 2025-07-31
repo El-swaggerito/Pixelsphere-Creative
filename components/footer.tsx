@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export default function Footer() {
   return (
@@ -14,10 +15,10 @@ export default function Footer() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              PixelSphere
+              <Image src="/images/company-logo.png" alt="" width={150} height={100} />
             </motion.div>
             <p className="text-blue-200 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-            Empowering businesses through tailored technology solutions that inspire connections and drive growth.
+            PixelSphere Creative – Your trusted partner for custom websites, smart branding, and digital growth strategies in Canada and beyond.
             </p>
             <div className="mb-6 sm:mb-8">
               <div className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Follow us</div>
@@ -70,40 +71,67 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Quick Links</h3>
+            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Our Services</h3>
             <ul className="space-y-2 sm:space-y-3 text-blue-200 text-sm sm:text-base">
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="/" className="hover:text-white transition-colors">
-                    Home
+                    Web Design & Development 
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="/about" className="hover:text-white transition-colors">
-                    About Us
+                    UI UX Design
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="/work" className="hover:text-white transition-colors">
-                    Portfolio
+                    Brand Identity
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="/blog" className="hover:text-white transition-colors">
+                    Graphics Design
+                  </Link>
+                </motion.div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Resources</h3>
+            <ul className="space-y-2 sm:space-y-3 text-blue-200 text-sm sm:text-base">
+              <li>
+                <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
+                  <Link href="#" className="hover:text-white transition-colors">
                     Blog
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="/contact" className="hover:text-white transition-colors">
-                    Contact
+                  <Link href="#" className="hover:text-white transition-colors">
+                    Portfolio
+                  </Link>
+                </motion.div>
+              </li>
+              <li>
+                <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
+                  <Link href="#" className="hover:text-white transition-colors">
+                    Case Study
+                  </Link>
+                </motion.div>
+              </li>
+              <li>
+                <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
+                  <Link href="#" className="hover:text-white transition-colors">
+                    FAQS
                   </Link>
                 </motion.div>
               </li>
@@ -111,67 +139,33 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Services</h3>
+            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Quick Links</h3>
             <ul className="space-y-2 sm:space-y-3 text-blue-200 text-sm sm:text-base">
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="#" className="hover:text-white transition-colors">
-                    Virtual Marketing
+                    Privacy Policy
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="#" className="hover:text-white transition-colors">
-                    Email Marketing
+                    Terms of Service
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="#" className="hover:text-white transition-colors">
-                    Keyword Analytics
+                    Careers
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="#" className="hover:text-white transition-colors">
-                    Career
-                  </Link>
-                </motion.div>
-              </li>
-              <li>
-                <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Blog Management
-                  </Link>
-                </motion.div>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Company</h3>
-            <ul className="space-y-2 sm:space-y-3 text-blue-200 text-sm sm:text-base">
-              <li>
-                <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Consumer
-                  </Link>
-                </motion.div>
-              </li>
-              <li>
-                <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Leadership
-                  </Link>
-                </motion.div>
-              </li>
-              <li>
-                <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Content Management
+                   Become a Partner
                   </Link>
                 </motion.div>
               </li>
@@ -181,7 +175,7 @@ export default function Footer() {
 
         <div className="border-t border-blue-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <p className="text-blue-200 text-sm sm:text-base text-center sm:text-left">
-            All rights reserved by © Besnik creative 2025
+            All rights reserved by © PixelSphere 2025
           </p>
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-8 text-blue-200 text-sm sm:text-base">
             <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>

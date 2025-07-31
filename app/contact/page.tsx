@@ -122,7 +122,7 @@ export default function ContactPage() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
                 >
-                  <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">Contact Us</h1>
+                  <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 font-sora">Contact Us</h1>
                   <p className="text-xl text-white/90 mb-8 leading-relaxed">
                     Welcome to the support portal! Search your answers with the search box, or if you're stuck you can
                     create a support ticket.

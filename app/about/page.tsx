@@ -26,7 +26,7 @@ export default function AboutPage() {
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">About PixelSphere</h1>
+                <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 font-sora">About PixelSphere</h1>
                 <p className="text-xl text-white/90 mb-8 leading-relaxed">
                   We are a team of passionate designers and developers dedicated to creating digital experiences that
                   move, resonate, and endure.

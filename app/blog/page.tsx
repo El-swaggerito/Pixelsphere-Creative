@@ -24,7 +24,7 @@ export default function BlogPage() {
         <AnimatedSection>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">Resources and insights</h1>
+          <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 font-sora">Resources and insights</h1>
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
             The latest industry news, interviews, technologies, and resources.
           </p>
