@@ -26,6 +26,7 @@ import React from "react";
 import ProjectCard from "@/components/ProjectCard";
 import { blogPosts } from "@/data/blogPosts";
 import BlogCard from "@/components/BlogCard";
+import NewsletterPopup from "@/components/newsletter-popup";
 
 export default function HomePage() {
   const navigateToContact = () => {
@@ -34,6 +35,7 @@ export default function HomePage() {
 
   return (
     <PageTransition>
+      <NewsletterPopup delayInSeconds={2} />
       <main className="pt-16 sm:pt-20">
         {/* Hero Section */}
         <section className="relative min-h-screen flex flex-col overflow-hidden">
@@ -129,18 +131,19 @@ export default function HomePage() {
 
             {/* Design Collection Images - Positioned at very bottom */}
             <motion.div
-              className="relative z-20 -mt-16 sm:-mt-24" // Added negative margin
+              className="relative z-20 -mt-16 sm:-mt-24 px-4 sm:px-0" // Added padding for mobile
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
             >
-              <div className="w-full">
+              <div className="w-full max-w-[90vw] sm:max-w-full mx-auto overflow-hidden rounded-lg sm:rounded-none">
                 <Image
                   src="/images/design-collection.png"
                   alt="Design and development showcase"
                   width={1500}
                   height={300}
-                  className="w-full h-auto"
+                  className="hidden sm:block w-full h-auto object-contain sm:object-cover"
+                  priority
                 />
               </div>
             </motion.div>
@@ -921,5 +924,5 @@ export default function HomePage() {
         </AnimatedSection>
       </main>
     </PageTransition>
-  );
+  )
 }

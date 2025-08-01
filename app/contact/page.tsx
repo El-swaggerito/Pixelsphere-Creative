@@ -35,7 +35,7 @@ function FAQItem({ question, answer, defaultOpen = false }: FAQItemProps) {
       transition={{ duration: 0.2 }}
     >
       <motion.button
-        className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+        className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
         onClick={() => setIsOpen(!isOpen)}
         whileTap={{ scale: 0.98 }}
       >

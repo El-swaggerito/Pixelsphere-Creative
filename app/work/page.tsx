@@ -115,18 +115,19 @@ export default function WorkPage() {
 
             {/* Design Collection Images - Same as Home Page */}
             <motion.div
-              className="relative z-20 -mt-16 sm:-mt-24" // Added negative margin
+              className="relative z-20 -mt-16 sm:-mt-24 px-4 sm:px-0" // Added padding for mobile
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.8 }}
             >
-              <div className="w-full">
+              <div className="w-full max-w-[90vw] sm:max-w-full mx-auto overflow-hidden rounded-lg sm:rounded-none">
                 <Image
                   src="/images/design-collection.png"
                   alt="Design and development showcase"
                   width={1500}
                   height={300}
-                  className="w-full h-auto"
+                  className="w-full h-auto object-contain sm:object-cover"
+                  priority
                 />
               </div>
             </motion.div>
@@ -150,7 +151,7 @@ export default function WorkPage() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div className="flex space-x-8">
+                <div className="flex flex-wrap justify-center gap-3">
                   <motion.button
                     className="bg-orange-500 text-white px-6 py-2 rounded-lg font-medium"
                     whileHover={{ scale: 1.05 }}

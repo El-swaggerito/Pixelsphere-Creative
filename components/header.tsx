@@ -185,25 +185,25 @@ export default function Header({ currentPage = "home", textColor = "white", back
       services: [
         { 
           name: "UI/UX Design", 
-          href: "/services/ux-design-strategy", 
+          href: "/services/ux-design-strategy",
           description: "User-friendly interface designs.",
           icon: Monitor
         },
         { 
           name: "Information Architecture", 
-          href: "/services/ux-design-strategy", 
+          href: "/services/ux-design-strategy",
           description: "Logical navigation for smooth user journeys.",
           icon: FolderTree
         },
         { 
           name: "Interaction Design", 
-          href: "/services/ux-design-strategy", 
+          href: "/services/ux-design-strategy",
           description: "Digital experiences through interactions.",
           icon: MousePointer
         },
         { 
           name: "Usability Testing", 
-          href: "/services/ux-design-strategy", 
+          href: "/services/ux-design-strategy",
           description: "Find and improve UX issues and improve results.",
           icon: TestTube
         },
@@ -216,25 +216,25 @@ export default function Header({ currentPage = "home", textColor = "white", back
       services: [
         { 
           name: "Software Application", 
-          href: "/services/digital-growth", 
+          href: "/services/digital-growth",
           description: "Custom-built applications that solve real-world problems.",
           icon: Database
         },
         { 
           name: "Mobile App Development", 
-          href: "/services/digital-growth", 
+          href: "/services/digital-growth",
           description: "Scalable mobile solutions tailored to user experience.",
           icon: Smartphone
         },
         { 
           name: "Brand Audit", 
-          href: "/services/digital-growth", 
+          href: "/services/digital-growth",
           description: "Comprehensive review of performance and health.",
           icon: Shield
         },
         { 
-          name: "SEO Optimization", 
-          href: "/services/digital-growth", 
+          name: "SEO Optimization",
+          href: "/services/digital-growth",
           description: "Rank higher on Google.",
           icon: Search
         },
@@ -281,7 +281,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6 lg:space-x-8" aria-label="Main navigation">
+          <nav className="hidden lg:flex space-x-6 lg:space-x-8" aria-label="Main navigation">
             <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
               <Link
                 href="/"
@@ -475,8 +475,8 @@ export default function Header({ currentPage = "home", textColor = "white", back
             </motion.div>
           </nav>
 
-          {/* Mobile toggles */}
-          <div className="md:hidden flex items-center space-x-2">
+          {/* Mobile/Tablet toggles - Changed from md:hidden to lg:hidden */}
+          <div className="lg:hidden flex items-center space-x-2">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200"
@@ -502,8 +502,8 @@ export default function Header({ currentPage = "home", textColor = "white", back
             </motion.button>
           </div>
 
-          {/* Desktop Contact */}
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="hidden md:block">
+          {/* Desktop Contact - Changed from md:block to lg:block */}
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="hidden lg:block">
             <Button
               className="bg-orange-500 hover:bg-orange-600 text-white px-4 lg:px-6 py-2 rounded-lg font-medium text-sm lg:text-base transition-all duration-200"
               onClick={navigateToContact}
@@ -513,12 +513,12 @@ export default function Header({ currentPage = "home", textColor = "white", back
           </motion.div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile/Tablet Navigation - Updated class from md:hidden to lg:hidden */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
               ref={mobileMenuRef}
-              className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t z-50"
+              className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t z-50 max-h-[80vh] overflow-y-auto"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
