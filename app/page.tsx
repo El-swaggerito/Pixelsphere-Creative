@@ -206,7 +206,7 @@ export default function HomePage() {
                     </span>
                   </motion.div>
                   <motion.h2
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight"
+                    className="text-4xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}

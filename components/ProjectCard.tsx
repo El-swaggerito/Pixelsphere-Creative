@@ -75,7 +75,6 @@ export default function ProjectCard({
 
         <div className="mb-4">
           <span className="text-sm text-gray-600">Category • {category}</span>
-          <span className="text-sm text-gray-600 ml-8">Time Taken • {timeTaken}</span>
         </div>
 
         <p className="text-gray-600 mb-6 leading-relaxed">{description}</p>

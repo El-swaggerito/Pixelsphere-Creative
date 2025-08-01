@@ -11,11 +11,10 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           <div className="sm:col-span-2 md:col-span-1">
             <motion.div
-              className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <Image src="/images/company-logo.png" alt="" width={150} height={100} />
+              <Image src="/images/footer-logo.png" alt="" width={120} height={100}/>
             </motion.div>
             <p className="text-blue-200 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
             PixelSphere Creative – Your trusted partner for custom websites, smart branding, and digital growth strategies in Canada and beyond.
