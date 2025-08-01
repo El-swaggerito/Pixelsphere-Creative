@@ -3,52 +3,59 @@ import SectionHeader from "@/components/section-header"
 import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
-import { Check, MessageCircle, Globe, Eye } from "lucide-react"
+import { Check, Globe, Code, Layers, Layout } from "lucide-react"
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
 
-export default function ConsultationAuditPage() {
+export default function CustomWebSolutionsPage() {
   const services = [
     {
-      icon: MessageCircle,
-      title: "Business Consultation",
-      description: "Strategic guidance to help your business grow and succeed in the digital landscape.",
-      features: ["Digital Strategy", "Business Analysis", "Growth Planning", "Technology Consulting"],
-    },
-    {
       icon: Globe,
-      title: "Website Audit",
-      description: "Comprehensive analysis of your website's performance, SEO, and user experience.",
-      features: ["Performance Analysis", "SEO Audit", "UX Review", "Technical Assessment"],
+      title: "Website Design",
+      description: "Modern websites tailored to your brand identity and business goals.",
+      features: ["Responsive Design", "User-Centered Approach", "Brand Integration", "Modern Aesthetics"],
     },
     {
-      icon: Eye,
-      title: "Brand Audit",
-      description: "Evaluate your brand's effectiveness and identify opportunities for improvement.",
-      features: ["Brand Analysis", "Market Position", "Competitive Review", "Improvement Strategy"],
+      icon: Code,
+      title: "Web Development",
+      description: "Fully responsive and functional websites built with the latest technologies.",
+      features: ["Modern Frameworks", "SEO Optimized", "Fast Loading", "Cross-Browser Compatible"],
+    },
+    {
+      icon: Layers,
+      title: "Mockups & Prototyping",
+      description: "Visual concepts and interactive prototypes before full development.",
+      features: ["Interactive Prototypes", "Visual Mockups", "User Flow Design", "Feedback Integration"],
+    },
+    {
+      icon: Layout,
+      title: "Website in-a-day",
+      description: "Launch-ready websites built in a single day for quick deployment.",
+      features: ["Same-Day Delivery", "Essential Features", "Mobile Responsive", "Content Integration"],
     },
   ]
 
   const process = [
     {
       step: "01",
-      title: "Initial Assessment",
-      description: "We conduct a thorough analysis of your current situation and identify key areas for improvement.",
+      title: "Discovery & Planning",
+      description:
+        "We analyze your requirements, target audience, and business goals to create a comprehensive strategy.",
     },
     {
       step: "02",
-      title: "Detailed Analysis",
-      description: "Deep dive into specific areas with comprehensive audits and data-driven insights.",
+      title: "Design & Wireframing",
+      description: "Our designers create wireframes and visual designs that align with your brand identity.",
     },
     {
       step: "03",
-      title: "Strategic Recommendations",
-      description: "Provide actionable recommendations and strategic guidance based on our findings.",
+      title: "Development & Testing",
+      description: "We build your website using modern technologies and conduct thorough testing across devices.",
     },
     {
       step: "04",
-      title: "Implementation Support",
-      description: "Ongoing support to help you implement recommendations and achieve your goals.",
+      title: "Launch & Support",
+      description: "We deploy your website and provide ongoing support to ensure optimal performance.",
     },
   ]
 
@@ -56,22 +63,22 @@ export default function ConsultationAuditPage() {
     <PageTransition>
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24 sm:pt-0">
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 pt-24 sm:pt-0">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[url('/images/isometric-grid-1.png')] bg-repeat opacity-20"></div>
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-orange-500/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-32 h-32 bg-blue-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-500"></div>
+        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-32 h-32 bg-blue-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-blue-300/20 rounded-full blur-xl animate-pulse delay-500"></div>
 
         <Header currentPage="services" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">Consultation & Audit</h1>
+          <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 font-sora">Custom Web Solutions</h1>
           <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Expert guidance and comprehensive audits to optimize your digital presence and business strategy.
+            Professional website design and development services that drive results and enhance your online presence.
           </p>
         </div>
       </section>
@@ -81,17 +88,17 @@ export default function ConsultationAuditPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="CONSULTATION & AUDIT"
-            title="Expert Analysis & Strategic Guidance"
-            description="Get professional insights and actionable recommendations to improve your digital presence."
+            label="WEB SOLUTIONS"
+            title="Complete Web Services"
+            description="From design to development, we provide comprehensive website services tailored to your needs."
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
-                    <service.icon className="w-6 h-6 text-green-600" />
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                    <service.icon className="w-6 h-6 text-blue-600" />
                   </div>
                   <h3 className="text-2xl font-semibold text-gray-900">{service.title}</h3>
                 </div>
@@ -117,14 +124,14 @@ export default function ConsultationAuditPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             label="OUR PROCESS"
-            title="How We Analyze & Advise"
-            description="Our systematic approach ensures comprehensive analysis and actionable recommendations."
+            title="How We Build Your Website"
+            description="Our proven process ensures your website is delivered on time and exceeds expectations."
           />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {process.map((step, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-lg">{step.step}</span>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{step.title}</h3>
@@ -138,9 +145,9 @@ export default function ConsultationAuditPage() {
 
       <AnimatedSection>
       <CTASection
-        title="Ready for Expert Analysis?"
-        description="Get professional insights that will help you make informed decisions and drive growth."
-        buttonText="Schedule Consultation"
+        title="Ready to Build Your Website?"
+        description="Let's create a website that drives results for your business."
+        buttonText="Get Started"
         backgroundImage="/images/cta-bg.png"
       />
       </AnimatedSection>

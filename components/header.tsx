@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, Menu, X } from "lucide-react"
+import { ChevronDown, Menu, X, BarChart, Palette, Layout, LineChart, Smartphone, Globe, Code, Layers, PenTool, FileImage, FileText, Megaphone, Monitor, FolderTree, MousePointer, TestTube, Database, Phone, Shield, Search } from "lucide-react"
 import { useState, useRef, useEffect, useCallback } from "react"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
@@ -86,65 +86,158 @@ export default function Header({ currentPage = "home", textColor = "white", back
 
   const serviceCategories = [
     {
-      title: "Website",
-      href: "/services/website",
+      title: "CUSTOM WEB SOLUTIONS",
+      href: "/services/custom-web-solutions",
       color: "blue",
       services: [
-        { name: "Website Design", href: "/services/website-design" },
-        { name: "Website Development", href: "/services/website-development" },
-        { name: "Mock Ups", href: "/services/mock-ups" },
-        { name: "Prototyping", href: "/services/prototyping" },
-        { name: "and more support", href: "/services/website-support" },
+        { 
+          name: "Website Design", 
+          href: "/services/custom-web-solutions", 
+          description: "Modern websites tailored to your brand.",
+          icon: Globe
+        },
+        { 
+          name: "Web Development", 
+          href: "/services/custom-web-solutions", 
+          description: "Fully responsive and functional websites.",
+          icon: Code
+        },
+        { 
+          name: "Mockups & Prototyping", 
+          href: "/services/custom-web-solutions", 
+          description: "Visual concepts before full development.",
+          icon: Layers
+        },
+        { 
+          name: "Website in-a-day", 
+          href: "/services/custom-web-solutions", 
+          description: "Launch-ready websites built in a day.",
+          icon: Layout
+        },
       ],
     },
     {
-      title: "Branding",
-      href: "/services/branding",
-      color: "orange",
-      services: [
-        { name: "Research & Strategy", href: "/services/research-strategy" },
-        { name: "Visual Identity", href: "/services/visual-identity" },
-        { name: "Visual Assets", href: "/services/visual-assets" },
-        { name: "Brand Identity", href: "/services/brand-identity" },
-        { name: "Brand Story", href: "/services/brand-story" },
-        { name: "and more support", href: "/services/branding-support" },
-      ],
-    },
-    {
-      title: "UI UX",
-      href: "/services/ui-ux",
+      title: "BRANDING & IDENTITY",
+      href: "/services/branding-identity",
       color: "blue",
       services: [
-        { name: "User Research", href: "/services/user-research" },
-        { name: "Information Architecture", href: "/services/information-architecture" },
-        { name: "Interaction Design", href: "/services/interaction-design" },
-        { name: "Prototyping", href: "/services/ux-prototyping" },
-        { name: "Usability Testing", href: "/services/usability-testing" },
-        { name: "and more support", href: "/services/ux-support" },
+        { 
+          name: "Brand Strategy", 
+          href: "/services/branding-identity", 
+          description: "Discover and position your brand for growth.",
+          icon: BarChart
+        },
+        { 
+          name: "Visual Assets & Identity", 
+          href: "/services/branding-identity", 
+          description: "Everything that visually defines your brand.",
+          icon: PenTool
+        },
+        { 
+          name: "Brand Identity", 
+          href: "/services/branding-identity", 
+          description: "A full visual identity system that tells your story.",
+          icon: Palette
+        },
+        { 
+          name: "Brand Story", 
+          href: "/services/branding-identity", 
+          description: "Crafting your brand's values, purpose, and personality.",
+          icon: FileText
+        },
       ],
     },
     {
-      title: "Consultation & Audit",
-      href: "/services/consultation-audit",
-      color: "green",
+      title: "GRAPHIC DESIGN",
+      href: "/services/graphic-design",
+      color: "blue",
       services: [
-        { name: "Business Consultation", href: "/services/business-consultation" },
-        { name: "Website Audit", href: "/services/website-audit" },
-        { name: "Brand Audit", href: "/services/brand-audit" },
-        { name: "and more support", href: "/services/consultation-support" },
+        { 
+          name: "Visual Assets", 
+          href: "/services/graphic-design", 
+          description: "Effectively communicating your findings.",
+          icon: FileImage
+        },
+        { 
+          name: "Branding Collaterals", 
+          href: "/services/graphic-design", 
+          description: "Social media kits tailored to your brand.",
+          icon: PenTool
+        },
+        { 
+          name: "Graphic Templates", 
+          href: "/services/graphic-design", 
+          description: "Custom designs for visual communication.",
+          icon: Layers
+        },
+        { 
+          name: "Promotional Design", 
+          href: "/services/graphic-design", 
+          description: "Flyers, banners, posters, and promo materials.",
+          icon: Megaphone
+        },
       ],
     },
     {
-      title: "SEO",
-      href: "/services/seo",
-      color: "purple",
+      title: "UX DESIGN & STRATEGY",
+      href: "/services/ux-design-strategy",
+      color: "blue",
       services: [
-        { name: "Technical SEO", href: "/services/technical-seo" },
-        { name: "On-Page SEO", href: "/services/on-page-seo" },
-        { name: "Off-Page SEO", href: "/services/off-page-seo" },
-        { name: "Content SEO", href: "/services/content-seo" },
-        { name: "Local SEO", href: "/services/local-seo" },
-        { name: "and more", href: "/services/seo-support" },
+        { 
+          name: "UI/UX Design", 
+          href: "/services/ux-design-strategy", 
+          description: "User-friendly interface designs.",
+          icon: Monitor
+        },
+        { 
+          name: "Information Architecture", 
+          href: "/services/ux-design-strategy", 
+          description: "Logical navigation for smooth user journeys.",
+          icon: FolderTree
+        },
+        { 
+          name: "Interaction Design", 
+          href: "/services/ux-design-strategy", 
+          description: "Digital experiences through interactions.",
+          icon: MousePointer
+        },
+        { 
+          name: "Usability Testing", 
+          href: "/services/ux-design-strategy", 
+          description: "Find and improve UX issues and improve results.",
+          icon: TestTube
+        },
+      ],
+    },
+    {
+      title: "DIGITAL GROWTH & FUTURE OFFERINGS",
+      href: "/services/digital-growth",
+      color: "blue",
+      services: [
+        { 
+          name: "Software Application", 
+          href: "/services/digital-growth", 
+          description: "Custom-built applications that solve real-world problems.",
+          icon: Database
+        },
+        { 
+          name: "Mobile App Development", 
+          href: "/services/digital-growth", 
+          description: "Scalable mobile solutions tailored to user experience.",
+          icon: Smartphone
+        },
+        { 
+          name: "Brand Audit", 
+          href: "/services/digital-growth", 
+          description: "Comprehensive review of performance and health.",
+          icon: Shield
+        },
+        { 
+          name: "SEO Optimization", 
+          href: "/services/digital-growth", 
+          description: "Rank higher on Google.",
+          icon: Search
+        },
       ],
     },
   ]
@@ -258,127 +351,45 @@ export default function Header({ currentPage = "home", textColor = "white", back
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -20, scale: 0.95 }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
-                      className="fixed left-0 right-0 top-[64px] sm:top-[80px] w-screen min-h-screen max-w-none rounded-b-xl border-t border-orange-600 z-50 p-4 sm:p-8"
-                      style={{
-                        background: `
-                          radial-gradient(circle at 15% 40%, rgba(255, 115, 0, 0.15) 0%, transparent 60%),
-                          radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                          radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 55%),
-                          linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 35%, #2563eb 60%, #3b82f6 85%, #60a5fa 100%)
-                        `,
-                        backdropFilter: "blur(10px)",
-                        WebkitBackdropFilter: "blur(10px)",
-                      }}
+                      className="fixed left-0 right-0 top-[64px] sm:top-[80px] w-screen bg-white text-gray-800 border-t border-gray-200 z-50 shadow-xl"
                       role="menu"
                       aria-label="Services submenu"
                       tabIndex={-1}
                     >
-                      <div className="max-w-7xl mx-auto">
-                        <motion.div
-                          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-4 sm:gap-x-8 gap-y-6 w-full min-w-0"
-                          initial="hidden"
-                          animate="visible"
-                          variants={{
-                            hidden: { opacity: 0 },
-                            visible: {
-                              opacity: 1,
-                              transition: {
-                                staggerChildren: 0.1,
-                                delayChildren: 0.1,
-                              },
-                            },
-                          }}
-                        >
-                          {serviceCategories.map((category, index) => (
-                            <motion.div
-                              key={category.title}
-                              className="space-y-4 sm:space-y-6 px-3 sm:px-6 min-w-0 w-full overflow-visible"
-                              variants={{
-                                hidden: { opacity: 0, y: 20 },
-                                visible: {
-                                  opacity: 1,
-                                  y: 0,
-                                  transition: { duration: 0.4, ease: "easeOut" },
-                                },
-                              }}
-                            >
-                              <motion.div whileHover={{ scale: 1.02, x: 5 }} transition={{ duration: 0.2 }}>
-                                <Link
-                                  href={category.href}
-                                  className="flex items-center space-x-2 sm:space-x-3 group whitespace-normal break-words text-sm sm:text-base font-semibold text-white"
-                                  tabIndex={0}
-                                  onClick={() => setIsDesktopServicesOpen(false)}
-                                >
-                                  <motion.div
-                                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${
-                                      category.color === "blue"
-                                        ? "bg-blue-300"
-                                        : category.color === "orange"
-                                          ? "bg-orange-200"
-                                          : category.color === "green"
-                                            ? "bg-green-200"
-                                            : category.color === "purple"
-                                              ? "bg-purple-200"
-                                              : "bg-white/70"
-                                    }`}
-                                    whileHover={{ scale: 1.3, rotate: 360 }}
-                                    transition={{ duration: 0.3 }}
-                                  />
-                                  <h3 className="font-semibold text-base sm:text-lg group-hover:text-blue-900 transition-colors whitespace-normal break-words text-white">
-                                    {category.title}
-                                  </h3>
-                                </Link>
-                              </motion.div>
-                              <motion.div
-                                className="space-y-2 sm:space-y-3"
-                                initial="hidden"
-                                animate="visible"
-                                variants={{
-                                  hidden: { opacity: 0 },
-                                  visible: {
-                                    opacity: 1,
-                                    transition: {
-                                      staggerChildren: 0.05,
-                                      delayChildren: 0.2,
-                                    },
-                                  },
-                                }}
-                              >
-                                {category.services.map((service) => (
-                                  <motion.div
-                                    key={service.name}
-                                    variants={{
-                                      hidden: { opacity: 0, x: -10 },
-                                      visible: {
-                                        opacity: 1,
-                                        x: 0,
-                                        transition: { duration: 0.3 },
-                                      },
-                                    }}
-                                    whileHover={{ x: 5, scale: 1.02 }}
-                                    transition={{ duration: 0.2 }}
-                                  >
-                                    <Link
-                                      href={service.href}
-                                      className="block text-white/90 hover:text-blue-900 transition-colors text-xs sm:text-sm pl-4 sm:pl-6 whitespace-normal break-words"
-                                      tabIndex={0}
-                                      onClick={() => setIsDesktopServicesOpen(false)}
-                                    >
-                                      <motion.span
-                                        className="inline-block mr-2"
-                                        whileHover={{ rotate: 360, scale: 1.2 }}
-                                        transition={{ duration: 0.3 }}
+                      <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+                        <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+                          {serviceCategories.map((category) => (
+                            <div key={category.title} className="space-y-6">
+                              <h3 className="text-sm font-semibold text-gray-500 tracking-wider">{category.title}</h3>
+                              <ul className="space-y-5">
+                                {category.services.map((service) => {
+                                  const Icon = service.icon;
+                                  return (
+                                    <li key={service.name}>
+                                      <Link 
+                                        href={service.href}
+                                        className="group flex items-start"
+                                        onClick={() => setIsDesktopServicesOpen(false)}
                                       >
-                                        ✦
-                                      </motion.span>
-                                      {service.name}
-                                    </Link>
-                                  </motion.div>
-                                ))}
-                              </motion.div>
-                            </motion.div>
+                                        <div className="flex-shrink-0 h-6 w-6 text-gray-500 group-hover:text-blue-600">
+                                          <Icon size={20} />
+                                        </div>
+                                        <div className="ml-3">
+                                          <p className="text-base font-medium text-gray-900 group-hover:text-blue-600">
+                                            {service.name}
+                                          </p>
+                                          <p className="mt-1 text-sm text-gray-500 group-hover:text-gray-600">
+                                            {service.description}
+                                          </p>
+                                        </div>
+                                      </Link>
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            </div>
                           ))}
-                        </motion.div>
+                        </div>
                       </div>
                     </motion.div>
                   </>
@@ -386,6 +397,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
               </AnimatePresence>
             </div>
 
+            {/* Rest of the navigation remains the same */}
             <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
               <Link
                 href="/about"

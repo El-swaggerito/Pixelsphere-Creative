@@ -3,64 +3,59 @@ import SectionHeader from "@/components/section-header"
 import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
-import { Check, Search, Eye, Palette, BookOpen, Target } from "lucide-react"
+import { Check, BarChart, PenTool, Palette, FileText } from "lucide-react"
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
 
-export default function BrandingServicesPage() {
+export default function BrandingIdentityPage() {
   const services = [
     {
-      icon: Search,
-      title: "Research & Strategy",
-      description: "In-depth market research and strategic planning to position your brand effectively.",
-      features: ["Market Analysis", "Competitor Research", "Brand Positioning", "Strategic Planning"],
+      icon: BarChart,
+      title: "Brand Strategy",
+      description: "Discover and position your brand for growth in your market.",
+      features: ["Market Research", "Brand Positioning", "Competitive Analysis", "Target Audience Definition"],
     },
     {
-      icon: Eye,
-      title: "Visual Identity",
-      description: "Create a cohesive visual identity that represents your brand across all touchpoints.",
-      features: ["Logo Design", "Color Palette", "Typography", "Visual Guidelines"],
+      icon: PenTool,
+      title: "Visual Assets & Identity",
+      description: "Everything that visually defines your brand across all touchpoints.",
+      features: ["Logo Design", "Color Palette", "Typography", "Visual Elements"],
     },
     {
       icon: Palette,
-      title: "Visual Assets",
-      description: "Comprehensive visual assets that maintain consistency across your brand.",
-      features: ["Marketing Materials", "Digital Assets", "Print Collateral", "Brand Templates"],
-    },
-    {
-      icon: BookOpen,
       title: "Brand Identity",
-      description: "Develop a complete brand identity that resonates with your target audience.",
-      features: ["Brand Voice", "Messaging Framework", "Brand Personality", "Value Proposition"],
+      description: "A full visual identity system that tells your unique story.",
+      features: ["Logo Design", "Brand Guidelines", "Visual Language", "Brand Applications"],
     },
     {
-      icon: Target,
+      icon: FileText,
       title: "Brand Story",
-      description: "Craft compelling brand narratives that connect emotionally with your audience.",
-      features: ["Brand Narrative", "Content Strategy", "Storytelling", "Brand Messaging"],
+      description: "Crafting your brand's values, purpose, and personality effectively.",
+      features: ["Brand Narrative", "Mission & Vision", "Value Proposition", "Brand Voice"],
     },
   ]
 
   const process = [
     {
       step: "01",
-      title: "Brand Discovery",
-      description: "We dive deep into your business, values, and target audience to understand your brand essence.",
+      title: "Discovery & Research",
+      description:
+        "We analyze your market, competitors, and audience to understand your brand's position.",
     },
     {
       step: "02",
       title: "Strategy Development",
-      description: "Create a comprehensive brand strategy that aligns with your business goals and market position.",
+      description: "We create a comprehensive brand strategy that aligns with your business goals.",
     },
     {
       step: "03",
-      title: "Visual Creation",
-      description: "Design your visual identity including logo, colors, typography, and brand guidelines.",
+      title: "Design & Creation",
+      description: "Our designers develop visual elements that bring your brand identity to life.",
     },
     {
       step: "04",
-      title: "Implementation",
-      description: "Apply your new brand across all touchpoints and provide guidelines for consistent usage.",
+      title: "Implementation & Guidelines",
+      description: "We provide guidelines and assets to ensure consistent brand application.",
     },
   ]
 
@@ -68,7 +63,7 @@ export default function BrandingServicesPage() {
     <PageTransition>
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24 sm:pt-0">
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 pt-24 sm:pt-0">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[url('/images/isometric-grid-1.png')] bg-repeat opacity-20"></div>
@@ -76,36 +71,36 @@ export default function BrandingServicesPage() {
 
         {/* Floating Elements */}
         <div className="absolute top-20 left-10 w-20 h-20 bg-orange-500/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-32 h-32 bg-blue-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-500"></div>
+        <div className="absolute top-40 right-20 w-32 h-32 bg-orange-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-orange-300/20 rounded-full blur-xl animate-pulse delay-500"></div>
 
         <Header currentPage="services" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">Branding Services</h1>
+          <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 font-sora">Branding & Identity</h1>
           <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Build a powerful brand identity that resonates with your audience and drives business growth.
+            Strategic brand development services that create memorable identities and drive business growth.
           </p>
         </div>
       </section>
 
       {/* Services Grid */}
-        <AnimatedSection>
+      <AnimatedSection>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             label="BRANDING SERVICES"
             title="Complete Brand Solutions"
-            description="From strategy to execution, we help you build a brand that stands out in the marketplace."
+            description="From strategy to visual identity, we provide comprehensive branding services tailored to your business."
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
                     <service.icon className="w-6 h-6 text-orange-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900">{service.title}</h3>
                 </div>
                 <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
                 <ul className="space-y-3">
@@ -121,16 +116,16 @@ export default function BrandingServicesPage() {
           </div>
         </div>
       </section>
-        </AnimatedSection>
+      </AnimatedSection>
 
       {/* Process Section */}
-        <AnimatedSection>
+      <AnimatedSection>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             label="OUR PROCESS"
             title="How We Build Your Brand"
-            description="Our systematic approach ensures your brand is authentic, memorable, and effective."
+            description="Our proven process ensures your brand identity is strategic, memorable, and effective."
           />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -146,22 +141,22 @@ export default function BrandingServicesPage() {
           </div>
         </div>
       </section>
-        </AnimatedSection>
+      </AnimatedSection>
 
-        <AnimatedSection>
+      <AnimatedSection>
       <CTASection
         title="Ready to Build Your Brand?"
-        description="Let's create a brand identity that sets you apart from the competition."
-        buttonText="Start Your Brand Journey"
+        description="Let's create a brand identity that resonates with your audience and drives business growth."
+        buttonText="Get Started"
         backgroundImage="/images/cta-bg.png"
       />
-        </AnimatedSection>
-        <AnimatedSection>
+      </AnimatedSection>
+      <AnimatedSection>
       <FinalCTA />
-        </AnimatedSection>
-        <AnimatedSection>
+      </AnimatedSection>
+      <AnimatedSection>
       <Footer />
-        </AnimatedSection>
+      </AnimatedSection>
     </div>
     </PageTransition>
   )

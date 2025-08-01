@@ -74,28 +74,28 @@ export default function Footer() {
             <ul className="space-y-2 sm:space-y-3 text-blue-200 text-sm sm:text-base">
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="/" className="hover:text-white transition-colors">
+                  <Link href="/services/custom-web-solutions" className="hover:text-white transition-colors">
                     Web Design & Development 
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="/about" className="hover:text-white transition-colors">
+                  <Link href="/services/ux-design-strategy" className="hover:text-white transition-colors">
                     UI UX Design
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="/work" className="hover:text-white transition-colors">
+                  <Link href="/services/branding-identity" className="hover:text-white transition-colors">
                     Brand Identity
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="/blog" className="hover:text-white transition-colors">
+                  <Link href="/services/graphic-design" className="hover:text-white transition-colors">
                     Graphics Design
                   </Link>
                 </motion.div>
@@ -108,14 +108,14 @@ export default function Footer() {
             <ul className="space-y-2 sm:space-y-3 text-blue-200 text-sm sm:text-base">
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/blog" className="hover:text-white transition-colors">
                     Blog
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/work" className="hover:text-white transition-colors">
                     Portfolio
                   </Link>
                 </motion.div>

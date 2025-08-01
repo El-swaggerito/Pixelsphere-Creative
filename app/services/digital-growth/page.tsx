@@ -3,64 +3,59 @@ import SectionHeader from "@/components/section-header"
 import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
-import { Check, Search, FileText, Link, BarChart, MapPin } from "lucide-react"
+import { Check, Database, Smartphone, Shield, Search } from "lucide-react"
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
 
-export default function SEOServicesPage() {
+export default function DigitalGrowthPage() {
   const services = [
     {
+      icon: Database,
+      title: "Software Application",
+      description: "Custom-built applications that solve real-world problems for your business.",
+      features: ["Custom Development", "Scalable Architecture", "Integration Capabilities", "Ongoing Support"],
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile App Development",
+      description: "Scalable mobile solutions tailored to enhance user experience and business goals.",
+      features: ["iOS & Android Apps", "Cross-Platform Development", "User-Centered Design", "Performance Optimization"],
+    },
+    {
+      icon: Shield,
+      title: "Brand Audit",
+      description: "Comprehensive review of brand performance, consistency, and overall health.",
+      features: ["Brand Assessment", "Competitive Analysis", "Audience Perception", "Improvement Recommendations"],
+    },
+    {
       icon: Search,
-      title: "Technical SEO",
-      description: "Optimize your website's technical foundation for better search engine visibility.",
-      features: ["Site Speed Optimization", "Mobile Optimization", "Schema Markup", "Technical Audits"],
-    },
-    {
-      icon: FileText,
-      title: "On-Page SEO",
-      description: "Optimize individual pages to rank higher and earn more relevant traffic.",
-      features: ["Keyword Optimization", "Content Optimization", "Meta Tags", "Internal Linking"],
-    },
-    {
-      icon: Link,
-      title: "Off-Page SEO",
-      description: "Build authority and trust through strategic link building and external signals.",
-      features: ["Link Building", "Brand Mentions", "Social Signals", "Authority Building"],
-    },
-    {
-      icon: BarChart,
-      title: "Content SEO",
-      description: "Create and optimize content that ranks well and engages your audience.",
-      features: ["Content Strategy", "Keyword Research", "Content Creation", "Content Optimization"],
-    },
-    {
-      icon: MapPin,
-      title: "Local SEO",
-      description: "Optimize your online presence for local search results and map listings.",
-      features: ["Google My Business", "Local Citations", "Review Management", "Local Content"],
+      title: "SEO Optimization",
+      description: "Strategies to improve your search engine ranking and drive organic traffic.",
+      features: ["Keyword Research", "On-Page Optimization", "Technical SEO", "Performance Tracking"],
     },
   ]
 
   const process = [
     {
       step: "01",
-      title: "SEO Audit",
-      description: "Comprehensive analysis of your current SEO performance and identification of opportunities.",
+      title: "Analysis & Strategy",
+      description:
+        "We analyze your current digital presence and develop a growth strategy aligned with your goals.",
     },
     {
       step: "02",
-      title: "Strategy Development",
-      description: "Create a customized SEO strategy based on your business goals and target audience.",
+      title: "Solution Development",
+      description: "Our team develops custom digital solutions tailored to your specific needs.",
     },
     {
       step: "03",
-      title: "Implementation",
-      description: "Execute SEO improvements across technical, on-page, and off-page factors.",
+      title: "Implementation & Testing",
+      description: "We implement the solutions and conduct thorough testing to ensure optimal performance.",
     },
     {
       step: "04",
       title: "Monitoring & Optimization",
-      description: "Continuous monitoring and optimization to maintain and improve search rankings.",
+      description: "We continuously monitor performance and optimize for improved results.",
     },
   ]
 
@@ -68,22 +63,22 @@ export default function SEOServicesPage() {
     <PageTransition>
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24 sm:pt-0">
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 pt-24 sm:pt-0">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[url('/images/isometric-grid-1.png')] bg-repeat opacity-20"></div>
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-orange-500/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-32 h-32 bg-blue-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-500"></div>
+        <div className="absolute top-20 left-10 w-20 h-20 bg-purple-500/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-32 h-32 bg-purple-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-purple-300/20 rounded-full blur-xl animate-pulse delay-500"></div>
 
         <Header currentPage="services" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">SEO Services</h1>
+          <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 font-sora">Digital Growth & Future Offerings</h1>
           <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Improve your search engine rankings and drive more organic traffic to your website.
+            Advanced digital solutions to accelerate your business growth and prepare for future opportunities.
           </p>
         </div>
       </section>
@@ -93,19 +88,19 @@ export default function SEOServicesPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            label="SEO SERVICES"
-            title="Complete SEO Solutions"
-            description="Comprehensive SEO services to improve your search visibility and drive qualified traffic."
+            label="GROWTH SERVICES"
+            title="Digital Growth Solutions"
+            description="From custom applications to SEO optimization, we provide comprehensive services to accelerate your digital growth."
           />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
                     <service.icon className="w-6 h-6 text-purple-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
+                  <h3 className="text-2xl font-semibold text-gray-900">{service.title}</h3>
                 </div>
                 <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
                 <ul className="space-y-3">
@@ -129,8 +124,8 @@ export default function SEOServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             label="OUR PROCESS"
-            title="How We Improve Your SEO"
-            description="Our data-driven approach ensures sustainable improvements in search rankings."
+            title="How We Drive Digital Growth"
+            description="Our strategic process ensures digital solutions that drive measurable growth and prepare your business for the future."
           />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -150,9 +145,9 @@ export default function SEOServicesPage() {
 
       <AnimatedSection>
       <CTASection
-        title="Ready to Improve Your Search Rankings?"
-        description="Let's help you get found by more customers through effective SEO strategies."
-        buttonText="Start SEO Project"
+        title="Ready to Accelerate Your Digital Growth?"
+        description="Let's create digital solutions that drive measurable results and prepare your business for the future."
+        buttonText="Get Started"
         backgroundImage="/images/cta-bg.png"
       />
       </AnimatedSection>
