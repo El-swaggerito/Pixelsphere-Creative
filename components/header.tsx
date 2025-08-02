@@ -275,7 +275,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
                 href="/"
                 className={`text-xl sm:text-2xl font-bold ${textColor === "black" ? "text-gray-900" : "text-white"}`}
               >
-               <Image src="/images/company-logo.png" alt="Pixelsphere Creatives Logo" width={250} height={200} className="relative"/>
+               <Image src="/images/footer-logo.png" alt="Pixelsphere Creatives Logo" width={150} height={100} className="relative"/>
               </Link>
             </motion.div>
           </div>

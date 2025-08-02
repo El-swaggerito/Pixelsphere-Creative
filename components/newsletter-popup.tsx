@@ -55,7 +55,7 @@ export default function NewsletterPopup({ delayInSeconds = 2 }: NewsletterPopupP
           
           <div className="flex flex-col items-center text-center">
             {/* Envelope icon with notification badge */}
-            <div className="relative w-auto h-12 mb-32 sm:h-16 sm:mb-6">
+            <div className="relative w-full h-12 mb-52">
               <Image 
                 src="/images/newsletter-icon.png" 
                 alt="Newsletter"
