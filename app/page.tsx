@@ -111,27 +111,28 @@ export default function HomePage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Button
-                    size="lg"
-                    className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium rounded-lg w-full sm:w-auto"
-                    onClick={navigateToContact}
-                  >
-                    Let's Work Together
+                  
                     <motion.div
                       className="ml-2"
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
                     >
+                      <Button
+                    size="lg"
+                    className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium rounded-lg w-full sm:w-auto"
+                    onClick={navigateToContact}
+                  >
+                    Let's Work Together
                       <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
-                    </motion.div>
                   </Button>
+                    </motion.div>
                 </motion.div>
               </div>
             </div>
 
             {/* Design Collection Images - Positioned at very bottom */}
             <motion.div
-              className="relative z-20 -mt-16 sm:-mt-24 px-4 sm:px-0" // Added padding for mobile
+              className="relative z-20 -mt-16 sm:-mt-24 px-4 sm:px-0 -mb-32" // Added padding for mobile
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
@@ -151,7 +152,7 @@ export default function HomePage() {
         </section>
         {/* Who We Are Section */}
         <AnimatedSection>
-          <section className="py-12 sm:py-16 md:py-20 bg-white relative overflow-hidden">
+          <section className="py-6 sm:py-8 md:py-12 bg-white relative overflow-hidden">
             {/* Decorative dots pattern */}
             <motion.div
               className="absolute top-6 left-6 sm:top-12 sm:left-12 opacity-20"

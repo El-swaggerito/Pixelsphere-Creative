@@ -9,7 +9,7 @@ interface HeroBackgroundProps {
 
 export default function HeroBackground({ children, className }: HeroBackgroundProps) {
   return (
-    <div className="relative min-h-screen w-full bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 overflow-hidden">
+    <div className="relative min-h-screen w-full bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 overflow-hidden -mb-8 sm:-mb-12"> {/* Added negative bottom margin */}
       {/* Animated gradient overlay */}
       <motion.div
         className="absolute inset-0 opacity-30"
@@ -25,31 +25,39 @@ export default function HeroBackground({ children, className }: HeroBackgroundPr
         transition={{ duration: 1.5 }}
       />
 
-      {/* Animated particles */}
+      {/* Animated particles - Responsive sizing */}
       <div className="absolute inset-0 overflow-hidden">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-white opacity-20"
-            style={{
-              width: Math.random() * 6 + 2,
-              height: Math.random() * 6 + 2,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, Math.random() * -100 - 50],
-              x: [0, (Math.random() - 0.5) * 50],
-              opacity: [0.2, 0],
-            }}
-            transition={{
-              duration: Math.random() * 5 + 5,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-              delay: Math.random() * 5,
-            }}
-          />
-        ))}
+        {Array.from({ length: 20 }).map((_, i) => {
+          // Responsive particle sizes
+          const baseSize = Math.random() * 4 + 1; // 1-5px for mobile
+          const tabletSize = Math.random() * 5 + 1.5; // 1.5-6.5px for tablet
+          const desktopSize = Math.random() * 6 + 2; // 2-8px for desktop
+          
+          return (
+            <motion.div
+              key={i}
+              className="absolute rounded-full bg-white opacity-20"
+              style={{
+                // Use CSS custom properties for responsive sizing
+                width: `clamp(${baseSize}px, ${tabletSize}px, ${desktopSize}px)`,
+                height: `clamp(${baseSize}px, ${tabletSize}px, ${desktopSize}px)`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, Math.random() * -100 - 50],
+                x: [0, (Math.random() - 0.5) * 50],
+                opacity: [0.2, 0],
+              }}
+              transition={{
+                duration: Math.random() * 5 + 5,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "linear",
+                delay: Math.random() * 5,
+              }}
+            />
+          )
+        })}
       </div>
 
       {/* Animated wave patterns */}
