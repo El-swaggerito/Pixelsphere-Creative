@@ -132,7 +132,7 @@ export default function HomePage() {
 
             {/* Design Collection Images - Positioned at very bottom */}
             <motion.div
-              className="relative z-20 -mt-16 sm:-mt-24 px-4 sm:px-0 -mb-32" // Added padding for mobile
+              className="relative z-20 -mt-16 sm:-mt-24 px-4 sm:px-0" // Added padding for mobile
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
