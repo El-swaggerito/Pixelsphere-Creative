@@ -108,13 +108,13 @@ export default function ContactPage() {
 
   return (
     <PageTransition>
-      <main className="lg:pt-20 sm:pt-0">
+      <main className="lg:pt-12">
         {/* Hero Section with Contact Image */}
         <section className="relative min-h-[80vh] flex items-center overflow-hidden">
-          <HeroBackground>
+          <HeroBackground className="-mb-28">
             <Header currentPage="contact" />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative z-10 max-w-7xl mx-auto pt-10 px-4 sm:px-6 lg:px-8">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left Content */}
                 <motion.div
@@ -150,7 +150,7 @@ export default function ContactPage() {
                       src="/images/contact-hero-woman.png"
                       alt="Customer support representative"
                       width={600}
-                      height={600}
+                      height={800}
                       className="w-full h-auto"
                     />
                   </div>
