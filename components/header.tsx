@@ -276,9 +276,9 @@ export default function Header({ currentPage = "home", textColor = "white", back
                 className={`text-xl sm:text-2xl font-bold ${textColor === "black" ? "text-gray-900" : "text-white"}`}
               >
                <Image 
-                 src={currentPage === "blog" ? "/images/company-logo.png" : "/images/footer-logo.png"} 
+                 src={(currentPage === "blog" || (currentPage === "work" && background === "white")) ? "/images/company-logo.png" : "/images/footer-logo.png"} 
                  alt="Pixelsphere Creatives Logo" 
-                 width={currentPage === "blog" ? 250 : 150} 
+                 width={(currentPage === "blog" || (currentPage === "work" && background === "white")) ? 250 : 150} 
                  height={100} 
                  className="relative"
                />
