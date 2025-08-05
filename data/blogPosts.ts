@@ -10,7 +10,7 @@ export const blogPosts: BlogPostProps[] = [
     description: "How do you create compelling presentations that wow your colleagues and impress your managers?",
     author: {
       name: "Mariana Astorino",
-      avatar: "/placeholder.svg?height=40&width=40",
+      avatar: "/images/Avatar.png",
       date: "20 Jan 2024",
     },
     slug: "build-professional-website",
@@ -26,7 +26,7 @@ export const blogPosts: BlogPostProps[] = [
       "Linear helps streamline software projects, sprints, tasks, and bug tracking. Here's how to get started.",
     author: {
       name: "Phoenix Baker",
-      avatar: "/placeholder.svg?height=40&width=40",
+      avatar: "/images/Avatar (1).png",
       date: "19 Jan 2024",
     },
     slug: "migrating-to-linear",
@@ -41,7 +41,7 @@ export const blogPosts: BlogPostProps[] = [
     description: "The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.",
     author: {
       name: "Lana Steiner",
-      avatar: "/placeholder.svg?height=40&width=40",
+      avatar: "/images/Avatar (2).png",
       date: "18 Jan 2024",
     },
     slug: "building-api-stack",
@@ -56,7 +56,7 @@ export const blogPosts: BlogPostProps[] = [
     description: "Like to know the secrets of transforming a 2-14 team into a 3x Super Bowl winning Dynasty?",
     author: {
       name: "Alec Whitten",
-      avatar: "/placeholder.svg?height=40&width=40",
+      avatar: "/images/Avatar (3).png",
       date: "17 Jan 2024",
     },
     slug: "bill-walsh-leadership-lessons",
@@ -70,7 +70,7 @@ export const blogPosts: BlogPostProps[] = [
     description: "Mental models are simple expressions of complex processes or relationships.",
     author: {
       name: "Demi Wilkinson",
-      avatar: "/placeholder.svg?height=40&width=40",
+      avatar: "/images/Avatar (4).png",
       date: "16 Jan 2024",
     },
     slug: "pm-mental-models",
@@ -84,7 +84,7 @@ export const blogPosts: BlogPostProps[] = [
     description: "Introduction to Wireframing and its Principles. Learn from the best in the industry.",
     author: {
       name: "Candice Wu",
-      avatar: "/placeholder.svg?height=40&width=40",
+      avatar: "/images/Avatar (5).png",
       date: "15 Jan 2024",
     },
     slug: "what-is-wireframing",
@@ -98,7 +98,7 @@ export const blogPosts: BlogPostProps[] = [
     description: "Collaboration can make our teams stronger, and our individual designs better.",
     author: {
       name: "Natali Craig",
-      avatar: "/placeholder.svg?height=40&width=40",
+      avatar: "/images/Avatar (6).png",
       date: "14 Jan 2024",
     },
     slug: "how-collaboration-makes-us-better-designers",
@@ -112,7 +112,7 @@ export const blogPosts: BlogPostProps[] = [
     description: "JavaScript frameworks make development easy with extensive features and functionalities.",
     author: {
       name: "Drew Cano",
-      avatar: "/placeholder.svg?height=40&width=40",
+      avatar: "/images/Avatar (7).png",
       date: "13 Jan 2024",
     },
     slug: "top-10-javascript-frameworks",
@@ -126,7 +126,7 @@ export const blogPosts: BlogPostProps[] = [
     description: "Starting a community doesn't need to be complicated, but how do you get started?",
     author: {
       name: "Orlando Diggs",
-      avatar: "/placeholder.svg?height=40&width=40",
+      avatar: "/images/Avatar (9).png",
       date: "12 Jan 2024",
     },
     slug: "creating-better-cx-community",

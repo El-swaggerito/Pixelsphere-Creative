@@ -15,7 +15,7 @@ import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import PageTransition from "@/components/PageTransition"
 import AnimatedSection from "@/components/AnimatedSection"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 import { useState } from "react"
 
@@ -74,6 +74,7 @@ export default function ContactPage() {
     service: "",
     source: "",
     budget: "",
+    customBudget: "",
     message: "",
     files: null as FileList | null,
     agreeToPrivacy: false,
@@ -162,8 +163,14 @@ export default function ContactPage() {
 
         {/* Contact Form Section */}
         <AnimatedSection>
-          <section id="contact-form" className="py-20 bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <section id="contact-form" className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+            {/* Background decorative elements */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-orange-200/30 to-pink-200/30 rounded-full blur-3xl"></div>
+              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl"></div>
+            </div>
+            
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <div className="grid lg:grid-cols-2 gap-16">
                 {/* Contact Form */}
                 <motion.div
@@ -171,179 +178,367 @@ export default function ContactPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
+                  className="relative"
                 >
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Get in touch</h2>
-                  <p className="text-gray-600 mb-8">We'd love to hear from you. Please fill out this form.</p>
-
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <motion.div whileFocus={{ scale: 1.02 }}>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">First name *</label>
-                        <Input
-                          name="firstName"
-                          value={formData.firstName}
-                          onChange={handleInputChange}
-                          placeholder="Your first name"
-                          className="w-full"
-                          required
-                        />
-                      </motion.div>
-                      <motion.div whileFocus={{ scale: 1.02 }}>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Last name</label>
-                        <Input
-                          name="lastName"
-                          value={formData.lastName}
-                          onChange={handleInputChange}
-                          placeholder="Your last name"
-                          className="w-full"
-                        />
-                      </motion.div>
-                    </div>
-
-                    <motion.div whileFocus={{ scale: 1.02 }}>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                      <Input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="Your email"
-                        className="w-full"
-                        required
-                      />
+                  {/* Form Header */}
+                  <div className="text-center lg:text-left mb-10">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                      className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-100 to-pink-100 rounded-full text-orange-600 text-sm font-medium mb-4"
+                    >
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      Let's Start a Conversation
                     </motion.div>
+                    <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-4">
+                      Get in touch
+                    </h2>
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                      Ready to bring your vision to life? We'd love to hear from you.
+                    </p>
+                  </div>
 
-                    <motion.div whileFocus={{ scale: 1.02 }}>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Phone number *</label>
-                      <Input
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="Your phone number"
-                        className="w-full"
-                        required
-                      />
-                    </motion.div>
-
-                    <motion.div whileFocus={{ scale: 1.02 }}>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        What services are you looking for? *
-                      </label>
-                      <select
-                        name="service"
-                        value={formData.service}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                        required
-                      >
-                        <option value="">Select a service</option>
-                        <option value="brand-positioning">Brand Positioning & Messaging</option>
-                        <option value="visual-identity">Visual Identity Systems</option>
-                        <option value="brand-architecture">Brand Architecture</option>
-                        <option value="rebranding">Rebranding & Brand Refreshes</option>
-                        <option value="digital-strategy">Digital Brand Strategy</option>
-                        <option value="employer-branding">Employer Branding</option>
-                        <option value="web-development">Web Development</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </motion.div>
-
-                    <motion.div whileFocus={{ scale: 1.02 }}>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Where did you hear about us?
-                      </label>
-                      <select
-                        name="source"
-                        value={formData.source}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                      >
-                        <option value="">Select an option</option>
-                        <option value="google">Google Search</option>
-                        <option value="social-media">Social Media</option>
-                        <option value="referral">Referral</option>
-                        <option value="website">Website</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </motion.div>
-
-                    <motion.div whileFocus={{ scale: 1.02 }}>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">What is your budget? *</label>
-                      <select
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                        required
-                      >
-                        <option value="">Select your budget range</option>
-                        <option value="under-5k">Under $5,000</option>
-                        <option value="5k-10k">$5,000 - $10,000</option>
-                        <option value="10k-25k">$10,000 - $25,000</option>
-                        <option value="25k-50k">$25,000 - $50,000</option>
-                        <option value="over-50k">Over $50,000</option>
-                      </select>
-                    </motion.div>
-
-                    <motion.div whileFocus={{ scale: 1.02 }}>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Tell us more about your project *
-                      </label>
-                      <Textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Describe your project, goals, timeline, and any specific requirements..."
-                        rows={4}
-                        className="w-full"
-                        required
-                      />
-                    </motion.div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">File Upload</label>
-                      <motion.div
-                        className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-gray-400 transition-colors"
-                        whileHover={{ scale: 1.02 }}
-                      >
-                        <input type="file" className="hidden" id="file-upload" multiple onChange={handleFileChange} />
-                        <label htmlFor="file-upload" className="cursor-pointer">
-                          <div className="text-gray-600">
-                            <motion.svg
-                              className="mx-auto h-12 w-12 text-gray-400"
-                              stroke="currentColor"
-                              fill="none"
-                              viewBox="0 0 48 48"
-                              whileHover={{ scale: 1.1, rotate: 5 }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              <path
-                                d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </motion.svg>
-                            <p className="mt-2 text-sm">Click to upload files or drag and drop</p>
-                            <p className="text-xs text-gray-500">PNG, JPG, PDF up to 10MB</p>
+                  {/* Modern Form Card */}
+                  <motion.div
+                    className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      {/* Name Fields */}
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <motion.div 
+                          className="group"
+                          whileHover={{ y: -2 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
+                            First name *
+                          </label>
+                          <div className="relative">
+                            <Input
+                              name="firstName"
+                              value={formData.firstName}
+                              onChange={handleInputChange}
+                              placeholder="Your first name"
+                              className="w-full h-12 px-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:bg-white transition-all duration-300 placeholder:text-gray-400"
+                              required
+                            />
+                            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
                           </div>
+                        </motion.div>
+                        <motion.div 
+                          className="group"
+                          whileHover={{ y: -2 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
+                            Last name
+                          </label>
+                          <div className="relative">
+                            <Input
+                              name="lastName"
+                              value={formData.lastName}
+                              onChange={handleInputChange}
+                              placeholder="Your last name"
+                              className="w-full h-12 px-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:bg-white transition-all duration-300 placeholder:text-gray-400"
+                            />
+                            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
+                          </div>
+                        </motion.div>
+                      </div>
+
+                      {/* Email Field */}
+                      <motion.div 
+                        className="group"
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
+                          Email *
+                        </label>
+                        <div className="relative">
+                          <Input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            placeholder="your.email@example.com"
+                            className="w-full h-12 px-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:bg-white transition-all duration-300 placeholder:text-gray-400"
+                            required
+                          />
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                      </motion.div>
+
+                      {/* Phone Field */}
+                      <motion.div 
+                        className="group"
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
+                          Phone number *
+                        </label>
+                        <div className="relative">
+                          <Input
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            placeholder="+1 (555) 123-4567"
+                            className="w-full h-12 px-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:bg-white transition-all duration-300 placeholder:text-gray-400"
+                            required
+                          />
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                      </motion.div>
+
+                      {/* Service Field */}
+                      <motion.div 
+                        className="group"
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
+                          What services are you looking for? *
+                        </label>
+                        <div className="relative">
+                          <select
+                            name="service"
+                            value={formData.service}
+                            onChange={handleInputChange}
+                            className="w-full h-12 px-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
+                            required
+                          >
+                            <option value="">Select a service</option>
+                            <option value="brand-positioning">Brand Positioning & Messaging</option>
+                            <option value="visual-identity">Visual Identity Systems</option>
+                            <option value="brand-architecture">Brand Architecture</option>
+                            <option value="rebranding">Rebranding & Brand Refreshes</option>
+                            <option value="digital-strategy">Digital Brand Strategy</option>
+                            <option value="employer-branding">Employer Branding</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="other">Other</option>
+                          </select>
+                          <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </div>
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                      </motion.div>
+
+                      {/* Source Field */}
+                      <motion.div 
+                        className="group"
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
+                          Where did you hear about us?
+                        </label>
+                        <div className="relative">
+                          <select
+                            name="source"
+                            value={formData.source}
+                            onChange={handleInputChange}
+                            className="w-full h-12 px-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
+                          >
+                            <option value="">Select an option</option>
+                            <option value="google">Google Search</option>
+                            <option value="social-media">Social Media</option>
+                            <option value="referral">Referral</option>
+                            <option value="website">Website</option>
+                            <option value="other">Other</option>
+                          </select>
+                          <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </div>
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                      </motion.div>
+
+                      {/* Budget Field */}
+                      <motion.div 
+                        className="group"
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
+                          What is your budget? *
+                        </label>
+                        <div className="relative">
+                          <select
+                            name="budget"
+                            value={formData.budget}
+                            onChange={handleInputChange}
+                            className="w-full h-12 px-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
+                            required
+                          >
+                            <option value="">Select your budget range</option>
+                            <option value="under-5k">Under $5,000</option>
+                            <option value="5k-10k">$5,000 - $10,000</option>
+                            <option value="10k-25k">$10,000 - $25,000</option>
+                            <option value="25k-50k">$25,000 - $50,000</option>
+                            <option value="over-50k">Over $50,000</option>
+                          </select>
+                          <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </div>
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                      </motion.div>
+
+                      {/* Conditional Custom Budget Input */}
+                      <AnimatePresence>
+                        {formData.budget === "over-50k" && (
+                          <motion.div 
+                            initial={{ opacity: 0, height: 0, y: -10 }}
+                            animate={{ opacity: 1, height: "auto", y: 0 }}
+                            exit={{ opacity: 0, height: 0, y: -10 }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            className="group"
+                          >
+                            <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
+                              Please specify your budget amount *
+                            </label>
+                            <div className="relative">
+                              <Input
+                                name="customBudget"
+                                value={formData.customBudget}
+                                onChange={handleInputChange}
+                                placeholder="e.g., $75,000"
+                                className="w-full h-12 px-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:bg-white transition-all duration-300 placeholder:text-gray-400"
+                                required={formData.budget === "over-50k"}
+                              />
+                              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+
+                      {/* Message Field */}
+                      <motion.div 
+                        className="group"
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
+                          Tell us more about your project *
+                        </label>
+                        <div className="relative">
+                          <Textarea
+                            name="message"
+                            value={formData.message}
+                            onChange={handleInputChange}
+                            placeholder="Describe your project, goals, timeline, and any specific requirements..."
+                            rows={5}
+                            className="w-full p-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:bg-white transition-all duration-300 placeholder:text-gray-400 resize-none"
+                            required
+                          />
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
+                        </div>
+                      </motion.div>
+
+                      {/* File Upload */}
+                      <motion.div
+                        className="group"
+                        whileHover={{ y: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
+                          File Upload
+                        </label>
+                        <motion.div
+                          className="relative border-2 border-dashed border-gray-300 rounded-xl p-8 text-center bg-gray-50/30 hover:border-orange-400 hover:bg-orange-50/30 transition-all duration-300 cursor-pointer group"
+                          whileHover={{ scale: 1.01 }}
+                          whileTap={{ scale: 0.99 }}
+                        >
+                          <input type="file" className="hidden" id="file-upload" multiple onChange={handleFileChange} />
+                          <label htmlFor="file-upload" className="cursor-pointer">
+                            <div className="text-gray-600">
+                              <motion.div
+                                className="mx-auto w-16 h-16 bg-gradient-to-br from-orange-100 to-pink-100 rounded-2xl flex items-center justify-center mb-4 group-hover:from-orange-200 group-hover:to-pink-200 transition-all duration-300"
+                                whileHover={{ scale: 1.1, rotate: 5 }}
+                                transition={{ duration: 0.2 }}
+                              >
+                                <svg
+                                  className="w-8 h-8 text-orange-600"
+                                  stroke="currentColor"
+                                  fill="none"
+                                  viewBox="0 0 48 48"
+                                >
+                                  <path
+                                    d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </motion.div>
+                              <p className="text-lg font-medium text-gray-700 mb-2">Click to upload files or drag and drop</p>
+                              <p className="text-sm text-gray-500">PNG, JPG, PDF up to 10MB</p>
+                            </div>
+                          </label>
+                        </motion.div>
+                      </motion.div>
+
+                      {/* Privacy Checkbox */}
+                      <motion.div 
+                        className="flex items-start space-x-3 p-4 bg-gray-50/50 rounded-xl"
+                        whileHover={{ scale: 1.01 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <Checkbox 
+                          id="privacy" 
+                          checked={formData.agreeToPrivacy} 
+                          onCheckedChange={handleCheckboxChange}
+                          className="mt-1 data-[state=checked]:bg-orange-500 data-[state=checked]:border-orange-500"
+                        />
+                        <label htmlFor="privacy" className="text-sm text-gray-600 leading-relaxed cursor-pointer">
+                          I agree to the{" "}
+                          <a href="#" className="text-orange-600 hover:text-orange-700 font-medium underline">
+                            privacy policy
+                          </a>{" "}
+                          and understand that my information will be used to contact me about this inquiry.
                         </label>
                       </motion.div>
-                    </div>
 
-                    <div className="flex items-center space-x-2">
-                      <Checkbox id="privacy" checked={formData.agreeToPrivacy} onCheckedChange={handleCheckboxChange} />
-                      <label htmlFor="privacy" className="text-sm text-gray-600">
-                        You agree to our friendly privacy policy.
-                      </label>
-                    </div>
-
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <Button type="submit" className="bg-orange-500 hover:bg-orange-600 text-white w-full py-3">
-                        Send Message
-                      </Button>
-                    </motion.div>
-                  </form>
+                      {/* Submit Button */}
+                      <motion.div 
+                        whileHover={{ scale: 1.02 }} 
+                        whileTap={{ scale: 0.98 }}
+                        className="pt-4"
+                      >
+                        <Button 
+                          type="submit" 
+                          className="w-full h-14 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                        >
+                          <span className="relative z-10 flex items-center justify-center">
+                            Send Message
+                            <motion.svg 
+                              className="w-5 h-5 ml-2" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              viewBox="0 0 24 24"
+                              whileHover={{ x: 5 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </motion.svg>
+                          </span>
+                          <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </Button>
+                      </motion.div>
+                    </form>
+                  </motion.div>
                 </motion.div>
 
                 {/* Contact Information */}
@@ -369,7 +564,7 @@ export default function ContactPage() {
                         whileHover={{ rotate: 360, scale: 1.1 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <Mail className="h-6 w-6 text-orange-600" />
+                        <Mail className="h-6 w-6 text-white" />
                       </motion.div>
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
