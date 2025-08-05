@@ -104,12 +104,13 @@ export default function HomePage() {
                   <br className="hidden md:block" />
                   <span className="block md:inline"> voices.</span>
                 </motion.p>
-                <motion.div
+                               <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  className="relative z-30"
                 >
                   
                     <motion.div
@@ -132,7 +133,7 @@ export default function HomePage() {
 
             {/* Design Collection Images - Positioned at very bottom */}
             <motion.div
-              className="relative z-20 -mt-44 sm:-mt-56 px-4 sm:px-0" // Added padding for mobile
+              className="relative z-20 lg:-mt-56 px-4 sm:px-0" // Added padding for mobile
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}

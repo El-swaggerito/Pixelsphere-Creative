@@ -93,25 +93,21 @@ export default function Header({ currentPage = "home", textColor = "white", back
         { 
           name: "Website Design", 
           href: "/services/custom-web-solutions", 
-          description: "Modern websites tailored to your brand.",
           icon: Globe
         },
         { 
           name: "Web Development", 
           href: "/services/custom-web-solutions", 
-          description: "Fully responsive and functional websites.",
           icon: Code
         },
         { 
           name: "Mockups & Prototyping", 
           href: "/services/custom-web-solutions", 
-          description: "Visual concepts before full development.",
           icon: Layers
         },
         { 
           name: "Website in-a-day", 
           href: "/services/custom-web-solutions", 
-          description: "Launch-ready websites built in a day.",
           icon: Layout
         },
       ],
@@ -124,25 +120,21 @@ export default function Header({ currentPage = "home", textColor = "white", back
         { 
           name: "Brand Strategy", 
           href: "/services/branding-identity",
-          description: "Discover and position your brand for growth.",
           icon: BarChart
         },
         { 
           name: "Visual Assets & Identity", 
           href: "/services/branding-identity",
-          description: "Everything that visually defines your brand.",
           icon: PenTool
         },
         { 
           name: "Brand Identity", 
           href: "/services/branding-identity",
-          description: "A full visual identity system that tells your story.",
           icon: Palette
         },
         { 
           name: "Brand Story", 
           href: "/services/branding-identity",
-          description: "Crafting your brand's values, purpose, and personality.",
           icon: FileText
         },
       ],
@@ -155,25 +147,21 @@ export default function Header({ currentPage = "home", textColor = "white", back
         { 
           name: "Visual Assets", 
           href: "/services/graphic-design", 
-          description: "Effectively communicating your findings.",
           icon: FileImage
         },
         { 
           name: "Branding Collaterals", 
           href: "/services/graphic-design", 
-          description: "Social media kits tailored to your brand.",
           icon: PenTool
         },
         { 
           name: "Graphic Templates", 
           href: "/services/graphic-design", 
-          description: "Custom designs for visual communication.",
           icon: Layers
         },
         { 
           name: "Promotional Design", 
           href: "/services/graphic-design", 
-          description: "Flyers, banners, posters, and promo materials.",
           icon: Megaphone
         },
       ],
@@ -186,56 +174,48 @@ export default function Header({ currentPage = "home", textColor = "white", back
         { 
           name: "UI/UX Design", 
           href: "/services/ux-design-strategy",
-          description: "User-friendly interface designs.",
           icon: Monitor
         },
         { 
           name: "Information Architecture", 
           href: "/services/ux-design-strategy",
-          description: "Logical navigation for smooth user journeys.",
           icon: FolderTree
         },
         { 
           name: "Interaction Design", 
           href: "/services/ux-design-strategy",
-          description: "Digital experiences through interactions.",
           icon: MousePointer
         },
         { 
           name: "Usability Testing", 
           href: "/services/ux-design-strategy",
-          description: "Find and improve UX issues and improve results.",
           icon: TestTube
         },
       ],
     },
     {
-      title: "DIGITAL GROWTH & FUTURE OFFERINGS",
+      title: "DIGITAL GROWTH",
       href: "/services/digital-growth",
       color: "blue",
       services: [
         { 
           name: "Software Application", 
           href: "/services/digital-growth",
-          description: "Custom-built applications that solve real-world problems.",
           icon: Database
         },
         { 
           name: "Mobile App Development", 
           href: "/services/digital-growth",
-          description: "Scalable mobile solutions tailored to user experience.",
           icon: Smartphone
         },
         { 
           name: "Brand Audit", 
           href: "/services/digital-growth",
-          description: "Comprehensive review of performance and health.",
           icon: Shield
         },
         { 
           name: "SEO Optimization",
           href: "/services/digital-growth",
-          description: "Rank higher on Google.",
           icon: Search
         },
       ],
@@ -383,9 +363,6 @@ export default function Header({ currentPage = "home", textColor = "white", back
                                         <div className="ml-3">
                                           <p className="text-base font-medium text-gray-900 group-hover:text-blue-600">
                                             {service.name}
-                                          </p>
-                                          <p className="mt-1 text-sm text-gray-500 group-hover:text-gray-600">
-                                            {service.description}
                                           </p>
                                         </div>
                                       </Link>
