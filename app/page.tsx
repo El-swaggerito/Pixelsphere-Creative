@@ -279,7 +279,7 @@ export default function HomePage() {
                         transition={{ duration: 0.2 }}
                       >
                         <Link
-                          href="#"
+                          href="/services/custom-web-solutions"
                           className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
                         >
                           Discover More →
@@ -320,7 +320,7 @@ export default function HomePage() {
                         transition={{ duration: 0.2 }}
                       >
                         <Link
-                          href="#"
+                          href="/services/custom-web-solutions"
                           className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
                         >
                           Discover More →
@@ -361,7 +361,7 @@ export default function HomePage() {
                         transition={{ duration: 0.2 }}
                       >
                         <Link
-                          href="#"
+                           href="/services/branding-identity"
                           className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
                         >
                           Discover More →
@@ -402,7 +402,7 @@ export default function HomePage() {
                         transition={{ duration: 0.2 }}
                       >
                         <Link
-                          href="#"
+                          href="/services/ux-design-strategy"
                           className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
                         >
                           Discover More →
@@ -609,16 +609,15 @@ export default function HomePage() {
                               ))}
                             </div>
                             <p className="text-white mb-2 sm:mb-3 text-xs sm:text-sm leading-relaxed">
-                              "The team was a joy to work with. They listened to
-                              our needs and brought our project to life with
-                              incredible skill."
+                              "Exceptional service and results that exceeded all
+                              our expectations. Highly recommend!"
                             </p>
                             <div>
                               <div className="text-white font-semibold text-xs sm:text-sm">
                                 ayotilewa
                               </div>
                               <div className="text-blue-200 text-xs">
-                                Founder - Creative Solutions
+                                Director - Innovation Hub
                               </div>
                             </div>
                           </CardContent>
