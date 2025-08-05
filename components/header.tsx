@@ -123,25 +123,25 @@ export default function Header({ currentPage = "home", textColor = "white", back
       services: [
         { 
           name: "Brand Strategy", 
-          href: "/services/branding-identity", 
+          href: "/services/branding-identity",
           description: "Discover and position your brand for growth.",
           icon: BarChart
         },
         { 
           name: "Visual Assets & Identity", 
-          href: "/services/branding-identity", 
+          href: "/services/branding-identity",
           description: "Everything that visually defines your brand.",
           icon: PenTool
         },
         { 
           name: "Brand Identity", 
-          href: "/services/branding-identity", 
+          href: "/services/branding-identity",
           description: "A full visual identity system that tells your story.",
           icon: Palette
         },
         { 
           name: "Brand Story", 
-          href: "/services/branding-identity", 
+          href: "/services/branding-identity",
           description: "Crafting your brand's values, purpose, and personality.",
           icon: FileText
         },
@@ -275,7 +275,13 @@ export default function Header({ currentPage = "home", textColor = "white", back
                 href="/"
                 className={`text-xl sm:text-2xl font-bold ${textColor === "black" ? "text-gray-900" : "text-white"}`}
               >
-               <Image src="/images/footer-logo.png" alt="Pixelsphere Creatives Logo" width={150} height={100} className="relative"/>
+               <Image 
+                 src={currentPage === "blog" ? "/images/company-logo.png" : "/images/footer-logo.png"} 
+                 alt="Pixelsphere Creatives Logo" 
+                 width={250} 
+                 height={100} 
+                 className="relative"
+               />
               </Link>
             </motion.div>
           </div>
