@@ -23,6 +23,7 @@ export const projects: ProjectProps[] = [
     isReversed: false,
     visualType: "App Interface",
     visualColor: "purple",
+    image: "/images/drip&grind.png", // Add this line
     onContactClick: scrollToContactForm
   },
   {
@@ -38,6 +39,7 @@ export const projects: ProjectProps[] = [
     isReversed: true,
     visualType: "Website Design",
     visualColor: "green",
+    image: "/images/hope.png", // Add this line
     onContactClick: scrollToContactForm
   },
   {
@@ -53,6 +55,7 @@ export const projects: ProjectProps[] = [
     isReversed: false,
     visualType: "Learning Platform",
     visualColor: "purple",
+    image: "/images/edtech.png", // Add this line
     onContactClick: scrollToContactForm
   }
 ]

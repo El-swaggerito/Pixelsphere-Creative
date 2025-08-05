@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Star, ArrowRight, Eye } from "lucide-react"
 import { motion } from "framer-motion"
+import { useState } from "react"
 
 export interface ProjectProps {
   title: string
@@ -20,6 +21,7 @@ export interface ProjectProps {
   isReversed?: boolean
   visualType: string
   visualColor: string
+  image: string
   onContactClick: () => void
 }
 
@@ -36,8 +38,14 @@ export default function ProjectCard({
   isReversed = false,
   visualType,
   visualColor,
+  image,
   onContactClick,
 }: ProjectProps) {
+  const [isHovered, setIsHovered] = useState(false)
+  
+  // Generate hover image path by adding '-hover' before the file extension
+  const hoverImage = image.replace(/\.(png|jpg|jpeg|webp)$/i, '-hover.$1')
+
   return (
     <motion.div
       className={`grid lg:grid-cols-2 gap-12 items-center`}
@@ -109,18 +117,33 @@ export default function ProjectCard({
         className={`relative ${isReversed ? "lg:order-1" : ""}`} 
         whileHover={{ scale: 1.02, y: -5 }} 
         transition={{ duration: 0.3 }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
         <div className="bg-gray-900 rounded-2xl p-8 shadow-2xl">
           <div className="bg-white rounded-lg p-6 aspect-[4/3]">
-            <div className={`w-full h-full bg-${visualColor}-100 rounded-lg flex items-center justify-center`}>
-              <div className="text-center">
-                <motion.div
-                  className={`w-16 h-16 bg-${visualColor}-600 rounded-lg mx-auto mb-4`}
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.5 }}
+            <div className="w-full h-full rounded-lg overflow-hidden relative">
+              <motion.div
+                className="w-full h-full relative"
+                animate={{
+                  scale: isHovered ? 1.05 : 1,
+                }}
+                transition={{
+                  duration: 0.4,
+                  ease: "easeInOut"
+                }}
+              >
+                <Image
+                  src={isHovered ? hoverImage : image}
+                  alt={title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-contain rounded-lg transition-all duration-500 ease-in-out"
+                  style={{
+                    filter: isHovered ? 'brightness(1.1) contrast(1.05)' : 'brightness(1) contrast(1)'
+                  }}
                 />
-                <div className={`text-${visualColor}-600 font-semibold`}>{visualType}</div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

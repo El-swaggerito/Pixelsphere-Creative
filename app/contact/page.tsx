@@ -150,7 +150,7 @@ export default function ContactPage() {
                       src="/images/contact-hero-woman.png"
                       alt="Customer support representative"
                       width={600}
-                      height={800}
+                      height={600}
                       className="w-full h-auto"
                     />
                   </div>

@@ -14,8 +14,8 @@ interface WorkCTAProps {
 export default function WorkCTA({
   title = "Have a project idea in mind.",
   subtitle = "Get in touch and let's chat!",
-  email = "info@pixelsphere.com",
-  phone = "(406) 555-0120",
+  email = "info@pixelsphere.ca",
+  phone = "+(514) 512-7873",
   buttonText = "Request Quote",
 }: WorkCTAProps) {
   const scrollToContactForm = () => {

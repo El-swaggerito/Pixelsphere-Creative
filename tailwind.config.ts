@@ -15,12 +15,14 @@ const config = {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
-        "xs": "475px",    // Add your custom breakpoint here
       },
     },
     extend: {
       fontFamily: {
         sora: ['var(--font-sora)'],
+      },
+      screens: {
+        'xs': '475px',
       },
       colors: {
         border: "hsl(var(--border))",
@@ -83,16 +85,3 @@ const config = {
 
 export default config;
 
-// Remove this duplicate section:
-// module.exports = {
-//   theme: {
-//     screens: {
-//       'xs': '475px',
-//       'sm': '640px',
-//       'md': '768px', 
-//       'lg': '1024px',
-//       'xl': '1280px',
-//       '2xl': '1536px',
-//     },
-//   },
-// }
