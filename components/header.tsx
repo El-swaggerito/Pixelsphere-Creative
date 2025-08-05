@@ -278,7 +278,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
                <Image 
                  src={currentPage === "blog" ? "/images/company-logo.png" : "/images/footer-logo.png"} 
                  alt="Pixelsphere Creatives Logo" 
-                 width={250} 
+                 width={currentPage === "blog" ? 250 : 150} 
                  height={100} 
                  className="relative"
                />
