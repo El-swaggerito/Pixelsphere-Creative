@@ -4,9 +4,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Star, ArrowRight, Eye } from "lucide-react"
+import { Star, Eye } from "lucide-react"
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
+import clsx from "clsx"
 
 export interface ProjectProps {
   title: string
@@ -43,30 +44,35 @@ export default function ProjectCard({
 }: ProjectProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [hoverImageLoaded, setHoverImageLoaded] = useState(false)
-  
+  const [hoverImageLoading, setHoverImageLoading] = useState(true)
+
   // Generate hover image path by adding '-hover' before the file extension
   const hoverImage = image.replace(/\.(png|jpg|jpeg|webp)$/i, '-hover.$1')
 
-  // Preload hover image using HTMLImageElement
+  // Preload hover image
   useEffect(() => {
-    const img = new window.Image() // Use window.Image instead of Image
+    const img = new window.Image() as HTMLImageElement
     img.src = hoverImage
-    img.onload = () => setHoverImageLoaded(true)
+    img.onload = () => {
+      setHoverImageLoaded(true)
+      setHoverImageLoading(false)
+    }
     img.onerror = () => {
       console.warn(`Failed to load hover image: ${hoverImage}`)
       setHoverImageLoaded(false)
+      setHoverImageLoading(false)
     }
   }, [hoverImage])
 
   return (
     <motion.div
-      className={`grid lg:grid-cols-2 gap-12 items-center`}
+      className="grid lg:grid-cols-2 gap-12 items-center"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      <div className={isReversed ? "lg:order-2" : ""}>
+      <div className={clsx({ "lg:order-2": isReversed })}>
         <div className="flex items-center mb-4">
           {isStarred ? (
             <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
@@ -87,7 +93,7 @@ export default function ProjectCard({
                 className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium text-sm"
               >
                 <Eye className="h-4 w-4 mr-2" />
-                View Details
+                View Project
               </Button>
             </Link>
           </motion.div>
@@ -108,8 +114,8 @@ export default function ProjectCard({
         <div className="mb-6">
           <div className="text-sm text-gray-600 mb-3">TECHNOLOGIES USED</div>
           <div className="flex flex-wrap gap-2">
-            {technologies.map((tech, index) => (
-              <Badge key={index} variant="secondary" className="bg-gray-100">
+            {technologies.map((tech) => (
+              <Badge key={tech} variant="secondary" className="bg-gray-100">
                 {tech}
               </Badge>
             ))}
@@ -125,10 +131,10 @@ export default function ProjectCard({
           </Button>
         </motion.div>
       </div>
-      
-      <motion.div 
-        className={`relative ${isReversed ? "lg:order-1" : ""}`} 
-        whileHover={{ scale: 1.02, y: -5 }} 
+
+      <motion.div
+        className={clsx("relative", { "lg:order-1": isReversed })}
+        whileHover={{ scale: 1.02, y: -5 }}
         transition={{ duration: 0.3 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -138,14 +144,14 @@ export default function ProjectCard({
             <div className="w-full h-full rounded-lg overflow-hidden relative">
               <motion.div
                 className="w-full h-full relative"
-                animate={{
-                  scale: isHovered ? 1.05 : 1,
-                }}
-                transition={{
-                  duration: 0.4,
-                  ease: "easeInOut"
-                }}
+                animate={{ scale: isHovered ? 1.05 : 1 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
               >
+                {hoverImageLoading && isHovered && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10 animate-pulse">
+                    <span className="text-gray-400">Loading preview...</span>
+                  </div>
+                )}
                 <Image
                   src={isHovered && hoverImageLoaded ? hoverImage : image}
                   alt={title}
@@ -154,7 +160,7 @@ export default function ProjectCard({
                   className="object-contain rounded-lg transition-all duration-500 ease-in-out"
                   priority={false}
                   style={{
-                    filter: isHovered ? 'brightness(1.1) contrast(1.05)' : 'brightness(1) contrast(1)'
+                    filter: isHovered ? 'brightness(1.1) contrast(1.05)' : 'brightness(1) contrast(1)',
                   }}
                 />
               </motion.div>
