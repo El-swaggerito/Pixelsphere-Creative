@@ -26,13 +26,13 @@ export default function RootLayout({
       <head>
         <style>{`
 html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
+  font-family: ${sora.style.fontFamily};
+  --font-sans: ${sora.variable};
   --font-mono: ${GeistMono.variable};
 }
         `}</style>
       </head>
-      <body>{children}</body>
+      <body className="font-sora">{children}</body>
     </html>
   )
 }

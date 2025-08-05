@@ -8,15 +8,15 @@ export default function Footer() {
   return (
     <footer className="bg-blue-700 text-white py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-          <div className="sm:col-span-2 md:col-span-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          <div>
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <Image src="/images/footer-logo.png" alt="" width={120} height={100}/>
+              <Image src="/images/footer-logo.png"  className="-my-12" alt="" width={150} height={100}/>
             </motion.div>
-            <p className="text-blue-200 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
+            <p className="text-blue-200 sm:mb-8 leading-relaxed text-sm sm:text-base">
             PixelSphere Creative – Your trusted partner for custom websites, smart branding, and digital growth strategies in Canada and beyond.
             </p>
             <div className="mb-6 sm:mb-8">
@@ -58,7 +58,6 @@ export default function Footer() {
                 <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.3 }}>
                   <Link
                     href="#"
-                    
                     className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer"
                     aria-label="LinkedIn"
                   >
@@ -172,6 +171,7 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Bottom section - uses same container alignment */}
         <div className="border-t border-blue-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <p className="text-blue-200 text-sm sm:text-base text-center sm:text-left">
             All rights reserved by © PixelSphere 2025

@@ -19,6 +19,7 @@ const config = {
     },
     extend: {
       fontFamily: {
+        sans: ['var(--font-sora)', 'system-ui', 'sans-serif'],
         sora: ['var(--font-sora)'],
       },
       screens: {
