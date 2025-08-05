@@ -142,23 +142,7 @@ export default function AboutPage() {
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                   <Zap className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Branding and Digital services</h3>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                  Our Web Design & Development service offers a perfect blend of design elements to your specific needs,
-                  featuring optimized pages for a seamless user experience.
-                </p>
-                <Link href="#" className="text-orange-500 hover:text-orange-600 font-medium text-sm">
-                  Discover More →
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <CardContent className="p-0">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="h-6 w-6 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Branding and Digital services</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3 font-sora">Branding and Digital services</h3>
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                   Our Web Design & Development service offers a perfect blend of design elements to your specific needs,
                   featuring optimized pages for a seamless user experience.

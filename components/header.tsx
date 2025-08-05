@@ -366,7 +366,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
                         <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
                           {serviceCategories.map((category) => (
                             <div key={category.title} className="space-y-6">
-                              <h3 className="text-sm font-semibold text-gray-500 tracking-wider">{category.title}</h3>
+                              <h3 className="text-sm font-semibold text-gray-500 tracking-wider font-sora">{category.title}</h3>
                               <ul className="space-y-5">
                                 {category.services.map((service) => {
                                   const Icon = service.icon;

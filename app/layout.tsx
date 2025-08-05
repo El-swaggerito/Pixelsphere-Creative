@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import './globals.css'
-import { Sora } from 'next/font/google'
+import { Sora, Inter } from 'next/font/google'
 
 const sora = Sora({
   subsets: ['latin'],
@@ -10,10 +10,15 @@ const sora = Sora({
   display: 'swap',
 })
 
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: 'Pixelsphere',
-  description: 'Pixelsphere Creatives',
-  generator: 'Pixelsphere',
+  description: 'Empowering Businesses Through Tailored Technology Solutions',
 }
 
 export default function RootLayout({
@@ -22,17 +27,19 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${sora.variable}`}>
+    <html lang="en" className={`${sora.variable} ${inter.variable}`}>
       <head>
         <style>{`
 html {
-  font-family: ${sora.style.fontFamily};
-  --font-sans: ${sora.variable};
+  font-family: ${inter.style.fontFamily};
+  --font-sans: ${inter.variable};
+  --font-sora: ${sora.variable};
+  --font-inter: ${inter.variable};
   --font-mono: ${GeistMono.variable};
 }
         `}</style>
       </head>
-      <body className="font-sora">{children}</body>
+      <body className="font-inter">{children}</body>
     </html>
   )
 }
