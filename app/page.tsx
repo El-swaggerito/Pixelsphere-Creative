@@ -126,7 +126,7 @@ export default function HomePage() {
 
             {/* Design Collection Images - Positioned at very bottom */}
             <motion.div
-              className="relative z-20 -mt-16 sm:-mt-24 md:-mt-32 lg:-mt-44 xl:-mt-56 px-4 sm:px-0"
+              className="absolute bottom-0 left-0 right-0 z-20 px-4 sm:px-0"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
