@@ -38,8 +38,8 @@ export default function HomePage() {
       <NewsletterPopup delayInSeconds={2} />
       <main className="pt-16 sm:pt-20">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex flex-col overflow-hidden">
-          <HeroBackground>
+        <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
+          <HeroBackground className="xl:-mt-16">
             {/* Decorative vector line at top left */}
             <motion.div
               className="absolute top-4 left-4 sm:top-8 sm:left-8 z-10"
@@ -79,7 +79,7 @@ export default function HomePage() {
             <Header currentPage="home" />
 
             {/* Hero Content */}
-            <div className="flex-1 flex items-center justify-center relative pt-8 sm:pt-10 px-4 sm:px-6 lg:px-8">
+            <div className="flex-1 flex items-center justify-center relative pt-8 sm:pt-10 px-4 sm:px-6 lg:px-8 pb-20 sm:pb-32 md:pb-40">
               <div className="text-center max-w-4xl mx-auto">
                 <motion.h1
                   className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8 font-sora"
@@ -95,16 +95,9 @@ export default function HomePage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                  We bridge the gap between businesses and their audiences by
-                  <br className="hidden md:block" />
-                  <span className="block md:inline">
-                    {" "}
-                    delivering high-quality digital solutions that amplify brand
-                  </span>
-                  <br className="hidden md:block" />
-                  <span className="block md:inline"> voices.</span>
+                  We bridge the gap between businesses and their audiences by delivering high-quality digital solutions that amplify brand voices.
                 </motion.p>
-                               <motion.div
+              <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -133,19 +126,20 @@ export default function HomePage() {
 
             {/* Design Collection Images - Positioned at very bottom */}
             <motion.div
-              className="relative z-20 lg:-mt-56 px-4 sm:px-0" // Added padding for mobile
+              className="relative z-20 -mt-16 sm:-mt-24 md:-mt-32 lg:-mt-44 xl:-mt-56 px-4 sm:px-0"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
             >
-              <div className="w-full max-w-[90vw] sm:max-w-full mx-auto overflow-hidden rounded-lg sm:rounded-none">
+              <div className="w-full max-w-[95vw] sm:max-w-full mx-auto overflow-hidden rounded-lg sm:rounded-none">
                 <Image
                   src="/images/design-collection.png"
                   alt="Design and development showcase"
                   width={1500}
                   height={300}
-                  className="hidden sm:block w-full h-auto object-contain sm:object-cover"
+                  className="w-full h-auto object-contain sm:object-cover"
                   priority
+                  sizes="(max-width: 640px) 95vw, 100vw"
                 />
               </div>
             </motion.div>
