@@ -36,24 +36,24 @@ export default function HomePage() {
   return (
     <PageTransition>
       <NewsletterPopup delayInSeconds={2} />
-      <main className="pt-16 sm:pt-20">
+      <main className="pt-0">
         {/* Hero Section */}
-        <section className="relative min-h-[100svh] flex flex-col overflow-hidden">
-          <HeroBackground className="xl:-mt-16">
+        <section className="relative min-h-[50vh] xxxxs:min-h-[45vh] xxxs:min-h-[50vh] xxs:min-h-[55vh] xs:min-h-[60vh] sm:min-h-[100svh] flex flex-col overflow-hidden">
+          <HeroBackground className="xl:-mt-16 !min-h-[50vh] xxxxs:!min-h-[45vh] xxxs:!min-h-[50vh] xxs:!min-h-[55vh] xs:!min-h-[60vh] sm:!min-h-screen">
             {/* Decorative vector line at top left */}
             <motion.div
-              className="absolute top-4 left-4 sm:top-8 sm:left-8 z-10"
+              className="absolute top-0.5 left-0.5 xxxs:top-1 xxxs:left-1 xxs:top-2 xxs:left-2 sm:top-8 sm:left-8 z-10"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
               <svg
-                width="80"
-                height="40"
+                width="60"
+                height="30"
                 viewBox="0 0 120 60"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="sm:w-[120px] sm:h-[60px]"
+                className="w-[30px] h-[15px] xxxs:w-[40px] xxxs:h-[20px] xxs:w-[50px] xxs:h-[25px] sm:w-[120px] sm:h-[60px]"
               >
                 <motion.path
                   d="M10 50 Q 30 10, 60 30 T 110 20"
@@ -79,10 +79,10 @@ export default function HomePage() {
             <Header currentPage="home" />
 
             {/* Hero Content */}
-            <div className="flex-1 flex items-center justify-center relative pt-8 sm:pt-10 px-4 sm:px-6 lg:px-8 pb-20 sm:pb-32 md:pb-40">
+            <div className="flex-1 flex flex-col justify-center relative pt-1 xxxxs:pt-1 xxxs:pt-2 xxs:pt-3 xs:pt-4 sm:pt-10 px-2 xxxs:px-3 xxs:px-4 sm:px-6 lg:px-8 pb-6 xxxxs:pb-7 xxxs:pb-8 xxs:pb-10 xs:pb-12 sm:pb-20">
               <div className="text-center max-w-4xl mx-auto">
                 <motion.h1
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8 font-sora"
+                  className="text-xs xxxxs:text-sm xxxs:text-base xxs:text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-0.5 xxxxs:mb-1 xxxs:mb-1.5 xxs:mb-2 xs:mb-3 sm:mb-8 font-sora px-1 xxxs:px-2 xxs:px-3"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
@@ -90,14 +90,14 @@ export default function HomePage() {
                   Empowering Businesses Through Tailored Technology Solutions
                 </motion.h1>
                 <motion.p
-                  className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto px-4 sm:px-0"
+                  className="text-xs xxxxs:text-xs xxxs:text-xs xxs:text-sm xs:text-sm sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-1 xxxxs:mb-1.5 xxxs:mb-2 xxs:mb-3 xs:mb-4 sm:mb-12 leading-relaxed max-w-3xl mx-auto px-2 xxxs:px-3 xxs:px-4 sm:px-0"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
                   We bridge the gap between businesses and their audiences by delivering high-quality digital solutions that amplify brand voices.
                 </motion.p>
-              <motion.div
+                <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -105,33 +105,32 @@ export default function HomePage() {
                   whileTap={{ scale: 0.95 }}
                   className="relative z-30"
                 >
-                  
-                    <motion.div
-                      className="ml-2"
-                      whileHover={{ x: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Button
-                    size="lg"
-                    className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium rounded-lg w-full sm:w-auto"
-                    onClick={navigateToContact}
+                  <motion.div
+                    className="ml-0"
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    Let's Work Together
-                      <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
-                  </Button>
-                    </motion.div>
+                    <Button
+                      size="lg"
+                      className="bg-orange-500 hover:bg-orange-600 text-white px-2.5 xxxxs:px-3 xxxs:px-4 xxs:px-5 xs:px-6 sm:px-8 py-1 xxxxs:py-1.5 xxxs:py-1.5 xxs:py-2 xs:py-2 sm:py-4 text-xs xxxxs:text-xs xxxs:text-xs xxs:text-sm xs:text-sm sm:text-lg font-medium rounded-lg w-full xxxs:w-full xxs:w-auto"
+                      onClick={navigateToContact}
+                    >
+                      Let's Work Together
+                      <ArrowRight className="h-2.5 w-2.5 xxxxs:h-3 xxxxs:w-3 xxxs:h-3 xxxs:w-3 xxs:h-3.5 xxs:w-3.5 sm:h-5 sm:w-5 ml-1 xxxs:ml-1.5" />
+                    </Button>
+                  </motion.div>
                 </motion.div>
               </div>
             </div>
 
             {/* Design Collection Images - Positioned at very bottom */}
             <motion.div
-              className="absolute bottom-0 left-0 right-0 z-20 px-4 sm:px-0"
+              className="absolute bottom-0 left-0 right-0 z-20 px-0 xxxxs:px-0.5 xxxs:px-1 xxs:px-1.5 sm:px-0"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
             >
-              <div className="w-full max-w-[95vw] sm:max-w-full mx-auto overflow-hidden rounded-lg sm:rounded-none">
+              <div className="w-full max-w-full xxxxs:max-w-[99.8vw] xxxs:max-w-[99vw] xxs:max-w-[97vw] sm:max-w-full mx-auto overflow-hidden rounded-none">
                 <Image
                   src="/images/design-collection.png"
                   alt="Design and development showcase"
@@ -139,28 +138,29 @@ export default function HomePage() {
                   height={300}
                   className="w-full h-auto object-contain sm:object-cover"
                   priority
-                  sizes="(max-width: 640px) 95vw, 100vw"
+                  sizes="(max-width: 280px) 100vw, (max-width: 320px) 99.8vw, (max-width: 375px) 99vw, (max-width: 640px) 97vw, 100vw"
                 />
               </div>
             </motion.div>
           </HeroBackground>
         </section>
+
         {/* Who We Are Section */}
         <AnimatedSection>
-          <section className="py-6 sm:py-8 md:py-12 bg-white relative overflow-hidden">
+          <section className="py-4 xxxs:py-5 xxs:py-6 xs:py-7 sm:py-8 md:py-12 bg-white relative overflow-hidden">
             {/* Decorative dots pattern */}
             <motion.div
-              className="absolute top-6 left-6 sm:top-12 sm:left-12 opacity-20"
+              className="absolute top-3 left-3 xxxs:top-4 xxxs:left-4 xxs:top-6 xxs:left-6 sm:top-12 sm:left-12 opacity-20"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 0.2 }}
               transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
-              <div className="grid grid-cols-6 sm:grid-cols-8 gap-1 sm:gap-2">
+              <div className="grid grid-cols-4 xxxs:grid-cols-5 xxs:grid-cols-6 xs:grid-cols-7 sm:grid-cols-8 gap-0.5 xxxs:gap-1 sm:gap-2">
                 {Array.from({ length: 48 }).map((_, i) => (
                   <motion.div
                     key={i}
-                    className="w-0.5 h-0.5 sm:w-1 sm:h-1 bg-orange-400 rounded-full"
+                    className="w-0.5 h-0.5 xxxs:w-0.5 xxxs:h-0.5 xxs:w-1 xxs:h-1 sm:w-1 sm:h-1 bg-orange-400 rounded-full"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{ duration: 0.5, delay: i * 0.01 }}
@@ -170,8 +170,8 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
+            <div className="max-w-7xl mx-auto px-3 xxxs:px-4 xxs:px-4 sm:px-6 lg:px-8">
+              <div className="grid lg:grid-cols-2 gap-6 xxxs:gap-7 xxs:gap-8 xs:gap-10 sm:gap-12 md:gap-16 items-center">
                 <motion.div
                   className="relative order-2 lg:order-1"
                   initial={{ opacity: 0, x: -50 }}
@@ -184,23 +184,23 @@ export default function HomePage() {
                     alt="Our team in a meeting"
                     width={600}
                     height={400}
-                    className="rounded-xl sm:rounded-2xl shadow-lg w-full h-auto"
+                    className="rounded-lg xxxs:rounded-xl xxs:rounded-xl sm:rounded-2xl shadow-lg w-full h-auto"
                   />
                 </motion.div>
                 <div className="order-1 lg:order-2">
                   <motion.div
-                    className="flex items-center mb-4 sm:mb-6"
+                    className="flex items-center mb-3 xxxs:mb-4 xxs:mb-4 xs:mb-5 sm:mb-6"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     viewport={{ once: true }}
                   >
                     <motion.div
-                      className="w-2 h-2 bg-orange-500 rounded-full mr-3"
+                      className="w-1.5 h-1.5 xxxs:w-2 xxxs:h-2 xxs:w-2 xxs:h-2 bg-orange-500 rounded-full mr-2 xxxs:mr-3"
                       whileHover={{ scale: 1.5 }}
                       transition={{ duration: 0.3 }}
                     />
-                    <span className="text-orange-500 font-medium text-xs sm:text-sm tracking-wide uppercase">
+                    <span className="text-orange-500 font-medium text-xs xxxs:text-xs xxs:text-sm xs:text-sm sm:text-sm tracking-wide uppercase">
                       WHO WE ARE
                     </span>
                   </motion.div>
