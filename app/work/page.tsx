@@ -72,14 +72,13 @@ export default function WorkPage() {
 
             {/* Hero Content */}
             <div className="flex-1 flex items-center justify-center relative z-20 pt-32 px-4 sm:px-6 lg:px-8">
-              <div className="text-center max-w-4xl mx-auto">
-                <motion.h1
-                  className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-8 font-sora"
+              <div className="relative z-40 flex flex-col items-center justify-center text-center px-2">
+                <motion.h1 className="text-lg xxxxs:text-xl xxxs:text-2xl xxs:text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 xxxxs:mb-5 xxxs:mb-6 xxs:mb-8 sm:mb-10 leading-tight"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                  OUR PORTFOLIO
+                  Our Portfolio
                 </motion.h1>
                 <motion.p
                   className="text-xl lg:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto"
@@ -91,23 +90,17 @@ export default function WorkPage() {
                   approach to design and development.
                 </motion.p>
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
+                  className="relative z-40 mt-2 xxxxs:mt-3 xxxs:mt-4 xxs:mt-6 sm:mt-8 mb-8 xxxxs:mb-10 xxxs:mb-12 xxs:mb-16 xs:mb-20 sm:mb-24 lg:mb-28 xl:mb-16 2xl:mb-12"
                   whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <Button
                     size="lg"
-                    className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-medium rounded-lg"
+                    className="bg-orange-500 hover:bg-orange-600 text-white px-4 xxxxs:px-5 xxxs:px-6 xxs:px-7 xs:px-8 sm:px-10 py-2 xxxxs:py-2.5 xxxs:py-3 xxs:py-3.5 xs:py-4 sm:py-5 text-xs xxxxs:text-sm xxxs:text-sm xxs:text-base xs:text-base sm:text-lg font-medium rounded-lg w-full xxxs:w-full xxs:w-auto shadow-lg"
                   >
-                    View Our Portfolio
-                    <motion.div
-                      whileHover={{ x: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </motion.div>
+                    View All Projects
+
+                    <ArrowRight className="h-3 w-3 xxxxs:h-3.5 xxxxs:w-3.5 xxxs:h-4 xxxs:w-4 xxs:h-4 xxs:w-4 sm:h-5 sm:w-5 ml-2" />
                   </Button>
                 </motion.div>
               </div>
@@ -115,22 +108,23 @@ export default function WorkPage() {
 
             {/* Design Collection Images - Same as Home Page */}
             <motion.div
-              className="relative z-20 -mt-16 sm:-mt-24 px-4 sm:px-0" // Added padding for mobile
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.8 }}
-            >
-              <div className="w-full max-w-[90vw] sm:max-w-full mx-auto overflow-hidden rounded-lg sm:rounded-none">
-                <Image
-                  src="/images/design-collection.png"
-                  alt="Design and development showcase"
-                  width={1500}
-                  height={300}
-                  className="w-full h-auto object-contain sm:object-cover"
-                  priority
-                />
-              </div>
-            </motion.div>
+                className="absolute bottom-0 left-0 right-0 z-20 px-0 xxxxs:px-0.5 xxxs:px-1 xxs:px-1.5 sm:px-0 mt-4 xxxxs:mt-5 xxxs:mt-6 xxs:mt-8 xs:mt-10 sm:mt-12 lg:mt-16 xl:mt-12 2xl:mt-8"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.6 }}
+              >
+                <div className="w-full max-w-full xxxxs:max-w-[99.8vw] xxxs:max-w-[99vw] xxs:max-w-[97vw] sm:max-w-full mx-auto overflow-hidden rounded-none">
+                  <Image
+                    src="/images/design-collection.png"
+                    alt="Design and development showcase"
+                    width={1500}
+                    height={300}
+                    className="w-full h-auto object-contain sm:object-cover"
+                    priority
+                    sizes="(max-width: 280px) 100vw, (max-width: 320px) 99.8vw, (max-width: 375px) 99vw, (max-width: 640px) 97vw, 100vw"
+                  />
+                </div>
+              </motion.div>
           </HeroBackground>
         </section>
 

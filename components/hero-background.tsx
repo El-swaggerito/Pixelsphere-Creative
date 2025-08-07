@@ -12,7 +12,7 @@ export default function HeroBackground({ children, className }: HeroBackgroundPr
     <div className={`relative min-h-screen w-full bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 overflow-hidden ${className || ''}`}>
       {/* Animated gradient overlay */}
       <motion.div
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-30 pointer-events-none"
         style={{
           background: `
             radial-gradient(circle at 15% 40%, rgba(255, 115, 0, 0.4) 0%, transparent 60%),
@@ -26,7 +26,7 @@ export default function HeroBackground({ children, className }: HeroBackgroundPr
       />
 
       {/* Animated particles - Responsive sizing */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: 20 }).map((_, i) => {
           // Responsive particle sizes
           const baseSize = Math.random() * 4 + 1; // 1-5px for mobile
@@ -36,7 +36,7 @@ export default function HeroBackground({ children, className }: HeroBackgroundPr
           return (
             <motion.div
               key={i}
-              className="absolute rounded-full bg-white opacity-20"
+              className="absolute rounded-full bg-white opacity-20 pointer-events-none"
               style={{
                 // Use CSS custom properties for responsive sizing
                 width: `clamp(${baseSize}px, ${tabletSize}px, ${desktopSize}px)`,
@@ -62,7 +62,7 @@ export default function HeroBackground({ children, className }: HeroBackgroundPr
 
       {/* Animated wave patterns */}
       <svg
-        className="absolute bottom-0 left-0 w-full"
+        className="absolute bottom-0 left-0 w-full pointer-events-none"
         viewBox="0 0 1440 320"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

@@ -115,7 +115,7 @@ export default function ContactPage() {
           <HeroBackground>
             <Header currentPage="contact" />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 sm:pt-28 lg:px-8">
+            <div className="relative z-10 max-w-7xl mx-auto px-2 xxxxs:px-3 xxxs:px-4 xxs:px-6 sm:px-8 lg:px-12 xl:px-16 pt-16 xxxxs:pt-18 xxxs:pt-20 xxs:pt-24 xs:pt-28 sm:pt-32 lg:pt-36 xl:pt-40 pb-8 xxxxs:pb-10 xxxs:pb-12 xxs:pb-16 xs:pb-20 sm:pb-24 lg:pb-28 xl:pb-32">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left Content */}
                 <motion.div
@@ -152,7 +152,7 @@ export default function ContactPage() {
                       alt="Customer support representative"
                       width={600}
                       height={600}
-                      className="w-full h-auto"
+                      className="(max-width: 280px) 100vw, (max-width: 320px) 99.8vw, (max-width: 375px) 99vw, (max-width: 640px) 97vw, 100vw"
                     />
                   </div>
                 </motion.div>

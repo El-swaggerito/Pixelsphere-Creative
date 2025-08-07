@@ -50,8 +50,6 @@ export default function NewsletterPopup({ delayInSeconds = 2 }: NewsletterPopupP
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="sm:max-w-md p-0 overflow-hidden rounded-xl border-0 shadow-xl w-[95%] max-w-[95vw] sm:w-auto max-h-[90vh] overflow-y-auto">
         <div className="bg-blue-50 p-4 sm:p-6 relative">
-          <DialogClose className="absolute right-3 top-3 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-          </DialogClose>
           
           <div className="flex flex-col items-center text-center">
             {/* Envelope icon with notification badge */}
@@ -67,15 +65,8 @@ export default function NewsletterPopup({ delayInSeconds = 2 }: NewsletterPopupP
               
             </div>
             
-            {/* Heading with gift icon */}
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="mb-2"
-            >
-                <span className="text-base sm:text-lg font-bold flex items-center justify-center">🎁 Get 10% OFF + Design Inspiration Weekly!</span> 
-            </motion.div>
+            {/* Heading */}
+            
             
             <motion.p 
               className="text-gray-700 mt-1 mb-3 text-sm"
@@ -101,9 +92,6 @@ export default function NewsletterPopup({ delayInSeconds = 2 }: NewsletterPopupP
               <li className="flex items-center gap-2">
                 <span className="text-blue-600">◆</span> Early access to launches
               </li>
-              <li className="flex items-center gap-2">
-                <span className="text-blue-600">◆</span> Exclusive offers for subscribers only
-              </li>
             </motion.ul>
             
             <motion.p 
@@ -115,14 +103,6 @@ export default function NewsletterPopup({ delayInSeconds = 2 }: NewsletterPopupP
               👋 Join our community. Sign up below!
             </motion.p>
             
-            <motion.p 
-              className="text-gray-500 mb-4 text-xs"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
-              No spam, just good vibes.
-            </motion.p>
             
             <motion.form 
               onSubmit={handleSubmit}
