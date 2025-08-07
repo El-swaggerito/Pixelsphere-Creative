@@ -79,48 +79,28 @@ export default function HomePage() {
             <Header currentPage="home" />
 
             {/* Hero Content */}
-            <div className="flex-1 flex flex-col justify-center relative pt-1 xxxxs:pt-1 xxxs:pt-2 xxs:pt-3 xs:pt-4 sm:pt-10 px-2 xxxs:px-3 xxs:px-4 sm:px-6 lg:px-8 pb-6 xxxxs:pb-7 xxxs:pb-8 xxs:pb-10 xs:pb-12 sm:pb-20">
-              <div className="text-center max-w-4xl mx-auto">
-                <motion.h1
-                  className="text-xs xxxxs:text-sm xxxs:text-base xxs:text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-0.5 xxxxs:mb-1 xxxs:mb-1.5 xxs:mb-2 xs:mb-3 sm:mb-8 font-sora px-1 xxxs:px-2 xxs:px-3"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  Empowering Businesses Through Tailored Technology Solutions
-                </motion.h1>
-                <motion.p
-                  className="text-xs xxxxs:text-xs xxxs:text-xs xxs:text-sm xs:text-sm sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-1 xxxxs:mb-1.5 xxxs:mb-2 xxs:mb-3 xs:mb-4 sm:mb-12 leading-relaxed max-w-3xl mx-auto px-2 xxxs:px-3 xxs:px-4 sm:px-0"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                  We bridge the gap between businesses and their audiences by delivering high-quality digital solutions that amplify brand voices.
-                </motion.p>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative z-30"
-                >
-                  <motion.div
-                    className="ml-0"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Button
-                      size="lg"
-                      className="bg-orange-500 hover:bg-orange-600 text-white px-2.5 xxxxs:px-3 xxxs:px-4 xxs:px-5 xs:px-6 sm:px-8 py-1 xxxxs:py-1.5 xxxs:py-1.5 xxs:py-2 xs:py-2 sm:py-4 text-xs xxxxs:text-xs xxxs:text-xs xxs:text-sm xs:text-sm sm:text-lg font-medium rounded-lg w-full xxxs:w-full xxs:w-auto"
-                      onClick={navigateToContact}
-                    >
-                      Let's Work Together
-                      <ArrowRight className="h-2.5 w-2.5 xxxxs:h-3 xxxxs:w-3 xxxs:h-3 xxxs:w-3 xxs:h-3.5 xxs:w-3.5 sm:h-5 sm:w-5 ml-1 xxxs:ml-1.5" />
-                    </Button>
-                  </motion.div>
-                </motion.div>
-              </div>
+            <div className="relative z-40 flex flex-col items-center justify-center text-center px-2 xxxxs:px-3 xxxs:px-4 xxs:px-6 sm:px-8 lg:px-12 xl:px-16 py-4 xxxxs:py-6 xxxs:py-8 xxs:py-10 sm:py-16 lg:py-20">
+              <h1 className="text-lg xxxxs:text-xl xxxs:text-2xl xxs:text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-2 xxxxs:mb-3 xxxs:mb-4 xxs:mb-6 sm:mb-8 leading-tight">
+                Empowering Businesses Through Tailored Technology Solutions
+              </h1>
+              <p className="text-xs xxxxs:text-sm xxxs:text-base xxs:text-lg xs:text-xl sm:text-xl lg:text-2xl text-white/90 mb-4 xxxxs:mb-6 xxxs:mb-8 xxs:mb-10 sm:mb-12 max-w-xs xxxxs:max-w-sm xxxs:max-w-md xxs:max-w-lg sm:max-w-2xl lg:max-w-4xl leading-relaxed">
+                We bridge the gap between businesses and their audiences by delivering high-quality digital solutions that amplify brand voices.
+              </p>
+              
+              {/* Let's Work Together Button */}
+              <motion.div
+                className="relative z-40"
+                whileHover={{ scale: 1.5 }}
+                transition={{ duration: 0.3 }}
+              />
+              <Button
+                size="lg"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-2.5 xxxxs:px-3 xxxs:px-4 xxs:px-5 xs:px-6 sm:px-8 py-1 xxxxs:py-1.5 xxxs:py-1.5 xxs:py-2 xs:py-2 sm:py-4 text-xs xxxxs:text-xs xxxs:text-xs xxs:text-sm xs:text-sm sm:text-lg font-medium rounded-lg w-full xxxs:w-full xxs:w-auto"
+                onClick={navigateToContact}
+              >
+                Let's Work Together
+                <ArrowRight className="h-2.5 w-2.5 xxxxs:h-3 xxxxs:w-3 xxxs:h-3 xxxs:w-3 xxs:h-3.5 xxs:w-3.5 sm:h-5 sm:w-5 ml-1 xxxs:ml-1.5" />
+              </Button>
             </div>
 
             {/* Design Collection Images - Positioned at very bottom */}
