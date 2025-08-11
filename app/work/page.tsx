@@ -79,8 +79,8 @@ export default function WorkPage() {
             <Header currentPage="work" />
 
             {/* Hero Content */}
-            <div className="flex-1 flex items-center justify-center relative z-30 pt-32 px-4 sm:px-6 lg:px-8">
-              <div className="relative z-50 flex flex-col items-center justify-center text-center px-2">
+            <div className="flex-1 flex items-center justify-center relative z-20 pt-32 px-4 sm:px-6 lg:px-8">
+              <div className="relative z-20 flex flex-col items-center justify-center text-center px-2">
                 <motion.h1 className="text-lg xxxxs:text-xl xxxs:text-2xl xxs:text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 xxxxs:mb-5 xxxs:mb-6 xxs:mb-8 sm:mb-10 leading-tight"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -98,7 +98,7 @@ export default function WorkPage() {
                   approach to design and development.
                 </motion.p>
                 <motion.div
-                  className="relative z-50 mt-2 xxxxs:mt-3 xxxs:mt-4 xxs:mt-6 sm:mt-8 mb-8 xxxxs:mb-10 xxxs:mb-12 xxs:mb-16 xs:mb-20 sm:mb-24 lg:mb-28 xl:mb-16 2xl:mb-12"
+                  className="relative z-20 mt-2 xxxxs:mt-3 xxxs:mt-4 xxs:mt-6 sm:mt-8 mb-8 xxxxs:mb-10 xxxs:mb-12 xxs:mb-16 xs:mb-20 sm:mb-24 lg:mb-28 xl:mb-16 2xl:mb-12"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                   style={{ pointerEvents: 'auto' }}
