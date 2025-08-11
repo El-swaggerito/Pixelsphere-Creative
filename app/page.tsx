@@ -1,4 +1,4 @@
-  "use client";
+"use client";
   import Image from "next/image";
   import Link from "next/link";
   import { Button } from "@/components/ui/button";
@@ -35,47 +35,48 @@
 const testimonials = [
   {
     quote:
-      "Working with this team has been an absolute pleasure. They delivered beyond our expectations, even with our tight budget!",
-    name: "ayotilewa",
-    role: "Operations Director - Green Wave",
+      "From the very first meeting, their professionalism stood out. The final product was exactly what we envisioned—and more.",
+    name: "Clara Benton",
+    role: "Creative Director - Aurora Studios",
   },
   {
     quote:
-      "They turned our ideas into reality with precision and creativity. Highly recommended for anyone looking for top-notch results!",
-    name: "ayotilewa",
-    role: "Product Manager - NextGen",
+      "They managed to deliver a complex project ahead of schedule without compromising on quality. Truly impressive!",
+    name: "Marcus Hale",
+    role: "CTO - FutureTech Solutions",
   },
   {
     quote:
-      "Their attention to detail and commitment to excellence are second to none. We couldn't be happier with the final product.",
-    name: "ayotilewa",
-    role: "CEO - Visionary Media",
+      "Our experience was seamless from start to finish. Their ability to adapt and innovate made all the difference.",
+    name: "Priya Kapoor",
+    role: "Head of Marketing - Horizon Media Group",
   },
   {
     quote:
-      "Exceptional service and results that exceeded all our expectations. Highly recommend!",
-    name: "ayotilewa",
-    role: "Director - Innovation Hub",
+      "Excellent communication, fresh ideas, and flawless execution. I couldn’t ask for a better partner for our campaign.",
+    name: "Ethan Walker",
+    role: "Brand Strategist - Elevate Agency",
   },
   {
     quote:
-      "Their creativity and professionalism are unmatched. They truly understood our needs and delivered perfectly.",
-    name: "ayotilewa",
-    role: "Marketing Manager - Bright Ideas Inc.",
+      "The team brought our vision to life with incredible attention to detail. I’ll definitely be working with them again.",
+    name: "Sofia Ramirez",
+    role: "CEO - Lumina Designs",
   },
   {
     quote:
-      "A fantastic experience from start to finish. The team was responsive, innovative, and always ready to go the extra mile.",
-    name: "ayotilewa",
-    role: "CEO - Tech Solutions Ltd.",
+      "I was amazed at how quickly they understood our needs and delivered beyond expectations. Simply outstanding.",
+    name: "Daniel Okoro",
+    role: "Operations Manager - Nexus Global",
   },
   {
     quote:
-      "Outstanding quality, fast delivery, and excellent communication throughout the project.",
-    name: "ayotilewa",
-    role: "Head of Design - Urban Aesthetics",
+      "Creative, reliable, and highly skilled—working with them was one of the best decisions we made this year.",
+    name: "Hannah Schultz",
+    role: "Product Lead - InnovateX",
   },
 ];
+
 
     return (
       <PageTransition>
@@ -123,7 +124,7 @@ const testimonials = [
               <Header currentPage="home" />
 
               {/* Hero Content */}
-              <div className="relative z-40 flex flex-col items-center justify-center text-center px-2 xxxxs:px-3 xxxs:px-4 xxs:px-6 sm:px-8 lg:px-12 xl:px-16 pt-16 xxxxs:pt-18 xxxs:pt-20 xxs:pt-24 xs:pt-28 sm:pt-32 lg:pt-36 xl:pt-40 pb-8 xxxxs:pb-10 xxxs:pb-12 xxs:pb-16 xs:pb-20 sm:pb-24 lg:pb-28 xl:pb-32">
+              <div className="relative z-10 flex flex-col items-center justify-center text-center px-2 xxxxs:px-3 xxxs:px-4 xxs:px-6 sm:px-8 lg:px-12 xl:px-16 pt-16 xxxxs:pt-18 xxxs:pt-20 xxs:pt-24 xs:pt-28 sm:pt-32 lg:pt-36 xl:pt-40 pb-8 xxxxs:pb-10 xxxs:pb-12 xxs:pb-16 xs:pb-20 sm:pb-24 lg:pb-28 xl:pb-32">
                 <h1 className="text-lg xxxxs:text-xl xxxs:text-2xl xxs:text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 xxxxs:mb-5 xxxs:mb-6 xxs:mb-8 sm:mb-10 leading-tight">
                   Empowering Businesses Through Tailored Technology Solutions
                 </h1>
@@ -133,7 +134,7 @@ const testimonials = [
                 
                 {/* Let's Work Together Button */}
                 <motion.div
-                  className="relative z-40 mt-2 xxxxs:mt-3 xxxs:mt-4 xxs:mt-6 sm:mt-8 mb-8 xxxxs:mb-10 xxxs:mb-12 xxs:mb-16 xs:mb-20 sm:mb-24 lg:mb-28 xl:mb-16 2xl:mb-12"
+                  className="relative z-10 mt-2 xxxxs:mt-3 xxxs:mt-4 xxs:mt-6 sm:mt-8 mb-8 xxxxs:mb-10 xxxs:mb-12 xxs:mb-16 xs:mb-20 sm:mb-24 lg:mb-28 xl:mb-16 2xl:mb-12"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -537,7 +538,7 @@ const testimonials = [
         </div>
 
         {/* Right side – static content */}
-        <div className="text-left order-1 lg:order-2">
+        <div className="text-left order-1 lg:order-2 p-16">
           <motion.div
             className="flex items-center mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -572,7 +573,7 @@ const testimonials = [
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            At PIXELSPHERE, our clients' satisfaction is our top priority. We take pride in the relationships we build and the successes we help create.
+            At Pixelsphere Creatives, our clients' satisfaction is our top priority. We take pride in the relationships we build and the successes we help create.
           </motion.p>
           
         </div>

@@ -8,15 +8,15 @@ export default function Footer() {
   return (
     <footer className="bg-blue-700 text-white py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-          <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
+          <div className="lg:col-span-2">
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
               <Image src="/images/footer-logo.png"  className="-my-12" alt="" width={150} height={100}/>
             </motion.div>
-            <p className="text-blue-200 sm:mb-8 leading-relaxed text-sm sm:text-base">
+            <p className="text-blue-200 sm:mb-8 leading-relaxed text-sm sm:text-base max-w-md">
             PixelSphere Creative – Your trusted partner for custom websites, smart branding, and digital growth strategies in Canada and beyond.
             </p>
             <div className="mb-6 sm:mb-8">
@@ -68,9 +68,9 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
+          <div className="lg:col-span-1">
             <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Our Services</h3>
-            <ul className="space-y-2 sm:space-y-3 text-blue-200 text-sm sm:text-base">
+            <ul className="space-y-3 sm:space-y-4 text-blue-200 text-sm sm:text-base">
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="/services/custom-web-solutions" className="hover:text-white transition-colors">
@@ -99,12 +99,19 @@ export default function Footer() {
                   </Link>
                 </motion.div>
               </li>
+              <li>
+                <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
+                  <Link href="/services/digital-growth" className="hover:text-white transition-colors">
+                    Digital Growth
+                  </Link>
+                </motion.div>
+              </li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Resources</h3>
-            <ul className="space-y-2 sm:space-y-3 text-blue-200 text-sm sm:text-base">
+          <div className="lg:col-span-1">
+            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Resources & Support</h3>
+            <ul className="space-y-3 sm:space-y-4 text-blue-200 text-sm sm:text-base">
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                   <Link href="/blog" className="hover:text-white transition-colors">
@@ -121,49 +128,22 @@ export default function Footer() {
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Case Study
-                  </Link>
-                </motion.div>
-              </li>
-              <li>
-                <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/contact#faq" className="hover:text-white transition-colors">
                     FAQS
                   </Link>
                 </motion.div>
               </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Quick Links</h3>
-            <ul className="space-y-2 sm:space-y-3 text-blue-200 text-sm sm:text-base">
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Privacy Policy
+                  <Link href="/contact" className="hover:text-white transition-colors">
+                    Contact Us
                   </Link>
                 </motion.div>
               </li>
               <li>
                 <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Terms of Service
-                  </Link>
-                </motion.div>
-              </li>
-              <li>
-                <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Careers
-                  </Link>
-                </motion.div>
-              </li>
-              <li>
-                <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link href="#" className="hover:text-white transition-colors">
-                   Become a Partner
+                  <Link href="/about" className="hover:text-white transition-colors">
+                    About Us
                   </Link>
                 </motion.div>
               </li>

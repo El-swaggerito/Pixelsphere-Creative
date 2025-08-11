@@ -198,16 +198,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
       href: "/services/digital-growth",
       color: "blue",
       services: [
-        { 
-          name: "Software Application", 
-          href: "/services/digital-growth",
-          icon: Database
-        },
-        { 
-          name: "Mobile App Development", 
-          href: "/services/digital-growth",
-          icon: Smartphone
-        },
+
         { 
           name: "Brand Audit", 
           href: "/services/digital-growth",
@@ -287,6 +278,25 @@ export default function Header({ currentPage = "home", textColor = "white", back
               </Link>
             </motion.div>
 
+                        <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <Link
+                href="/about"
+                className={`text-sm lg:text-base ${
+                  currentPage === "about"
+                    ? `${
+                        textColor === "black"
+                          ? "text-gray-900 hover:text-orange-600"
+                          : "text-white hover:text-orange-300"
+                      } font-medium`
+                    : `${
+                        textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"
+                      }`
+                }`}
+              >
+                About Us
+              </Link>
+            </motion.div>
+
             {/* Services Dropdown */}
             <div className="relative">
               <motion.button
@@ -337,7 +347,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -20, scale: 0.95 }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
-                      className="fixed left-0 right-0 top-[64px] sm:top-[80px] w-screen bg-white text-gray-800 border-t border-gray-200 z-50 shadow-xl"
+                      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-all duration-300"
                       role="menu"
                       aria-label="Services submenu"
                       tabIndex={-1}
@@ -381,24 +391,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
             </div>
 
             {/* Rest of the navigation remains the same */}
-            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
-              <Link
-                href="/about"
-                className={`text-sm lg:text-base ${
-                  currentPage === "about"
-                    ? `${
-                        textColor === "black"
-                          ? "text-gray-900 hover:text-orange-600"
-                          : "text-white hover:text-orange-300"
-                      } font-medium`
-                    : `${
-                        textColor === "black" ? "text-gray-700 hover:text-gray-900" : "text-white/80 hover:text-white"
-                      }`
-                }`}
-              >
-                About Us
-              </Link>
-            </motion.div>
+
 
             <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
               <Link

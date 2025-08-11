@@ -139,8 +139,8 @@ export default function ProjectCard({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="bg-gray-900 rounded-2xl p-8 shadow-2xl">
-          <div className="bg-white rounded-lg p-6 aspect-[4/3]">
+        <Link href={`/work/${slug}`} className="block cursor-pointer">
+          <div className="rounded-lg p-6 aspect-[4/3]">
             <div className="w-full h-full rounded-lg overflow-hidden relative">
               <motion.div
                 className="w-full h-full relative"
@@ -163,10 +163,22 @@ export default function ProjectCard({
                     filter: isHovered ? 'brightness(1.1) contrast(1.05)' : 'brightness(1) contrast(1)',
                   }}
                 />
+                {/* Optional: Add a subtle overlay to indicate it's clickable */}
+                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-all duration-300 rounded-lg flex items-center justify-center">
+                  <motion.div
+                    className="opacity-0 hover:opacity-100 transition-opacity duration-300"
+                    initial={{ scale: 0.8 }}
+                    whileHover={{ scale: 1 }}
+                  >
+                    <div className="bg-white bg-opacity-90 rounded-full p-3 shadow-lg">
+                      <Eye className="h-6 w-6 text-gray-800" />
+                    </div>
+                  </motion.div>
+                </div>
               </motion.div>
             </div>
           </div>
-        </div>
+        </Link>
       </motion.div>
     </motion.div>
   )

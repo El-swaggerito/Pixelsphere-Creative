@@ -172,7 +172,83 @@ export default function ContactPage() {
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <div className="grid lg:grid-cols-2 gap-16">
-                {/* Contact Form */}
+                {/* Contact Information - Now on the Left */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">We'd love to hear from you</h2>
+                  <p className="text-gray-600 mb-8">
+                    Need something cleared up? Here are our most frequently asked questions.
+                  </p>
+
+                  <div className="space-y-8">
+                    <motion.div
+                      className="flex items-start space-x-4"
+                      whileHover={{ scale: 1.02, x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <motion.div
+                        className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center"
+                        whileHover={{ rotate: 360, scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Mail className="h-6 w-6 text-white" />
+                      </motion.div>
+                      <div>
+                        <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
+                        <p className="text-gray-600 mb-2">Our friendly team is here to help.</p>
+                        <a href="mailto:info@pixelsphere.ca" className="text-blue-600 hover:text-blue-700">
+                          info@pixelsphere.ca
+                        </a>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      className="flex items-start space-x-4"
+                      whileHover={{ scale: 1.02, x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <motion.div
+                        className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center"
+                        whileHover={{ rotate: 360, scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Phone className="h-6 w-6 text-purple-600" />
+                      </motion.div>
+                      <div>
+                        <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
+                        <p className="text-gray-600 mb-2">Mon-Fri from 8am to 5pm.</p>
+                        <a href="tel:+5145127873" className="text-blue-600 hover:text-blue-700">
+                          +(514) 512-7873
+                        </a>
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      className="flex items-start space-x-4"
+                      whileHover={{ scale: 1.02, x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <motion.div
+                        className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center"
+                        whileHover={{ rotate: 360, scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <MapPin className="h-6 w-6 text-green-600" />
+                      </motion.div>
+                      <div>
+                        <h3 className="font-semibold text-gray-900 mb-2">Office</h3>
+                        <p className="text-gray-600 mb-2">Come say hello at our office HQ.</p>
+                        <p className="text-gray-700">Serving clients worldwide</p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+
+                {/* Contact Form - Now on the Right */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -542,80 +618,6 @@ export default function ContactPage() {
                 </motion.div>
 
                 {/* Contact Information */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">We'd love to hear from you</h2>
-                  <p className="text-gray-600 mb-8">
-                    Need something cleared up? Here are our most frequently asked questions.
-                  </p>
-
-                  <div className="space-y-8">
-                    <motion.div
-                      className="flex items-start space-x-4"
-                      whileHover={{ scale: 1.02, x: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <motion.div
-                        className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center"
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <Mail className="h-6 w-6 text-white" />
-                      </motion.div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
-                        <p className="text-gray-600 mb-2">Our friendly team is here to help.</p>
-                        <a href="mailto:info@pixelsphere.ca" className="text-blue-600 hover:text-blue-700">
-                          info@pixelsphere.ca
-                        </a>
-                      </div>
-                    </motion.div>
-
-                    <motion.div
-                      className="flex items-start space-x-4"
-                      whileHover={{ scale: 1.02, x: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <motion.div
-                        className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center"
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <Phone className="h-6 w-6 text-purple-600" />
-                      </motion.div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
-                        <p className="text-gray-600 mb-2">Mon-Fri from 8am to 5pm.</p>
-                        <a href="tel:+5145127873" className="text-blue-600 hover:text-blue-700">
-                          +(514) 512-7873
-                        </a>
-                      </div>
-                    </motion.div>
-
-                    <motion.div
-                      className="flex items-start space-x-4"
-                      whileHover={{ scale: 1.02, x: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <motion.div
-                        className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center"
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <MapPin className="h-6 w-6 text-green-600" />
-                      </motion.div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Office</h3>
-                        <p className="text-gray-600 mb-2">Come say hello at our office HQ.</p>
-                        <p className="text-gray-700">Serving clients worldwide</p>
-                      </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
               </div>
             </div>
           </section>
@@ -623,7 +625,7 @@ export default function ContactPage() {
 
         {/* FAQ Section */}
         <AnimatedSection>
-          <section className="py-20 bg-gray-50 relative overflow-hidden">
+          <section id="faq" className="py-20 bg-gray-50 relative overflow-hidden">
             {/* Orange decorative shape - top right edge */}
             <motion.div
               className="absolute top-8 right-0 opacity-80 z-0"
@@ -779,9 +781,6 @@ export default function ContactPage() {
           />
         </AnimatedSection>
 
-        <AnimatedSection>
-          <FinalCTA />
-        </AnimatedSection>
 
         <AnimatedSection>
           <Footer />

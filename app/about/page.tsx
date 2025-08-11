@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, Globe, Palette, Zap, Target, Users, BarChart3 } from "lucide-react"
+import { ArrowRight, Globe, Palette, Zap, Target, Users, BarChart3, Monitor, PenTool, FileImage, Database } from "lucide-react"
 import Header from "@/components/header"
 import HeroBackground from "@/components/hero-background"
 import SectionHeader from "@/components/section-header"
@@ -108,14 +108,28 @@ export default function AboutPage() {
             <Card className="p-6 hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="h-6 w-6 text-blue-600" />
+                  <Globe className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Custom Website</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Custom Web Solutions</h3>
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                  Our Web Design & Development service offers a perfect blend of design elements to your specific needs,
-                  featuring optimized pages for a seamless user experience.
+                  Professional website design and development services that drive results and enhance your online presence with modern, responsive designs.
                 </p>
-                <Link href="#" className="text-orange-500 hover:text-orange-600 font-medium text-sm">
+                <Link href="/services/custom-web-solutions" className="text-orange-500 hover:text-orange-600 font-medium text-sm">
+                  Discover More →
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <CardContent className="p-0">
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                  <PenTool className="h-6 w-6 text-orange-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Branding & Identity</h3>
+                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                  Discover and position your brand for growth with comprehensive brand strategy, visual identity, and brand story development.
+                </p>
+                <Link href="/services/branding-identity" className="text-orange-500 hover:text-orange-600 font-medium text-sm">
                   Discover More →
                 </Link>
               </CardContent>
@@ -124,14 +138,13 @@ export default function AboutPage() {
             <Card className="p-6 hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="h-6 w-6 text-blue-600" />
+                  <Monitor className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">E-Commerce Website</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">UX Design & Strategy</h3>
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                  Our Web Design & Development service offers a perfect blend of design elements to your specific needs,
-                  featuring optimized pages for a seamless user experience.
+                  User-friendly interface designs and strategic UX planning that enhance user experience through research-driven design solutions.
                 </p>
-                <Link href="#" className="text-orange-500 hover:text-orange-600 font-medium text-sm">
+                <Link href="/services/ux-design-strategy" className="text-orange-500 hover:text-orange-600 font-medium text-sm">
                   Discover More →
                 </Link>
               </CardContent>
@@ -139,15 +152,14 @@ export default function AboutPage() {
 
             <Card className="p-6 hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="h-6 w-6 text-blue-600" />
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                  <FileImage className="h-6 w-6 text-green-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 font-sora">Branding and Digital services</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Graphic Design</h3>
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                  Our Web Design & Development service offers a perfect blend of design elements to your specific needs,
-                  featuring optimized pages for a seamless user experience.
+                  Compelling visual assets, branding collaterals, and promotional designs that effectively communicate your brand message.
                 </p>
-                <Link href="#" className="text-orange-500 hover:text-orange-600 font-medium text-sm">
+                <Link href="/services/graphic-design" className="text-orange-500 hover:text-orange-600 font-medium text-sm">
                   Discover More →
                 </Link>
               </CardContent>
@@ -155,31 +167,14 @@ export default function AboutPage() {
 
             <Card className="p-6 hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="h-6 w-6 text-blue-600" />
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                  <Database className="h-6 w-6 text-purple-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">UI UX Design/Plugins</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Digital Growth</h3>
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                  Our Web Design & Development service offers a perfect blend of design elements to your specific needs,
-                  featuring optimized pages for a seamless user experience.
+                  Custom software applications, mobile app development, brand audits, and SEO optimization for comprehensive digital growth.
                 </p>
-                <Link href="#" className="text-orange-500 hover:text-orange-600 font-medium text-sm">
-                  Discover More →
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="p-6 hover:shadow-lg transition-shadow">
-              <CardContent className="p-0">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="h-6 w-6 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">UI UX Design Project</h3>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                  Our Web Design & Development service offers a perfect blend of design elements to your specific needs,
-                  featuring optimized pages for a seamless user experience.
-                </p>
-                <Link href="#" className="text-orange-500 hover:text-orange-600 font-medium text-sm">
+                <Link href="/services/digital-growth" className="text-orange-500 hover:text-orange-600 font-medium text-sm">
                   Discover More →
                 </Link>
               </CardContent>
