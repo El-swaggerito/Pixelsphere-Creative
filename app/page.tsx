@@ -540,7 +540,7 @@ const testimonials = [
         </div>
 
         {/* Right side – static content */}
-        <div className="text-left order-1 lg:order-2 p-16">
+        <div className="text-left order-1 lg:order-2 pt-32">
           <motion.div
             className="flex items-center mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 20 }}
