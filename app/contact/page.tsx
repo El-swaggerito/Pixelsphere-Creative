@@ -758,7 +758,7 @@ export default function ContactPage() {
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                           <Button
                             className="bg-orange-500 hover:bg-orange-600 text-white w-full py-3 rounded-lg"
-                            onClick={scrollToContactForm}
+                            onClick={() => window.location.href = 'mailto:info@pixelsphere.ca'}
                           >
                             Send Message
                           </Button>

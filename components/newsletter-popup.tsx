@@ -2,11 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
-import { X, Gift } from "lucide-react";
 
 interface NewsletterPopupProps {
   delayInSeconds?: number;
@@ -49,6 +48,7 @@ export default function NewsletterPopup({ delayInSeconds = 2 }: NewsletterPopupP
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="sm:max-w-md p-0 overflow-hidden rounded-xl border-0 shadow-xl w-[95%] max-w-[95vw] sm:w-auto max-h-[90vh] overflow-y-auto">
+        <DialogTitle className="sr-only">Newsletter Signup</DialogTitle>
         <div className="bg-blue-50 p-4 sm:p-6 relative">
           
           <div className="flex flex-col items-center text-center">
