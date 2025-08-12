@@ -27,7 +27,7 @@ export default function HeroBackground({ children, className }: HeroBackgroundPr
 
       {/* Animated particles - Responsive sizing */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {Array.from({ length: 20 }).map((_, i) => {
+        {Array.from({ length: 80 }).map((_, i) => {
           // Responsive particle sizes
           const baseSize = Math.random() * 4 + 1; // 1-5px for mobile
           const tabletSize = Math.random() * 5 + 1.5; // 1.5-6.5px for tablet
@@ -36,7 +36,7 @@ export default function HeroBackground({ children, className }: HeroBackgroundPr
           return (
             <motion.div
               key={i}
-              className="absolute rounded-full bg-white opacity-20 pointer-events-none"
+              className="absolute rounded-full bg-white opacity-30 pointer-events-none"
               style={{
                 // Use CSS custom properties for responsive sizing
                 width: `clamp(${baseSize}px, ${tabletSize}px, ${desktopSize}px)`,
@@ -47,7 +47,7 @@ export default function HeroBackground({ children, className }: HeroBackgroundPr
               animate={{
                 y: [0, Math.random() * -100 - 50],
                 x: [0, (Math.random() - 0.5) * 50],
-                opacity: [0.2, 0],
+                opacity: [0.3, 0],
               }}
               transition={{
                 duration: Math.random() * 5 + 5,
