@@ -111,11 +111,11 @@ export default function ContactPage() {
     <PageTransition>
       <main>
         {/* Hero Section with Contact Image */}
-        <section className="relative flex items-center overflow-hidden">
-          <HeroBackground className="min-h-[60vh] lg:min-h-[45vh] xl:min-h-[40vh] 2xl:min-h-[35vh]">
+        <section className="relative min-h-[80vh] md:min-h-[70vh] lg:min-h-[60vh] xl:min-h-[55vh] flex items-center overflow-hidden">
+          <HeroBackground className="!min-h-[70vh] lg:!min-h-[60vh] xl:!min-h-[55vh]">
             <Header currentPage="contact" />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-2 xxxxs:px-3 xxxs:px-4 xxs:px-6 sm:px-8 lg:px-12 xl:px-16 pt-16 xxxxs:pt-18 xxxs:pt-20 xxs:pt-24 xs:pt-28 sm:pt-32 lg:pt-24 xl:pt-28 pb-8 xxxxs:pb-10 xxxs:pb-12 xxs:pb-16 xs:pb-20 sm:pb-24 lg:pb-16 xl:pb-20">
+            <div className="relative z-10 max-w-7xl mx-auto px-2 xxxxs:px-3 xxxs:px-4 xxs:px-6 sm:px-8 lg:px-12 xl:px-16 pt-16 xxxxs:pt-18 xxxs:pt-20 xxs:pt-24 xs:pt-28 sm:pt-32 lg:pt-20 xl:pt-24 pb-8 xxxxs:pb-10 xxxs:pb-12 xxs:pb-16 xs:pb-20 sm:pb-24 lg:pb-12 xl:pb-16">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left Content */}
                 <motion.div

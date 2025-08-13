@@ -9,7 +9,7 @@ interface HeroBackgroundProps {
 
 export default function HeroBackground({ children, className }: HeroBackgroundProps) {
   return (
-    <div className={`relative w-full bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 overflow-hidden ${className || ''}`}>
+    <div className={`relative min-h-screen w-full bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 overflow-hidden ${className || ''}`} style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}>
       {/* Animated gradient overlay */}
       <motion.div
         className="absolute inset-0 opacity-30 pointer-events-none"
