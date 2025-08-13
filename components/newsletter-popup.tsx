@@ -45,8 +45,18 @@ export default function NewsletterPopup({ delayInSeconds = 2 }: NewsletterPopupP
     alert("Thank you for subscribing to our newsletter!");
   };
   
+  // Handle popup close/dismiss
+  const handleOpenChange = (open: boolean) => {
+    setIsOpen(open);
+    
+    // If the popup is being closed (dismissed), mark it as shown so it doesn't appear again
+    if (!open) {
+      localStorage.setItem("newsletter-popup-shown", "true");
+    }
+  };
+  
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogContent className="sm:max-w-md p-0 overflow-hidden rounded-xl border-0 shadow-xl w-[95%] max-w-[95vw] sm:w-auto max-h-[90vh] overflow-y-auto">
         <DialogTitle className="sr-only">Newsletter Signup</DialogTitle>
         <div className="bg-blue-50 p-4 sm:p-6 relative">

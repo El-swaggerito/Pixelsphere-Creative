@@ -92,22 +92,22 @@ export default function Header({ currentPage = "home", textColor = "white", back
       services: [
         { 
           name: "Website Design", 
-          href: "/services/custom-web-solutions", 
+          href: "/services/custom-web-solutions#website-design",
           icon: Globe
         },
         { 
           name: "Web Development", 
-          href: "/services/custom-web-solutions", 
+          href: "/services/custom-web-solutions#web-development", 
           icon: Code
         },
         { 
           name: "Mockups & Prototyping", 
-          href: "/services/custom-web-solutions", 
+          href: "/services/custom-web-solutions#mockups-and-prototyping", 
           icon: Layers
         },
         { 
           name: "Website in-a-day", 
-          href: "/services/custom-web-solutions", 
+          href: "/services/custom-web-solutions#website-in-a-day", 
           icon: Layout
         },
       ],
@@ -119,22 +119,22 @@ export default function Header({ currentPage = "home", textColor = "white", back
       services: [
         { 
           name: "Brand Strategy", 
-          href: "/services/branding-identity",
+          href: "/services/branding-identity#brand-strategy",
           icon: BarChart
         },
         { 
           name: "Visual Assets & Identity", 
-          href: "/services/branding-identity",
+          href: "/services/branding-identity#visual-assets-and-identity",
           icon: PenTool
         },
         { 
           name: "Brand Identity", 
-          href: "/services/branding-identity",
+          href: "/services/branding-identity#brand-identity",
           icon: Palette
         },
         { 
           name: "Brand Story", 
-          href: "/services/branding-identity",
+          href: "/services/branding-identity#brand-story",
           icon: FileText
         },
       ],
@@ -146,22 +146,22 @@ export default function Header({ currentPage = "home", textColor = "white", back
       services: [
         { 
           name: "Visual Assets", 
-          href: "/services/graphic-design", 
+          href: "/services/graphic-design#visual-assets", 
           icon: FileImage
         },
         { 
           name: "Branding Collaterals", 
-          href: "/services/graphic-design", 
+          href: "/services/graphic-design#branding-collaterals", 
           icon: PenTool
         },
         { 
           name: "Graphic Templates", 
-          href: "/services/graphic-design", 
+          href: "/services/graphic-design#graphic-templates", 
           icon: Layers
         },
         { 
           name: "Promotional Design", 
-          href: "/services/graphic-design", 
+          href: "/services/graphic-design#promotional-design", 
           icon: Megaphone
         },
       ],
@@ -173,22 +173,22 @@ export default function Header({ currentPage = "home", textColor = "white", back
       services: [
         { 
           name: "UI/UX Design", 
-          href: "/services/ux-design-strategy",
+          href: "/services/ux-design-strategy#ui-ux-design",
           icon: Monitor
         },
         { 
           name: "Information Architecture", 
-          href: "/services/ux-design-strategy",
+          href: "/services/ux-design-strategy#information-architecture",
           icon: FolderTree
         },
         { 
           name: "Interaction Design", 
-          href: "/services/ux-design-strategy",
+          href: "/services/ux-design-strategy#interaction-design",
           icon: MousePointer
         },
         { 
           name: "Usability Testing", 
-          href: "/services/ux-design-strategy",
+          href: "/services/ux-design-strategy#usability-testing",
           icon: TestTube
         },
       ],
@@ -198,15 +198,14 @@ export default function Header({ currentPage = "home", textColor = "white", back
       href: "/services/digital-growth",
       color: "blue",
       services: [
-
         { 
           name: "Brand Audit", 
-          href: "/services/digital-growth",
+          href: "/services/digital-growth#brand-audit",
           icon: Shield
         },
         { 
           name: "SEO Optimization",
-          href: "/services/digital-growth",
+          href: "/services/digital-growth#seo-optimization",
           icon: Search
         },
       ],

@@ -88,11 +88,7 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
                     </ul>
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-gray-500 mb-1">Project Duration</div>
-                    <div className="text-gray-900 font-medium">{project.duration}</div>
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-gray-500 mb-1">Client</div>
+                    <div className="text-sm font-medium text-gray-500 mb-1">Project Title</div>
                     <div className="text-gray-900 font-medium">{project.client}</div>
                   </div>
                   <div>

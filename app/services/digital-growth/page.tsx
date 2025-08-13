@@ -94,25 +94,30 @@ export default function DigitalGrowthPage() {
           />
 
           <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
-                    <service.icon className="w-6 h-6 text-purple-600" />
+            {services.map((service, index) => {
+              // Create IDs based on service titles
+              const serviceId = service.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+              
+              return (
+                <div key={index} id={serviceId} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                      <service.icon className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <h3 className="text-2xl font-semibold text-gray-900">{service.title}</h3>
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900">{service.title}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                  <ul className="space-y-3">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center">
+                        <Check className="w-5 h-5 text-green-500 mr-3" />
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                <ul className="space-y-3">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center">
-                      <Check className="w-5 h-5 text-green-500 mr-3" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>

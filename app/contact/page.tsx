@@ -111,11 +111,11 @@ export default function ContactPage() {
     <PageTransition>
       <main>
         {/* Hero Section with Contact Image */}
-        <section className="relative min-h-[80vh] flex items-center overflow-hidden">
-          <HeroBackground>
+        <section className="relative flex items-center overflow-hidden">
+          <HeroBackground className="min-h-[60vh] lg:min-h-[45vh] xl:min-h-[40vh] 2xl:min-h-[35vh]">
             <Header currentPage="contact" />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-2 xxxxs:px-3 xxxs:px-4 xxs:px-6 sm:px-8 lg:px-12 xl:px-16 pt-16 xxxxs:pt-18 xxxs:pt-20 xxs:pt-24 xs:pt-28 sm:pt-32 lg:pt-36 xl:pt-40 pb-8 xxxxs:pb-10 xxxs:pb-12 xxs:pb-16 xs:pb-20 sm:pb-24 lg:pb-28 xl:pb-32">
+            <div className="relative z-10 max-w-7xl mx-auto px-2 xxxxs:px-3 xxxs:px-4 xxs:px-6 sm:px-8 lg:px-12 xl:px-16 pt-16 xxxxs:pt-18 xxxs:pt-20 xxs:pt-24 xs:pt-28 sm:pt-32 lg:pt-24 xl:pt-28 pb-8 xxxxs:pb-10 xxxs:pb-12 xxs:pb-16 xs:pb-20 sm:pb-24 lg:pb-16 xl:pb-20">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left Content */}
                 <motion.div
@@ -227,24 +227,7 @@ export default function ContactPage() {
                       </div>
                     </motion.div>
 
-                    <motion.div
-                      className="flex items-start space-x-4"
-                      whileHover={{ scale: 1.02, x: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <motion.div
-                        className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center"
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <MapPin className="h-6 w-6 text-green-600" />
-                      </motion.div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Office</h3>
-                        <p className="text-gray-600 mb-2">Come say hello at our office HQ.</p>
-                        <p className="text-gray-700">Serving clients worldwide</p>
-                      </div>
-                    </motion.div>
+                    
                   </div>
                 </motion.div>
 
@@ -472,9 +455,9 @@ export default function ContactPage() {
                         </div>
                       </motion.div>
 
-                      {/* Conditional Custom Budget Input */}
+                                            {/* Conditional Custom Budget Input */}
                       <AnimatePresence>
-                        {formData.budget === "over-50k" && (
+                        {formData.budget && formData.budget !== "" && (
                           <motion.div 
                             initial={{ opacity: 0, height: 0, y: -10 }}
                             animate={{ opacity: 1, height: "auto", y: 0 }}
@@ -483,19 +466,33 @@ export default function ContactPage() {
                             className="group"
                           >
                             <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
-                              Please specify your budget amount *
+                              Please specify your exact budget within the selected range *
                             </label>
                             <div className="relative">
                               <Input
                                 name="customBudget"
                                 value={formData.customBudget}
                                 onChange={handleInputChange}
-                                placeholder="e.g., $75,000"
+                                placeholder={
+                                  formData.budget === "under-5k" ? "e.g., $3,500" :
+                                  formData.budget === "5k-10k" ? "e.g., $7,500" :
+                                  formData.budget === "10k-25k" ? "e.g., $15,000" :
+                                  formData.budget === "25k-50k" ? "e.g., $35,000" :
+                                  formData.budget === "over-50k" ? "e.g., $75,000" :
+                                  "Enter your exact budget"
+                                }
                                 className="w-full h-12 px-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:bg-white transition-all duration-300 placeholder:text-gray-400"
-                                required={formData.budget === "over-50k"}
+                                required={formData.budget !== ""}
                               />
                               <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
                             </div>
+                            <p className="text-xs text-gray-500 mt-2">
+                              {formData.budget === "under-5k" && "Please enter an amount under $5,000"}
+                              {formData.budget === "5k-10k" && "Please enter an amount between $5,000 - $10,000"}
+                              {formData.budget === "10k-25k" && "Please enter an amount between $10,000 - $25,000"}
+                              {formData.budget === "25k-50k" && "Please enter an amount between $25,000 - $50,000"}
+                              {formData.budget === "over-50k" && "Please enter an amount over $50,000"}
+                            </p>
                           </motion.div>
                         )}
                       </AnimatePresence>
@@ -772,19 +769,15 @@ export default function ContactPage() {
           </section>
         </AnimatedSection>
 
-        <AnimatedSection>
           <CTASection
             title="Crafting Digital Experiences That Make Brands Stand Out"
             description="We design and develop websites and applications that help startups and businesses grow, connect, and thrive online."
             buttonText="Contact Us"
             backgroundImage="/images/cta-bg.png"
           />
-        </AnimatedSection>
 
 
-        <AnimatedSection>
           <Footer />
-        </AnimatedSection>
       </main>
     </PageTransition>
   )
