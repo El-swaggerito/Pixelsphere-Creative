@@ -38,8 +38,8 @@ export default function WorkPage() {
     <PageTransition>
       <div className="min-h-screen bg-white">
         {/* Portfolio Hero Section - Similar to Home Page */}
-        <section className="relative min-h-screen flex flex-col overflow-hidden">
-          <HeroBackground>
+        <section className="relative min-h-[50vh] xxxxs:min-h-[45vh] xxxs:min-h-[50vh] xxs:min-h-[55vh] xs:min-h-[60vh] sm:min-h-[80vh] md:min-h-[70vh] lg:min-h-screen flex flex-col overflow-hidden">
+          <HeroBackground className="!min-h-[50vh] xxxxs:!min-h-[45vh] xxxs:!min-h-[50vh] xxs:!min-h-[55vh] xs:!min-h-[60vh] sm:!min-h-[80vh] md:!min-h-[70vh] lg:!min-h-screen">
             {/* Decorative vector line at top left */}
             <motion.div
               className="absolute top-4 left-4 sm:top-8 sm:left-8 z-10"
