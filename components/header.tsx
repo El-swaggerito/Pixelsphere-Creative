@@ -214,7 +214,7 @@ export default function Header({ currentPage = "home", textColor = "white", back
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 w-full z-30 shadow-sm ${
+      className={`fixed top-0 left-0 w-full z-50 shadow-sm ${
         background === "white" ? "bg-white text-blue-900" : "text-white"
       }`}
       style={
