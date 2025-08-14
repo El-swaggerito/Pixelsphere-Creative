@@ -116,7 +116,7 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
                     variant="outline"
                     className="border-orange-500 text-orange-500 px-8 py-3 text-lg font-medium bg-transparent hover:bg-orange-50"
                   >
-                    View Case Study On Behance
+                    View Branding
                   </Button>
                 </div>
               </div>
@@ -255,7 +255,7 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
       {project.images.showcase4 && (
         <AnimatedSection>
           <section>
-            <div className="text-center">
+            <div className="text-center pb-10">
                 <Image
                   src={project.images.showcase4}
                   alt={`Final ${project.title} design showcase`}

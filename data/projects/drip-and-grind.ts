@@ -11,8 +11,8 @@ export const dripAndGrindProject = {
   images: {
     showcase1: "/images/drip&grind-1.png",
     showcase2: "/images/drip&grind-2.png",
-    showcase3: "/images/drip&grind-3.png",
-    showcase4: "/images/drip&grind-4.png",
+    showcase3: "/images/drip&grind-3.jpg",
+    showcase4: "/images/drip&grind-4.jpg",
   },
   briefDescription: `Drip and Grind is a sophisticated coffee shop and co-working space tailored for freelancers, entrepreneurs, and coffee aficionados. They sought a comprehensive digital identity that mirrors their distinctive fusion of productivity and leisure.
 
