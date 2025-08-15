@@ -1,18 +1,18 @@
 "use client"
 import Image from "next/image"
 import type React from "react"
+import emailjs from "@emailjs/browser"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Mail, Phone, MapPin, Plus, MessageCircle, Minus } from "lucide-react"
+import { Mail, Phone, Plus, MessageCircle, Minus } from "lucide-react"
 import Header from "@/components/header"
 import HeroBackground from "@/components/hero-background"
 import CTASection from "@/components/cta-section"
 import Footer from "@/components/footer"
-import FinalCTA from "@/components/final-cta"
 import PageTransition from "@/components/PageTransition"
 import AnimatedSection from "@/components/AnimatedSection"
 import { motion, AnimatePresence } from "framer-motion"
@@ -80,6 +80,8 @@ export default function ContactPage() {
     agreeToPrivacy: false,
   })
 
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -93,11 +95,78 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, agreeToPrivacy: checked }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    // Add your form submission logic here
-    alert("Thank you for your message! We'll get back to you soon.")
+
+    // Basic form validation
+    if (
+      !formData.firstName ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.service ||
+      !formData.budget ||
+      !formData.message
+    ) {
+      alert("Please fill in all required fields.")
+      return
+    }
+
+    if (!formData.agreeToPrivacy) {
+      alert("Please agree to the privacy policy to continue.")
+      return
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      // Prepare template parameters for EmailJS
+      const templateParams = {
+        from_name: `${formData.firstName} ${formData.lastName}`.trim(),
+        from_email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        source: formData.source || "Not specified",
+        budget: formData.budget,
+        custom_budget: formData.customBudget || "Not specified",
+        message: formData.message,
+        to_name: "PixelSphere Team",
+      }
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        "service_xkwxr5n", // Replace with your EmailJS service ID
+        "template_ib7lvxc", // Replace with your EmailJS template ID
+        templateParams,
+        "MytiRmnY1Twqx3qmU", // Replace with your EmailJS public key
+      )
+
+      console.log("Email sent successfully:", result.text)
+
+      // Success message
+      alert("Thank you for your message! We'll get back to you within 24 hours.")
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        service: "",
+        source: "",
+        budget: "",
+        customBudget: "",
+        message: "",
+        files: null,
+        agreeToPrivacy: false,
+      })
+    } catch (error) {
+      console.error("Failed to send email:", error)
+      alert(
+        "Sorry, there was an error sending your message. Please try again or contact us directly at info@pixelsphere.ca",
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const scrollToContactForm = () => {
@@ -163,13 +232,16 @@ export default function ContactPage() {
 
         {/* Contact Form Section */}
         <AnimatedSection>
-          <section id="contact-form" className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+          <section
+            id="contact-form"
+            className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden"
+          >
             {/* Background decorative elements */}
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-orange-200/30 to-pink-200/30 rounded-full blur-3xl"></div>
               <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl"></div>
             </div>
-            
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <div className="grid lg:grid-cols-2 gap-16">
                 {/* Contact Information - Now on the Left */}
@@ -226,8 +298,6 @@ export default function ContactPage() {
                         </a>
                       </div>
                     </motion.div>
-
-                    
                   </div>
                 </motion.div>
 
@@ -268,11 +338,7 @@ export default function ContactPage() {
                     <form onSubmit={handleSubmit} className="space-y-6">
                       {/* Name Fields */}
                       <div className="grid md:grid-cols-2 gap-6">
-                        <motion.div 
-                          className="group"
-                          whileHover={{ y: -2 }}
-                          transition={{ duration: 0.2 }}
-                        >
+                        <motion.div className="group" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
                           <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
                             First name *
                           </label>
@@ -288,11 +354,7 @@ export default function ContactPage() {
                             <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
                           </div>
                         </motion.div>
-                        <motion.div 
-                          className="group"
-                          whileHover={{ y: -2 }}
-                          transition={{ duration: 0.2 }}
-                        >
+                        <motion.div className="group" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
                           <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
                             Last name
                           </label>
@@ -310,11 +372,7 @@ export default function ContactPage() {
                       </div>
 
                       {/* Email Field */}
-                      <motion.div 
-                        className="group"
-                        whileHover={{ y: -2 }}
-                        transition={{ duration: 0.2 }}
-                      >
+                      <motion.div className="group" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
                         <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
                           Email *
                         </label>
@@ -333,11 +391,7 @@ export default function ContactPage() {
                       </motion.div>
 
                       {/* Phone Field */}
-                      <motion.div 
-                        className="group"
-                        whileHover={{ y: -2 }}
-                        transition={{ duration: 0.2 }}
-                      >
+                      <motion.div className="group" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
                         <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
                           Phone number *
                         </label>
@@ -355,11 +409,7 @@ export default function ContactPage() {
                       </motion.div>
 
                       {/* Service Field */}
-                      <motion.div 
-                        className="group"
-                        whileHover={{ y: -2 }}
-                        transition={{ duration: 0.2 }}
-                      >
+                      <motion.div className="group" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
                         <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
                           What services are you looking for? *
                         </label>
@@ -382,8 +432,18 @@ export default function ContactPage() {
                             <option value="other">Other</option>
                           </select>
                           <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
-                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            <svg
+                              className="w-5 h-5 text-gray-400"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M12 19l-7 7-7-18-9 18 9-2zm0 0v-8"
+                              />
                             </svg>
                           </div>
                           <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
@@ -391,11 +451,7 @@ export default function ContactPage() {
                       </motion.div>
 
                       {/* Source Field */}
-                      <motion.div 
-                        className="group"
-                        whileHover={{ y: -2 }}
-                        transition={{ duration: 0.2 }}
-                      >
+                      <motion.div className="group" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
                         <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
                           Where did you hear about us?
                         </label>
@@ -414,7 +470,12 @@ export default function ContactPage() {
                             <option value="other">Other</option>
                           </select>
                           <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
-                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg
+                              className="w-5 h-5 text-gray-400"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
                           </div>
@@ -423,11 +484,7 @@ export default function ContactPage() {
                       </motion.div>
 
                       {/* Budget Field */}
-                      <motion.div 
-                        className="group"
-                        whileHover={{ y: -2 }}
-                        transition={{ duration: 0.2 }}
-                      >
+                      <motion.div className="group" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
                         <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
                           What is your budget? *
                         </label>
@@ -447,7 +504,12 @@ export default function ContactPage() {
                             <option value="over-50k">Over $50,000</option>
                           </select>
                           <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
-                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg
+                              className="w-5 h-5 text-gray-400"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
                           </div>
@@ -455,10 +517,10 @@ export default function ContactPage() {
                         </div>
                       </motion.div>
 
-                                            {/* Conditional Custom Budget Input */}
+                      {/* Conditional Custom Budget Input */}
                       <AnimatePresence>
                         {formData.budget && formData.budget !== "" && (
-                          <motion.div 
+                          <motion.div
                             initial={{ opacity: 0, height: 0, y: -10 }}
                             animate={{ opacity: 1, height: "auto", y: 0 }}
                             exit={{ opacity: 0, height: 0, y: -10 }}
@@ -474,12 +536,17 @@ export default function ContactPage() {
                                 value={formData.customBudget}
                                 onChange={handleInputChange}
                                 placeholder={
-                                  formData.budget === "under-5k" ? "e.g., $3,500" :
-                                  formData.budget === "5k-10k" ? "e.g., $7,500" :
-                                  formData.budget === "10k-25k" ? "e.g., $15,000" :
-                                  formData.budget === "25k-50k" ? "e.g., $35,000" :
-                                  formData.budget === "over-50k" ? "e.g., $75,000" :
-                                  "Enter your exact budget"
+                                  formData.budget === "under-5k"
+                                    ? "e.g., $3,500"
+                                    : formData.budget === "5k-10k"
+                                      ? "e.g., $7,500"
+                                      : formData.budget === "10k-25k"
+                                        ? "e.g., $15,000"
+                                        : formData.budget === "25k-50k"
+                                          ? "e.g., $35,000"
+                                          : formData.budget === "over-50k"
+                                            ? "e.g., $75,000"
+                                            : "Enter your exact budget"
                                 }
                                 className="w-full h-12 px-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:bg-white transition-all duration-300 placeholder:text-gray-400"
                                 required={formData.budget !== ""}
@@ -498,11 +565,7 @@ export default function ContactPage() {
                       </AnimatePresence>
 
                       {/* Message Field */}
-                      <motion.div 
-                        className="group"
-                        whileHover={{ y: -2 }}
-                        transition={{ duration: 0.2 }}
-                      >
+                      <motion.div className="group" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
                         <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
                           Tell us more about your project *
                         </label>
@@ -521,11 +584,7 @@ export default function ContactPage() {
                       </motion.div>
 
                       {/* File Upload */}
-                      <motion.div
-                        className="group"
-                        whileHover={{ y: -2 }}
-                        transition={{ duration: 0.2 }}
-                      >
+                      <motion.div className="group" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
                         <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
                           File Upload
                         </label>
@@ -556,7 +615,9 @@ export default function ContactPage() {
                                   />
                                 </svg>
                               </motion.div>
-                              <p className="text-lg font-medium text-gray-700 mb-2">Click to upload files or drag and drop</p>
+                              <p className="text-lg font-medium text-gray-700 mb-2">
+                                Click to upload files or drag and drop
+                              </p>
                               <p className="text-sm text-gray-500">PNG, JPG, PDF up to 10MB</p>
                             </div>
                           </label>
@@ -564,14 +625,14 @@ export default function ContactPage() {
                       </motion.div>
 
                       {/* Privacy Checkbox */}
-                      <motion.div 
+                      <motion.div
                         className="flex items-start space-x-3 p-4 bg-gray-50/50 rounded-xl"
                         whileHover={{ scale: 1.01 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <Checkbox 
-                          id="privacy" 
-                          checked={formData.agreeToPrivacy} 
+                        <Checkbox
+                          id="privacy"
+                          checked={formData.agreeToPrivacy}
                           onCheckedChange={handleCheckboxChange}
                           className="mt-1 data-[state=checked]:bg-orange-500 data-[state=checked]:border-orange-500"
                         />
@@ -585,27 +646,31 @@ export default function ContactPage() {
                       </motion.div>
 
                       {/* Submit Button */}
-                      <motion.div 
-                        whileHover={{ scale: 1.02 }} 
-                        whileTap={{ scale: 0.98 }}
-                        className="pt-4"
-                      >
-                        <Button 
-                          type="submit" 
-                          className="w-full h-14 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="pt-4">
+                        <Button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-full h-14 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           <span className="relative z-10 flex items-center justify-center">
-                            Send Message
-                            <motion.svg 
-                              className="w-5 h-5 ml-2" 
-                              fill="none" 
-                              stroke="currentColor" 
-                              viewBox="0 0 24 24"
-                              whileHover={{ x: 5 }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                            </motion.svg>
+                            {isSubmitting ? "Sending..." : "Send Message"}
+                            {!isSubmitting && (
+                              <motion.svg
+                                className="w-5 h-5 ml-2"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                whileHover={{ x: 5 }}
+                                transition={{ duration: 0.2 }}
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                                />
+                              </motion.svg>
+                            )}
                           </span>
                           <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </Button>
@@ -755,7 +820,7 @@ export default function ContactPage() {
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                           <Button
                             className="bg-orange-500 hover:bg-orange-600 text-white w-full py-3 rounded-lg"
-                            onClick={() => window.location.href = 'mailto:info@pixelsphere.ca'}
+                            onClick={() => (window.location.href = "mailto:info@pixelsphere.ca")}
                           >
                             Send Message
                           </Button>
@@ -769,15 +834,14 @@ export default function ContactPage() {
           </section>
         </AnimatedSection>
 
-          <CTASection
-            title="Crafting Digital Experiences That Make Brands Stand Out"
-            description="We design and develop websites and applications that help startups and businesses grow, connect, and thrive online."
-            buttonText="Contact Us"
-            backgroundImage="/images/cta-bg.png"
-          />
+        <CTASection
+          title="Crafting Digital Experiences That Make Brands Stand Out"
+          description="We design and develop websites and applications that help startups and businesses grow, connect, and thrive online."
+          buttonText="Contact Us"
+          backgroundImage="/images/cta-bg.png"
+        />
 
-
-          <Footer />
+        <Footer />
       </main>
     </PageTransition>
   )
