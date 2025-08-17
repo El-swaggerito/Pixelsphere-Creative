@@ -35,13 +35,13 @@
 const testimonials = [
   {
     quote:
-      "From the very first meeting, their professionalism stood out. The final product was exactly what we envisioned—and more.",
+      "PixelSphere completely transformed our brand and website. From the logo to the user experience, everything feels cohesive and intentional. Our audience now takes us seriously, and it shows in our sales!",
     name: "Clara Benton",
     role: "Creative Director - Aurora Studios",
   },
   {
     quote:
-      "They managed to deliver a complex project ahead of schedule without compromising on quality. Truly impressive!",
+      "PixelSphere didn't just design for us, they designed with us. The result? Pure brilliance.",
     name: "Marcus Hale",
     role: "CTO - FutureTech Solutions",
   },
@@ -57,24 +57,24 @@ const testimonials = [
     name: "Ethan Walker",
     role: "Brand Strategist - Elevate Agency",
   },
-  {
-    quote:
-      "The team brought our vision to life with incredible attention to detail. I’ll definitely be working with them again.",
-    name: "Sofia Ramirez",
-    role: "CEO - Lumina Designs",
-  },
-  {
-    quote:
-      "I was amazed at how quickly they understood our needs and delivered beyond expectations. Simply outstanding.",
-    name: "Daniel Okoro",
-    role: "Operations Manager - Nexus Global",
-  },
-  {
-    quote:
-      "Creative, reliable, and highly skilled—working with them was one of the best decisions we made this year.",
-    name: "Hannah Schultz",
-    role: "Product Lead - InnovateX",
-  },
+  // {
+  //   quote:
+  //     "The team brought our vision to life with incredible attention to detail. I’ll definitely be working with them again.",
+  //   name: "Sofia Ramirez",
+  //   role: "CEO - Lumina Designs",
+  // },
+  // {
+  //   quote:
+  //     "I was amazed at how quickly they understood our needs and delivered beyond expectations. Simply outstanding.",
+  //   name: "Daniel Okoro",
+  //   role: "Operations Manager - Nexus Global",
+  // },
+  // {
+  //   quote:
+  //     "Creative, reliable, and highly skilled—working with them was one of the best decisions we made this year.",
+  //   name: "Hannah Schultz",
+  //   role: "Product Lead - InnovateX",
+  // },
 ];
 
 
@@ -125,10 +125,10 @@ const testimonials = [
 
               {/* Hero Content */}
               <div className="relative z-20 flex flex-col items-center justify-center text-center px-2 xxxxs:px-3 xxxs:px-4 xxs:px-6 sm:px-8 lg:px-12 xl:px-16 pt-16 xxxxs:pt-18 xxxs:pt-20 xxs:pt-24 xs:pt-28 sm:pt-32 lg:pt-36 xl:pt-40 pb-8 xxxxs:pb-10 xxxs:pb-12 xxs:pb-16 xs:pb-20 sm:pb-24 lg:pb-28 xl:pb-32">
-                <h1 className="text-base xxxxs:text-lg xxxs:text-xl xxs:text-2xl xs:text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 xxxxs:mb-5 xxxs:mb-6 xxs:mb-8 sm:mb-10 leading-tight">
+                <h1 className="text-base xxxxs:text-lg xxxs:text-xl xxs:text-2xl xs:text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 xxxxs:mb-5 xxxs:mb-6 xxs:mb-8 sm:mb-10 leading-tight font-sora">
                   Empowering Businesses Through Tailored Technology Solutions
                 </h1>
-                <p className="text-xs xxxxs:text-sm xxxs:text-sm xxs:text-base xs:text-lg sm:text-lg lg:text-xl text-white/90 mb-6 xxxxs:mb-8 xxxs:mb-10 xxs:mb-12 sm:mb-16 max-w-xs xxxxs:max-w-sm xxxs:max-w-md xxs:max-w-lg sm:max-w-2xl lg:max-w-4xl leading-relaxed">
+                <p className="text-xs xxxxs:text-sm xxxs:text-sm xxs:text-base xs:text-lg sm:text-lg lg:text-xl text-white/90 mb-6 xxxxs:mb-8 xxxs:mb-10 xxs:mb-12 sm:mb-16 max-w-xs xxxxs:max-w-sm xxxs:max-w-md xxs:max-w-lg sm:max-w-2xl lg:max-w-4xl leading-relaxed font-inter">
                   We bridge the gap between businesses and their audiences by delivering high-quality digital solutions that amplify brand voices.
                 </p>
                 
@@ -499,8 +499,8 @@ const testimonials = [
 
             {/* Scroller: duplicate list for seamless loop */}
             <motion.div
-              initial={{ y: "-50%" }}
-              animate={{ y: ["-50%", "0%"] }} // moves DOWN
+              initial={{ y: "0%" }}
+              animate={{ y: ["0%", "-50%"] }} // moves UP instead of DOWN
               transition={{ duration: 22, ease: "linear", repeat: Infinity }}
               className="flex flex-col gap-4"
             >

@@ -1,5 +1,5 @@
 "use client"
-import Image from "next/image"
+import NextImage from "next/image"
 import type React from "react"
 import emailjs from "@emailjs/browser"
 
@@ -76,20 +76,19 @@ export default function ContactPage() {
     budget: "",
     customBudget: "",
     message: "",
-    files: null as FileList | null,
     agreeToPrivacy: false,
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData((prev) => ({ ...prev, files: e.target.files }))
-  }
+
 
   const handleCheckboxChange = (checked: boolean) => {
     setFormData((prev) => ({ ...prev, agreeToPrivacy: checked }))
@@ -119,48 +118,83 @@ export default function ContactPage() {
     setIsSubmitting(true)
 
     try {
-      // Prepare template parameters for EmailJS
-      const templateParams = {
+      // Template parameters for admin notification
+      const adminTemplateParams = {
         from_name: `${formData.firstName} ${formData.lastName}`.trim(),
         from_email: formData.email,
         phone: formData.phone,
         service: formData.service,
         source: formData.source || "Not specified",
         budget: formData.budget,
-        custom_budget: formData.customBudget || "Not specified",
+        customBudget: formData.customBudget || "Not specified",
         message: formData.message,
         to_name: "PixelSphere Team",
+        year: new Date().getFullYear(),
       }
 
-      // Send email using EmailJS
-      const result = await emailjs.send(
-        "service_xkwxr5n", // Replace with your EmailJS service ID
-        "template_ib7lvxc", // Replace with your EmailJS template ID
-        templateParams,
-        "MytiRmnY1Twqx3qmU", // Replace with your EmailJS public key
+      // Template parameters for customer auto-reply
+      const customerTemplateParams = {
+        customer_name: formData.firstName,
+        from_name: `${formData.firstName} ${formData.lastName}`.trim(),
+        from_email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        source: formData.source || "Not specified",
+        budget: formData.budget,
+        customBudget: formData.customBudget || "Not specified",
+        message: formData.message,
+        year: new Date().getFullYear(),
+        to_email: formData.email,
+        // Don't include reply_to parameter that conflicts
+      }
+
+      // Send admin notification email
+      const adminResult = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_ADMIN_TEMPLATE_ID!,
+        adminTemplateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       )
 
-      console.log("Email sent successfully:", result.text)
+      console.log("Admin email sent successfully:", adminResult.text)
 
-      // Success message
-      alert("Thank you for your message! We'll get back to you within 24 hours.")
+      // Send customer auto-reply email
+      const customerResult = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_CUSTOMER_TEMPLATE_ID!,
+        customerTemplateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+      )
 
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        service: "",
-        source: "",
-        budget: "",
-        customBudget: "",
-        message: "",
-        files: null,
-        agreeToPrivacy: false,
-      })
+      console.log("Customer auto-reply sent successfully:", customerResult.text)
+
+      // Show success animation
+      setIsSuccess(true)
+      setShowSuccess(true)
+      
+      // Hide success message after 4 seconds
+      setTimeout(() => {
+        setShowSuccess(false)
+        setTimeout(() => {
+          setIsSuccess(false)
+          // Reset form
+          setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            service: "",
+            source: "",
+            budget: "",
+            customBudget: "",
+            message: "",
+            agreeToPrivacy: false,
+          })
+        }, 300)
+      }, 4000)
+
     } catch (error) {
-      console.error("Failed to send email:", error)
+      console.error("Failed to send emails:", error)
       alert(
         "Sorry, there was an error sending your message. Please try again or contact us directly at info@pixelsphere.ca",
       )
@@ -216,7 +250,7 @@ export default function ContactPage() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
                   <div className="relative">
-                    <Image
+                    <NextImage
                       src="/images/contact-hero-woman.png"
                       alt="Customer support representative"
                       width={600}
@@ -583,46 +617,7 @@ export default function ContactPage() {
                         </div>
                       </motion.div>
 
-                      {/* File Upload */}
-                      <motion.div className="group" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
-                          File Upload
-                        </label>
-                        <motion.div
-                          className="relative border-2 border-dashed border-gray-300 rounded-xl p-8 text-center bg-gray-50/30 hover:border-orange-400 hover:bg-orange-50/30 transition-all duration-300 cursor-pointer group"
-                          whileHover={{ scale: 1.01 }}
-                          whileTap={{ scale: 0.99 }}
-                        >
-                          <input type="file" className="hidden" id="file-upload" multiple onChange={handleFileChange} />
-                          <label htmlFor="file-upload" className="cursor-pointer">
-                            <div className="text-gray-600">
-                              <motion.div
-                                className="mx-auto w-16 h-16 bg-gradient-to-br from-orange-100 to-pink-100 rounded-2xl flex items-center justify-center mb-4 group-hover:from-orange-200 group-hover:to-pink-200 transition-all duration-300"
-                                whileHover={{ scale: 1.1, rotate: 5 }}
-                                transition={{ duration: 0.2 }}
-                              >
-                                <svg
-                                  className="w-8 h-8 text-orange-600"
-                                  stroke="currentColor"
-                                  fill="none"
-                                  viewBox="0 0 48 48"
-                                >
-                                  <path
-                                    d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                              </motion.div>
-                              <p className="text-lg font-medium text-gray-700 mb-2">
-                                Click to upload files or drag and drop
-                              </p>
-                              <p className="text-sm text-gray-500">PNG, JPG, PDF up to 10MB</p>
-                            </div>
-                          </label>
-                        </motion.div>
-                      </motion.div>
+
 
                       {/* Privacy Checkbox */}
                       <motion.div
@@ -649,30 +644,76 @@ export default function ContactPage() {
                       <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="pt-4">
                         <Button
                           type="submit"
-                          disabled={isSubmitting}
-                          className="w-full h-14 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
+                          disabled={isSubmitting || isSuccess}
+                          className={`w-full h-14 font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed ${
+                            isSuccess 
+                              ? 'bg-green-500 hover:bg-green-500' 
+                              : 'bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600'
+                          } text-white`}
                         >
                           <span className="relative z-10 flex items-center justify-center">
-                            {isSubmitting ? "Sending..." : "Send Message"}
-                            {!isSubmitting && (
-                              <motion.svg
-                                className="w-5 h-5 ml-2"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                whileHover={{ x: 5 }}
-                                transition={{ duration: 0.2 }}
+                            {isSuccess ? (
+                              <motion.div
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                className="flex items-center"
                               >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                                <motion.svg
+                                  initial={{ pathLength: 0 }}
+                                  animate={{ pathLength: 1 }}
+                                  transition={{ duration: 0.5, ease: "easeOut" }}
+                                  className="w-5 h-5 mr-2"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <motion.path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M5 13l4 4L19 7"
+                                  />
+                                </motion.svg>
+                                Sent Successfully!
+                              </motion.div>
+                            ) : isSubmitting ? (
+                              <div className="flex items-center">
+                                <motion.div
+                                  animate={{ rotate: 360 }}
+                                  transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                                  className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2"
                                 />
-                              </motion.svg>
+                                Sending...
+                              </div>
+                            ) : (
+                              <>
+                                Send Message
+                                <motion.svg
+                                  className="w-5 h-5 ml-2"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                  whileHover={{ x: 5 }}
+                                  transition={{ duration: 0.2 }}
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                                  />
+                                </motion.svg>
+                              </>
                             )}
                           </span>
-                          <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          
+                          {/* Animated background effect */}
+                          <motion.div
+                            className="absolute inset-0 bg-white/20"
+                            initial={{ x: '-100%' }}
+                            whileHover={{ x: '100%' }}
+                            transition={{ duration: 0.6 }}
+                          />
                         </Button>
                       </motion.div>
                     </form>
@@ -701,7 +742,7 @@ export default function ContactPage() {
                 ease: "easeInOut",
               }}
             >
-              <Image
+              <NextImage
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/29-rhYKEs7iyHqIRKtnF7t0Yu5r57IRmQ.png"
                 alt="Decorative orange shape"
                 width={120}
@@ -723,7 +764,7 @@ export default function ContactPage() {
                 ease: "linear",
               }}
             >
-              <Image
+              <NextImage
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/69-k4S86mlsl1BRamdSHJCBXNfdqJJKZK.png"
                 alt="Decorative cyan spiral"
                 width={80}

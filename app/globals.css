@@ -6,6 +6,20 @@
   .text-balance {
     text-wrap: balance;
   }
+  
+  /* Hero and Header Typography */
+  .hero-text {
+    font-family: var(--font-sora);
+  }
+  
+  .header-text {
+    font-family: var(--font-sora);
+  }
+  
+  /* Body and General Typography */
+  .body-text {
+    font-family: var(--font-inter);
+  }
 }
 
 @layer base {

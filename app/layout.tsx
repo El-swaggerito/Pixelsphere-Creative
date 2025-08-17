@@ -8,18 +8,19 @@ const sora = Sora({
   subsets: ['latin'],
   variable: '--font-sora',
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
 })
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
   title: 'Pixelsphere',
   description: 'Empowering Businesses Through Tailored Technology Solutions',
-    generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -28,19 +29,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${sora.variable} ${inter.variable}`}>
-      <head>
-        <style>{`
-html {
-  font-family: ${inter.style.fontFamily};
-  --font-sans: ${inter.variable};
-  --font-sora: ${sora.variable};
-  --font-inter: ${inter.variable};
-  --font-mono: ${GeistMono.variable};
-}
-        `}</style>
-      </head>
-      <body className="font-inter">{children}</body>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${sora.variable} ${inter.variable}`}>
+      <body className={`${inter.className} font-inter`}>{children}</body>
     </html>
   )
 }

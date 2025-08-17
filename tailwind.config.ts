@@ -45,8 +45,9 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-sora)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
         sora: ['var(--font-sora)'],
+        inter: ['var(--font-inter)'],
       },
       colors: {
         border: "hsl(var(--border))",

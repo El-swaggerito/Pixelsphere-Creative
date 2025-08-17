@@ -47,6 +47,8 @@ export default function Footer() {
                 <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.3 }}>
                   <Link
                     href="https://www.linkedin.com/company/pixelspherecreatives/"
+                    rel="noopener noreferrer nofollow" 
+                    target="_blank"
                     className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer"
                     aria-label="LinkedIn"
                   >

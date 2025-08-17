@@ -32,6 +32,7 @@ export interface ProjectData {
   technologies: string[]
   deliverables: string[]
   servicesProvided: string[]
+  brandingLink?: string  // Optional branding link for projects that have one
 }
 
 export const projectsRegistry: Record<string, ProjectData> = {

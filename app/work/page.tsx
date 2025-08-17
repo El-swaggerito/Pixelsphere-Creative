@@ -81,7 +81,7 @@ export default function WorkPage() {
             {/* Hero Content */}
             <div className="flex-1 flex items-center justify-center relative z-20 pt-32 px-4 sm:px-6 lg:px-8">
               <div className="relative z-20 flex flex-col items-center justify-center text-center px-2">
-                <motion.h1 className="text-lg xxxxs:text-xl xxxs:text-2xl xxs:text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 xxxxs:mb-5 xxxs:mb-6 xxs:mb-8 sm:mb-10 leading-tight"
+                <motion.h1 className="text-lg xxxxs:text-xl xxxs:text-2xl xxs:text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 xxxxs:mb-5 xxxs:mb-6 xxs:mb-8 sm:mb-10 leading-tight font-sora"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}

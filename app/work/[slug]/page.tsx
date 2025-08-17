@@ -112,12 +112,29 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
                   <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-medium">
                     Launch Project - Live Preview
                   </Button>
-                  <Button
-                    variant="outline"
-                    className="border-orange-500 text-orange-500 px-8 py-3 text-lg font-medium bg-transparent hover:bg-orange-50"
-                  >
-                    View Branding
-                  </Button>
+                  {project.brandingLink ? (
+                    <Button
+                      variant="outline"
+                      className="border-orange-500 text-orange-500 px-8 py-3 text-lg font-medium bg-transparent hover:bg-orange-50"
+                      asChild
+                    >
+                      <a
+                        href={project.brandingLink}
+                        rel="noopener noreferrer nofollow"
+                        target="_blank"
+                      >
+                        View Branding
+                      </a>
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="outline"
+                      className="border-orange-500 text-orange-500 px-8 py-3 text-lg font-medium bg-transparent hover:bg-orange-50 opacity-50 cursor-not-allowed"
+                      disabled
+                    >
+                      View Branding
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
@@ -255,7 +272,7 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
       {project.images.showcase4 && (
         <AnimatedSection>
           <section>
-            <div className="text-center pb-10">
+            <div className="text-center">
                 <Image
                   src={project.images.showcase4}
                   alt={`Final ${project.title} design showcase`}
