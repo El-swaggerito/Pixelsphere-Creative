@@ -687,7 +687,13 @@ export default function ContactPage() {
                               </div>
                             ) : (
                               <>
-                                Send Message
+                                <motion.div
+                                  initial={{ opacity: 0, x: -50 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ duration: 0.8 }}
+                                >
+                                  Send Message
+                                </motion.div>
                                 <motion.svg
                                   className="w-5 h-5 ml-2"
                                   fill="none"
@@ -861,7 +867,7 @@ export default function ContactPage() {
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                           <Button
                             className="bg-orange-500 hover:bg-orange-600 text-white w-full py-3 rounded-lg"
-                            onClick={() => (window.location.href = "mailto:info@pixelsphere.ca")}
+                            onClick={handleSendMessage}
                           >
                             Send Message
                           </Button>
@@ -886,4 +892,45 @@ export default function ContactPage() {
       </main>
     </PageTransition>
   )
+}
+
+const handleSendMessage = () => {
+  const email = 'info@pixelsphere.ca'
+  const subject = 'Inquiry from PixelSphere Website'
+  const body = 'Hello PixelSphere team,\n\nI am interested in your services and would like to discuss my project.\n\nBest regards'
+  
+  const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  
+  // Detect macOS
+  const isMac = /Mac|iPod|iPhone|iPad/.test(navigator.platform)
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+  
+  if (isMac || isSafari) {
+    // Use more reliable method for macOS/Safari
+    const tempLink = document.createElement('a')
+    tempLink.href = mailtoLink
+    tempLink.style.display = 'none'
+    document.body.appendChild(tempLink)
+    
+    // Add a small delay for better compatibility
+    setTimeout(() => {
+      tempLink.click()
+      document.body.removeChild(tempLink)
+    }, 100)
+    
+    // Show helpful message for Mac users
+    setTimeout(() => {
+      if (confirm('If your email client didn\'t open, would you like to copy our email address?')) {
+        navigator.clipboard?.writeText(email).then(() => {
+          alert('Email address copied to clipboard!')
+        }).catch(() => {
+          alert(`Our email: ${email}`)
+        })
+      }
+    }, 2000)
+    
+  } else {
+    // Standard method for other platforms
+    window.location.href = mailtoLink
+  }
 }
