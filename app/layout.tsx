@@ -21,6 +21,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Pixelsphere',
   description: 'Empowering Businesses Through Tailored Technology Solutions',
+  icons: {
+    icon: '/images/company-logo.png',
+    shortcut: '/images/company-logo.png',
+    apple: '/images/company-logo.png',
+  },
 }
 
 export default function RootLayout({
