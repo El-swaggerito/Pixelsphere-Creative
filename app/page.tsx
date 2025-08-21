@@ -45,18 +45,18 @@ const testimonials = [
     name: "Marcus Hale",
     role: "CTO - FutureTech Solutions",
   },
-  {
-    quote:
-      "Our experience was seamless from start to finish. Their ability to adapt and innovate made all the difference.",
-    name: "Priya Kapoor",
-    role: "Head of Marketing - Horizon Media Group",
-  },
-  {
-    quote:
-      "Excellent communication, fresh ideas, and flawless execution. I couldn’t ask for a better partner for our campaign.",
-    name: "Ethan Walker",
-    role: "Brand Strategist - Elevate Agency",
-  },
+  // {
+  //   quote:
+  //     "Our experience was seamless from start to finish. Their ability to adapt and innovate made all the difference.",
+  //   name: "Priya Kapoor",
+  //   role: "Head of Marketing - Horizon Media Group",
+  // },
+  // {
+  //   quote:
+  //     "Excellent communication, fresh ideas, and flawless execution. I couldn’t ask for a better partner for our campaign.",
+  //   name: "Ethan Walker",
+  //   role: "Brand Strategist - Elevate Agency",
+  // },
   // {
   //   quote:
   //     "The team brought our vision to life with incredible attention to detail. I’ll definitely be working with them again.",
