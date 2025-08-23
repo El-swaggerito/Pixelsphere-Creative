@@ -83,8 +83,8 @@ const testimonials = [
         <NewsletterPopup delayInSeconds={2} />
         <main className="pt-0">
           {/* Hero Section */}
-          <section className="relative min-h-[50vh] xxxxs:min-h-[45vh] xxxs:min-h-[50vh] xxs:min-h-[55vh] xs:min-h-[60vh] sm:min-h-[80vh] md:min-h-[70vh] lg:min-h-[100svh] flex flex-col overflow-hidden">
-            <HeroBackground className="xl:-mt-16 !min-h-[50vh] xxxxs:!min-h-[45vh] xxxs:!min-h-[50vh] xxs:!min-h-[55vh] xs:!min-h-[60vh] sm:!min-h-[80vh] md:!min-h-[70vh] lg:!min-h-screen">
+          <section className="relative min-h-[50vh] xxxxs:min-h-[45vh] xxxs:min-h-[50vh] xxs:min-h-[55vh] xs:min-h-[60vh] sm:min-h-[80vh] md:min-h-[70vh] lg:min-h-[65vh] xl:min-h-[60vh] 4xl:min-h-[60vh] flex flex-col overflow-hidden">
+            <HeroBackground className="!min-h-[70vh] md:!min-h-[70vh] lg:!min-h-[65vh] xl:!min-h-[60vh] 4xl:!min-h-[60vh]">
               {/* Decorative vector line at top left */}
               <motion.div
                 className="absolute top-0.5 left-0.5 xxxs:top-1 xxxs:left-1 xxs:top-2 xxs:left-2 sm:top-8 sm:left-8 z-10 pointer-events-none"
@@ -124,24 +124,24 @@ const testimonials = [
               <Header currentPage="home" />
 
               {/* Hero Content */}
-              <div className="relative z-20 flex flex-col items-center justify-center text-center px-2 xxxxs:px-3 xxxs:px-4 xxs:px-6 sm:px-8 lg:px-12 xl:px-16 pt-16 xxxxs:pt-18 xxxs:pt-20 xxs:pt-24 xs:pt-28 sm:pt-32 lg:pt-36 xl:pt-40 pb-8 xxxxs:pb-10 xxxs:pb-12 xxs:pb-16 xs:pb-20 sm:pb-24 lg:pb-32 xl:pb-40">
-                <h1 className="text-base xxxxs:text-lg xxxs:text-xl xxs:text-2xl xs:text-3xl sm:text-4xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 xxxxs:mb-5 xxxs:mb-6 xxs:mb-8 sm:mb-10 leading-tight font-sora">
+              <div className="relative z-20 flex flex-col items-center justify-center text-center px-2 xxxxs:px-3 xxxs:px-4 xxs:px-6 sm:px-8 lg:px-12 xl:px-16 4xl:px-20 xxxs:pt-16 xxs:pt-16 md:pt-20 lg:pt-24 xl:pt-24 4xl:pt-32 pb-8 xxxxs:pb-10 xxxs:pb-12 xxs:pb-16 xs:pb-20 sm:pb-24 md:pb-16 lg:pb-20 xl:pb-16 4xl:pb-0">
+                <h1 className="text-base xxxxs:text-lg xxxs:text-xl xxs:text-2xl xs:text-3xl sm:text-4xl lg:text-4xl xl:text-5xl 4xl:text-7xl font-bold text-white mb-4 xxxxs:mb-5 xxxs:mb-5 xxs:mb-6 sm:mb-10 4xl:mb-8 leading-tight font-sora">
                   Empowering Businesses Through Tailored Technology Solutions
                 </h1>
-                <p className="text-xs xxxxs:text-sm xxxs:text-sm xxs:text-base xs:text-lg sm:text-lg lg:text-xl text-white/90 mb-6 xxxxs:mb-8 xxxs:mb-10 xxs:mb-12 sm:mb-16 max-w-xs xxxxs:max-w-sm xxxs:max-w-md xxs:max-w-lg sm:max-w-2xl lg:max-w-4xl leading-relaxed font-inter">
+                <p className="text-xs xxxxs:text-sm xxxs:text-sm xxs:text-base xs:text-lg sm:text-lg lg:text-xl 4xl:text-2xl text-white/90 mb-6 xxxxs:mb-8 xxxs:mb-8 xxs:mb-10 sm:mb-16 4xl:mb-12 max-w-xs xxxxs:max-w-sm xxxs:max-w-md xxs:max-w-lg sm:max-w-2xl lg:max-w-4xl 4xl:max-w-6xl leading-relaxed font-inter">
                   We bridge the gap between businesses and their audiences by delivering high-quality digital solutions that amplify brand voices.
                 </p>
                 
                 {/* Let's Work Together Button */}
-                <div className="relative z-10 mt-2 xxxxs:mt-3 xxxs:mt-4 xxs:mt-6 sm:mt-8 mb-8 xxxxs:mb-10 xxxs:mb-12 xxs:mb-16 xs:mb-20 sm:mb-24 lg:mb-28 xl:mb-32">
+                <div className="relative z-10 mt-2 xxxxs:mt-3 xxxs:mt-3 xxs:mt-4 sm:mt-8 4xl:mt-6 mb-8 xxxxs:mb-10 xxxs:mb-10 xxs:mb-12 xs:mb-20 sm:mb-24 lg:mb-28 xl:mb-32 4xl:mb-16">
                   <Button
                     size="lg"
-                    className="bg-orange-500 hover:bg-orange-600 text-white px-4 xxxxs:px-5 xxxs:px-6 xxs:px-7 xs:px-8 sm:px-10 py-2 xxxxs:py-2.5 xxxs:py-3 xxs:py-3.5 xs:py-4 sm:py-5 text-xs xxxxs:text-sm xxxs:text-sm xxs:text-base xs:text-base sm:text-lg font-medium rounded-lg w-full xxxs:w-full xxs:w-auto shadow-lg cursor-pointer"
+                    className="bg-orange-500 hover:bg-orange-600 text-white px-4 xxxxs:px-5 xxxs:px-6 xxs:px-7 xs:px-8 sm:px-10 4xl:px-12 py-2 xxxxs:py-2.5 xxxs:py-3 xxs:py-3.5 xs:py-4 sm:py-5 4xl:py-6 text-xs xxxxs:text-sm xxxs:text-sm xxs:text-base xs:text-base sm:text-lg 4xl:text-xl font-medium rounded-lg w-full xxxs:w-full xxs:w-auto shadow-lg cursor-pointer"
                     onClick={navigateToContact}
                     style={{ pointerEvents: 'auto' }}
                   >
                     Let's Work Together
-                    <ArrowRight className="h-3 w-3 xxxxs:h-3.5 xxxxs:w-3.5 xxxs:h-4 xxxs:w-4 xxs:h-4 xxs:w-4 sm:h-5 sm:w-5 ml-2" />
+                    <ArrowRight className="h-3 w-3 xxxxs:h-3.5 xxxxs:w-3.5 xxxs:h-4 xxxs:w-4 xxs:h-4 xxs:w-4 sm:h-5 sm:w-5 4xl:h-6 4xl:w-6 ml-2" />
                   </Button>
                 </div>
               </div>
