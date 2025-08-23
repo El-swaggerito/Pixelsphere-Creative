@@ -83,8 +83,8 @@ const testimonials = [
         <NewsletterPopup delayInSeconds={2} />
         <main className="pt-0">
           {/* Hero Section */}
-          <section className="relative min-h-[50vh] xxxxs:min-h-[45vh] xxxs:min-h-[50vh] xxs:min-h-[55vh] xs:min-h-[60vh] sm:min-h-[80vh] md:min-h-[70vh] lg:min-h-[65vh] xl:min-h-[60vh] 4xl:min-h-[60vh] flex flex-col overflow-hidden">
-            <HeroBackground className="!min-h-[70vh] md:!min-h-[70vh] lg:!min-h-[65vh] xl:!min-h-[60vh] 4xl:!min-h-[60vh]">
+          <section className="relative min-h-[50vh] xxxxs:min-h-[45vh] xxxs:min-h-[50vh] xxs:min-h-[55vh] xs:min-h-[60vh] sm:min-h-[80vh] md:min-h-[85vh] lg:min-h-[80vh] xl:min-h-[80vh] 4xl:min-h-[60vh] flex flex-col overflow-hidden">
+            <HeroBackground className="!min-h-[70vh] md:!min-h-[85vh] lg:!min-h-[80vh] xl:!min-h-[80vh] 4xl:!min-h-[60vh]">
               {/* Decorative vector line at top left */}
               <motion.div
                 className="absolute top-0.5 left-0.5 xxxs:top-1 xxxs:left-1 xxs:top-2 xxs:left-2 sm:top-8 sm:left-8 z-10 pointer-events-none"
