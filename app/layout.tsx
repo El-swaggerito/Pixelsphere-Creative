@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   title: 'Pixelsphere Creatives',
   description: 'Empowering Businesses Through Tailored Technology Solutions',
   icons: {
-    icon: '/images/company-logo.png',
-    shortcut: '/images/company-logo.png',
-    apple: '/images/company-logo.png',
+    icon: '/images/favicon.png',
+    shortcut: '/images/favicon.png',
+    apple: '/images/favicon.png',
   },
 }
 
