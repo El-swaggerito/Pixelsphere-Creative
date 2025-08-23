@@ -14,7 +14,7 @@ export const dripAndGrindProject = {
     showcase3: "/images/drip&grind-3.jpg",
     showcase4: "/images/drip&grind-4.jpg",
   },
-  brandingLink: "https://drive.google.com/file/d/16RIxi11lDXyihluHQr6tZxt5uaQI_XbZ/view",
+  brandingLink: "/work/drip-and-grind/branding",
   briefDescription: `Drip and Grind is a sophisticated coffee shop and co-working space tailored for freelancers, entrepreneurs, and coffee aficionados. They sought a comprehensive digital identity that mirrors their distinctive fusion of productivity and leisure.
 
 The mission was to forge a unified brand experience appealing to both coffee enthusiasts and professionals in search of a conducive workspace. We devised a holistic branding strategy encapsulating the essence of hustle culture while preserving the inviting ambiance of a premium coffee establishment.

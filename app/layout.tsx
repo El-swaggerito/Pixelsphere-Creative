@@ -19,7 +19,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Pixelsphere',
+  title: 'Pixelsphere Creatives',
   description: 'Empowering Businesses Through Tailored Technology Solutions',
   icons: {
     icon: '/images/company-logo.png',

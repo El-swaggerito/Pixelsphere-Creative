@@ -14,7 +14,7 @@ export const hopeFoundationProject = {
     showcase3: "/images/hope-3.png",
     showcase4: "/images/hope-4.png",
   },
-  brandingLink: "https://drive.google.com/file/d/1Yebfb-j5N4FbL2yodFQ72aZRtwcNagcU/view",
+  brandingLink: "/work/hope-foundation/branding",
   briefDescription: `Hope Foundation is a non-profit organization dedicated to providing education and healthcare services to underserved communities. They needed a comprehensive digital presence that would effectively communicate their mission and facilitate community engagement.
 
 The challenge was to create an accessible, user-friendly website that serves multiple stakeholders including beneficiaries, donors, volunteers, and community partners. We developed a clean, human-centered design that prioritizes accessibility and clear communication of the organization's impact.
