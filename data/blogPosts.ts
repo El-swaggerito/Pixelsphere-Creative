@@ -1,35 +1,35 @@
 import { BlogPostProps } from "@/components/BlogCard";
 
+// Update existing blog posts to link to new dynamic pages
 export const blogPosts: BlogPostProps[] = [
   {
     id: 1,
-    image: "/images/blog-office-workspace.png",
-    category: "Design",
-    categoryColor: "bg-blue-100 text-blue-800",
-    title: "Build a Professional Website...",
-    description: "How do you create compelling presentations that wow your colleagues and impress your managers?",
+    image: "/images/digitalmarketing/1.png",
+    category: "Digital Marketing",
+    categoryColor: "bg-orange-100 text-orange-800",
+    title: "How to Start a Career in Digital Marketing",
+    description: "Digital marketing has quickly become one of the most in-demand fields. Learn how to start your journey in this fast-moving industry.",
     author: {
-      name: "Mariana Astorino",
-      avatar: "/images/Avatar.png",
+      name: "PixelSphere Team",
+      avatar: "/images/favicon.png",
       date: "20 Jan 2024",
     },
-    slug: "build-professional-website",
+    slug: "digital-marketing-career",
     featured: true,
   },
   {
     id: 2,
-    image: "/images/blog-office-laptops.png",
-    category: "Product",
+    image: "/images/customvstemplate/1.png",
+    category: "Web Design",
     categoryColor: "bg-purple-100 text-purple-800",
-    title: "Migrating to Linear 101",
-    description:
-      "Linear helps streamline software projects, sprints, tasks, and bug tracking. Here's how to get started.",
+    title: "Custom Web Design vs Templates: The Smarter Choice for Your Brand",
+    description: "When it comes to building a website, every business owner faces the same question: Should I invest in a custom web design or stick with ready-made templates?",
     author: {
-      name: "Phoenix Baker",
-      avatar: "/images/Avatar (1).png",
+      name: "PixelSphere Team",
+      avatar: "/images/favicon.png",
       date: "19 Jan 2024",
     },
-    slug: "migrating-to-linear",
+    slug: "custom-web-design-vs-templates",
     featured: true,
   },
   {

@@ -96,12 +96,6 @@ export default function BlogPage() {
           </div>
 
           {/* Load More Button */}
-          <div className="text-center mt-16">
-            <Button variant="outline" className="text-orange-600 border-orange-600 hover:bg-orange-50 bg-transparent">
-              <ArrowRight className="mr-2 h-4 w-4 rotate-90" />
-              Load more
-            </Button>
-          </div>
         </div>
       </section>
         </AnimatedSection>
