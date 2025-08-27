@@ -19,7 +19,7 @@ export default function ImageCarousel({ images, projectName }: ImageCarouselProp
     
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length)
-    }, 4000)
+    }, 7000)
 
     return () => clearInterval(interval)
   }, [currentIndex, isAutoPlaying, images.length])
@@ -67,18 +67,15 @@ export default function ImageCarousel({ images, projectName }: ImageCarouselProp
 
       {/* Navigation Arrows */}
       {/* Enhanced Navigation Arrows */}
-      <motion.button
+      <button
         onClick={goToPrevious}
         className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 group"
         aria-label="Previous image"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ duration: 0.2 }}
       >
         <div className="relative">
           {/* Main button background */}
           <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full border border-white/20 hover:border-white/30 transition-all duration-300 flex items-center justify-center group-hover:shadow-lg group-hover:shadow-white/10">
-            <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 text-white group-hover:text-white transition-all duration-300 group-hover:translate-x-[-1px]" />
+            <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 text-white transition-all duration-300" />
           </div>
           
           {/* Subtle outer glow on hover */}
@@ -87,20 +84,17 @@ export default function ImageCarousel({ images, projectName }: ImageCarouselProp
           {/* Active state indicator */}
           <div className="absolute inset-0 w-12 h-12 lg:w-14 lg:h-14 rounded-full border-2 border-white/0 group-active:border-white/40 transition-all duration-150" />
         </div>
-      </motion.button>
+      </button>
 
-      <motion.button
+      <button
         onClick={goToNext}
         className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 group"
         aria-label="Next image"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ duration: 0.2 }}
       >
         <div className="relative">
           {/* Main button background */}
           <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full border border-white/20 hover:border-white/30 transition-all duration-300 flex items-center justify-center group-hover:shadow-lg group-hover:shadow-white/10">
-            <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 text-white group-hover:text-white transition-all duration-300 group-hover:translate-x-[1px]" />
+            <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 text-white transition-all duration-300" />
           </div>
           
           {/* Subtle outer glow on hover */}
@@ -109,7 +103,7 @@ export default function ImageCarousel({ images, projectName }: ImageCarouselProp
           {/* Active state indicator */}
           <div className="absolute inset-0 w-12 h-12 lg:w-14 lg:h-14 rounded-full border-2 border-white/0 group-active:border-white/40 transition-all duration-150" />
         </div>
-      </motion.button>
+      </button>
       {/* Enhanced Dot Indicators */}
       <div className="absolute bottom-6 lg:bottom-8 left-1/2 -translate-x-1/2 z-10">
         <div className="flex items-center justify-center space-x-2 lg:space-x-3 bg-black/30 backdrop-blur-md rounded-full px-4 py-3 lg:px-6 lg:py-4">

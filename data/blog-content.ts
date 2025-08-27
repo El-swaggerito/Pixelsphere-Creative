@@ -26,7 +26,7 @@ export const blogContent: BlogPost[] = [
     slug: "digital-marketing-career",
     title: "How to Start a Career in Digital Marketing",
     excerpt: "Digital marketing has quickly become one of the most in-demand fields in Canada and around the world. Learn how to start your journey in this fast-moving industry.",
-    featuredImage: "/images/digitalmarketing/1.png",
+    featuredImage: "/images/digitalmarketing/hero.png",
     author: {
       name: "PixelSphere Team",
       avatar: "/images/favicon.png"
@@ -87,7 +87,7 @@ export const blogContent: BlogPost[] = [
     slug: "custom-web-design-vs-templates",
     title: "Custom Web Design vs Templates: The Smarter Choice for Your Brand",
     excerpt: "When it comes to building a website, every business owner faces the same question: Should I invest in a custom web design or stick with ready-made templates? Your decision directly impacts how your brand is perceived online.",
-    featuredImage: "/images/customvstemplate/1.png",
+    featuredImage: "/images/customvstemplate/hero.png",
     author: {
       name: "PixelSphere Team",
       avatar: "/images/favicon.png"

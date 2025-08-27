@@ -30,7 +30,7 @@ export default function BlogPage() {
           </p>
 
           {/* Search Bar */}
-          <div className="max-w-2xl mx-auto mb-8">
+          {/* <div className="max-w-2xl mx-auto mb-8">
             <div className="relative">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
               <input
@@ -42,10 +42,10 @@ export default function BlogPage() {
                 Search
               </Button>
             </div>
-          </div>
+          </div> */}
 
           {/* Filter Tags */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {/* <div className="flex flex-wrap justify-center gap-3 mb-12">
             <span className="text-gray-600 font-medium">Popular:</span>
             <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
               UX
@@ -62,13 +62,13 @@ export default function BlogPage() {
             <Badge variant="outline" className="bg-white border-gray-300 text-gray-700 hover:bg-gray-50">
               About Mika
             </Badge>
-          </div>
+          </div> */}
         </div>
       </section>
         </AnimatedSection>
 
       {/* Category Tabs */}
-        <AnimatedSection>
+        {/* <AnimatedSection>
       <section className="py-8 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-8">
@@ -83,7 +83,7 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
-        </AnimatedSection>
+        </AnimatedSection> */}
 
       {/* Blog Grid */}
         <AnimatedSection>

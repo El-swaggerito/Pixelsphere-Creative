@@ -148,7 +148,7 @@ export default function WorkPage() {
               />
 
               {/* Filter Tabs */}
-              <motion.div
+              {/* <motion.div
                 className="flex justify-center mb-16"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -178,7 +178,7 @@ export default function WorkPage() {
                     Branding
                   </motion.button>
                 </div>
-              </motion.div>
+              </motion.div> */}
 
               <div className="space-y-20">
                 {/* Map through projects and render ProjectCard components */}

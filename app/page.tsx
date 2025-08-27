@@ -36,14 +36,14 @@ const testimonials = [
   {
     quote:
       "PixelSphere completely transformed our brand and website. From the logo to the user experience, everything feels cohesive and intentional. Our audience now takes us seriously, and it shows in our sales!",
-    name: "Clara Benton",
-    role: "Creative Director - Aurora Studios",
+    name: "Erica",
+    role: "Chopify",
   },
   {
     quote:
       "PixelSphere didn't just design for us, they designed with us. The result? Pure brilliance.",
-    name: "Marcus Hale",
-    role: "CTO - FutureTech Solutions",
+    name: "Ayo",
+    role: "Legend Luxury",
   },
   // {
   //   quote:
@@ -588,7 +588,7 @@ const testimonials = [
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                   {blogPosts
                     .filter((post) => post.featured)
-                    .slice(0, 3)
+                    .slice(0, 2)
                     .map((post, index) => (
                       <BlogCard
                         key={post.id}
