@@ -3,6 +3,7 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 import { Sora, Inter } from 'next/font/google'
+import Head from 'next/head'
 
 const sora = Sora({
   subsets: ['latin'],
@@ -21,6 +22,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Pixelsphere Creatives',
   description: 'Empowering Businesses Through Tailored Technology Solutions',
+  verification: {
+    google: 'N3cywgyUeVXVS4GrT6xyLpf7IejjJMEdoqL3z1ez-zo',
+  },
   icons: {
     icon: '/images/favicon.png',
     shortcut: '/images/favicon.png',
@@ -35,6 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${sora.variable} ${inter.variable}`}>
+      <Head>
+        <meta name="google-site-verification" content="N3cywgyUeVXVS4GrT6xyLpf7IejjJMEdoqL3z1ez-zo" />
+      </Head>
       <body className={`${inter.className} font-inter`}>{children}</body>
     </html>
   )
