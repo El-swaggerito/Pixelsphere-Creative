@@ -31,7 +31,7 @@ export const blogContent: BlogPost[] = [
       name: "PixelSphere Team",
       avatar: "/images/favicon.png"
     },
-    publishDate: "January 20, 2024",
+    publishDate: "August 25, 2025",
     readTime: 8,
     introduction: "Digital marketing has quickly become one of the most in-demand fields in Canada and around the world. From social media marketing to SEO, email campaigns to content creation, businesses today need skilled marketers who can navigate the online space. If you've been thinking about starting a career in digital marketing, the good news is - you don't need to follow a traditional path. With the right mindset, skills, and resources, you can carve your own way into this fast-moving industry.",
     sections: [
@@ -92,7 +92,7 @@ export const blogContent: BlogPost[] = [
       name: "PixelSphere Team",
       avatar: "/images/favicon.png"
     },
-    publishDate: "January 19, 2024",
+    publishDate: "August 25, 2025",
     readTime: 6,
     introduction: "When it comes to building a website, every business owner faces the same question: 'Should I invest in a custom web design or stick with ready-made templates?' Both options have their pros and cons, but your decision directly impacts how your brand is perceived online. In today's competitive digital landscape, where attention spans are shorter than a Canadian winter day, making the right choice is critical.",
     sections: [

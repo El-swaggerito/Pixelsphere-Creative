@@ -12,7 +12,7 @@ export const blogPosts: BlogPostProps[] = [
     author: {
       name: "PixelSphere Team",
       avatar: "/images/favicon.png",
-      date: "20 Jan 2024",
+      date: "25 Aug 2025",
     },
     slug: "digital-marketing-career",
     featured: true,
@@ -27,7 +27,7 @@ export const blogPosts: BlogPostProps[] = [
     author: {
       name: "PixelSphere Team",
       avatar: "/images/favicon.png",
-      date: "19 Jan 2024",
+      date: "25 Aug 2025",
     },
     slug: "custom-web-design-vs-templates",
     featured: true,
