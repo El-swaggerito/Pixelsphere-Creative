@@ -36,14 +36,14 @@ const testimonials = [
   {
     quote:
       "PixelSphere completely transformed our brand and website. From the logo to the user experience, everything feels cohesive and intentional. Our audience now takes us seriously, and it shows in our sales!",
-    name: "Erica",
-    role: "Chopify",
-  },
-  {
-    quote:
+      name: "Ayo",
+      role: "Legend Luxury",
+    },
+    {
+      quote:
       "PixelSphere didn't just design for us, they designed with us. The result? Pure brilliance.",
-    name: "Ayo",
-    role: "Legend Luxury",
+      name: "Erica",
+      role: "Chopify",
   },
   // {
   //   quote:
