@@ -234,7 +234,7 @@ const testimonials = [
                       transition={{ duration: 0.5, delay: 0.1 }}
                       viewport={{ once: true }}
                     >
-                      We craft identities that move, resonate, and endure
+                      Your Full-Service Brand & Creative Agency
                     </motion.h2>
                     <motion.p
                       className="text-gray-600 mb-8 sm:mb-12 text-base sm:text-lg leading-relaxed"
@@ -243,10 +243,7 @@ const testimonials = [
                       transition={{ duration: 0.5, delay: 0.2 }}
                       viewport={{ once: true }}
                     >
-                      At PixelSphere, we don't strictly build brands — we craft
-                      identities that move, resonate, and endure. Founded on the
-                      belief that great brands are built at the intersection of
-                      strategy, creativity, and clarity.
+                      We build and manage every aspect of how your brand shows up online - from brand identity and digital presence, to its marketing and positioning. Think of us as your go-to digital partner, for everything your brand needs to show up, stand out and grow.
                     </motion.p>
                   </div>
                 </div>
@@ -259,11 +256,12 @@ const testimonials = [
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeader
                   label="OUR SERVICES"
-                  title="We craft identities that move, resonate, and endure"
-                  description="Our comprehensive suite of services is designed to elevate your brand and drive meaningful results across all digital touchpoints."
+                  title="Everything Your Brand Needs, All in One Place"
+                  description="From strategy to execution, we offer creative and digital services tailored to elevate your brand and grow your business, with a clear focus on measurable ROI."
                 />
 
-                <div className="grid sm:grid-cols-2 gap-8 sm:gap-12 max-w-4xl mx-auto">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 max-w-7xl mx-auto">
+                  {/* Branding Card */}
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -274,91 +272,8 @@ const testimonials = [
                       boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
                     }}
                   >
-                    <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow">
-                      <CardContent className="p-0">
-                        <motion.div
-                          className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6"
-                          whileHover={{ rotate: 360, scale: 1.1 }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          <Globe className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
-                        </motion.div>
-                        <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">
-                          Custom Website
-                        </h3>
-                        <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
-                          Tailored web solutions that reflect your brand identity
-                          and drive conversions with modern design and
-                          functionality.
-                        </p>
-                        <motion.div
-                          whileHover={{ x: 5 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <Link
-                            href="/services/custom-web-solutions"
-                            className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
-                          >
-                            Discover More →
-                          </Link>
-                        </motion.div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{
-                      y: -10,
-                      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
-                    }}
-                  >
-                    <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow">
-                      <CardContent className="p-0">
-                        <motion.div
-                          className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6"
-                          whileHover={{ rotate: 360, scale: 1.1 }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          <ShoppingCart className="h-6 w-6 sm:h-8 sm:w-8 text-green-600" />
-                        </motion.div>
-                        <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">
-                          E-commerce Website
-                        </h3>
-                        <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
-                          Powerful online stores that maximize sales and enhance
-                          user experience with seamless checkout processes.
-                        </p>
-                        <motion.div
-                          whileHover={{ x: 5 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <Link
-                            href="/services/custom-web-solutions"
-                            className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
-                          >
-                            Discover More →
-                          </Link>
-                        </motion.div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    whileHover={{
-                      y: -10,
-                      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
-                    }}
-                  >
-                    <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow">
-                      <CardContent className="p-0">
+                    <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow h-full">
+                      <CardContent className="p-0 h-full flex flex-col">
                         <motion.div
                           className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6"
                           whileHover={{ rotate: 360, scale: 1.1 }}
@@ -367,11 +282,10 @@ const testimonials = [
                           <Palette className="h-6 w-6 sm:h-8 sm:w-8 text-purple-600" />
                         </motion.div>
                         <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">
-                          Branding and Digital services
+                          Branding
                         </h3>
-                        <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
-                          Complete brand identity and digital marketing solutions
-                          that drive growth and build lasting connections.
+                        <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed flex-grow">
+                          We design unique and timeless brands that spark connection with audiences, build trust and stand out effortlessly.
                         </p>
                         <motion.div
                           whileHover={{ x: 5 }}
@@ -388,6 +302,89 @@ const testimonials = [
                     </Card>
                   </motion.div>
 
+                  {/* Web Design & Development Card */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{
+                      y: -10,
+                      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                    }}
+                  >
+                    <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow h-full">
+                      <CardContent className="p-0 h-full flex flex-col">
+                        <motion.div
+                          className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6"
+                          whileHover={{ rotate: 360, scale: 1.1 }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <Globe className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
+                        </motion.div>
+                        <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">
+                          Web Design & Development
+                        </h3>
+                        <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed flex-grow">
+                          Custom responsive and e-commerce websites built to impress and perform - merging creativity and functionality to drive your brand's online growth.
+                        </p>
+                        <motion.div
+                          whileHover={{ x: 5 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Link
+                            href="/services/custom-web-solutions"
+                            className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
+                          >
+                            Discover More →
+                          </Link>
+                        </motion.div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+
+                  {/* UI/UX Design & Plugins Card */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    whileHover={{
+                      y: -10,
+                      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                    }}
+                  >
+                    <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow h-full">
+                      <CardContent className="p-0 h-full flex flex-col">
+                        <motion.div
+                          className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6"
+                          whileHover={{ rotate: 360, scale: 1.1 }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <Smartphone className="h-6 w-6 sm:h-8 sm:w-8 text-orange-600" />
+                        </motion.div>
+                        <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">
+                          UI/UX Design & Plugins
+                        </h3>
+                        <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed flex-grow">
+                          From clear wireframing to thoughtfully designed interface and experiences, we keep your audience hooked through seamless clicking and scrolling.
+                        </p>
+                        <motion.div
+                          whileHover={{ x: 5 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Link
+                            href="/services/ux-design-strategy"
+                            className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
+                          >
+                            Discover More →
+                          </Link>
+                        </motion.div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+
+                  {/* Social Media Marketing Card */}
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -398,28 +395,120 @@ const testimonials = [
                       boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
                     }}
                   >
-                    <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow">
-                      <CardContent className="p-0">
+                    <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow h-full">
+                      <CardContent className="p-0 h-full flex flex-col">
                         <motion.div
-                          className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6"
+                          className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6"
                           whileHover={{ rotate: 360, scale: 1.1 }}
                           transition={{ duration: 0.5 }}
                         >
-                          <Smartphone className="h-6 w-6 sm:h-8 sm:w-8 text-orange-600" />
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                          </svg>
                         </motion.div>
                         <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">
-                          UI UX Design/Plugins
+                          Social Media Marketing
                         </h3>
-                        <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
-                          Intuitive designs and custom plugins that enhance
-                          functionality and create exceptional user experiences.
+                        <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed flex-grow">
+                          Creative strategies that generate leads, build brand awareness and community, thereby keeping your brand top of mind.
                         </p>
                         <motion.div
                           whileHover={{ x: 5 }}
                           transition={{ duration: 0.2 }}
                         >
                           <Link
-                            href="/services/ux-design-strategy"
+                            href="/services/digital-growth"
+                            className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
+                          >
+                            Discover More →
+                          </Link>
+                        </motion.div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+
+                  {/* Content Marketing Card */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    viewport={{ once: true }}
+                    whileHover={{
+                      y: -10,
+                      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                    }}
+                  >
+                    <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow h-full">
+                      <CardContent className="p-0 h-full flex flex-col">
+                        <motion.div
+                          className="w-12 h-12 sm:w-16 sm:h-16 bg-pink-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6"
+                          whileHover={{ rotate: 360, scale: 1.1 }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-pink-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                          </svg>
+                        </motion.div>
+                        <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">
+                          Content Marketing
+                        </h3>
+                        <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed flex-grow">
+                          Stories that matter - crafted to inform, inspire and move your audience to engage and take meaningful action.
+                        </p>
+                        <motion.div
+                          whileHover={{ x: 5 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Link
+                            href="/services/digital-growth"
+                            className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
+                          >
+                            Discover More →
+                          </Link>
+                        </motion.div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+
+                  {/* SEO Card */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    viewport={{ once: true }}
+                    whileHover={{
+                      y: -10,
+                      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                    }}
+                  >
+                    <Card className="p-6 sm:p-8 hover:shadow-lg transition-shadow h-full">
+                      <CardContent className="p-0 h-full flex flex-col">
+                        <motion.div
+                          className="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6"
+                          whileHover={{ rotate: 360, scale: 1.1 }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-yellow-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                          </svg>
+                        </motion.div>
+                        <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-3 sm:mb-4">
+                          Search Engine Optimization (SEO)
+                        </h3>
+                        <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed flex-grow">
+                          We help your brand stay searchable, boost its visibility and attract the right audience through on-page and off-page site optimization.
+                        </p>
+                        <motion.div
+                          whileHover={{ x: 5 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Link
+                            href="/services/digital-growth"
                             className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
                           >
                             Discover More →

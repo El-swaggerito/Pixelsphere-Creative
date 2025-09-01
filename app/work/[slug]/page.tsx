@@ -109,9 +109,22 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
                   ))}
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                  <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-medium">
-                    Launch Project - Live Preview
-                  </Button>
+                  {/* Live Preview Button - Conditional Link */}
+                  {project.slug === 'drip-and-grind' ? (
+                    <Button 
+                      className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-medium"
+                      asChild
+                    >
+                      <Link href="/drip-grind">
+                        Launch Project - Live Preview
+                      </Link>
+                    </Button>
+                  ) : (
+                    <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-medium">
+                      Launch Project - Live Preview
+                    </Button>
+                  )}
+                  
                   {project.brandingLink ? (
                     <Button
                       variant="outline"
@@ -126,15 +139,7 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
                         View Branding
                       </a>
                     </Button>
-                  ) : (
-                    <Button
-                      variant="outline"
-                      className="border-orange-500 text-orange-500 px-8 py-3 text-lg font-medium bg-transparent hover:bg-orange-50 opacity-50 cursor-not-allowed"
-                      disabled
-                    >
-                      View Branding
-                    </Button>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </div>

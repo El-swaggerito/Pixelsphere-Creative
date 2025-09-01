@@ -55,6 +55,17 @@ export default function Footer() {
                     <Linkedin className="text-white w-4 h-4 sm:w-5 sm:h-5" />
                   </Link>
                 </motion.div>
+                <motion.div whileHover={{ scale: 1.2, rotate: 360 }} transition={{ duration: 0.3 }}>
+                  <Link
+                    href="https://x.com/PixelsphereC"
+                    rel="noopener noreferrer nofollow" 
+                    target="_blank"
+                    className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-700 cursor-pointer"
+                    aria-label="LinkedIn"
+                  >
+                    <Twitter className="text-white w-4 h-4 sm:w-5 sm:h-5" />
+                  </Link>
+                </motion.div>
               </div>
             </div>
           </div>
