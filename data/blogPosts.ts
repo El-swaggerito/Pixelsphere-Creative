@@ -27,7 +27,7 @@ export const blogPosts: BlogPostProps[] = [
     author: {
       name: "PixelSphere Team",
       avatar: "/images/favicon.png",
-      date: "25 Aug 2025",
+      date: "02 Sep 2025",
     },
     slug: "custom-web-design-vs-templates",
     featured: true,
