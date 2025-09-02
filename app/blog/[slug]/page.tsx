@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Star, Clock, ThumbsUp, Share2, Play, Check, ChevronRight, ArrowRight, ChevronLeft, Instagram, Linkedin, Facebook } from "lucide-react"
+import { Star, Clock, ThumbsUp, Share2, Play, Check, ChevronRight, ArrowRight, ChevronLeft, Instagram, Linkedin, Facebook, Twitter } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
@@ -640,25 +640,32 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   <p className="text-gray-600 mb-6">Follow us on our socials for more digital marketing tips</p>
                   <div className="flex justify-center space-x-6">
                     <a 
-                      href="https://instagram.com/pixelsphere" 
+                      href="https://www.instagram.com/pixelsphere.creatives/" 
                       className="text-gray-400 hover:text-pink-500 transition-colors"
                       aria-label="Follow us on Instagram"
                     >
                       <Instagram className="w-6 h-6" />
                     </a>
                     <a 
-                      href="https://linkedin.com/company/pixelsphere" 
+                      href="https://www.linkedin.com/company/pixelspherecreatives/" 
                       className="text-gray-400 hover:text-blue-600 transition-colors"
                       aria-label="Follow us on LinkedIn"
                     >
                       <Linkedin className="w-6 h-6" />
                     </a>
                     <a 
-                      href="https://facebook.com/pixelsphere" 
+                      href="https://web.facebook.com/people/PixelSphere-Creatives/pfbid0B6rspCn3TZcKihRrx2KwjyQ9UsFSDkoErGH9SpySwX4i68BH2J1195s4j5HG7W4Dl/" 
                       className="text-gray-400 hover:text-blue-500 transition-colors"
                       aria-label="Follow us on Facebook"
                     >
                       <Facebook className="w-6 h-6" />
+                    </a>
+                    <a 
+                      href="https://x.com/PixelsphereC" 
+                      className="text-gray-400 hover:text-blue-500 transition-colors"
+                      aria-label="Follow us on Facebook"
+                    >
+                      <Twitter className="w-6 h-6" />
                     </a>
                   </div>
                 </div>
