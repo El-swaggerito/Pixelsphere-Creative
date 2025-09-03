@@ -326,7 +326,7 @@ const testimonials = [
                           Web Design & Development
                         </h3>
                         <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed flex-grow">
-                          Custom responsive and e-commerce websites built to impress and perform - merging creativity and functionality to drive your brand's online growth.
+                          Custom responsive and e-commerce websites built to impress and perform, merging creativity and functionality to drive your brand's online growth.
                         </p>
                         <motion.div
                           whileHover={{ x: 5 }}
@@ -457,7 +457,7 @@ const testimonials = [
                           Content Marketing
                         </h3>
                         <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed flex-grow">
-                          Stories that matter - crafted to inform, inspire and move your audience to engage and take meaningful action.
+                          Stories that matter crafted to inform, inspire and move your audience to engage and take meaningful action.
                         </p>
                         <motion.div
                           whileHover={{ x: 5 }}

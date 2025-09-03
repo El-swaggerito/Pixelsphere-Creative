@@ -8,6 +8,7 @@ import Footer from "@/components/footer"
 import FinalCTA from "@/components/final-cta"
 import WorkCTA from "@/components/work-cta"
 import AnimatedSection from "@/components/AnimatedSection";
+import BlogNewsletter from "@/components/blog-newsletter";
 import { getBlogPostBySlug } from "@/data/blog-content"
 import { Metadata } from "next"
 import PageTransition from "@/components/PageTransition"
@@ -526,9 +527,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <PageTransition>
-      <main className="min-h-screen bg-white">
-        <Header currentPage="blog" background="white" textColor="black" />
-        
+      <main className="pt-20">
+        {/* Header */}
+        <div>
+          <Header currentPage="blog" background="white" textColor="black"/>
+        </div>
+
         {/* Blog Post Content */}
         <AnimatedSection>
           <article className="pt-32 pb-20">
@@ -663,7 +667,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     <a 
                       href="https://x.com/PixelsphereC" 
                       className="text-gray-400 hover:text-blue-500 transition-colors"
-                      aria-label="Follow us on Facebook"
+                      aria-label="Follow us on Twitter"
                     >
                       <Twitter className="w-6 h-6" />
                     </a>
@@ -672,6 +676,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
             </div>
           </article>
+        </AnimatedSection>
+
+        {/* Newsletter Subscription Component */}
+        <AnimatedSection>
+          <BlogNewsletter />
         </AnimatedSection>
 
         <AnimatedSection>
