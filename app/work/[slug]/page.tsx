@@ -129,9 +129,10 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
                       className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-medium"
                       asChild
                     >
-                      <Link href={getProjectPreviewRoute(project.slug)}>
+                      <a href={getProjectPreviewRoute(project.slug)} rel="noopener noreferrer nofollow"
+                        target="_blank">
                         Launch Project - Live Preview
-                      </Link>
+                      </a>
                     </Button>
                   ) : (
                     <Button className="bg-gray-400 cursor-not-allowed text-white px-8 py-3 text-lg font-medium" disabled>
