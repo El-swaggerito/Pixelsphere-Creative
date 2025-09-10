@@ -22,6 +22,20 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
     notFound()
   }
 
+  // Define project preview routes
+  const getProjectPreviewRoute = (slug: string) => {
+    const routes: { [key: string]: string } = {
+      'hope-foundation': '/hope-foundation',
+      'drip-and-grind': '/drip-grind',
+      'edtech-learning-platform': '/edtech-platform'
+    }
+    return routes[slug] || '#'
+  }
+
+  const hasLivePreview = (slug: string) => {
+    return ['hope-foundation', 'drip-and-grind', 'edtech-learning-platform'].includes(slug)
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <Header currentPage="work" textColor="black" background="white" />
@@ -109,19 +123,19 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
                   ))}
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                  {/* Live Preview Button - Conditional Link */}
-                  {project.slug === 'drip-and-grind' ? (
+                  {/* Live Preview Button - Updated Logic */}
+                  {hasLivePreview(project.slug) ? (
                     <Button 
                       className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-medium"
                       asChild
                     >
-                      <Link href="/drip-grind">
+                      <Link href={getProjectPreviewRoute(project.slug)}>
                         Launch Project - Live Preview
                       </Link>
                     </Button>
                   ) : (
-                    <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg font-medium">
-                      Launch Project - Live Preview
+                    <Button className="bg-gray-400 cursor-not-allowed text-white px-8 py-3 text-lg font-medium" disabled>
+                      Preview Coming Soon
                     </Button>
                   )}
                   
