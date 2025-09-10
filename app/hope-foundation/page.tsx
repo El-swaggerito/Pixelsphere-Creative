@@ -1354,7 +1354,7 @@ export default function HopeFoundationPage() {
                 {/* Dotted World Map Background */}
                 <div className="relative mx-auto max-w-4xl">
                   <Image
-                    src="/images/hopefoundation-project/Map+ pins.png"
+                    src="/images/hopefoundation-project/map.png"
                     alt="World Map with Project Locations"
                     width={800}
                     height={500}
