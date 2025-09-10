@@ -74,84 +74,10 @@ export default function Footer() {
   return (
     <footer className="bg-blue-700 text-white py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Newsletter Subscription Card */}
-        <motion.div 
-          className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 sm:p-8 mb-12 sm:mb-16 shadow-xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
-            {/* Left Column - Content */}
-            <div className="text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start mb-4">
-                <Mail className="w-8 h-8 mr-3 text-white" />
-                <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                  Subscribe to our newsletter
-                </h3>
-              </div>
-              <p className="text-orange-100 text-base sm:text-lg leading-relaxed">
-                Get exclusive design tips, industry insights, and early access to our latest projects delivered straight to your inbox.
-              </p>
-            </div>
-            
-            {/* Right Column - Form */}
-            <div className="">
-              <form onSubmit={handleNewsletterSubmit} className="space-y-4">
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <div className="flex-1">
-                    <Input
-                      type="email"
-                      placeholder="Enter your email address"
-                      value={email}
-                      onChange={(e) => {
-                        setEmail(e.target.value);
-                        if (error) setError("");
-                      }}
-                      className={`h-12 text-base bg-white border-0 text-gray-900 placeholder:text-gray-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-orange-500 ${
-                        error ? "ring-2 ring-red-300" : ""
-                      }`}
-                      disabled={isSubmitting}
-                      required
-                    />
-                  </div>
-                  <Button 
-                    type="submit" 
-                    className={`h-12 px-6 sm:px-8 font-semibold transition-all duration-300 whitespace-nowrap ${
-                      isSuccess 
-                        ? 'bg-green-600 hover:bg-green-700 text-white' 
-                        : 'bg-white hover:bg-gray-100 text-orange-600 hover:text-orange-700'
-                    }`}
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <div className="flex items-center">
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-orange-600 mr-2"></div>
-                        Subscribing...
-                      </div>
-                    ) : isSuccess ? (
-                      <div className="flex items-center">
-                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                        Subscribed!
-                      </div>
-                    ) : (
-                      'Subscribe'
-                    )}
-                  </Button>
-                </div>
-                {error && (
-                  <p className="text-red-200 text-sm mt-2">{error}</p>
-                )}
-              </form>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Existing Footer Content */}
+        {/* Main Footer Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
-          <div className="lg:col-span-2">
+          {/* Brand Section - spans 2 columns */}
+          <div className="lg:col-span-1">
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
@@ -212,6 +138,7 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Services Section */}
           <div className="lg:col-span-1">
             <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Our Services</h3>
             <ul className="space-y-3 sm:space-y-4 text-blue-200 text-sm sm:text-base">
@@ -253,7 +180,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-1">
+
+          {/* Resources & Support Section */}
+          <div className="lg:col-span-1 lg:col-start-3">
             <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Resources & Support</h3>
             <ul className="space-y-3 sm:space-y-4 text-blue-200 text-sm sm:text-base">
               <li>
@@ -293,7 +222,74 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
+          {/* Newsletter Subscription Section - Integrated into Grid */}
+          <div className="lg:col-span-1">
+            <h3 className="font-semibold mb-4 sm:mb-6 text-base sm:text-lg">Stay Updated</h3>
+            <p className="text-blue-200 text-sm sm:text-base mb-4 leading-relaxed">
+              Get exclusive design tips and project updates delivered to your inbox.
+            </p>
+            
+            <motion.form 
+              onSubmit={handleNewsletterSubmit} 
+              className="space-y-3"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div>
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (error) setError("");
+                  }}
+                  className={`h-10 text-sm bg-blue-800 border border-blue-600 text-white placeholder:text-blue-300 focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:border-orange-500 hover:bg-blue-700 transition-colors duration-200 ${
+                    error ? "ring-2 ring-red-400 border-red-400" : ""
+                  }`}
+                  disabled={isSubmitting}
+                  required
+                />
+                {error && (
+                  <p className="text-red-300 text-xs mt-1">{error}</p>
+                )}
+              </div>
+              
+              <Button 
+                type="submit" 
+                className={`w-full h-10 text-sm font-medium transition-all duration-300 ${
+                  isSuccess 
+                    ? 'bg-green-600 hover:bg-green-700 text-white' 
+                    : 'bg-orange-500 hover:bg-orange-600 text-white'
+                }`}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <div className="flex items-center justify-center">
+                    <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-white mr-2"></div>
+                    <span className="text-xs">Subscribing...</span>
+                  </div>
+                ) : isSuccess ? (
+                  <div className="flex items-center justify-center">
+                    <svg className="w-3 h-3 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-xs">Subscribed!</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center">
+                    <Mail className="w-3 h-3 mr-2" />
+                    <span className="text-xs">Subscribe</span>
+                  </div>
+                )}
+              </Button>
+            </motion.form>
+          </div>
         </div>
+
+        
 
         {/* Bottom section - uses same container alignment */}
         <div className="border-t border-blue-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
