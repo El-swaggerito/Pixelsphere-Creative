@@ -684,18 +684,6 @@ const testimonials = [
                 <span className="text-lg font-semibold text-black">5.0</span>
               </div>
               
-              {/* Google Reviews Info */}
-              <div className="flex items-center gap-2 text-gray-600">
-                <span className="text-sm sm:text-base">Based on</span>
-                <a 
-                  href="https://www.google.com/search?q=PixelSphere+Creatives+reviews" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-sm sm:text-base font-medium text-blue-600 hover:text-blue-800 transition-colors underline"
-                >
-                  50+ Google Reviews
-                </a>
-              </div>
             </div>
             
             {/* Google Logo */}

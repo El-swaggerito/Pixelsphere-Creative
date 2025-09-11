@@ -490,20 +490,31 @@ export default function HopeFoundationPage() {
             </div>
           </div>
 
-          {/* Scroll Indicator */}
+          {/* Enhanced Scroll Indicator with Smooth Scroll */}
           <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.5 }}
+            onClick={() => {
+              const aboutSection = document.getElementById('about');
+              if (aboutSection) {
+                aboutSection.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
             <motion.div
-              className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
+              className="w-6 h-10 border-2 border-white/30 group-hover:border-yellow-400/60 rounded-full flex justify-center transition-colors duration-300"
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
               <motion.div
-                className="w-1 h-3 bg-yellow-400 rounded-full mt-2"
+                className="w-1 h-3 bg-yellow-400 group-hover:bg-yellow-300 rounded-full mt-2 transition-colors duration-300"
                 animate={{ opacity: [1, 0.3, 1] }}
                 transition={{
                   duration: 2,
@@ -512,6 +523,14 @@ export default function HopeFoundationPage() {
                 }}
               />
             </motion.div>
+            
+            {/* Tooltip */}
+            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+              Scroll to About
+            </div>
+            
+            {/* Subtle glow effect on hover */}
+            <div className="absolute inset-0 bg-yellow-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
           </motion.div>
         </section>
 
@@ -1846,7 +1865,7 @@ export default function HopeFoundationPage() {
                   className="text-gray-400 text-sm text-center md:text-right"
                   style={{ fontFamily: "Movement, sans-serif" }}
                 >
-                  © Copyright Charity 2025. Design by PixelSphere
+                  © Copyright Charity 2025. Design by PixelSphere Creatives
                 </p>
               </motion.div>
             </div>
