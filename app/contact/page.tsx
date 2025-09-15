@@ -466,18 +466,13 @@ export default function ContactPage() {
                             <option value="other">Other</option>
                           </select>
                           <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
-                            <svg
+                              <svg
                               className="w-5 h-5 text-gray-400"
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
                             >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M12 19l-7 7-7-18-9 18 9-2zm0 0v-8"
-                              />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
                           </div>
                           <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
