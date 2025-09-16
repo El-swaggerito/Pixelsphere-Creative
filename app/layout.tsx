@@ -1,11 +1,18 @@
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
 import './globals.css'
-import { Inter } from 'next/font/google'
-import Head from 'next/head'
+import { Inter, Montserrat } from 'next/font/google'
 
-const inter = Inter({
+// Configure Montserrat as primary font
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-montserrat',
+  display: 'swap',
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+})
+
+// Configure Inter as secondary font
+const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
@@ -27,15 +34,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en">
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Movement:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-      </head>
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
+      <body className={`${montserrat.className} antialiased`}>
+        {children}
+      </body>
     </html>
   )
 }

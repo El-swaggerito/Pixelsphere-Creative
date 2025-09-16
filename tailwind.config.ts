@@ -1,6 +1,6 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
-const config = {
+const config: Config = {
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -14,40 +14,14 @@ const config = {
       center: true,
       padding: "2rem",
       screens: {
-        
-        'xxxxs': '280px',
-      'xxxs': '3  20px', 
-      'xxs': '375px',
-      'xs': '475px',
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
-      '3xl': '1920px',
-      '4xl': '2560px',
-
+        "2xl": "1400px",
       },
-    },
-    screens: {
-      'xxxxs': '280px',
-      'xxxs': '320px', 
-      'xxs': '375px',
-      'xs': '475px',
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px',
-      '3xl': '1920px',
-      '4xl': '2560px',
-
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        sora: ['var(--font-sora)'],
-        inter: ['var(--font-inter)'],
+        'montserrat': ['var(--font-montserrat)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        'sans': ['var(--font-montserrat)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        'inter': ['var(--font-inter)', 'sans-serif']
       },
       colors: {
         border: "hsl(var(--border))",
@@ -108,4 +82,4 @@ const config = {
   plugins: [require("tailwindcss-animate")],
 } satisfies Config
 
-export default config;
+export default config
