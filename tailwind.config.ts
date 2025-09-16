@@ -18,6 +18,13 @@ const config: Config = {
       },
     },
     extend: {
+      screens: {
+        'xxxxs': '320px',
+        'xxxs': '375px', 
+        'xxs': '425px',
+        'xs': '475px',
+        '4xl': '1920px',
+      },
       fontFamily: {
         'montserrat': ['var(--font-montserrat)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         'sans': ['var(--font-montserrat)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
