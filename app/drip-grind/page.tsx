@@ -108,7 +108,7 @@ const galleryImages = [
   "/images/drip&grind-project/Rectangle 4348.png"
 ]
 
-export default function DripGrindHomepage() {
+export default function DripGrindPage() {
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false) // Add this line
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
@@ -119,86 +119,59 @@ export default function DripGrindHomepage() {
     : popularMeals.filter(meal => meal.category === selectedCategory)
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="drip-grind-page font-roboto min-h-screen bg-black text-white">
       {/* Navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-50 bg-transparent">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <div className="flex items-center">
+            <div className="flex-shrink-0">
               <Link href="/" className="flex items-center">
                 <Image
                   src="/images/drip&grind-project/Logo.png"
-                  alt="Drip & Grind"
-                  width={140}
-                  height={45}
-                  className="h-10 w-auto"
+                  alt="Drip & Grind Logo"
+                  width={120}
+                  height={40}
+                  className="h-12 w-auto"
                   priority
                 />
               </Link>
             </div>
 
-            {/* Desktop Navigation Links */}
+            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link 
-                href="#home" 
-                className="text-white hover:text-red-400 font-medium transition-colors duration-200 relative group"
-              >
+              <a href="#home" className="font-roboto text-white hover:text-red-500 transition-colors font-medium">
                 Home
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-400 transition-all duration-200 group-hover:w-full"></span>
-              </Link>
-              <Link 
-                href="#menu" 
-                className="text-white hover:text-red-400 font-medium transition-colors duration-200 relative group"
-              >
+              </a>
+              <a href="#menu" className="font-roboto text-white hover:text-red-500 transition-colors font-medium">
                 Menu
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-400 transition-all duration-200 group-hover:w-full"></span>
-              </Link>
-              <Link 
-                href="#about" 
-                className="text-white hover:text-red-400 font-medium transition-colors duration-200 relative group"
-              >
+              </a>
+              <a href="#about" className="font-roboto text-white hover:text-red-500 transition-colors font-medium">
                 About
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-400 transition-all duration-200 group-hover:w-full"></span>
-              </Link>
-              <Link 
-                href="#contact" 
-                className="text-white hover:text-red-400 font-medium transition-colors duration-200 relative group"
-              >
+              </a>
+              <a href="#contact" className="font-roboto text-white hover:text-red-500 transition-colors font-medium">
                 Contact
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-400 transition-all duration-200 group-hover:w-full"></span>
-              </Link>
+              </a>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile menu button */}
             <div className="md:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-red-400 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-400 transition-colors duration-200"
-                aria-expanded="false"
+                className="text-white hover:text-red-500 transition-colors"
               >
-                <span className="sr-only">Open main menu</span>
-                {!mobileMenuOpen ? (
-                  <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                ) : (
-                  <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                )}
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               </button>
             </div>
 
-            {/* CTA Button - Desktop */}
-            <div className="hidden md:block">
+            {/* CTA Button */}
+            <div className="hidden md:flex items-center space-x-4">
               <Button 
-                className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 border border-white/20"
+                className="font-roboto bg-red-600 hover:bg-red-700 text-white px-6 py-2 font-medium rounded-lg transition-all duration-200"
                 onClick={() => {
-                  const reservationSection = document.getElementById('reservation');
-                  if (reservationSection) {
-                    reservationSection.scrollIntoView({ behavior: 'smooth' });
-                  }
+                  // Add reservation logic here
                 }}
               >
                 Make Reservation
@@ -207,53 +180,31 @@ export default function DripGrindHomepage() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden bg-black/90 backdrop-blur-md`}>
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link
-              href="#home"
-              className="block px-3 py-2 text-white hover:text-red-400 hover:bg-white/10 rounded-md font-medium transition-colors duration-200"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="#menu"
-              className="block px-3 py-2 text-white hover:text-red-400 hover:bg-white/10 rounded-md font-medium transition-colors duration-200"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Menu
-            </Link>
-            <Link
-              href="#about"
-              className="block px-3 py-2 text-white hover:text-red-400 hover:bg-white/10 rounded-md font-medium transition-colors duration-200"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="#contact"
-              className="block px-3 py-2 text-white hover:text-red-400 hover:bg-white/10 rounded-md font-medium transition-colors duration-200"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <div className="pt-2">
+          {/* Mobile Navigation */}
+          <div className={`md:hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden bg-black/90 backdrop-blur-md`}>
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              <a href="#home" className="font-roboto block px-3 py-2 text-white hover:text-red-500 transition-colors font-medium">
+                Home
+              </a>
+              <a href="#menu" className="font-roboto block px-3 py-2 text-white hover:text-red-500 transition-colors font-medium">
+                Menu
+              </a>
+              <a href="#about" className="font-roboto block px-3 py-2 text-white hover:text-red-500 transition-colors font-medium">
+                About
+              </a>
+              <a href="#contact" className="font-roboto block px-3 py-2 text-white hover:text-red-500 transition-colors font-medium">
+                Contact
+              </a>
               <Button 
-                className="w-full bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-medium transition-all duration-200 border border-white/20"
+                className="font-roboto w-full mt-4 bg-red-600 hover:bg-red-700 text-white px-6 py-2 font-medium rounded-lg transition-all duration-200"
                 onClick={() => {
-                  setMobileMenuOpen(false);
-                  const reservationSection = document.getElementById('reservation');
-                  if (reservationSection) {
-                    reservationSection.scrollIntoView({ behavior: 'smooth' });
-                  }
+                  // Add reservation logic here
                 }}
               >
                 Make Reservation
               </Button>
             </div>
           </div>
-        </div>
       </nav>
 
       {/* Hero Section */}
@@ -273,7 +224,7 @@ export default function DripGrindHomepage() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
+        <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4 pt-16">
           <motion.div
             className="mb-8"
             initial={{ opacity: 0, y: 30 }}
@@ -281,7 +232,7 @@ export default function DripGrindHomepage() {
             transition={{ duration: 0.8 }}
           >
             {/* Main Hero Text - Exact Specification */}
-            <h1 className="font-roboto text-5xl md:text-xl lg:text-5xl xl:text-6xl font-light leading-tight tracking-wide mb-6">
+            <h1 className="font-roboto text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-tight tracking-wide mb-6">
               Welcome to <span className="text-red-500 font-medium">Élégance</span>,
               {" "}a refined destination for{" "}
               <span className="text-red-500 font-medium">culinary</span>{" "}
@@ -290,7 +241,7 @@ export default function DripGrindHomepage() {
           </motion.div>
           
           <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-gray-200 font-light leading-relaxed max-w-4xl mx-auto mb-12 tracking-wide"
+            className="font-roboto text-lg md:text-xl lg:text-2xl text-gray-200 font-light leading-relaxed max-w-4xl mx-auto mb-12 tracking-wide"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -306,7 +257,7 @@ export default function DripGrindHomepage() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <Button 
-              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="font-roboto bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
               onClick={() => {
                 const menuSection = document.getElementById('menu');
                 if (menuSection) {
@@ -327,6 +278,9 @@ export default function DripGrindHomepage() {
             <h2 className="font-roboto text-4xl md:text-5xl font-bold mb-4" style={{ color: '#C9C9C9' }}>
               Popular Meals
             </h2>
+            <p className="font-roboto text-lg text-gray-400 max-w-2xl mx-auto">
+              Discover our most loved dishes, crafted with passion and served with excellence
+            </p>
           </div>
 
           {/* Complete Meals Grid - Optimized Image Display */}

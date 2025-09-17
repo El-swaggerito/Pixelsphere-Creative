@@ -9,23 +9,72 @@
   .text-balance {
     text-wrap: balance;
   }
-  
-  /* Hero and Header Typography */
-  .hero-text {
-    font-family: var(--font-sora);
-  }
-  
-  .header-text {
-    font-family: var(--font-sora);
-  }
-  
-  /* Body and General Typography */
-  .body-text {
-    font-family: var(--font-inter);
-  }
 }
 
 @layer base {
+  /* Typography Hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sora);
+    font-weight: 600;
+  }
+  
+  body, p, span, div, a, li, td, th, label, input, textarea, button {
+    font-family: var(--font-inter);
+  }
+  
+  /* Drip & Grind specific styles */
+  .drip-grind-page * {
+    font-family: var(--font-roboto) !important;
+  }
+  
+  .drip-grind-page h1,
+  .drip-grind-page h2,
+  .drip-grind-page h3,
+  .drip-grind-page h4,
+  .drip-grind-page h5,
+  .drip-grind-page h6 {
+    font-family: var(--font-roboto) !important;
+  }
+  
+  .drip-grind-page p,
+  .drip-grind-page span,
+  .drip-grind-page div,
+  .drip-grind-page a,
+  .drip-grind-page button,
+  .drip-grind-page li {
+    font-family: var(--font-roboto) !important;
+  }
+  
+  /* Specific header weights */
+  h1 {
+    font-weight: 700;
+  }
+  
+  h2 {
+    font-weight: 600;
+  }
+  
+  h3, h4 {
+    font-weight: 500;
+  }
+  
+  h5, h6 {
+    font-weight: 400;
+  }
+  
+  /* Utility classes for explicit font control */
+  .font-heading {
+    font-family: var(--font-sora);
+  }
+  
+  .font-body {
+    font-family: var(--font-inter);
+  }
+  
+  .font-roboto {
+    font-family: var(--font-roboto);
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -52,15 +101,8 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -86,21 +128,12 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
 
-@layer base {
   * {
-    @apply border-0;
+    @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground;
   }

@@ -1,22 +1,32 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Inter, Montserrat } from 'next/font/google'
+import { Inter, Sora, Roboto } from 'next/font/google'
 
-// Configure Montserrat as primary font
-const montserrat = Montserrat({
+// Configure Sora for headers
+const sora = Sora({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
-  variable: '--font-montserrat',
+  variable: '--font-sora',
   display: 'swap',
   fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
 })
 
-// Configure Inter as secondary font
+// Configure Inter for body text
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+})
+
+// Configure Roboto for Drip & Grind
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['100', '300', '400', '500', '700', '900'],
+  variable: '--font-roboto',
+  display: 'swap',
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
 })
 
 export const metadata: Metadata = {
@@ -38,8 +48,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
-      <body className={`${montserrat.className} antialiased`}>
+    <html lang="en" className={`${sora.variable} ${inter.variable} ${roboto.variable}`}>
+      <body className={`${inter.className} antialiased`}>
         {children}
       </body>
     </html>
