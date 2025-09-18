@@ -9,43 +9,15 @@
   .text-balance {
     text-wrap: balance;
   }
-  
-  /* Layout Optimization Utilities */
-  .layout-stable {
-    contain: layout style;
-    overflow-anchor: auto;
-  }
-  
-  .prevent-cls {
-    will-change: auto;
-    transform: translateZ(0);
-  }
-  
-  .smooth-scroll {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-  }
 }
 
 @layer base {
-  /* Root Layout Stability */
-  html {
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    overflow-x: hidden;
-    min-height: 100vh;
-    position: relative;
-  }
-  
-  /* Prevent layout shifts during font loading */
-  * {
-    font-display: swap;
-  }
-  
   /* Typography Hierarchy */
+
+  html, body {
+  overflow-x: hidden;
+}
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sora);
     font-weight: 600;
@@ -53,29 +25,6 @@
   
   body, p, span, div, a, li, td, th, label, input, textarea, button {
     font-family: var(--font-inter);
-  }
-  
-  /* Drip & Grind specific styles */
-  .drip-grind-page * {
-    font-family: var(--font-roboto) !important;
-  }
-  
-  .drip-grind-page h1,
-  .drip-grind-page h2,
-  .drip-grind-page h3,
-  .drip-grind-page h4,
-  .drip-grind-page h5,
-  .drip-grind-page h6 {
-    font-family: var(--font-roboto) !important;
-  }
-  
-  .drip-grind-page p,
-  .drip-grind-page span,
-  .drip-grind-page div,
-  .drip-grind-page a,
-  .drip-grind-page button,
-  .drip-grind-page li {
-    font-family: var(--font-roboto) !important;
   }
   
   /* Specific header weights */
@@ -102,10 +51,6 @@
   
   .font-body {
     font-family: var(--font-inter);
-  }
-  
-  .font-roboto {
-    font-family: var(--font-roboto);
   }
 
   :root {
