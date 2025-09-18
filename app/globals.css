@@ -9,9 +9,42 @@
   .text-balance {
     text-wrap: balance;
   }
+  
+  /* Layout Optimization Utilities */
+  .layout-stable {
+    contain: layout style;
+    overflow-anchor: auto;
+  }
+  
+  .prevent-cls {
+    will-change: auto;
+    transform: translateZ(0);
+  }
+  
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
 }
 
 @layer base {
+  /* Root Layout Stability */
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* Prevent layout shifts during font loading */
+  * {
+    font-display: swap;
+  }
+  
   /* Typography Hierarchy */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sora);

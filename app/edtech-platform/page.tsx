@@ -926,7 +926,7 @@ export default function EdTechPlatformPage() {
               {/* Left Column - Image Cards */}
               <motion.div
                 className="relative"
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1 }}
@@ -1457,7 +1457,7 @@ export default function EdTechPlatformPage() {
               {/* Left Column - Header */}
               <motion.div
                 className="lg:sticky lg:top-8"
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
