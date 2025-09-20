@@ -3,13 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PageTransition from "@/components/PageTransition";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { edtechLearningPlatformProject } from "@/data/projects/edtech-learning-platform";
 
 export default function EdTechPlatformPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Prevent layout shifts during initial load
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -36,22 +43,24 @@ export default function EdTechPlatformPage() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-white font-montserrat">
+      <div className="bg-white font-montserrat overflow-x-hidden" style={{ minHeight: '100vh' }}>
         {/* Navigation */}
         <motion.nav
-          className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 backdrop-blur-sm"
+          className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 backdrop-blur-sm will-change-transform"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{ height: '64px' }} // Fixed height to prevent shifts
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div className="flex items-center justify-between h-full">
               {/* Logo */}
               <motion.div
-                className="flex items-center"
+                className="flex items-center flex-shrink-0"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
+                style={{ width: '120px', height: '40px' }}
               >
                 <Image
                   src="/images/edtech-project/logo_edtech.png"
@@ -60,6 +69,7 @@ export default function EdTechPlatformPage() {
                   height={40}
                   className="h-10 w-auto"
                   priority
+                  style={{ maxWidth: '120px', height: 'auto' }}
                 />
               </motion.div>
 
@@ -129,11 +139,16 @@ export default function EdTechPlatformPage() {
           {/* Mobile Menu */}
           {mobileMenuOpen && (
             <motion.div
-              className="md:hidden border-t border-gray-100 bg-white"
+              className="md:hidden absolute top-full left-0 right-0 border-t border-gray-100 bg-white shadow-lg"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              style={{ 
+                maxHeight: '400px',
+                overflowY: 'auto',
+                overflowAnchor: 'none'
+              }}
             >
               <div className="px-4 py-4 space-y-4">
                 {[
@@ -169,32 +184,37 @@ export default function EdTechPlatformPage() {
 
         {/* Hero Section with Montserrat Font */}
         <section 
-          className="relative min-h-screen flex items-center pt-16 overflow-hidden"
+          className="relative flex items-center justify-center"
           style={{
-            background: 'linear-gradient(90deg, #2B5D2D 100%, #FFFFFF 100%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%)'
+            minHeight: '100vh',
+            paddingTop: '64px', // Account for fixed nav
+            background: 'linear-gradient(90deg, #2B5D2D 100%, #FFFFFF 100%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%)',
+            contain: 'layout style paint'
           }}
         >
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[85vh]">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16">
               {/* Left Column - Content */}
               <motion.div
                 className="text-left"
                 initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.5 }}
+                animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : -50 }}
+                transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+                style={{ minHeight: '400px' }} // Prevent content jumping
               >
                 {/* Main Heading with Montserrat */}
                 <motion.h1
                   className="text-white leading-tight mb-8 font-montserrat"
                   style={{
-                    fontSize: '3.5rem',
+                    fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', // Responsive but stable
                     fontWeight: '700',
                     lineHeight: '1.1',
-                    letterSpacing: '-0.02em'
+                    letterSpacing: '-0.02em',
+                    minHeight: '200px' // Reserve space to prevent shifts
                   }}
                   initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.7 }}
+                  animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 30 }}
+                  transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
                 >
                   Unlock Your
                   <br />
@@ -210,11 +230,12 @@ export default function EdTechPlatformPage() {
                     fontSize: '1.125rem',
                     fontWeight: '400',
                     lineHeight: '1.6',
-                    maxWidth: '480px'
+                    maxWidth: '480px',
+                    minHeight: '60px' // Prevent layout shift
                   }}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}
+                  animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
+                  transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
                 >
                   Join thousands of learners gaining real-world
                   <br />
@@ -224,15 +245,17 @@ export default function EdTechPlatformPage() {
                 {/* CTA Button with Montserrat */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.1 }}
+                  animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
+                  transition={{ duration: 0.8, delay: 1.1, ease: "easeOut" }}
+                  style={{ minHeight: '56px' }} // Reserve button space
                 >
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
                     <Button 
-                      className="bg-white text-gray-900 hover:bg-gray-50 font-semibold font-montserrat rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 inline-flex items-center"
+                      className="bg-white text-gray-900 hover:bg-gray-50 font-semibold font-montserrat rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 inline-flex items-center will-change-transform"
                       style={{
                         fontSize: '1rem',
                         fontWeight: '600',
@@ -251,21 +274,24 @@ export default function EdTechPlatformPage() {
               <motion.div
                 className="relative"
                 initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.8 }}
+                animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : 50 }}
+                transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+                style={{ minHeight: '500px' }} // Stable container height
               >
                 {/* White Container */}
                 <div 
-                  className="bg-white p-6 rounded-3xl shadow-2xl"
+                  className="bg-white rounded-3xl shadow-2xl mx-auto"
                   style={{
                     padding: '30px',
                     borderRadius: '10px',
                     maxWidth: '500px',
-                    margin: '0 auto'
+                    width: '100%',
+                    aspectRatio: '1.2', // Maintain consistent aspect ratio
+                    contain: 'layout style'
                   }}
                 >
                   {/* 3x2 Grid Layout */}
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-3 gap-2 h-full">
                     {/* Grid Images */}
                     {[
                       { src: "/images/edtech-project/herogrid-1.png", alt: "Student studying outdoors" },
@@ -277,17 +303,29 @@ export default function EdTechPlatformPage() {
                     ].map((image, index) => (
                       <motion.div
                         key={index}
-                        className="relative rounded-2xl overflow-hidden shadow-md"
-                        style={{ height: '180px' }}
+                        className="relative rounded-2xl overflow-hidden shadow-md bg-gray-100"
+                        style={{ 
+                          aspectRatio: '1',
+                          contain: 'layout style paint'
+                        }}
                         initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 1.0 + (index * 0.1) }}
+                        animate={{ 
+                          opacity: isLoaded ? 1 : 0, 
+                          scale: isLoaded ? 1 : 0.9 
+                        }}
+                        transition={{ 
+                          duration: 0.6, 
+                          delay: 1.0 + (index * 0.1),
+                          ease: "easeOut"
+                        }}
                       >
                         <Image
                           src={image.src}
                           alt={image.alt}
                           fill
                           className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          priority={index < 3} // Prioritize above-fold images
                         />
                       </motion.div>
                     ))}
@@ -300,15 +338,16 @@ export default function EdTechPlatformPage() {
 
         
         {/* Browse Top Category Section */}
-        <section className="py-16 lg:py-24 bg-white">
+        <section className="py-16 lg:py-24 bg-white" style={{ contain: 'layout style' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <motion.div 
               className="text-center mb-16"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              style={{ minHeight: '120px' }} // Reserve header space
             >
               <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 font-montserrat">
                 Browse top category
