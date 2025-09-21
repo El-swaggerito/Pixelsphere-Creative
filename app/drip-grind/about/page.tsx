@@ -304,6 +304,7 @@ export default function DripGrindAboutPage() {
                 <p className="text-white/80 text-sm font-medium tracking-wider uppercase mb-4">
                   RESERVATION
                 </p>
+                <div className="w-20 h-1 bg-red-600 mb-4"></div>
                 <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
                   Working Hours
                 </h2>
