@@ -1,0 +1,6 @@
+export { default as Navbar } from './Navbar'
+export { default as PopularMeals } from './PopularMeals'
+export { default as SpecialMenu } from './SpecialMenu'
+export { default as FAQ } from './FAQ'
+export { default as Reservation } from './Reservation'
+export { default as Footer } from './Footer'
