@@ -3,35 +3,29 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Truck } from "lucide-react";
+import { Utensils, Bean, ChefHat } from "lucide-react";
 
 // Import the reusable components
-import {
-  Navbar,
-  Footer,
-  PopularMeals,
-  SpecialMenu,
-  FAQ,
-} from "@/components/drip-grind";
+import { Navbar, Footer, SpecialMenu, FAQ } from "@/components/drip-grind";
 
 export default function DripGrindAboutPage() {
   return (
     <div className="min-h-screen bg-white font-roboto">
       {/* Use the reusable Navbar component */}
       <Navbar />
-      
+
       {/* About Us Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/drip&grind-project/aboutushero.jpg"
-            alt="Delicious food collection"
+            src="/images/drip&grind-project/aboutusbg.jpg"
+            alt="Sophisticated dining space"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
         {/* Hero Content */}
@@ -42,11 +36,11 @@ export default function DripGrindAboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Main Hero Text - Exact match to reference */}
-            <h1 className="font-roboto text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-              The Best Food
+            {/* Main Hero Text - Matching the reference design */}
+            <h1 className="font-roboto text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              Sophisticated Space That
               <br />
-              Collection <span className="text-red-500">2025</span>
+              Nurtures Great <span className="text-red-500">Taste</span>
             </h1>
           </motion.div>
 
@@ -56,11 +50,11 @@ export default function DripGrindAboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            From early morning cravings to elegant dinner pairings, our menu
+            Whether you're here for a curated tasting menu or a perfectly brewed
             <br className="hidden md:block" />
-            blends modern flavors, premium ingredients, and artful presentation
+            espresso, our space is designed to delight the senses and inspire
             <br className="hidden md:block" />
-            for a dining experience like no other.
+            connection.
           </motion.p>
 
           <motion.div
@@ -72,7 +66,8 @@ export default function DripGrindAboutPage() {
               className="font-roboto bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
               onClick={() => {
                 // Scroll to reservation section or navigate to reservation page
-                const reservationSection = document.getElementById("reservation");
+                const reservationSection =
+                  document.getElementById("reservation");
                 if (reservationSection) {
                   reservationSection.scrollIntoView({ behavior: "smooth" });
                 }
@@ -84,270 +79,278 @@ export default function DripGrindAboutPage() {
         </div>
       </section>
 
-      {/* Deal of the Day Section */}
-      <section className="relative h-screen flex items-center overflow-hidden bg-black">
-        <div className="w-full h-full flex">
-          {/* Left Side - Deal Information */}
-          <div className="w-1/2 bg-red-600 flex items-center justify-center p-12 lg:p-16">
-            <div className="text-white max-w-lg">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <p className="text-white/90 text-lg font-medium mb-4 tracking-wide">
-                  Deal Of The Day
-                </p>
-                
-                <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6">
-                  TODAY'S The
-                  <br />
-                  Hamburger DAY
-                </h2>
-                
-                <div className="mb-8">
-                  <p className="text-white/90 text-lg mb-2">Special Price</p>
-                  <p className="text-5xl lg:text-6xl font-bold">$55</p>
-                </div>
-                
-                <p className="text-white/90 text-lg leading-relaxed mb-10 max-w-md">
-                  Savor the perfect symphony of flavors It's the perfect dining 
-                  experience where Experience quick and efficient with our 
-                  signature hamburger, a culinary
-                </p>
-                
-                <Button
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 flex items-center gap-3 group"
-                >
-                  <Truck className="w-5 h-5 group-hover:text-red-600" />
-                  Order Now
-                </Button>
-              </motion.div>
-            </div>
-          </div>
-          
-          {/* Right Side - Food Image */}
-          <div className="w-1/2 relative bg-black">
-            <div className="absolute inset-0 bg-black/20 z-10" />
-            <Image
-              src="/images/drip&grind-project/deal.jpg"
-              alt="Today's hamburger special"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Trending Food Menu Section */}
+      {/* Our Story Section */}
       <section className="py-20 bg-black">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-400 mb-8">
-              Trending Food Menu
-            </h2>
-          </motion.div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* First Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
+            {/* Left Content */}
+            <div className="space-y-6">
+              <p className="text-white text-sm font-medium tracking-wider uppercase">
+                ABOUT US
+              </p>
+              <div className="w-16 h-1 bg-red-600"></div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+                Where Modern Dining Meets Timeless Taste
+              </h2>
+              <p className="text-[#797B78] text-lg leading-relaxed">
+                At Drip & Grind, we’re more than a restaurant we’re an
+                experience. Nestled in the heart of the city, our high-end
+                modern eatery blends bold flavors, elegant ambiance, and
+                artisanal craftsmanship to serve up meals that linger in memory
+                long after the last bite.
+              </p>
+              <p className="text-[#797B78] text-lg leading-relaxed">
+                Born out of a passion for curated culinary experiences, we bring
+                together the richness of global cuisine with the warmth of local
+                hospitality. Every dish is a celebration thoughtfully plated,
+                responsibly sourced, and flawlessly served.
+              </p>
+            </div>
 
-          {/* Menu Grid */}
-          <div className="bg-black border border-gray-200 rounded-2xl p-8 lg:p-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-              {/* Left Column */}
-              <div className="space-y-8">
-                {/* Chicago Deep Pizza */}
-                <motion.div
-                  className="flex justify-between items-start pb-6 border-b border-gray-200"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-400 mb-2">
-                      CHICAGO DEEP PIZZA
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Its the perfect dining experience where Experience quick and efficient
-                    </p>
-                  </div>
-                  <div className="ml-6">
-                    <span className="text-2xl font-bold text-red-600">$22.00</span>
-                  </div>
-                </motion.div>
-
-                {/* Chicago Burger King */}
-                <motion.div
-                  className="flex justify-between items-start pb-6 border-b border-gray-200"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-400 mb-2">
-                      Chicago Burger King.
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Its the perfect dining experience where Experience quick and efficient
-                    </p>
-                  </div>
-                  <div className="ml-6">
-                    <span className="text-2xl font-bold text-red-600">$26.00</span>
-                  </div>
-                </motion.div>
-
-                {/* Chicago French Fries */}
-                <motion.div
-                  className="flex justify-between items-start pb-6 border-b border-gray-200"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-400 mb-2">
-                      Chicago French Fries.
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Its the perfect dining experience where Experience quick and efficient
-                    </p>
-                  </div>
-                  <div className="ml-6">
-                    <span className="text-2xl font-bold text-red-600">$28.00</span>
-                  </div>
-                </motion.div>
-
-                {/* Chicago Beef Jerky */}
-                <motion.div
-                  className="flex justify-between items-start"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-400 mb-2">
-                      Chicago Beef Jerky.
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Its the perfect dining experience where Experience quick and efficient
-                    </p>
-                  </div>
-                  <div className="ml-6">
-                    <span className="text-2xl font-bold text-red-600">$39.00</span>
-                  </div>
-                </motion.div>
+            {/* Right Image */}
+            <div className="relative">
+              <div className="relative h-[400px] w-full rounded-lg overflow-hidden">
+                <Image
+                  src="/images/drip&grind-project/about-1.png"
+                  alt="Chef preparing gourmet dish"
+                  fill
+                  className="object-cover"
+                />
               </div>
+            </div>
+          </div>
 
-              {/* Right Column */}
-              <div className="space-y-8">
-                {/* Chinese Pasta */}
-                <motion.div
-                  className="flex justify-between items-start pb-6 border-b border-gray-200"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-400 mb-2">
-                      CHINESE PASTA
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Its the perfect dining experience where Experience quick and efficient
-                    </p>
-                  </div>
-                  <div className="ml-6">
-                    <span className="text-2xl font-bold text-red-600">$34.00</span>
-                  </div>
-                </motion.div>
+          {/* Second Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
+            {/* Left Image */}
+            <div className="relative lg:order-1">
+              <div className="relative h-[400px] w-full rounded-lg overflow-hidden">
+                <Image
+                  src="/images/drip&grind-project/about-2.png"
+                  alt="Chef plating dish"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
 
-                {/* Chicago Chicken Wings */}
-                <motion.div
-                  className="flex justify-between items-start pb-6 border-b border-gray-200"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-400 mb-2">
-                      Chicago Chicken Wings.
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Its the perfect dining experience where Experience quick and efficient
-                    </p>
-                  </div>
-                  <div className="ml-6">
-                    <span className="text-2xl font-bold text-red-600">$39.00</span>
-                  </div>
-                </motion.div>
+            {/* Right Content */}
+            <div className="space-y-6 lg:order-2">
+              <p className="text-white text-sm font-medium tracking-wider uppercase">
+                OUR MISSION
+              </p>
+              <div className="w-16 h-1 bg-red-600"></div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+                What Makes Us Different:
+              </h2>
+              <p className="text-[#797B78] text-lg leading-relaxed">
+                To create a dining space where food lovers, creatives, and
+                connoisseurs come together to enjoy not just what's on the
+                plate, but the atmosphere, aesthetics, and community that
+                surrounds it.
+              </p>
+              <div className="space-y-4">
+                <p className="text-[#797B78] text-base">
+                  <strong>Chef-Curated Menus:</strong> Seasonal and locally
+                  inspired menus crafted by top culinary talent.
+                </p>
+                <p className="text-[#797B78] text-base">
+                  <strong>Refined Ambiance:</strong> A sleek, minimalist
+                  interior designed to match our modern, upscale vibe.
+                </p>
+                <p className="text-[#797B78] text-base">
+                  <strong>Coffee Culture Redefined:</strong> Specialty brews and
+                  gourmet espresso crafted with precision and style.
+                </p>
+                <p className="text-[#797B78] text-base">
+                  <strong>Locally Roasted, Globally Inspired:</strong> We honor
+                  local ingredients while infusing international flair.
+                </p>
+              </div>
+              <Button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 text-base font-medium rounded-lg">
+                READ MORE
+              </Button>
+            </div>
+          </div>
 
-                {/* Chicago Deep Pasta */}
-                <motion.div
-                  className="flex justify-between items-start pb-6 border-b border-gray-200"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-400 mb-2">
-                      Chicago Deep Pasta.
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Its the perfect dining experience where Experience quick and efficient
-                    </p>
-                  </div>
-                  <div className="ml-6">
-                    <span className="text-2xl font-bold text-red-600">$34.00</span>
-                  </div>
-                </motion.div>
+          {/* Third Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Content */}
+            <div className="space-y-6">
+              <p className="text-white text-sm font-medium tracking-wider uppercase">
+                OUR TEAM
+              </p>
+              <div className="w-16 h-1 bg-red-600"></div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+                The Minds Behind the Flavour
+              </h2>
+              <p className="text-[#797B78] text-lg leading-relaxed">
+                At Drip & Grind, we believe that great food begins with great
+                people. Our team is a passionate mix of chefs, baristas, and
+                hospitality professionals who bring dedication, creativity, and
+                precision to every plate and pour.
+              </p>
+              <Button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 text-base font-medium rounded-lg">
+                READ MORE
+              </Button>
+            </div>
 
-                {/* Chicago Salad Recipes */}
-                <motion.div
-                  className="flex justify-between items-start"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-400 mb-2">
-                      Chicago Salad Recipes.
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Its the perfect dining experience where Experience quick and efficient
-                    </p>
-                  </div>
-                  <div className="ml-6">
-                    <span className="text-2xl font-bold text-red-600">$26.00</span>
-                  </div>
-                </motion.div>
+            {/* Right Image */}
+            <div className="relative">
+              <div className="relative h-[400px] w-full rounded-lg overflow-hidden">
+                <Image
+                  src="/images/drip&grind-project/about-3.png"
+                  alt="Chef in kitchen"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Popular Meals Section */}
-      <PopularMeals />
+      {/* Why People Choose Us Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+              Why people choose us?
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed max-w-4xl mx-auto">
+              At Drip & Grind, we believe that great food begins with great
+              people. Our team is a passionate mix of chefs, baristas, and
+              hospitality professionals who bring dedication, creativity, and
+              precision to every plate and pour.
+            </p>
+          </div>
 
-      {/*Special Menu Section */}
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+            {/* Menu for Every Taste */}
+            <div className="text-center space-y-6">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <Utensils className="w-8 h-8 text-gray-600" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                MENU FOR EVERY TASTE
+              </h3>
+              <p className="text-gray-600 text-base leading-relaxed">
+                Our chef-driven menus combine bold flavours, seasonal
+                ingredients, and artistic presentation, all served in an
+                atmosphere designed for elegance and ease.
+              </p>
+            </div>
+
+            {/* Personalized Guest Experience */}
+            <div className="text-center space-y-6">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <Bean className="w-8 h-8 text-gray-600" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                PERSONALIZED GUEST EXPERIENCE
+              </h3>
+              <p className="text-gray-600 text-base leading-relaxed">
+                We pride ourselves on warm, attentive service. From reservation
+                to final bite, our team ensures you feel seen, celebrated, and
+                satisfied — every visit.
+              </p>
+            </div>
+
+            {/* Experienced Chefs */}
+            <div className="text-center space-y-6">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
+                  <ChefHat className="w-8 h-8 text-gray-600" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                EXPERIENCED CHEFS
+              </h3>
+              <p className="text-gray-600 text-base leading-relaxed">
+                Our team is a passionate mix of chefs, baristas, and hospitality
+                professionals who bring dedication, creativity, and precision to
+                every plate and pour.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Reservation Section */}
+      <section className="relative py-48 bg-black overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/drip&grind-project/reservation-bg.png"
+            alt="Chef preparing food"
+            fill
+            className="object-cover opacity-70"
+          />
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <div>
+                <p className="text-white/80 text-sm font-medium tracking-wider uppercase mb-4">
+                  RESERVATION
+                </p>
+                <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
+                  Working Hours
+                </h2>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-base font-medium">
+                  BOOK A TABLE
+                </Button>
+                <Button
+                  variant="outline"
+                  className="bg-inherit border-none text-white hover:bg-inherit hover:text-white px-8 py-3 text-base font-medium"
+                >
+                  CONTACT US
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Content - Working Hours */}
+            <div className="space-y-8">
+              {/* Monday to Friday */}
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-white/10">
+                <h3 className="text-white text-xl font-bold mb-2">
+                  Monday to Friday
+                </h3>
+                <p className="text-white/90 text-lg">09:00 AM - 10.00 PM</p>
+              </div>
+
+              {/* Saturday to Sunday */}
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-white/10">
+                <h3 className="text-white text-xl font-bold mb-2">
+                  Saturday to Sunday
+                </h3>
+                <p className="text-white/90 text-lg">09:00 AM - 10.00 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Special Menu*/}
       <SpecialMenu />
 
-      {/*FAQ Section */}
+      {/* FAQ */}
       <FAQ />
-
-      {/* Footer */}
+      {/* Use the reusable Footer component */}
       <Footer />
     </div>
   );

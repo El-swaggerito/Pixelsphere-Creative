@@ -31,11 +31,11 @@ export default function Navbar() {
               <Link href="/drip-grind" className="text-white hover:text-red-500 px-3 py-2 text-sm font-medium font-roboto transition-colors duration-200">
                 Home
               </Link>
-              <Link href="/drip-grind/about" className="text-white hover:text-red-500 px-3 py-2 text-sm font-medium font-roboto transition-colors duration-200">
-                About Us
-              </Link>
               <Link href="/drip-grind/menu" className="text-white hover:text-red-500 px-3 py-2 text-sm font-medium font-roboto transition-colors duration-200">
                 Menu
+              </Link>
+              <Link href="/drip-grind/about" className="text-white hover:text-red-500 px-3 py-2 text-sm font-medium font-roboto transition-colors duration-200">
+                About
               </Link>
               <Link href="/drip-grind/contact" className="text-white hover:text-red-500 px-3 py-2 text-sm font-medium font-roboto transition-colors duration-200">
                 Contact
@@ -75,11 +75,11 @@ export default function Navbar() {
               <Link href="/drip-grind" className="text-white hover:text-red-500 block px-3 py-2 text-base font-medium font-roboto">
                 Home
               </Link>
-              <Link href="/drip-grind/about" className="text-white hover:text-red-500 block px-3 py-2 text-base font-medium font-roboto">
-                About Us
-              </Link>
               <Link href="/drip-grind/menu" className="text-white hover:text-red-500 block px-3 py-2 text-base font-medium font-roboto">
                 Menu
+              </Link>
+              <Link href="/drip-grind/about" className="text-white hover:text-red-500 block px-3 py-2 text-base font-medium font-roboto">
+                About
               </Link>
               <Link href="/drip-grind/contact" className="text-white hover:text-red-500 block px-3 py-2 text-base font-medium font-roboto">
                 Contact
