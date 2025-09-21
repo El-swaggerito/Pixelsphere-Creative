@@ -535,7 +535,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Blog Post Content */}
         <AnimatedSection>
-          <article className="pt-32 pb-20">
+          <article className="pt-4 pb-20">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Back to Blog */}
               <Link 
