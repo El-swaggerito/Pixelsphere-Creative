@@ -1,92 +1,110 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
-export default function ReservationHours() {
-  const hours = [
-    { day: 'Monday', time: '9:00 AM - 10:00 PM' },
-    { day: 'Tuesday', time: '9:00 AM - 10:00 PM' },
-    { day: 'Wednesday', time: '9:00 AM - 10:00 PM' },
-    { day: 'Thursday', time: '9:00 AM - 10:00 PM' },
-    { day: 'Friday', time: '9:00 AM - 11:00 PM' },
-    { day: 'Saturday', time: '8:00 AM - 11:00 PM' },
-    { day: 'Sunday', time: '8:00 AM - 9:00 PM' },
-  ]
+interface ReservationHoursProps {
+  backgroundImage?: string;
+  title?: string;
+  subtitle?: string;
+  mondayToFridayHours?: string;
+  weekendHours?: string;
+  onBookTable?: () => void;
+  onContactUs?: () => void;
+}
+
+export default function ReservationHours({
+  backgroundImage = "/images/drip&grind-project/reservation-bg.png",
+  title = "Working Hours",
+  subtitle = "RESERVATION",
+  mondayToFridayHours = "09:00 AM - 10.00 PM",
+  weekendHours = "09:00 AM - 10.00 PM",
+  onBookTable,
+  onContactUs
+}: ReservationHoursProps) {
+  const handleBookTable = () => {
+    if (onBookTable) {
+      onBookTable();
+    } else {
+      // Default behavior - you can customize this
+      console.log('Book a table clicked');
+    }
+  };
+
+  const handleContactUs = () => {
+    if (onContactUs) {
+      onContactUs();
+    } else {
+      // Default behavior - you can customize this
+      console.log('Contact us clicked');
+    }
+  };
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="font-roboto text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Opening Hours
-          </h2>
-          <p className="font-roboto text-lg text-gray-600 max-w-2xl mx-auto">
-            We're here to serve you exceptional coffee and provide the perfect workspace 
-            throughout the week. Plan your visit during our operating hours.
-          </p>
-        </motion.div>
+    <section className="relative py-48 bg-black overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src={backgroundImage}
+          alt="Chef preparing food"
+          fill
+          className="object-cover opacity-70"
+        />
+        <div className="absolute inset-0 bg-black/50"></div>
+      </div>
 
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            className="bg-white rounded-2xl shadow-xl overflow-hidden"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="bg-red-600 text-white text-center py-8">
-              <h3 className="font-roboto text-2xl font-bold mb-2">Weekly Schedule</h3>
-              <p className="font-roboto text-red-100">Your favorite coffee spot & co-working space</p>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <div>
+              <p className="text-white/80 text-sm font-medium tracking-wider uppercase mb-4">
+                {subtitle}
+              </p>
+              <div className="w-20 h-1 bg-red-600 mb-4"></div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
+                {title}
+              </h2>
             </div>
 
-            <div className="p-8">
-              <div className="grid gap-4">
-                {hours.map((item, index) => (
-                  <motion.div
-                    key={item.day}
-                    className="flex justify-between items-center py-4 px-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <span className="font-roboto text-lg font-medium text-gray-900">
-                      {item.day}
-                    </span>
-                    <span className="font-roboto text-lg text-red-600 font-semibold">
-                      {item.time}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-
-              <motion.div
-                className="mt-8 p-6 bg-red-50 rounded-lg border-l-4 border-red-600"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.5 }}
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button 
+                onClick={handleBookTable}
+                className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-base font-medium"
               >
-                <h4 className="font-roboto text-lg font-semibold text-red-800 mb-2">
-                  Special Notes
-                </h4>
-                <ul className="font-roboto text-red-700 space-y-1">
-                  <li>• Last orders taken 30 minutes before closing</li>
-                  <li>• Co-working spaces available during all operating hours</li>
-                  <li>• Weekend brunch menu available Saturday & Sunday</li>
-                  <li>• Private event bookings available - contact us for details</li>
-                </ul>
-              </motion.div>
+                BOOK A TABLE
+              </Button>
+              <Button
+                onClick={handleContactUs}
+                variant="outline"
+                className="bg-inherit border-none text-white hover:bg-inherit hover:text-white px-8 py-3 text-base font-medium"
+              >
+                CONTACT US
+              </Button>
             </div>
-          </motion.div>
+          </div>
+
+          {/* Right Content - Working Hours */}
+          <div className="space-y-8">
+            {/* Monday to Friday */}
+            <div className="bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-white/10">
+              <h3 className="text-white text-xl font-bold mb-2">
+                Monday to Friday
+              </h3>
+              <p className="text-white/90 text-lg">{mondayToFridayHours}</p>
+            </div>
+
+            {/* Saturday to Sunday */}
+            <div className="bg-black/30 backdrop-blur-sm rounded-lg p-6 border border-white/10">
+              <h3 className="text-white text-xl font-bold mb-2">
+                Saturday to Sunday
+              </h3>
+              <p className="text-white/90 text-lg">{weekendHours}</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
