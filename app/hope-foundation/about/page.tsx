@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import {
   AboutSection,
   HopeFoundationNavbar,
+  DonateSection,
+  HopeFoundationFooter,
 } from "@/components/hope-foundation";
 import AnimatedSection from "@/components/AnimatedSection";
 import PageTransition from "@/components/PageTransition";
-import { DonateSection } from "@/components/hope-foundation";
-import { HopeFoundationFooter } from "@/components/hope-foundation";
 
 export default function HopeFoundationAboutPage() {
   // Animation variants
