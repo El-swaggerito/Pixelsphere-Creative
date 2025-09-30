@@ -84,42 +84,43 @@ export default function MenuPage() {
         </div>
       </section>
 
-      <section className="relative h-screen flex items-center overflow-hidden bg-black ">
-        <div className="w-full h-full flex">
+      {/* Deal of the Day Section - Mobile Responsive */}
+      <section className="relative min-h-screen lg:h-screen flex items-center overflow-hidden bg-black">
+        <div className="w-full h-full flex flex-col lg:flex-row">
           {/* Left Side - Deal Information */}
-          <div className="w-1/3 bg-[#A8151D] flex items-center justify-center p-12 lg:p-16">
-            <div className="text-white max-w-lg">
+          <div className="w-full lg:w-1/3 bg-[#A8151D] flex items-center justify-center p-6 sm:p-8 md:p-10 lg:p-12 xl:p-16 min-h-[60vh] lg:min-h-full">
+            <div className="text-white max-w-lg w-full">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <p className="text-white/90 text-lg font-medium mb-4 tracking-wide">
+                <p className="text-white/90 text-base sm:text-lg font-medium mb-3 sm:mb-4 tracking-wide">
                   Deal Of The Day
                 </p>
                 
-                <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight mb-6">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-bold leading-tight mb-4 sm:mb-6">
                   TODAY'S The
                   <br />
                   Hamburger DAY
                 </h2>
                 
-                <div className="flex items-center mb-5">
-                  <p className="text-white/90 text-lg">Special Price </p>
-                  <p className="text-5xl lg:text-6xl font-bold">$55</p>
+                <div className="flex items-center mb-4 sm:mb-5 flex-wrap gap-2">
+                  <p className="text-white/90 text-base sm:text-lg">Special Price </p>
+                  <p className="text-4xl sm:text-5xl lg:text-6xl font-bold">$55</p>
                 </div>
                 
-                <p className="text-white/90 text-lg leading-relaxed mb-10 max-w-md">
+                <p className="text-white/90 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 lg:mb-10 max-w-md">
                   Savor the perfect symphony of flavors It's the perfect dining 
                   experience where Experience quick and efficient with our 
                   signature hamburger, a culinary
                 </p>
                 
                 <Button
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 flex items-center gap-3 group"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-red-600 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium rounded-lg transition-all duration-300 flex items-center gap-3 group w-full sm:w-auto justify-center"
                 >
-                  <Truck className="w-5 h-5 group-hover:text-red-600" />
+                  <Truck className="w-4 h-4 sm:w-5 sm:h-5 group-hover:text-red-600" />
                   Order Now
                 </Button>
               </motion.div>
@@ -127,7 +128,7 @@ export default function MenuPage() {
           </div>
           
           {/* Right Side - Food Image */}
-          <div className="w-2/3 relative bg-black">
+          <div className="w-full lg:w-2/3 relative bg-black min-h-[40vh] lg:min-h-full">
             <div className="absolute inset-0 bg-black/20 z-10" />
             <Image
               src="/images/drip&grind-project/deal.jpg"
