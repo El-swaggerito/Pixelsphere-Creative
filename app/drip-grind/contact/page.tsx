@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -13,10 +15,39 @@ import {
 } from "@/components/drip-grind";
 
 export default function DripGrindContactPage() {
+  const router = useRouter();
+
+  // Handle hash navigation on page load
+  useEffect(() => {
+    if (window.location.hash) {
+      const element = document.getElementById(window.location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
+
+  const navigateToReservation = () => {
+    const element = document.getElementById("book-reservation");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const navigateToContact = () => {
+    // Since we're already on the contact page, scroll to top
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const handleBookTable = () => {
-    // Add booking functionality here
+    // Navigate to the reservation section on the same page
+    const element = document.getElementById("book-reservation");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
     console.log("Book a table clicked");
   };
+
 
   return (
     <div className="min-h-screen bg-white font-roboto">
@@ -97,7 +128,7 @@ export default function DripGrindContactPage() {
       <Reservation />
 
       {/*Reservation Hours*/}
-      <ReservationHours />
+      <ReservationHours onBookTable={navigateToReservation} onContactUs={navigateToContact} />
 
       {/*Special Menu*/}
       <SpecialMenu />

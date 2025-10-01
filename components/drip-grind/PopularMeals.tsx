@@ -4,20 +4,19 @@ import Image from 'next/image'
 
 export default function PopularMeals() {
   return (
-    <section id="menu" className="py-20 bg-black">
+    <section id="menu" className="py-12 sm:py-16 lg:py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-roboto text-4xl md:text-5xl font-bold mb-4" style={{ color: '#C9C9C9' }}>
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="font-roboto text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4" style={{ color: '#C9C9C9' }}>
             Popular Meals
           </h2>
-          <p className="font-roboto text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="font-roboto text-base sm:text-lg text-gray-400 max-w-2xl mx-auto px-4">
             Discover our most loved dishes, crafted with passion and served with excellence
           </p>
         </div>
 
-        {/* Complete Meals Grid - Optimized Image Display */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Row 1 */}
+        {/* Complete Meals Grid - Optimized for full-screen display */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {/* Delicious Burger */}
           <div className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
             <div className="relative">
@@ -26,23 +25,23 @@ export default function PopularMeals() {
                 alt="Delicious Burger"
                 width={300}
                 height={200}
-                className="w-full h-48 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-40 sm:h-48 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
               />
-              <button className="absolute top-3 left-3 w-10 h-10 bg-gray-200/90 rounded-md flex items-center justify-center hover:bg-gray-300/90 transition-colors">
-                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <button className="absolute top-2 sm:top-3 left-2 sm:left-3 w-8 sm:w-10 h-8 sm:h-10 bg-gray-200/90 rounded-md flex items-center justify-center hover:bg-gray-300/90 transition-colors">
+                <svg className="w-4 sm:w-5 h-4 sm:h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </button>
-              <div className="absolute bottom-3 left-3 bg-red-600 text-white px-2 py-1 rounded text-sm font-bold">
+              <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 bg-red-600 text-white px-2 py-1 rounded text-xs sm:text-sm font-bold">
                 -25%
               </div>
             </div>
-            <div className="p-4 text-center">
-              <div className="mb-3">
+            <div className="p-3 sm:p-4 text-center">
+              <div className="mb-2 sm:mb-3">
                 <span className="text-gray-400 line-through text-sm mr-2">60.00$</span>
-                <span className="text-gray-900 font-bold text-lg">45.00$</span>
+                <span className="text-gray-900 font-bold text-base sm:text-lg">45.00$</span>
               </div>
-              <h3 className="font-medium text-lg text-gray-600">Delicious Burger</h3>
+              <h3 className="font-medium text-base sm:text-lg text-gray-600">Delicious Burger</h3>
             </div>
           </div>
 

@@ -4,11 +4,21 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Utensils, Bean, ChefHat } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 // Import the reusable components
 import { Navbar, Footer, SpecialMenu, FAQ, ReservationHours } from "@/components/drip-grind";
 
 export default function DripGrindAboutPage() {
+  const router = useRouter();
+
+  const navigateToReservation = () => {
+    router.push("/drip-grind/contact#book-reservation");
+  };
+
+  const navigateToContact = () => {
+    router.push("/drip-grind/contact");
+  };
   return (
     <div className="min-h-screen bg-white font-roboto">
       {/* Use the reusable Navbar component */}
@@ -63,15 +73,8 @@ export default function DripGrindAboutPage() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <Button
-              className="font-roboto bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
-              onClick={() => {
-                // Scroll to reservation section or navigate to reservation page
-                const reservationSection =
-                  document.getElementById("reservation");
-                if (reservationSection) {
-                  reservationSection.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+              onClick={navigateToReservation}
             >
               Book a Table
             </Button>
@@ -285,7 +288,7 @@ export default function DripGrindAboutPage() {
 
      
       {/* Reservation Hours Section */}
-      <ReservationHours />
+      <ReservationHours onBookTable={navigateToReservation} onContactUs={navigateToContact} />
 
       {/* Special Menu*/}
       <SpecialMenu />

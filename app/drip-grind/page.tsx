@@ -14,11 +14,20 @@ import {
   SpecialMenu,
 } from "@/components/drip-grind";
 import { Star } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 // ... existing code for popularMeals, customerExperience arrays and other data ...
 
 export default function DripGrindPage() {
-  // ... existing state and data ...
+   const router = useRouter();
+
+  const navigateToTrendingMenu = () => {
+    router.push("/drip-grind/menu#trending-menu");
+  };
+
+  const navigateToReservation = () => {
+    router.push("/drip-grind/contact#book-reservation");
+  };
 
   return (
     <div className="min-h-screen bg-white font-roboto">
@@ -81,12 +90,7 @@ export default function DripGrindPage() {
           >
             <Button
               className="font-roboto bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
-              onClick={() => {
-                const menuSection = document.getElementById("menu");
-                if (menuSection) {
-                  menuSection.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+            onClick={navigateToTrendingMenu}
             >
               View Menu
             </Button>
@@ -129,7 +133,10 @@ export default function DripGrindPage() {
 
               {/* Book a Table Button */}
               <div>
-                <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+                <Button 
+                  onClick={navigateToReservation}
+                  className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
                   Book a Table
                 </Button>
               </div>
@@ -305,7 +312,9 @@ export default function DripGrindPage() {
 
               {/* View Menu Button */}
               <div>
-                <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+                <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+                onClick={navigateToTrendingMenu}
+                >
                   View Our Menu
                 </Button>
               </div>

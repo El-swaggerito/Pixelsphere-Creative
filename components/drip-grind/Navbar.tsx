@@ -1,11 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const navigateToReservation = () => {
+    router.push("/drip-grind/contact#book-reservation");
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm">
@@ -60,9 +66,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <button
               className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full font-medium font-roboto transition-colors duration-200"
-              onClick={() => {
-                // Add reservation logic here
-              }}
+              onClick={navigateToReservation}
             >
               Make Reservation
             </button>
@@ -122,9 +126,7 @@ export default function Navbar() {
               </Link>
               <button
                 className="w-full text-left bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded font-medium font-roboto transition-colors duration-200"
-                onClick={() => {
-                  // Add reservation logic here
-                }}
+                onClick={navigateToReservation}
               >
                 Make Reservation
               </button>
