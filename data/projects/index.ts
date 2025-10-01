@@ -1,6 +1,7 @@
 import { dripAndGrindProject } from './drip-and-grind'
 import { hopeFoundationProject } from './hope-foundation'
 import { edtechLearningPlatformProject } from './edtech-learning-platform'
+import { chopifyProject } from './chopify'
 
 export interface ProjectData {
   slug: string
@@ -39,6 +40,7 @@ export const projectsRegistry: Record<string, ProjectData> = {
   'drip-and-grind': dripAndGrindProject,
   'hope-foundation': hopeFoundationProject,
   'edtech-learning-platform': edtechLearningPlatformProject,
+  'chopify': chopifyProject,
 }
 
 export const getProjectBySlug = (slug: string): ProjectData | null => {

@@ -20,10 +20,12 @@ const convertToProjectCard = (projectData: any): ProjectProps => ({
   description: projectData.briefDescription.split('\n\n')[0], // Use first paragraph
   designDirection: projectData.productBranding.split('\n\n')[0], // Use first paragraph
   technologies: projectData.technologies,
-  isStarred: projectData.slug === 'drip-and-grind' || projectData.slug === 'edtech-learning-platform',
-  isReversed: projectData.slug === 'hope-foundation',
+  isStarred: projectData.slug === 'drip-and-grind' || projectData.slug === 'edtech-learning-platform' || projectData.slug === 'chopify',
+  isReversed: projectData.slug === 'hope-foundation' || projectData.slug === 'chopify',
   visualType: projectData.category,
-  visualColor: projectData.slug === 'drip-and-grind' ? 'purple' : projectData.slug === 'hope-foundation' ? 'green' : 'blue',
+  visualColor: projectData.slug === 'drip-and-grind' ? 'purple' : 
+               projectData.slug === 'hope-foundation' ? 'green' : 
+               projectData.slug === 'chopify' ? 'pink' : 'blue',
   image: projectData.featuredImage,
   onContactClick: scrollToContactForm
 })
