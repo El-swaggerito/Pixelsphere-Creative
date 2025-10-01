@@ -4,13 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 interface NavItem {
   name: string;
   href: string;
-  active?: boolean;
 }
 
 interface NavbarProps {
@@ -26,10 +26,10 @@ interface NavbarProps {
 }
 
 const defaultNavItems: NavItem[] = [
-  { name: "Home",  href: "/hope-foundation", active: true },
-  { name: "About", href: "/hope-foundation/about", active: false },
-  { name: "Campaign", href: "/hope-foundation/campaign", active: false },
-  { name: "Contact", href: "/hope-foundation/contact", active: false },
+  { name: "Home", href: "/hope-foundation" },
+  { name: "About", href: "/hope-foundation/about" },
+  { name: "Campaign", href: "/hope-foundation/campaign" },
+  { name: "Contact", href: "/hope-foundation/contact" },
 ];
 
 export default function HopeFoundationNavbar({
@@ -44,6 +44,7 @@ export default function HopeFoundationNavbar({
   className = "",
 }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -79,6 +80,10 @@ export default function HopeFoundationNavbar({
     }
   };
 
+  const isActive = (href: string) => {
+    return pathname === href;
+  };
+
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 border-b border-gray-800 ${className}`}
@@ -98,13 +103,13 @@ export default function HopeFoundationNavbar({
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Link href="/" className="flex items-center" aria-label="Hope Foundation Home">
+            <Link href="/hope-foundation" className="flex items-center group" aria-label="Hope Foundation Home">
               <Image
                 src={logoSrc}
                 alt={logoAlt}
                 width={logoWidth}
                 height={logoHeight}
-                className="h-10 w-auto"
+                className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
                 priority
               />
             </Link>
@@ -118,16 +123,48 @@ export default function HopeFoundationNavbar({
             animate="visible"
           >
             {navItems.map((item, index) => (
-              <motion.div key={item.name} variants={itemVariants}>
+              <motion.div key={item.name} variants={itemVariants} className="relative">
                 <Link
                   href={item.href}
-                  className={`text-white hover:text-yellow-400 font-medium transition-colors duration-200 ${
-                    item.active ? "text-yellow-400" : ""
+                  className={`relative text-white font-medium transition-all duration-300 py-2 px-1 group ${
+                    isActive(item.href) 
+                      ? "text-yellow-400" 
+                      : "hover:text-yellow-400"
                   }`}
                   style={{ fontFamily: "Movement, sans-serif" }}
-                  aria-current={item.active ? "page" : undefined}
+                  aria-current={isActive(item.href) ? "page" : undefined}
                 >
                   {item.name}
+                  
+                  {/* Active indicator */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-yellow-400"
+                    initial={false}
+                    animate={{
+                      scaleX: isActive(item.href) ? 1 : 0,
+                      opacity: isActive(item.href) ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  />
+                  
+                  {/* Hover indicator */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-yellow-400/60"
+                    initial={{ scaleX: 0, opacity: 0 }}
+                    whileHover={{ 
+                      scaleX: isActive(item.href) ? 0 : 1, 
+                      opacity: isActive(item.href) ? 0 : 1 
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  />
+                  
+                  {/* Hover background */}
+                  <motion.div
+                    className="absolute inset-0 bg-white/5 rounded-md -z-10"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileHover={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                  />
                 </Link>
               </motion.div>
             ))}
@@ -135,7 +172,7 @@ export default function HopeFoundationNavbar({
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden text-white hover:text-yellow-400 transition-colors duration-200"
+            className="md:hidden text-white hover:text-yellow-400 transition-all duration-300 p-2 rounded-md hover:bg-white/10"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -143,7 +180,12 @@ export default function HopeFoundationNavbar({
             aria-label="Toggle mobile menu"
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <motion.div
+              animate={{ rotate: mobileMenuOpen ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.div>
           </motion.button>
 
           {/* Desktop CTA Button */}
@@ -155,7 +197,7 @@ export default function HopeFoundationNavbar({
           >
             <Button
               onClick={handleCtaClick}
-              className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-6 py-2.5 font-bold text-sm transition-all duration-200 shadow-lg hover:shadow-xl border-0 rounded-sm"
+              className="bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-gray-900 px-6 py-2.5 font-bold text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 border-0 rounded-sm transform"
               style={{ fontFamily: "Movement, sans-serif" }}
             >
               {ctaText}
@@ -185,18 +227,27 @@ export default function HopeFoundationNavbar({
                 <motion.div key={item.name} variants={itemVariants}>
                   <Link
                     href={item.href}
-                    className="block px-3 py-2 text-white hover:text-yellow-400 hover:bg-white/10 rounded-md font-medium transition-colors duration-200"
+                    className={`block px-3 py-3 rounded-md font-medium transition-all duration-300 relative ${
+                      isActive(item.href)
+                        ? "text-yellow-400 bg-yellow-400/10 border-l-4 border-yellow-400"
+                        : "text-white hover:text-yellow-400 hover:bg-white/10 hover:translate-x-1"
+                    }`}
                     onClick={() => setMobileMenuOpen(false)}
                     style={{ fontFamily: "Movement, sans-serif" }}
-                    aria-current={item.active ? "page" : undefined}
+                    aria-current={isActive(item.href) ? "page" : undefined}
                   >
-                    {item.name}
+                    <motion.div
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.1 }}
+                    >
+                      {item.name}
+                    </motion.div>
                   </Link>
                 </motion.div>
               ))}
               <motion.div className="pt-2" variants={itemVariants}>
                 <Button
-                  className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-6 py-2.5 font-bold text-sm transition-all duration-200 border-0 rounded-sm"
+                  className="w-full bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-gray-900 px-6 py-2.5 font-bold text-sm transition-all duration-300 border-0 rounded-sm hover:scale-105 active:scale-95 transform"
                   style={{ fontFamily: "Movement, sans-serif" }}
                   onClick={() => {
                     setMobileMenuOpen(false);
