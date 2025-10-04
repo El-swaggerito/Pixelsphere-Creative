@@ -69,7 +69,7 @@ export default function Footer() {
               We're Always Happy To Help
             </h3>
             <p className="text-gray-300 text-base">
-              Dripgrind@gmail.com
+              dripgrind@gmail.com
             </p>
           </div>
         </div>
