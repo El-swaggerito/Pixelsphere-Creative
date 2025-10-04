@@ -6,6 +6,7 @@ import {
   HopeFoundationNavbar,
   DonateSection,
   HopeFoundationFooter,
+  ScrollIndicator,
 } from "@/components/hope-foundation";
 import AnimatedSection from "@/components/AnimatedSection";
 import PageTransition from "@/components/PageTransition";
@@ -37,13 +38,6 @@ export default function HopeFoundationCampaignPage() {
     },
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <PageTransition>
       <div
@@ -51,8 +45,12 @@ export default function HopeFoundationCampaignPage() {
         style={{ fontFamily: "Movement, sans-serif" }}
       >
         {/* Navigation */}
-        <HopeFoundationNavbar />
+        <HopeFoundationNavbar/>
+        
+        {/* Scroll Indicator */}
+        <ScrollIndicator />
 
+        {/* Rest of the page content */}
         {/* Hero Section */}
         <AnimatedSection>
           <section
@@ -196,9 +194,7 @@ export default function HopeFoundationCampaignPage() {
                     </div>
                     
                     {/* Action Button */}
-                    <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 text-lg font-medium">
-                      VIEW DETAILS
-                    </Button>
+                     
                   </div>
                 </motion.div>
 
@@ -248,9 +244,7 @@ export default function HopeFoundationCampaignPage() {
                     </div>
                     
                     {/* Action Button */}
-                    <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 text-lg font-medium">
-                      VIEW DETAILS
-                    </Button>
+                     
                   </div>
                 </motion.div>
 
@@ -300,9 +294,7 @@ export default function HopeFoundationCampaignPage() {
                     </div>
                     
                     {/* Action Button */}
-                    <Button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 text-lg font-medium">
-                      VIEW DETAILS
-                    </Button>
+                     
                   </div>
                 </motion.div>
               </div>

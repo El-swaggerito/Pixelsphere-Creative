@@ -97,13 +97,6 @@ export default function SpecialMenu() {
               </div>
             </div>
           </div>
-
-          {/* Order Now Button */}
-          <div className="text-center mt-16">
-            <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
-              Order Now
-            </Button>
-          </div>
         </div>
       </section>
     </>

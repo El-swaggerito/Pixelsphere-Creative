@@ -7,6 +7,7 @@ import {
   HopeFoundationNavbar,
   DonateSection,
   HopeFoundationFooter,
+  ScrollIndicator,
 } from "@/components/hope-foundation";
 import AnimatedSection from "@/components/AnimatedSection";
 import PageTransition from "@/components/PageTransition";
@@ -44,6 +45,9 @@ export default function HopeFoundationAboutPage() {
       >
         {/* Navigation */}
         <HopeFoundationNavbar />
+        
+        {/* Scroll Indicator */}
+        <ScrollIndicator />
 
         {/* Hero Section */}
         <AnimatedSection>
@@ -118,7 +122,7 @@ export default function HopeFoundationAboutPage() {
 
         {/* Future Section */}
         <AnimatedSection>
-          <section className="py-16 lg:py-20 bg-white">
+          <section id="mission-vision" className="py-16 lg:py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 {/* Left Column - Content */}
@@ -323,7 +327,7 @@ export default function HopeFoundationAboutPage() {
 
         {/* Our Impact Section */}
         <AnimatedSection>
-          <section className="py-20 bg-gray-50">
+          <section id="impact" className="py-20 bg-gray-50">
             <div className="container mx-auto px-6">
               {/* Section Header */}
               <motion.div

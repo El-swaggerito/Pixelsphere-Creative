@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import PageTransition from "@/components/PageTransition";
-import { AboutSection, DonateSection, HopeFoundationFooter, HopeFoundationNavbar } from "@/components/hope-foundation";
+import { AboutSection, DonateSection, HopeFoundationFooter, HopeFoundationNavbar, ScrollIndicator } from "@/components/hope-foundation";
 
 
 const regions = [
@@ -51,6 +51,9 @@ export default function HopeFoundationPage() {
       >
         {/* Navigation */}
         <HopeFoundationNavbar/>
+        
+        {/* Scroll Indicator */}
+        <ScrollIndicator />
 
         {/* Hero Section - Matching Reference Image */}
         <section

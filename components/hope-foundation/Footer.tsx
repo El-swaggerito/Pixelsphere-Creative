@@ -56,17 +56,17 @@ const defaultSocialLinks: SocialLink[] = [
 ];
 
 const defaultQuickLinks: FooterLink[] = [
-  { name: "About Us", href: "#about" },
-  { name: "Our Mission", href: "#mission" },
-  { name: "Programs", href: "#programs" },
-  { name: "Impact", href: "#impact" },
+  { name: "About Us", href: "/hope-foundation/about#about-hero" },
+  { name: "Our Mission", href: "/hope-foundation/about#mission-vision" },
+  { name: "Programs", href: "/hope-foundation/campaign#active-campaigns" },
+  { name: "Impact", href: "/hope-foundation/about#impact" },
 ];
 
 const defaultSupportLinks: FooterLink[] = [
-  { name: "Donate", href: "#donation" },
-  { name: "Volunteer", href: "#volunteer" },
-  { name: "Partner", href: "#partner" },
-  { name: "Contact", href: "#contact" },
+  { name: "Donate", href: "/hope-foundation#donation" },
+  { name: "Volunteer", href: "/hope-foundation/contact#contact-form" },
+  { name: "Partner", href: "/hope-foundation/contact#contact-form" },
+  { name: "Contact", href: "/hope-foundation/contact" },
 ];
 
 const defaultGalleryImages: GalleryImage[] = [

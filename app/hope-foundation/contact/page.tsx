@@ -6,6 +6,7 @@ import {
   HopeFoundationNavbar,
   DonateSection,
   HopeFoundationFooter,
+  ScrollIndicator,
 } from "@/components/hope-foundation";
 import AnimatedSection from "@/components/AnimatedSection";
 import PageTransition from "@/components/PageTransition";
@@ -43,6 +44,9 @@ export default function HopeFoundationAboutPage() {
       >
         {/* Navigation */}
         <HopeFoundationNavbar />
+        
+        {/* Scroll Indicator */}
+        <ScrollIndicator />
 
         {/* Hero Section */}
         <AnimatedSection>
