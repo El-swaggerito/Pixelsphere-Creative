@@ -30,7 +30,7 @@ export default function DripGrindPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-roboto">
+    <div className="min-h-screen bg-white font-roboto overflow-hidden">
       {/* Use the reusable Navbar component */}
       <Navbar />
       <section
