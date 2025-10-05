@@ -83,8 +83,8 @@ const testimonials = [
         <NewsletterPopup delayInSeconds={2} />
         <main className="pt-0">
           {/* Hero Section */}
-          <section className="relative min-h-[50vh] xxxxs:min-h-[45vh] xxxs:min-h-[50vh] xxs:min-h-[55vh] xs:min-h-[60vh] sm:min-h-[80vh] md:min-h-[90vh] lg:min-h-[110vh] xl:min-h-[100vh] 4xl:min-h-[80vh] flex flex-col overflow-hidden">
-            <HeroBackground className="!min-h-[70vh] md:!min-h-[90vh] lg:!min-h-[110vh] xl:!min-h-[100vh] 4xl:!min-h-[80vh]">
+          <section className="relative min-h-[50vh] xxxxs:min-h-[45vh] xxxs:min-h-[60vh] xxs:min-h-[55vh] xs:min-h-[60vh] sm:min-h-[80vh] md:min-h-[90vh] lg:min-h-[110vh] xl:min-h-[100vh] 4xl:min-h-[80vh] flex flex-col overflow-hidden">
+            <HeroBackground className="!min-h-[70vh] md:!min-h-[90vh] xxxs:!min-h-[60vh] lg:!min-h-[110vh] xl:!min-h-[100vh] 4xl:!min-h-[80vh]">
               {/* Decorative vector line at top left */}
               <motion.div
                 className="absolute top-0.5 left-0.5 xxxs:top-1 xxxs:left-1 xxs:top-2 xxs:left-2 sm:top-8 sm:left-8 z-10 pointer-events-none"
@@ -153,7 +153,7 @@ const testimonials = [
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.6 }}
               >
-                <div className="w-full max-w-full xxxxs:max-w-[99.8vw] xxxs:max-w-[99vw] xxs:max-w-[97vw] sm:max-w-full mx-auto overflow-hidden rounded-none">
+                <div className="w-full max-w-full xxxxs:max-w-[99.8vw] xxxs:max-w-[100vw] xxs:max-w-[97vw] sm:max-w-full mx-auto overflow-hidden rounded-none">
                   <Image
                     src="/images/design-collection.png"
                     alt="Design and development showcase"

@@ -12,6 +12,7 @@ export const edtechLearningPlatformProject = {
     showcase1: "/images/edtech-1.png",
     showcase2: "/images/edtech-2.png",
     showcase3: "/images/edtech-3.png",
+    showcase4: null,
   },
   brandingLink: "/work/edtech-learning-platform/branding",
   briefDescription: `EduTech Solutions needed a comprehensive learning management system that would serve students, educators, and administrators across multiple educational institutions. The platform required sophisticated functionality while maintaining an intuitive, engaging user experience.

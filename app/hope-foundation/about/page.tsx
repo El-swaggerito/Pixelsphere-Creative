@@ -39,6 +39,7 @@ export default function HopeFoundationAboutPage() {
 
   return (
     <PageTransition>
+      <div className="overflow-hidden">
       <div
         className="min-h-screen bg-white"
         style={{ fontFamily: "Movement, sans-serif" }}
@@ -489,6 +490,7 @@ export default function HopeFoundationAboutPage() {
           <AnimatedSection>
             <HopeFoundationFooter />
           </AnimatedSection>
+      </div>
       </div>
     </PageTransition>
   );
