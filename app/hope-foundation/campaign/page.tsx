@@ -6,7 +6,6 @@ import {
   HopeFoundationNavbar,
   DonateSection,
   HopeFoundationFooter,
-  ScrollIndicator,
 } from "@/components/hope-foundation";
 import AnimatedSection from "@/components/AnimatedSection";
 import PageTransition from "@/components/PageTransition";
@@ -38,6 +37,13 @@ export default function HopeFoundationCampaignPage() {
     },
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <PageTransition>
       <div
@@ -45,12 +51,8 @@ export default function HopeFoundationCampaignPage() {
         style={{ fontFamily: "Movement, sans-serif" }}
       >
         {/* Navigation */}
-        <HopeFoundationNavbar/>
-        
-        {/* Scroll Indicator */}
-        <ScrollIndicator />
+        <HopeFoundationNavbar />
 
-        {/* Rest of the page content */}
         {/* Hero Section */}
         <AnimatedSection>
           <section
