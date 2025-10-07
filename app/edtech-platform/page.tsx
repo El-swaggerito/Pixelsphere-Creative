@@ -1,12 +1,10 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import PageTransition from "@/components/PageTransition";
 import { ArrowRight, Menu, X } from "lucide-react";
-import { edtechLearningPlatformProject } from "@/data/projects/edtech-learning-platform";
 import {
   BestCourseSection,
   EdtechFooter,
