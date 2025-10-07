@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function EdtechNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -70,21 +72,27 @@ export default function EdtechNavbar() {
               animate="visible"
             >
               {[
-                { name: "Home", href: "#", active: true },
-                { name: "Courses", href: "#", active: false },
-                { name: "About Us", href: "#", active: false },
+                { name: "Home", href: "/edtech-platform", active: pathname === "/edtech-platform" },
+                { name: "Courses", href: "/edtech-platform/courses", active: pathname === "/edtech-platform/courses" },
+                { name: "About Us", href: "/edtech-platform/about", active: pathname === "/edtech-platform/about" },
                 { name: "Contact", href: "#", active: false },
               ].map((item) => (
                 <motion.div key={item.name} variants={itemVariants}>
                   <Link
                     href={item.href}
-                    className={`text-base font-medium font-montserrat transition-colors duration-200 relative ${
+                    className={`text-base font-medium font-montserrat transition-all duration-300 relative group ${
                       item.active
                         ? "text-green-600"
                         : "text-gray-700 hover:text-green-600"
                     }`}
                   >
                     {item.name}
+                    <span 
+                      className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-green-600 transition-all duration-300 ${
+                        item.active ? "w-full" : "group-hover:w-full"
+                      }`}
+                      aria-hidden="true"
+                    />
                   </Link>
                 </motion.div>
               ))}
@@ -99,11 +107,11 @@ export default function EdtechNavbar() {
             >
               <Button
                 variant="ghost"
-                className="text-gray-700 hover:text-green-600 font-medium font-montserrat"
+                className="text-gray-700 hover:text-green-600 font-medium font-montserrat transition-all duration-300 hover:bg-green-50 focus:ring-2 focus:ring-green-200 focus:outline-none"
               >
                 Sign Up
               </Button>
-              <Button className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 font-medium font-montserrat">
+              <Button className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 font-medium font-montserrat transition-all duration-300 shadow-sm hover:shadow-md focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none">
                 Login
               </Button>
             </motion.div>
@@ -141,15 +149,17 @@ export default function EdtechNavbar() {
           >
             <div className="px-4 py-4 space-y-4">
               {[
-                { name: "Home", href: "#" },
-                { name: "Courses", href: "#" },
-                { name: "About Us", href: "#" },
-                { name: "Contact", href: "#" },
+                { name: "Home", href: "/edtech-platform", active: pathname === "/edtech-platform" },
+                { name: "Courses", href: "/edtech-platform/courses", active: pathname === "/edtech-platform/courses" },
+                { name: "About Us", href: "/edtech-platform/about", active: pathname === "/edtech-platform/about" },
+                { name: "Contact", href: "#", active: false },
               ].map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block text-gray-700 hover:text-green-600 font-medium font-montserrat transition-colors duration-200"
+                  className={`block font-medium font-montserrat transition-all duration-300 relative py-2 px-1 ${
+                    item.active ? "text-green-600 border-l-2 border-green-600 pl-2" : "text-gray-700 hover:text-green-600 hover:pl-2"
+                  }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
@@ -158,11 +168,11 @@ export default function EdtechNavbar() {
               <div className="pt-4 border-t border-gray-100 space-y-2">
                 <Button
                   variant="ghost"
-                  className="w-full justify-start text-gray-700 hover:text-green-600 font-montserrat"
+                  className="w-full justify-start text-gray-700 hover:text-green-600 font-montserrat transition-all duration-300 hover:bg-green-50 focus:ring-2 focus:ring-green-200 focus:outline-none"
                 >
                   Sign Up
                 </Button>
-                <Button className="w-full bg-green-600 hover:bg-green-700 text-white font-montserrat">
+                <Button className="w-full bg-green-600 hover:bg-green-700 text-white font-montserrat transition-all duration-300 shadow-sm hover:shadow-md focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none">
                   Login
                 </Button>
               </div>
