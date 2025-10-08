@@ -1,4 +1,4 @@
-export { default as EdtechNavbar } from './NavBar';
+export { default as EdtechNavbar } from './Navbar';
 export { default as EdtechFooter } from './Footer';
 export { default as AboutHeroSection } from './AboutHeroSection';
 export { default as TestimonialsSection } from './TestimonialsSection';
