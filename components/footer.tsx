@@ -72,8 +72,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-blue-700 text-white py-12 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-blue-700 text-white py-12 sm:py-16 overflow-hidden relative"> 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
           {/* Brand Section - spans 2 columns */}
