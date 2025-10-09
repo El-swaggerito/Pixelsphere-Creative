@@ -75,7 +75,7 @@ export default function EdtechNavbar() {
                 { name: "Home", href: "/edtech-platform", active: pathname === "/edtech-platform" },
                 { name: "Courses", href: "/edtech-platform/courses", active: pathname === "/edtech-platform/courses" },
                 { name: "About Us", href: "/edtech-platform/about", active: pathname === "/edtech-platform/about" },
-                { name: "Contact", href: "#", active: false },
+                { name: "Contact", href: "/edtech-platform/contact", active: pathname === "/edtech-platform/contact" },
               ].map((item) => (
                 <motion.div key={item.name} variants={itemVariants}>
                   <Link
