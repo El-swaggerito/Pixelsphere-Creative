@@ -2,7 +2,12 @@ import React from 'react';
 
 const ContactHeroSection = () => {
   return (
-    <section className="py-16 md:py-24" style={{ background: 'linear-gradient(90deg, #217F24 -1.06%, #299119 26.81%, #0CC006 86.55%, #34CA02 98.5%)' }}>
+    <section className="py-16 md:py-24"
+       style={{
+            background:
+              "linear-gradient(90deg, #2B5D2D 100%, #FFFFFF 100%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%)",
+            contain: "layout style paint",
+          }}>
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-3xl mx-auto">
           <h4 className="text-white/90 text-lg md:text-xl mb-4">Get in touch</h4>

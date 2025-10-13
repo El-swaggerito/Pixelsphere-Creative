@@ -4,6 +4,6 @@ export { default as AboutHeroSection } from './AboutHeroSection';
 export { default as TestimonialsSection } from './TestimonialsSection';
 export { default as BestCourseSection } from './BestCourseSection';
 export { default as CourseHeroSection } from './CourseHeroSection';
-export { default as AllCoursesSection } from './AllCoursesSection';
 export { default as ContactHeroSection } from './ContactHeroSection';
 export { default as ContactForm } from './ContactForm';
+export { default as AllCoursesSection } from './AllCoursesSection';

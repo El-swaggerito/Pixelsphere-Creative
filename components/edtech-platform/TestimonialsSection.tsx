@@ -23,13 +23,6 @@ export default function TestimonialsSection() {
                   Join thousands of satisfied learners and educators who trust our platform to deliver real results. Your success story could be next!
                 </p>
               </div>
-              <motion.a
-                href="#"
-                className="text-gray-900 hover:text-green-600 font-semibold font-montserrat transition-colors duration-200 hidden md:block mt-2"
-                whileHover={{ x: 5 }}
-              >
-                View All
-              </motion.a>
             </motion.div>
 
             {/* Testimonials Grid */}
@@ -76,12 +69,7 @@ export default function TestimonialsSection() {
                       <h4 className="font-semibold text-gray-900 font-montserrat">Sarah L</h4>
                     </div>
                   </div>
-                  <motion.button
-                    className="text-gray-600 hover:text-green-600 font-medium font-montserrat transition-colors duration-200"
-                    whileHover={{ x: 3 }}
-                  >
-                    Read Full Story
-                  </motion.button>
+                   
                 </div>
               </motion.div>
 
@@ -112,12 +100,7 @@ export default function TestimonialsSection() {
                       <h4 className="font-semibold text-gray-900 font-montserrat">Jason M</h4>
                     </div>
                   </div>
-                  <motion.button
-                    className="text-gray-600 hover:text-green-600 font-medium font-montserrat transition-colors duration-200"
-                    whileHover={{ x: 3 }}
-                  >
-                    Read Full Story
-                  </motion.button>
+                   
                 </div>
               </motion.div>
 
@@ -148,12 +131,7 @@ export default function TestimonialsSection() {
                       <h4 className="font-semibold text-gray-900 font-montserrat">Emily R</h4>
                     </div>
                   </div>
-                  <motion.button
-                    className="text-gray-600 hover:text-green-600 font-medium font-montserrat transition-colors duration-200"
-                    whileHover={{ x: 3 }}
-                  >
-                    Read Full Story
-                  </motion.button>
+                   
                 </div>
               </motion.div>
 
@@ -184,12 +162,7 @@ export default function TestimonialsSection() {
                       <h4 className="font-semibold text-gray-900 font-montserrat">Michael K</h4>
                     </div>
                   </div>
-                  <motion.button
-                    className="text-gray-600 hover:text-green-600 font-medium font-montserrat transition-colors duration-200"
-                    whileHover={{ x: 3 }}
-                  >
-                    Read Full Story
-                  </motion.button>
+                   
                 </div>
               </motion.div>
             </motion.div>

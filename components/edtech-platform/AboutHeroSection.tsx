@@ -27,7 +27,14 @@ export default function AboutHeroSection() {
   };
 
   return (
-    <section className="relative bg-[#2E7D32] text-white overflow-hidden">
+    <section className="relative text-white overflow-hidden"
+       style={{
+            minHeight: "100vh",
+            paddingTop: "32px", // Account for fixed nav
+            background:
+              "linear-gradient(90deg, #2B5D2D 100%, #FFFFFF 100%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%)",
+            contain: "layout style paint",
+          }}>
       <div className="container mx-auto px-4 md:py-8 relative z-10">
         <motion.div
           className="flex flex-col md:flex-row items-center justify-between gap-8"

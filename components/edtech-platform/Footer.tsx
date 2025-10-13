@@ -1,5 +1,6 @@
 "use client"
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function EdtechFooter() {
@@ -62,24 +63,24 @@ export default function EdtechFooter() {
             <h3 className="text-white font-semibold mb-6 font-montserrat text-lg">Home</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
+                <Link href="/edtech-platform/about#benefits" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
                   Benefits
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
+                <Link href="/edtech-platform/courses#all-courses" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
                   Our Courses
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
-                  Our Testimonials
-                </a>
+                <Link href="/edtech-platform#testimonials" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
+                  Testimonials
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
-                  Our FAQ
-                </a>
+                <Link href="/edtech-platform#faq" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
+                  FAQ
+                </Link>
               </li>
             </ul>
           </motion.div>

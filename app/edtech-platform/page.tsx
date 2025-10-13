@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import PageTransition from "@/components/PageTransition";
 import { ArrowRight, Menu, X } from "lucide-react";
+import { useRouter } from "next/navigation";
 import {
   BestCourseSection,
   EdtechFooter,
@@ -13,6 +14,10 @@ import {
 } from "@/components/edtech-platform";
 
 export default function EdTechPlatformPage() {
+  const router = useRouter();
+  const navigateToCoursesAll = () => {
+    router.push("/edtech-platform/courses#all-courses");
+  };
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -59,7 +64,7 @@ export default function EdTechPlatformPage() {
           className="relative flex items-center justify-center"
           style={{
             minHeight: "100vh",
-            paddingTop: "64px", // Account for fixed nav
+            paddingTop: "32px", // Account for fixed nav
             background:
               "linear-gradient(90deg, #2B5D2D 100%, #FFFFFF 100%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%)",
             contain: "layout style paint",
@@ -128,6 +133,7 @@ export default function EdTechPlatformPage() {
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
                     <Button
+                      onClick={navigateToCoursesAll}
                       className="bg-white text-gray-900 hover:bg-gray-50 font-semibold font-montserrat rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 inline-flex items-center will-change-transform"
                       style={{
                         fontSize: "1rem",
@@ -745,26 +751,6 @@ export default function EdTechPlatformPage() {
               </motion.div>
             </motion.div>
 
-            {/* Browse All Link */}
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              <p className="text-gray-600 mb-4 font-montserrat">
-                We have more category & subcategory.
-              </p>
-              <motion.a
-                href="#"
-                className="inline-flex items-center text-green-600 hover:text-green-700 font-semibold font-montserrat transition-colors duration-200"
-                whileHover={{ x: 5 }}
-              >
-                Browse All
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </motion.a>
-            </motion.div>
           </div>
         </section>
 
@@ -789,9 +775,13 @@ export default function EdTechPlatformPage() {
                 </p>
               </div>
               <motion.a
-                href="#"
+                href="/edtech-platform/courses#all-courses"
                 className="text-gray-900 hover:text-green-600 font-semibold font-montserrat transition-colors duration-200 hidden md:block"
                 whileHover={{ x: 5 }}
+                onClick={(event: React.MouseEvent<HTMLAnchorElement>) => {
+                  event.preventDefault();
+                  navigateToCoursesAll();
+                }}
               >
                 View All
               </motion.a>
@@ -1073,9 +1063,13 @@ export default function EdTechPlatformPage() {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <motion.a
-                href="#"
+                href="/edtech-platform/courses#all-courses"
                 className="text-gray-900 hover:text-green-600 font-semibold font-montserrat transition-colors duration-200"
                 whileHover={{ x: 5 }}
+                onClick={(event: React.MouseEvent<HTMLAnchorElement>) => {
+                  event.preventDefault();
+                  navigateToCoursesAll();
+                }}
               >
                 View All
               </motion.a>
@@ -1087,7 +1081,9 @@ export default function EdTechPlatformPage() {
         <BestCourseSection />
 
         {/* Our Testimonials Section */}
-        <TestimonialsSection />
+        <section id="testimonials">
+          <TestimonialsSection />
+        </section>
 
         {/* Our Pricing Section */}
         <section className="py-16 lg:py-24 bg-gray-50">
@@ -1286,7 +1282,7 @@ export default function EdTechPlatformPage() {
                 </div>
 
                 {/* CTA Button */}
-                <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-4 font-semibold font-montserrat rounded-lg transition-all duration-200">
+                <Button onClick={navigateToCoursesAll} className="w-full bg-green-600 hover:bg-green-700 text-white py-4 font-semibold font-montserrat rounded-lg transition-all duration-200">
                   Get Started
                 </Button>
               </motion.div>
@@ -1436,7 +1432,7 @@ export default function EdTechPlatformPage() {
                 </div>
 
                 {/* CTA Button */}
-                <Button className="w-full bg-green-600 hover:bg-green-700 text-white py-4 font-semibold font-montserrat rounded-lg transition-all duration-200">
+                <Button onClick={navigateToCoursesAll} className="w-full bg-green-600 hover:bg-green-700 text-white py-4 font-semibold font-montserrat rounded-lg transition-all duration-200">
                   Get Started
                 </Button>
               </motion.div>
@@ -1445,7 +1441,7 @@ export default function EdTechPlatformPage() {
         </section>
 
         {/* Frequently Asked Questions Section */}
-        <section className="py-16 lg:py-24 bg-white">
+        <section id="faq" className="py-16 lg:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               {/* Left Column - Header */}

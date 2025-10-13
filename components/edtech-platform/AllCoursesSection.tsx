@@ -10,7 +10,8 @@ const CourseCard = ({
   weeks = 2, 
   students = 156, 
   price = 29.0, 
-  free = true 
+  free = true,
+  slug = ""
 }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
@@ -44,7 +45,7 @@ const CourseCard = ({
             <span className="text-lg font-semibold text-gray-800">${price.toFixed(1)}</span>
             {free && <span className="text-green-500 font-medium">Free</span>}
           </div>
-          <a href="#" className="text-sm font-medium text-gray-700 hover:text-[#2E7D32]">View Details</a>
+          <a href={`/edtech-platform/courses/${slug}`} className="text-sm font-medium text-gray-700 hover:text-[#2E7D32]">View Details</a>
         </div>
       </div>
     </div>
@@ -54,33 +55,69 @@ const CourseCard = ({
 const AllCoursesSection = () => {
   const courses = [
     {
-      image: "course-1.png",
-      title: "English Language Mastery"
+      image: "course1.png",
+      title: "English Language",
+      instructor: "Melissa Garcia",
+      weeks: 8,
+      students: 156,
+      price: 0,
+      free: true,
+      slug: "english-language"
     },
     {
-      image: "course-2.png",
-      title: "Mathematics for Real Life"
+      image: "course2.png",
+      title: "Mathematics",
+      instructor: "David Chen",
+      weeks: 10,
+      students: 124,
+      price: 49.99,
+      free: false,
+      slug: "mathematics"
     },
     {
-      image: "course-3.png",
-      title: "Basic Science"
+      image: "course3.png",
+      title: "Science",
+      instructor: "Sarah Johnson",
+      weeks: 12,
+      students: 178,
+      price: 59.99,
+      free: false,
+      slug: "science"
     },
     {
-      image: "course-4.png",
-      title: "Digital Literacy & Basic Coding"
+      image: "course4.png",
+      title: "History",
+      instructor: "Robert Williams",
+      weeks: 10,
+      students: 145,
+      price: 0,
+      free: true,
+      slug: "history"
     },
     {
-      image: "course-1.png",
-      title: "Financial Literacy for Youth"
+      image: "course5.png",
+      title: "Computer Science",
+      instructor: "Priya Sharma",
+      weeks: 14,
+      students: 210,
+      price: 69.99,
+      free: false,
+      slug: "computer-science"
     },
     {
-      image: "course-2.png",
-      title: "Public Speaking & Confidence Building"
+      image: "course6.png",
+      title: "Art and Design",
+      instructor: "Marcus Lee",
+      weeks: 10,
+      students: 132,
+      price: 54.99,
+      free: false,
+      slug: "art-and-design"
     }
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section id="all-courses" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-8">
           <div>
@@ -104,6 +141,12 @@ const AllCoursesSection = () => {
               <CourseCard 
                 image={course.image}
                 title={course.title}
+                instructor={course.instructor}
+                weeks={course.weeks}
+                students={course.students}
+                price={course.price}
+                free={course.free}
+                slug={course.slug}
               />
             </motion.div>
           ))}

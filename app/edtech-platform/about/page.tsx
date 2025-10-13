@@ -95,7 +95,7 @@ export default function EdtechAboutPage() {
           </section>
 
           {/* Benefits Section */}
-          <section className="py-16 md:py-24 bg-gray-50">
+          <section id="benefits" className="py-16 md:py-24 bg-gray-50">
             <div className="container mx-auto px-4">
               <motion.div 
                 className="text-center mb-12"
