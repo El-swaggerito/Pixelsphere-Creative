@@ -11,12 +11,14 @@ import FinalCTA from "@/components/final-cta";
 import WorkCTA from "@/components/work-cta";
 import PageTransition from "@/components/PageTransition";
 import AnimatedSection from "@/components/AnimatedSection";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import React from "react";
 
 export default function WorkPage() {
+  const [activeFilter, setActiveFilter] = React.useState<"all" | "web" | "branding">("all");
+
   const scrollToContactForm = () => {
     const contactForm = document.getElementById("contact-form");
     if (contactForm) {
@@ -33,6 +35,23 @@ export default function WorkPage() {
       portfolioSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  // Define filter mapping based on requested classifications
+  const webSlugs = React.useMemo(
+    () => ["drip-and-grind", "hope-foundation", "edtech-learning-platform"],
+    []
+  );
+
+  const filteredProjects = React.useMemo(() => {
+    switch (activeFilter) {
+      case "web":
+        return projects.filter((p) => webSlugs.includes(p.slug));
+      case "branding":
+        return projects.filter((p) => p.slug === "chopify");
+      default:
+        return projects;
+    }
+  }, [activeFilter, webSlugs]);
 
   return (
     <PageTransition>
@@ -148,7 +167,7 @@ export default function WorkPage() {
               />
 
               {/* Filter Tabs */}
-              {/* <motion.div
+              <motion.div
                 className="flex justify-center mb-16"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -157,40 +176,51 @@ export default function WorkPage() {
               >
                 <div className="flex flex-wrap justify-center gap-3">
                   <motion.button
-                    className="bg-orange-500 text-white px-6 py-2 rounded-lg font-medium"
+                    className={`${activeFilter === "all" ? "bg-orange-500 text-white" : "text-gray-600 hover:text-gray-900"} px-6 py-2 rounded-lg font-medium`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => setActiveFilter("all")}
                   >
                     All
                   </motion.button>
                   <motion.button
-                    className="text-gray-600 hover:text-gray-900 px-6 py-2 font-medium"
-                    whileHover={{ scale: 1.05, color: "#f97316" }}
+                    className={`${activeFilter === "web" ? "bg-orange-500 text-white" : "text-gray-600 hover:text-gray-900"} px-6 py-2 rounded-lg font-medium`}
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => setActiveFilter("web")}
                   >
-                    Custom Websites
+                    Web Development
                   </motion.button>
                   <motion.button
-                    className="text-gray-600 hover:text-gray-900 px-6 py-2 font-medium"
-                    whileHover={{ scale: 1.05, color: "#f97316" }}
+                    className={`${activeFilter === "branding" ? "bg-orange-500 text-white" : "text-gray-600 hover:text-gray-900"} px-6 py-2 rounded-lg font-medium`}
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => setActiveFilter("branding")}
                   >
                     Branding
                   </motion.button>
                 </div>
-              </motion.div> */}
+              </motion.div>
 
-              <div className="space-y-20">
-                {/* Map through projects and render ProjectCard components */}
-                {projects.map((project, index) => (
-                  <React.Fragment key={project.slug}>
-                    <ProjectCard {...project} />
-                    {index < projects.length - 1 && (
-                      <hr className="border-orange-200" />
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeFilter}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-20"
+                >
+                  {filteredProjects.map((project, index) => (
+                    <React.Fragment key={project.slug}>
+                      <ProjectCard {...project} />
+                      {index < filteredProjects.length - 1 && (
+                        <hr className="border-orange-200" />
+                      )}
+                    </React.Fragment>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
             </div>
           </section>
         </AnimatedSection>

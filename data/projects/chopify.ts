@@ -15,18 +15,13 @@ export const chopifyProject = {
     showcase4: "/images/chopify-4.png",
   },
   brandingLink: "/work/chopify/branding",
-  briefDescription: `PixelSphere worked with Drip & Grind, a luxury dining brand, to create a digital experience that matches their upscale, modern aesthetic. The goal was to design a visually striking website that communicates elegance, encourages reservations, and mirrors the ambiance of the physical restaurant.
+  briefDescription: `When Chopify came to us, they had a powerful idea, a seamless food-delivery platform designed for local restaurants and everyday users, but they needed a brand identity that matched their vision.
 
-The challenge was to create a visual identity that communicates elegance, encourages food orders, and mirrors the vibrant energy of urban dining culture. We developed a bold branding strategy that merges productivity with lifestyle aesthetics.
-
-Our approach focused on crafting a unique visual identity that conveys quality, convenience, and community through contemporary design principles and strategic brand positioning.`,
+PixelSphere worked closely with their team to define a brand personality that is fresh, friendly, and memorable. From logo design and color palette to typography, social media templates, and UI styling guidelines, we created a visual identity system that stands out in the competitive food-tech space.`,
   projectGoal: `Our goal was to create a distinctive brand identity and digital presence that would differentiate Chopify from traditional food delivery services. We aimed to establish a strong visual identity that communicates quality, convenience, and urban lifestyle.
 
 The project required developing a complete brand ecosystem including logo design, color palette, typography, packaging design, and a comprehensive digital strategy. We focused on creating an experience that seamlessly blends the convenience of food delivery with the excitement of discovering new culinary experiences.`,
-  productBranding: `Trendy, youthful, and urban. Use bold fonts, coffee tones, and visual identity that merges
- productivity with lifestyle aesthetics.
-
-Our color palette features vibrant pinks and warm tones, representing both the excitement of food discovery and the dynamic energy of city life. The typography choices reflect modern trends while maintaining readability and friendliness across all touchpoints. Every design element was carefully crafted to reinforce the brand's core values of quality, convenience, and culinary adventure.`,
+  productBranding: `PixelSphere worked closely with their team to define a brand personality that is fresh, friendly, and memorable. From logo design and color palette to typography, social media templates, and UI styling guidelines, we created a visual identity system that stands out in the competitive food-tech space.`,
   userStatement: `"I wanted a food delivery service that understood my lifestyle - quick, reliable, but also exciting. Most apps feel generic and boring. I needed something that made ordering food feel like an experience, not just a transaction."
 
 This insight drove our entire design process, helping us create digital experiences that cater specifically to urban food lovers while maintaining the efficiency that modern consumers expect. We conducted extensive user research to understand the pain points of food delivery users and designed solutions that address these specific needs.`,
@@ -54,7 +49,7 @@ This insight drove our entire design process, helping us create digital experien
     client: "Alex Chen, Founder of Chopify",
     rating: 5,
   },
-  technologies: ["Adobe Creative Suite", "Figma", "HTML5", "CSS3", "JavaScript"],
+  technologies: ["Corel Draw"],
   deliverables: [
     "Complete Brand Identity Package",
     "Logo Design & Variations",
