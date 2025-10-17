@@ -80,10 +80,29 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        // Floating/Bobbing animations for decorative doodles
+        floatY: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
+        floatTilt: {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "50%": { transform: "translateY(-4px) rotate(-1.5deg)" },
+        },
+        driftX: {
+          "0%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(6px)" },
+          "100%": { transform: "translateX(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        // New subtle motion presets
+        float: "floatY 4s ease-in-out infinite",
+        "float-slow": "floatY 6s ease-in-out infinite",
+        "float-tilt": "floatTilt 5s ease-in-out infinite",
+        drift: "driftX 8s ease-in-out infinite",
       },
     },
   },
