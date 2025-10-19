@@ -38,7 +38,7 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header currentPage="work" textColor="black" background="white" />
+      <Header currentPage="portfolio" textColor="black" background="white" />
 
       {/* Breadcrumb */}
       <AnimatedSection>
@@ -49,7 +49,7 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
                 Home
               </Link>
               <ChevronRight className="h-4 w-4 mx-2" />
-              <Link href="/work" className="hover:text-orange-600">
+              <Link href="/portfolio" className="hover:text-orange-600">
                 Portfolio
               </Link>
               <ChevronRight className="h-4 w-4 mx-2" />

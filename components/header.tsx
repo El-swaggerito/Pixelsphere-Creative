@@ -246,9 +246,9 @@ export default function Header({ currentPage = "home", textColor = "white", back
                 className={`text-xl sm:text-2xl font-bold ${textColor === "black" ? "text-gray-900" : "text-white"}`}
               >
                <Image 
-                 src={(currentPage === "blog" || (currentPage === "work" && background === "white")) ? "/images/company-logo.png" : "/images/footer-logo.png"} 
+                 src={(currentPage === "blog" || (currentPage === "portfolio" && background === "white")) ? "/images/company-logo.png" : "/images/footer-logo.png"} 
                  alt="Pixelsphere Creatives Logo" 
-                 width={(currentPage === "blog" || (currentPage === "work" && background === "white")) ? 250 : 150} 
+                 width={(currentPage === "blog" || (currentPage === "portfolio" && background === "white")) ? 250 : 150} 
                  height={100} 
                  className="relative"
                />
@@ -394,9 +394,9 @@ export default function Header({ currentPage = "home", textColor = "white", back
 
             <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
               <Link
-                href="/work"
+                href="/portfolio"
                 className={`text-sm lg:text-base ${
-                  currentPage === "work"
+                  currentPage === "portfolio"
                     ? `${
                         textColor === "black"
                           ? "text-gray-900 hover:text-orange-600"
@@ -591,10 +591,10 @@ export default function Header({ currentPage = "home", textColor = "white", back
                   whileHover={{ x: 5 }}
                 >
                   <Link
-                    href="/work"
+                    href="/portfolio"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block text-base font-medium ${
-                      currentPage === "work" ? "text-orange-600" : "text-gray-900"
+                      currentPage === "portfolio" ? "text-orange-600" : "text-gray-900"
                     } hover:text-orange-600`}
                   >
                     Portfolio

@@ -14,7 +14,7 @@ export const chopifyProject = {
     showcase3: "/images/chopify-3.png",
     showcase4: "/images/chopify-4.png",
   },
-  brandingLink: "/work/chopify/branding",
+  brandingLink: "/portfolio/chopify/branding",
   briefDescription: `When Chopify came to us, they had a powerful idea, a seamless food-delivery platform designed for local restaurants and everyday users, but they needed a brand identity that matched their vision.
 
 PixelSphere worked closely with their team to define a brand personality that is fresh, friendly, and memorable. From logo design and color palette to typography, social media templates, and UI styling guidelines, we created a visual identity system that stands out in the competitive food-tech space.`,

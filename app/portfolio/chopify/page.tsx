@@ -9,12 +9,12 @@ import PageTransition from "@/components/PageTransition";
 export default function ChopifyWorkPage() {
   return (
     <PageTransition>
-      <main className="bg-white min-h-screen">
-        <Header currentPage="work" textColor="black" background="white" />
+      <main className="bg-white min-h-screen overflow-hidden scroll-smooth">
+        <Header currentPage="portfolio" textColor="black" background="white" />
 
         {/* Hero */}
         <AnimatedSection>
-          <section className="relative pt-28 sm:pt-32 md:pt-36 pb-12">
+          <section className="relative pt-28 sm:pt-32 md:pt-36 pb-12 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h1 className="font-sora text-center text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] leading-tight tracking-tight font-bold text-[#121212] mb-10">
                 <span className="relative inline-block pr-2 align-middle">
@@ -39,7 +39,7 @@ export default function ChopifyWorkPage() {
                   role="presentation"
                   width={80}
                   height={80}
-                  className="absolute top-[-80px] left-[8px] sm:top-[-78px] sm:left-[24px] w-[72px] sm:w-[80px] h-auto pointer-events-none will-change-transform motion-safe:animate-float-slow motion-reduce:animate-none"
+                  className="absolute top-[-80px] left-[8px] sm:top-[-78px] sm:left-[24px] w-[72px] sm:w-[80px] h-auto pointer-events-none will-change-transform motion-safe:animate-float-slow motion-reduce:animate-none z-10"
                 />
                 {/* Left sparkle doodle (scribble) */}
                 <Image
@@ -49,7 +49,7 @@ export default function ChopifyWorkPage() {
                   role="presentation"
                   width={64}
                   height={64}
-                  className="absolute top-[44%] left-[-56px] sm:top-[46%] sm:left-[-72px] w-[56px] sm:w-[64px] h-auto pointer-events-none will-change-transform motion-safe:animate-drift motion-reduce:animate-none"
+                  className="absolute top-[44%] left-[-56px] sm:top-[46%] sm:left-[-72px] w-[56px] sm:w-[64px] h-auto pointer-events-none will-change-transform motion-safe:animate-drift motion-reduce:animate-none z-10"
                 />
                 {/* Crown at top-right edge */}
                 <Image
@@ -59,7 +59,7 @@ export default function ChopifyWorkPage() {
                   role="presentation"
                   width={110}
                   height={72}
-                  className="absolute top-[-24px] right-[-24px] sm:top-[-60px] sm:right-[-28px] w-[104px] sm:w-[112px] h-auto pointer-events-none will-change-transform motion-safe:animate-float-tilt motion-reduce:animate-none"
+                  className="absolute top-[-24px] right-[-24px] sm:top-[-60px] sm:right-[-28px] w-[104px] sm:w-[112px] h-auto pointer-events-none will-change-transform motion-safe:animate-float-tilt motion-reduce:animate-none z-10"
                 />
                 {/* Right scribble doodle */}
                 <Image
@@ -77,7 +77,7 @@ export default function ChopifyWorkPage() {
                   alt="Chopify hero collage"
                   width={1600}
                   height={900}
-                  className="w-full h-auto rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-[#E6D9DC] transition-transform duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#F6B3CB]"
+                  className="w-full h-auto rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-[#E6D9DC] transition-transform duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#F6B3CB] relative z-0"
                   priority
                 />
               </div>
@@ -194,40 +194,48 @@ export default function ChopifyWorkPage() {
 
         {/* Featured Branding */}
         <AnimatedSection>
-          <section className="py-12">
+          <section className="py-12 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="font-sora text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
                 Featured Branding
               </h2>
               <div className="grid sm:grid-cols-2 gap-8">
-                <Image
-                  src="/images/chopify/branding-1.png"
-                  alt="Branding showcase 1"
-                  width={900}
-                  height={900}
-                  className="w-full h-auto rounded-lg"
-                />
-                <Image
-                  src="/images/chopify/branding-2.png"
-                  alt="Branding showcase 2"
-                  width={900}
-                  height={900}
-                  className="w-full h-auto rounded-lg"
-                />
-                <Image
-                  src="/images/chopify/branding-3.png"
-                  alt="Branding showcase 3"
-                  width={900}
-                  height={900}
-                  className="w-full h-auto rounded-lg"
-                />
-                <Image
-                  src="/images/chopify/branding-4.png"
-                  alt="Branding showcase 4"
-                  width={900}
-                  height={900}
-                  className="w-full h-auto rounded-lg"
-                />
+                <div className="overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/chopify/branding-1.png"
+                    alt="Branding showcase 1"
+                    width={900}
+                    height={900}
+                    className="w-full h-auto rounded-lg transform transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/chopify/branding-2.png"
+                    alt="Branding showcase 2"
+                    width={900}
+                    height={900}
+                    className="w-full h-auto rounded-lg transform transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/chopify/branding-3.png"
+                    alt="Branding showcase 3"
+                    width={900}
+                    height={900}
+                    className="w-full h-auto rounded-lg transform transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/chopify/branding-4.png"
+                    alt="Branding showcase 4"
+                    width={900}
+                    height={900}
+                    className="w-full h-auto rounded-lg transform transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -242,7 +250,7 @@ export default function ChopifyWorkPage() {
               </h2>
               <div className="grid lg:grid-cols-2 gap-8 mb-8">
                 <Image
-                  src="/images/chopify/result-1.png"
+                  src="/images/chopify/result-1.jpg"
                   alt="Result logo forms and lockups"
                   width={1200}
                   height={900}

@@ -556,7 +556,7 @@ const testimonials = [
                     className="inline-block"
                   >
                     <Link
-                      href="/work"
+                      href="/portfolio"
                       className="inline-flex items-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-colors duration-300"
                     >
                       View All Projects

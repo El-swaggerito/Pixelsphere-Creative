@@ -95,7 +95,7 @@ export default function WorkPage() {
               </svg>
             </motion.div>
 
-            <Header currentPage="work" />
+            <Header currentPage="portfolio" />
 
             {/* Hero Content */}
             <div className="flex-1 flex items-center justify-center relative z-20 pt-32 px-4 sm:px-6 lg:px-8">

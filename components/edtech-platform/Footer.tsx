@@ -95,19 +95,19 @@ export default function EdtechFooter() {
             <h3 className="text-white font-semibold mb-6 font-montserrat text-lg">About Us</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
-                  Company
-                </a>
+                <Link href="/edtech-platform/about#grow-with-edtech" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
+                  Our Story
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
-                  Achievements
-                </a>
+                <Link href="/edtech-platform/about#benefits" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
+                  Benefits
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
-                  Our Goals
-                </a>
+                <Link href="/edtech-platform/about#best-courses" className="text-green-100 hover:text-white transition-colors duration-200 font-montserrat">
+                  Best Courses
+                </Link>
               </li>
             </ul>
           </motion.div>

@@ -88,7 +88,7 @@ export default function BestCourseSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              We Always Ensure Best Course for your learning
+              We Always Ensure the Best Courses for Your Learning Journey.
             </motion.h2>
 
             {/* Description */}

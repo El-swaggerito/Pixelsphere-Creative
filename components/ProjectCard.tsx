@@ -87,7 +87,7 @@ export default function ProjectCard({
           )}
           <span className="text-gray-900 font-semibold text-lg">{title}</span>
           <motion.div className="ml-auto" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link href={`/work/${slug}`}>
+            <Link href={`/portfolio/${slug}`}>
               <Button
                 size="sm"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium text-sm"
@@ -139,7 +139,7 @@ export default function ProjectCard({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Link href={`/work/${slug}`} className="block cursor-pointer">
+        <Link href={`/portfolio/${slug}`} className="block cursor-pointer">
           <div className="rounded-lg p-6 aspect-[4/3]">
             <div className="w-full h-full rounded-lg overflow-hidden relative">
               <motion.div

@@ -14,7 +14,7 @@ export const edtechLearningPlatformProject = {
     showcase3: "/images/edtech-3.png",
     showcase4: null,
   },
-  brandingLink: "/work/edtech-learning-platform/branding",
+  brandingLink: "/portfolio/edtech-learning-platform/branding",
   briefDescription: `EduTech Solutions needed a comprehensive learning management system that would serve students, educators, and administrators across multiple educational institutions. The platform required sophisticated functionality while maintaining an intuitive, engaging user experience.
 
 The challenge was to create a scalable platform that could handle diverse learning styles, multiple content formats, and complex user hierarchies. We developed a modern, responsive platform that makes online learning accessible and engaging for users of all technical skill levels.
