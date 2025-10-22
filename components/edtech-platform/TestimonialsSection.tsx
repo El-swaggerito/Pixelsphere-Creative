@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export default function TestimonialsSection() {
   return (
-          <section id="testimonials" className="py-16 lg:py-24 bg-white">
+          <section className="py-16 lg:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <motion.div 

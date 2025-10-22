@@ -36,9 +36,9 @@ export default function WorkPage() {
     }
   };
 
-  // Define filter mapping based on requested classifications
+  // Define filter mapping based on project categories
   const webSlugs = React.useMemo(
-    () => ["drip-and-grind", "hope-foundation", "edtech-learning-platform"],
+    () => ["drip-and-grind", "hope-foundation", "edtech-learning-platform", "real-estate-pro", "beauty-hub", "african-food-store"],
     []
   );
 

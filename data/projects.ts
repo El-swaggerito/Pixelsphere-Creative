@@ -21,11 +21,14 @@ const convertToProjectCard = (projectData: any): ProjectProps => ({
   designDirection: projectData.productBranding.split('\n\n')[0], // Use first paragraph
   technologies: projectData.technologies,
   isStarred: projectData.slug === 'drip-and-grind' || projectData.slug === 'edtech-learning-platform' || projectData.slug === 'chopify',
-  isReversed: projectData.slug === 'hope-foundation' || projectData.slug === 'chopify',
+  isReversed: projectData.slug === 'hope-foundation' || projectData.slug === 'chopify' || projectData.slug === 'beauty-hub',
   visualType: projectData.category,
   visualColor: projectData.slug === 'drip-and-grind' ? 'purple' : 
                projectData.slug === 'hope-foundation' ? 'green' : 
-               projectData.slug === 'chopify' ? 'pink' : 'blue',
+               projectData.slug === 'chopify' ? 'pink' : 
+               projectData.slug === 'real-estate-pro' ? 'blue' :
+               projectData.slug === 'beauty-hub' ? 'pink' :
+               projectData.slug === 'african-food-store' ? 'green' : 'blue',
   image: projectData.featuredImage,
   onContactClick: scrollToContactForm
 })

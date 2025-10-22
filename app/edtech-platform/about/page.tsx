@@ -36,7 +36,7 @@ export default function EdtechAboutPage() {
           <AboutHeroSection />
           
           {/* Grow with EdTech LMS Section */}
-          <section id="grow-with-edtech" className="py-16 md:py-24 bg-white">
+          <section className="py-16 md:py-24 bg-white">
             <div className="container mx-auto px-4">
               <motion.div 
                 className="flex flex-col md:flex-row items-center gap-12"
@@ -95,7 +95,7 @@ export default function EdtechAboutPage() {
           </section>
 
           {/* Benefits Section */}
-          <section id="benefits" className="py-16 md:py-24 bg-gray-50">
+          <section className="py-16 md:py-24 bg-gray-50">
             <div className="container mx-auto px-4">
               <motion.div 
                 className="text-center mb-12"
@@ -268,9 +268,7 @@ export default function EdtechAboutPage() {
 
           <TestimonialsSection />
 
-          <section id="best-courses">
-            <BestCourseSection/>
-          </section>
+          <BestCourseSection/>
         </main>
         <EdtechFooter />
       </div>
