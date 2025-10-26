@@ -105,15 +105,19 @@ export default function EdtechNavbar() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Button
-                variant="ghost"
-                className="text-gray-700 hover:text-green-600 font-medium font-montserrat transition-all duration-300 hover:bg-green-50 focus:ring-2 focus:ring-green-200 focus:outline-none"
-              >
-                Sign Up
-              </Button>
-              <Button className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 font-medium font-montserrat transition-all duration-300 shadow-sm hover:shadow-md focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none">
-                Login
-              </Button>
+              <Link href="/edtech-platform/signup">
+                <Button
+                  variant="ghost"
+                  className="text-gray-700 hover:text-green-600 font-medium font-montserrat transition-all duration-300 hover:bg-green-50 focus:ring-2 focus:ring-green-200 focus:outline-none"
+                >
+                  Sign Up
+                </Button>
+              </Link>
+              <Link href="/edtech-platform/login">
+                <Button className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 font-medium font-montserrat transition-all duration-300 shadow-sm hover:shadow-md focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none">
+                  Login
+                </Button>
+              </Link>
             </motion.div>
 
             {/* Mobile Menu Button */}
@@ -152,7 +156,7 @@ export default function EdtechNavbar() {
                 { name: "Home", href: "/edtech-platform", active: pathname === "/edtech-platform" },
                 { name: "Courses", href: "/edtech-platform/courses", active: pathname === "/edtech-platform/courses" },
                 { name: "About Us", href: "/edtech-platform/about", active: pathname === "/edtech-platform/about" },
-                { name: "Contact", href: "#", active: false },
+                { name: "Contact", href: "/edtech-platform/contact", active: pathname === "/edtech-platform/contact" },
               ].map((item) => (
                 <Link
                   key={item.name}
@@ -166,15 +170,23 @@ export default function EdtechNavbar() {
                 </Link>
               ))}
               <div className="pt-4 border-t border-gray-100 space-y-2">
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start text-gray-700 hover:text-green-600 font-montserrat transition-all duration-300 hover:bg-green-50 focus:ring-2 focus:ring-green-200 focus:outline-none"
-                >
-                  Sign Up
-                </Button>
-                <Button className="w-full bg-green-600 hover:bg-green-700 text-white font-montserrat transition-all duration-300 shadow-sm hover:shadow-md focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none">
-                  Login
-                </Button>
+                <Link href="/edtech-platform/signup">
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start text-gray-700 hover:text-green-600 font-montserrat transition-all duration-300 hover:bg-green-50 focus:ring-2 focus:ring-green-200 focus:outline-none"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Sign Up
+                  </Button>
+                </Link>
+                <Link href="/edtech-platform/login">
+                  <Button 
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-montserrat transition-all duration-300 shadow-sm hover:shadow-md focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Login
+                  </Button>
+                </Link>
               </div>
             </div>
           </motion.div>

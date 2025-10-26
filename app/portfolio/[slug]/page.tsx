@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ChevronRight, Star } from "lucide-react"
 import Header from "@/components/header"
@@ -27,13 +26,14 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
     const routes: { [key: string]: string } = {
       'hope-foundation': '/hope-foundation',
       'drip-and-grind': '/drip-grind',
-      'edtech-learning-platform': '/edtech-platform'
+      'edtech-learning-platform': '/edtech-platform',
+      'real-estate-pro': '/real-estate-pro'
     }
     return routes[slug] || '#'
   }
 
   const hasLivePreview = (slug: string) => {
-    return ['hope-foundation', 'drip-and-grind', 'edtech-learning-platform'].includes(slug)
+    return ['hope-foundation', 'drip-and-grind', 'edtech-learning-platform', 'real-estate-pro'].includes(slug)
   }
 
   return (
