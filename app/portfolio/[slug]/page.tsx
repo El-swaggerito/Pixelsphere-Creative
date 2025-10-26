@@ -213,7 +213,7 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
 
       {/* Design Showcase 3 */}
       <AnimatedSection>
-        <section className="py-16 bg-white">
+        <section className="py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-6xl mx-auto">
               <Image
