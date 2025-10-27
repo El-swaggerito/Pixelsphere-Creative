@@ -1,10 +1,42 @@
 'use client'
 
 import Image from 'next/image'
+import PageTransition from '@/components/PageTransition'
+import AnimatedSection from '@/components/AnimatedSection'
+import { motion, useReducedMotion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 export default function RealEstatePro() {
+  const shouldReduceMotion = useReducedMotion()
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+
+  useEffect(() => {
+    // Check for prefers-reduced-motion CSS media query
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches)
+    }
+    
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
+
+  // Animation variants that respect reduced motion preferences
+  const getAnimationProps = (baseProps: any) => {
+    if (shouldReduceMotion || prefersReducedMotion) {
+      return {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        transition: { duration: 0.2 }
+      }
+    }
+    return baseProps
+  }
   return (
-    <div className="min-h-screen">
+    <PageTransition>
+      <div className="min-h-screen">
       {/* Hero Section with Background */}
       <div className="relative min-h-screen">
         {/* Background Image */}
@@ -126,13 +158,20 @@ export default function RealEstatePro() {
                     Advanced
                   </button>
                   
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 flex items-center text-sm sm:text-base">
+                  <motion.button 
+                    className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold flex items-center text-sm sm:text-base"
+                    {...getAnimationProps({
+                      whileHover: { scale: 1.05, boxShadow: "0 10px 25px -5px rgba(249, 115, 22, 0.4)" },
+                      whileTap: { scale: 0.95 },
+                      transition: { duration: 0.2, ease: "easeOut" }
+                    })}
+                  >
                     <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                     <span className="hidden sm:inline">Search</span>
                     <span className="sm:hidden">Go</span>
-                  </button>
+                  </motion.button>
                 </div>
               </div>
             </div>
@@ -141,7 +180,8 @@ export default function RealEstatePro() {
       </div>
 
       {/* Explore Apartment Types Section */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-white">
+      <AnimatedSection>
+        <section className="py-16 sm:py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           {/* Section Header */}
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12 sm:mb-16 lg:mb-20">
@@ -150,7 +190,7 @@ export default function RealEstatePro() {
                 Explore Apartment Types
               </h2>
               <p className="text-gray-500 text-lg sm:text-xl lg:text-2xl max-w-lg font-light">
-                Aliquam lacinia diam quis lacus euismod
+                Find the perfect space that matches your style and comfort.
               </p>
             </div>
             
@@ -236,9 +276,11 @@ export default function RealEstatePro() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Featured Listings Section */}
-      <section className="py-16 bg-white">
+      <AnimatedSection>
+        <section className="py-16 bg-[#F7F7F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="flex justify-between items-start mb-12">
@@ -247,7 +289,7 @@ export default function RealEstatePro() {
                 Discover Our Featured Listings
               </h2>
               <p className="text-gray-600 text-lg">
-                Aliquam lacinia diam quis lacus euismod
+                Experience elegance with finely curated properties designed for your lifestyle.
               </p>
             </div>
             <a 
@@ -281,12 +323,24 @@ export default function RealEstatePro() {
             <div className="flex gap-6 mb-8">
               
               {/* Property Card 1 */}
-              <div className="flex-1 bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group border border-gray-100">
+              <motion.div 
+                className="flex-1 bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100"
+                whileHover={{ 
+                  scale: 1.02, 
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                  y: -4
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
                 <div className="relative">
-                  <img 
+                  <motion.img 
                     src="/images/realestatepro/list1.png" 
                     alt="Modern House Hollywood"
                     className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    loading="lazy"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="bg-red-500 text-white px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1 shadow-sm">
@@ -331,32 +385,59 @@ export default function RealEstatePro() {
                   </div>
 
                   <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                    <button className="text-orange-500 font-semibold text-sm hover:text-orange-600 transition-colors">
+                    <motion.button 
+                      className="text-orange-500 font-semibold text-sm"
+                      whileHover={{ scale: 1.05, color: "#ea580c" }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                    >
                       For Sale
-                    </button>
+                    </motion.button>
                     <div className="flex items-center gap-2">
-                      <button className="p-2 hover:bg-gray-100 rounded-full transition-colors group">
+                      <motion.button 
+                        className="p-2 rounded-full group"
+                        whileHover={{ backgroundColor: "#f3f4f6", scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{ duration: 0.2 }}
+                      >
                         <svg className="w-4 h-4 text-gray-600 group-hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                         </svg>
-                      </button>
-                      <button className="p-2 hover:bg-gray-100 rounded-full transition-colors group">
+                      </motion.button>
+                      <motion.button 
+                        className="p-2 rounded-full group"
+                        whileHover={{ backgroundColor: "#f3f4f6", scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{ duration: 0.2 }}
+                      >
                         <svg className="w-4 h-4 text-gray-600 group-hover:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
                         </svg>
-                      </button>
+                      </motion.button>
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Property Card 2 */}
-              <div className="flex-1 bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group border border-gray-100">
+              <motion.div 
+                className="flex-1 bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100"
+                whileHover={{ 
+                  scale: 1.02, 
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                  y: -4
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
                 <div className="relative">
-                  <img 
+                  <motion.img 
                     src="/images/realestatepro/list2.png" 
                     alt="Luxury Villa Green"
                     className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                    loading="lazy"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="bg-red-500 text-white px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1 shadow-sm">
@@ -418,15 +499,27 @@ export default function RealEstatePro() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Property Card 3 */}
-              <div className="flex-1 bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group border border-gray-100">
+              <motion.div 
+                className="flex-1 bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100"
+                whileHover={{ 
+                  scale: 1.02, 
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                  y: -4
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
                 <div className="relative">
-                  <img 
+                  <motion.img 
                     src="/images/realestatepro/list3.png" 
                     alt="Premium Penthouse"
                     className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                    loading="lazy"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="bg-red-500 text-white px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1 shadow-sm">
@@ -488,7 +581,7 @@ export default function RealEstatePro() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
             </div>
 
@@ -501,9 +594,11 @@ export default function RealEstatePro() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* See How Realtor Can Help Section */}
-      <section className="py-20 bg-gray-50">
+      <AnimatedSection>
+        <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -511,7 +606,7 @@ export default function RealEstatePro() {
               See How Realtor Can Help
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Aliquam lacinia diam quis lacus euismod
+              Get expert guidance to find, buy, or sell your dream property with ease.
             </p>
           </div>
 
@@ -583,9 +678,11 @@ export default function RealEstatePro() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* About Us Section */}
-      <section className="py-20 bg-gray-900 text-white">
+      <AnimatedSection>
+        <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -692,129 +789,143 @@ export default function RealEstatePro() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
-      {/* Explore Cities Section */}
+    {/* Explore Cities Section */}
+    <AnimatedSection>
       <section className="py-20 bg-gray-50">
-        <div className="max-w-[1200px] mx-auto px-6">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-[48px] leading-[58px] font-bold text-gray-900 mb-4 tracking-[-0.02em]">
-              Explore Cities
-            </h2>
-            <p className="text-[18px] leading-[28px] text-gray-600 max-w-[600px] mx-auto font-normal">
-              Aliquam lacinia diam quis lacus euismod
-            </p>
-          </div>
+  <div className="max-w-[1200px] mx-auto px-6">
+    {/* Section Header */}
+    <div className="text-center mb-16">
+      <h2 className="text-[48px] leading-[58px] font-bold text-gray-900 mb-4 tracking-[-0.02em]">
+        Explore Cities
+      </h2>
+      <p className="text-[18px] leading-[28px] text-gray-600 max-w-[600px] mx-auto font-normal">
+        Find your next home in the most sought-after locations.
+      </p>
+    </div>
 
-          {/* Cities Grid - Pixel Perfect Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1200px] mx-auto">
-            {/* Toronto - Large Card */}
-            <div className="md:col-span-2 lg:col-span-1 lg:row-span-2 group cursor-pointer">
-              <div className="relative h-[384px] lg:h-[552px] rounded-[16px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-2">
-                <img
-                  src="/images/realestatepro/city1.jpg"
-                  alt="Toronto skyline with downtown buildings and urban landscape"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 text-white">
-                  <h3 className="text-[24px] leading-[32px] font-bold mb-2 tracking-[-0.01em]">Toronto</h3>
-                  <p className="text-[16px] leading-[24px] text-gray-200 font-normal">10 Properties</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Calgary */}
-            <div className="group cursor-pointer">
-              <div className="relative h-[264px] rounded-[16px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-2">
-                <img
-                  src="/images/realestatepro/city2.jpg"
-                  alt="Calgary cityscape with modern architecture and waterfront view"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 text-white">
-                  <h3 className="text-[20px] leading-[28px] font-bold mb-1 tracking-[-0.01em]">Calgary</h3>
-                  <p className="text-[16px] leading-[24px] text-gray-200 font-normal">1 Property</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Vancouver */}
-            <div className="group cursor-pointer">
-              <div className="relative h-[264px] rounded-[16px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-2">
-                <img
-                  src="/images/realestatepro/city3.jpg"
-                  alt="Vancouver downtown with high-rise buildings and mountain backdrop"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 text-white">
-                  <h3 className="text-[20px] leading-[28px] font-bold mb-1 tracking-[-0.01em]">Vancouver</h3>
-                  <p className="text-[16px] leading-[24px] text-gray-200 font-normal">0 Properties</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Edmonton */}
-            <div className="group cursor-pointer">
-              <div className="relative h-[184px] rounded-[16px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-2">
-                <img
-                  src="/images/realestatepro/city4.jpg"
-                  alt="Edmonton urban landscape with residential and commercial areas"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 text-white">
-                  <h3 className="text-[18px] leading-[24px] font-bold mb-1 tracking-[-0.01em]">Edmonton</h3>
-                  <p className="text-[14px] leading-[20px] text-gray-200 font-normal">1 Property</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Kitchener */}
-            <div className="group cursor-pointer">
-              <div className="relative h-[184px] rounded-[16px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-2">
-                <img
-                  src="/images/realestatepro/city5.jpg"
-                  alt="Kitchener city center with palm trees and modern development"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 text-white">
-                  <h3 className="text-[18px] leading-[24px] font-bold mb-1 tracking-[-0.01em]">Kitchener</h3>
-                  <p className="text-[14px] leading-[20px] text-gray-200 font-normal">2 Properties</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Ottawa - Large Card */}
-            <div className="md:col-span-2 group cursor-pointer">
-              <div className="relative h-[184px] rounded-[16px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)] transition-all duration-500 transform hover:-translate-y-2">
-                <img
-                  src="/images/realestatepro/city6.jpg"
-                  alt="Ottawa scenic view with Golden Gate Bridge and coastal landscape"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 text-white">
-                  <h3 className="text-[20px] leading-[28px] font-bold mb-1 tracking-[-0.01em]">Ottawa</h3>
-                  <p className="text-[16px] leading-[24px] text-gray-200 font-normal">1 Property</p>
-                </div>
-              </div>
-            </div>
+    {/* Optimized 4-column grid layout */}
+    <div
+      className="
+        grid grid-cols-1 gap-6
+        md:grid-cols-2
+        lg:grid-cols-4 lg:auto-rows-[264px]
+        max-w-[1200px] mx-auto
+      "
+    >
+      {/* First Row */}
+      {/* Toronto – spans 2 columns (row 1, cols 1-2) */}
+      <div className="group cursor-pointer lg:col-start-1 lg:col-span-2 lg:row-start-1">
+        <div className="relative h-[264px] rounded-[16px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)] transition-all duration-500 hover:-translate-y-2">
+          <img
+            src="/images/realestatepro/toronto.jpg"
+            alt="Toronto skyline"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <div className="absolute bottom-6 left-6 text-white">
+            <h3 className="text-[24px] leading-[32px] font-bold mb-2 tracking-[-0.01em]">Toronto</h3>
+            <p className="text-[16px] leading-[24px] text-gray-200">10 Properties</p>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Calgary – single column (row 1, col 3) */}
+      <div className="group cursor-pointer lg:col-start-3 lg:row-start-1">
+        <div className="relative h-[264px] rounded-[16px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)] transition-all duration-500 hover:-translate-y-2">
+          <img
+            src="/images/realestatepro/calgary.jpg"
+            alt="Calgary skyline"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <div className="absolute bottom-6 left-6 text-white">
+            <h3 className="text-[20px] leading-[28px] font-bold mb-1 tracking-[-0.01em]">Calgary</h3>
+            <p className="text-[16px] leading-[24px] text-gray-200">1 Property</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Vancouver – single column (row 1, col 4) */}
+      <div className="group cursor-pointer lg:col-start-4 lg:row-start-1">
+        <div className="relative h-[264px] rounded-[16px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)] transition-all duration-500 hover:-translate-y-2">
+          <img
+            src="/images/realestatepro/vancouver.jpg"
+            alt="Vancouver skyline"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <div className="absolute bottom-6 left-6 text-white">
+            <h3 className="text-[20px] leading-[28px] font-bold mb-1 tracking-[-0.01em]">Vancouver</h3>
+            <p className="text-[16px] leading-[24px] text-gray-200">0 Properties</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Second Row */}
+      {/* Edmonton – single column (row 2, col 1) */}
+      <div className="group cursor-pointer lg:col-start-1 lg:row-start-2">
+        <div className="relative h-[264px] rounded-[16px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)] transition-all duration-500 hover:-translate-y-2">
+          <img
+            src="/images/realestatepro/edmonton.jpg"
+            alt="Edmonton city"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <div className="absolute bottom-6 left-6 text-white">
+            <h3 className="text-[18px] leading-[24px] font-bold mb-1 tracking-[-0.01em]">Edmonton</h3>
+            <p className="text-[14px] leading-[20px] text-gray-200">1 Property</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Kitchener – single column (row 2, col 2) */}
+      <div className="group cursor-pointer lg:col-start-2 lg:row-start-2">
+        <div className="relative h-[264px] rounded-[16px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)] transition-all duration-500 hover:-translate-y-2">
+          <img
+            src="/images/realestatepro/kitchener.jpg"
+            alt="Kitchener city"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <div className="absolute bottom-6 left-6 text-white">
+            <h3 className="text-[18px] leading-[24px] font-bold mb-1 tracking-[-0.01em]">Kitchener</h3>
+            <p className="text-[14px] leading-[20px] text-gray-200">2 Properties</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Ottawa – spans 2 columns (row 2, cols 3-4) */}
+      <div className="group cursor-pointer lg:col-start-3 lg:col-span-2 lg:row-start-2">
+        <div className="relative h-[264px] rounded-[16px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.2)] transition-all duration-500 hover:-translate-y-2">
+          <img
+            src="/images/realestatepro/ottawa.jpg"
+            alt="Ottawa city"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <div className="absolute bottom-6 left-6 text-white">
+            <h3 className="text-[20px] leading-[28px] font-bold mb-1 tracking-[-0.01em]">Ottawa</h3>
+            <p className="text-[16px] leading-[24px] text-gray-200">1 Property</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</AnimatedSection>
+
 
       {/* Testimonials Section */}
-      <section className="py-[120px] bg-white">
+      <AnimatedSection>
+        <section className="py-[120px] bg-[#F7F7F7]">
         <div className="max-w-[1200px] mx-auto px-6">
           {/* Section Header */}
           <div className="text-center mb-[80px]">
@@ -822,7 +933,7 @@ export default function RealEstatePro() {
               People Love Living with Real estate pro
             </h2>
             <p className="text-[18px] leading-[28px] text-gray-600 font-normal">
-              Aliquam lacinia diam quis lacus euismod
+              Find your next home in the most sought-after locations.
             </p>
           </div>
 
@@ -931,9 +1042,11 @@ export default function RealEstatePro() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* CTA Section */}
-       <section className="py-16 sm:py-20 lg:py-32 bg-gray-50">
+      <AnimatedSection>
+        <section className="  bg-[#EB675312]">
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
             {/* Content */}
@@ -948,21 +1061,37 @@ export default function RealEstatePro() {
                </div>
                
                {/* CTA Button */}
-               <button className="group inline-flex items-center gap-3 bg-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg hover:bg-gray-800 transition-all duration-300 hover:shadow-lg hover:scale-105 animate-fade-in-up animation-delay-600">
+               <motion.button 
+                 className="group inline-flex items-center gap-3 bg-gray-900 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg animate-fade-in-up animation-delay-600"
+                 {...getAnimationProps({
+                   whileHover: { 
+                     scale: 1.05, 
+                     backgroundColor: "#1f2937",
+                     boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
+                   },
+                   whileTap: { scale: 0.95 },
+                   transition: { duration: 0.2, ease: "easeOut" }
+                 })}
+               >
                  Get Started
                  <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                  </svg>
-               </button>
+               </motion.button>
              </div>
 
              {/* Image */}
              <div className="relative order-1 lg:order-2 animate-fade-in-up animation-delay-300">
                <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl hover:shadow-3xl transition-shadow duration-500">
-                 <img
+                 <motion.img
                    src="/images/realestatepro/cta.png"
                    alt="Modern architectural building with blue glass facades representing dream house"
                    className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover transform hover:scale-105 transition-transform duration-700"
+                   {...getAnimationProps({
+                     initial: { opacity: 0, scale: 1.1 },
+                     animate: { opacity: 1, scale: 1 },
+                     transition: { duration: 0.8, ease: "easeOut", delay: 0.3 }
+                   })}
                    loading="lazy"
                  />
                  {/* Overlay for better image quality */}
@@ -972,6 +1101,7 @@ export default function RealEstatePro() {
           </div>
         </div>
       </section>
+      </AnimatedSection>
 
       {/* Footer Section */}
       <footer className="bg-gray-900 text-white">
@@ -983,7 +1113,7 @@ export default function RealEstatePro() {
             <div className="sm:col-span-2 lg:col-span-2 space-y-6">
               <div className="flex items-center gap-3">
                 <img 
-                  src="/realestatepro/logo.png" 
+                  src="/images/realestatepro/logo.png" 
                   alt="RealEstate Pro Logo" 
                   className="w-10 h-10 object-contain"
                   loading="lazy"
@@ -1124,5 +1254,6 @@ export default function RealEstatePro() {
         </div>
       </footer>
     </div>
+    </PageTransition>
   )
 }
