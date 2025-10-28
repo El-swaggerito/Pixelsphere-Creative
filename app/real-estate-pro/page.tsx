@@ -1189,7 +1189,7 @@ export default function RealEstatePro() {
                 <div>
                   <h3 className="text-[24px] leading-[32px] font-bold text-gray-900 mb-6">Great Work</h3>
                   <p className="text-[16px] leading-[26px] text-gray-700 mb-8">
-                    "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et"
+                  At truly excellent standards, they delivered beyond expectations and maintained professionalism throughout.
                   </p>
                   {/* Star Rating */}
                   <div className="flex gap-1 mb-8">
@@ -1220,7 +1220,7 @@ export default function RealEstatePro() {
                 <div>
                   <h3 className="text-[24px] leading-[32px] font-bold text-gray-900 mb-6">Good Job</h3>
                   <p className="text-[16px] leading-[26px] text-gray-700 mb-8">
-                    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae"
+        They handled everything efficiently and with great attention to detail. I’m very satisfied with the results.
                   </p>
                   {/* Star Rating - 4 stars */}
                   <div className="flex gap-1 mb-8">
@@ -1254,7 +1254,7 @@ export default function RealEstatePro() {
                 <div>
                   <h3 className="text-[24px] leading-[32px] font-bold text-gray-900 mb-6">Perfect</h3>
                   <p className="text-[16px] leading-[26px] text-gray-700 mb-8">
-                    "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo"
+                 They handled everything efficiently and with great attention to detail. I’m very satisfied with the results.
                   </p>
                   {/* Star Rating */}
                   <div className="flex gap-1 mb-8">
