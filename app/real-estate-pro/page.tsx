@@ -1253,8 +1253,9 @@ export default function RealEstatePro() {
               <div className="bg-gray-50 rounded-[24px] p-6 sm:p-8 h-[380px] sm:h-[400px] flex flex-col justify-between group hover:shadow-lg transition-all duration-300">
                 <div>
                   <h3 className="text-[24px] leading-[32px] font-bold text-gray-900 mb-6">Perfect</h3>
+            
                   <p className="text-[16px] leading-[26px] text-gray-700 mb-8">
-                 They handled everything efficiently and with great attention to detail. I’m very satisfied with the results.
+            The process was smooth and stress-free. Their expertise made everything simple and successful.
                   </p>
                   {/* Star Rating */}
                   <div className="flex gap-1 mb-8">

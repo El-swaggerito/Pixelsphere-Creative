@@ -10,8 +10,8 @@ export const beautyHubProject = {
   featuredImage: "/images/beautyhub.png",
   images: {
     showcase1: "/images/beautyhub-1.png",
-    showcase2: "/images/beautyhub-2.png",
-    showcase3: "/images/beautyhub-3.png",
+    showcase2: "/images/beautyhub-3.jpg",
+    showcase3: "/images/beautyhub-2.png",
     showcase4: null,
   },
   briefDescription: `Beauty Hub is a premium skincare brand focused on natural, effective beauty solutions. The client needed a sophisticated digital platform to showcase their skincare expertise, educate customers about ingredients, and build trust in the competitive beauty market.
