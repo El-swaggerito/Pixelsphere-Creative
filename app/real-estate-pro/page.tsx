@@ -1299,7 +1299,7 @@ export default function RealEstatePro() {
                    Get Your Dream House
                  </h2>
                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg animate-fade-in-up animation-delay-400">
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                   Discover beautiful properties tailored to your lifestyle and make your dream a reality.
                  </p>
                </div>
                
