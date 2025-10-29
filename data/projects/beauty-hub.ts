@@ -51,6 +51,7 @@ Our color palette features soft earth tones, calming greens, and clean whites, r
     client: "Dr. Sarah Dang, Beauty Hub Founder",
     rating: 5,
   },
+  brandingLink: "/portfolio/beauty-hub/branding",
   technologies: ["HTML5", "CSS3", "JavaScript", "WordPress"],
   deliverables: [
     "Complete E-commerce Platform Design & Development",

@@ -1,7 +1,7 @@
 export const dripAndGrindProject = {
   slug: "drip-and-grind",
   title: "Drip and Grind",
-  category: "Web Design & Branding",
+  category: "Web Development & Branding",
   categoryColor: "bg-purple-100 text-purple-800",
   client: "Drip and Grind",
   clientDesignation: "Coffee Shop & Co-working Space",

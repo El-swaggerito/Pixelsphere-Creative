@@ -17,7 +17,7 @@ import { projects } from "@/data/projects";
 import React from "react";
 
 export default function WorkPage() {
-  const [activeFilter, setActiveFilter] = React.useState<"all" | "web" | "branding">("all");
+  const [activeFilter, setActiveFilter] = React.useState<"all" | "web-dev-branding" | "web-development" | "branding">("all");
 
   const scrollToContactForm = () => {
     const contactForm = document.getElementById("contact-form");
@@ -36,22 +36,34 @@ export default function WorkPage() {
     }
   };
 
-  // Define filter mapping based on project categories
-  const webSlugs = React.useMemo(
-    () => ["drip-and-grind", "hope-foundation", "edtech-learning-platform", "real-estate-pro", "beauty-hub", "african-food-store"],
+  // Define filter mapping based on project categories and requirements
+  const webDevBrandingSlugs = React.useMemo(
+    () => ["african-food-store", "beauty-hub", "drip-and-grind", "edtech-learning-platform", "hope-foundation"],
+    []
+  );
+
+  const webDevelopmentSlugs = React.useMemo(
+    () => ["real-estate-pro"],
+    []
+  );
+
+  const brandingSlugs = React.useMemo(
+    () => ["chopify"],
     []
   );
 
   const filteredProjects = React.useMemo(() => {
     switch (activeFilter) {
-      case "web":
-        return projects.filter((p) => webSlugs.includes(p.slug));
+      case "web-dev-branding":
+        return projects.filter((p) => webDevBrandingSlugs.includes(p.slug));
+      case "web-development":
+        return projects.filter((p) => webDevelopmentSlugs.includes(p.slug));
       case "branding":
-        return projects.filter((p) => p.slug === "chopify");
+        return projects.filter((p) => brandingSlugs.includes(p.slug));
       default:
         return projects;
     }
-  }, [activeFilter, webSlugs]);
+  }, [activeFilter, webDevBrandingSlugs, webDevelopmentSlugs, brandingSlugs]);
 
   return (
     <PageTransition>
@@ -174,28 +186,52 @@ export default function WorkPage() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div className="flex flex-wrap justify-center gap-3">
+                <div className="flex flex-wrap justify-center gap-4">
                   <motion.button
-                    className={`${activeFilter === "all" ? "bg-orange-500 text-white" : "text-gray-600 hover:text-gray-900"} px-6 py-2 rounded-lg font-medium`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setActiveFilter("all")}
+                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform ${
+                      activeFilter === "all"
+                        ? "bg-orange-500 text-white shadow-lg"
+                        : "bg-white text-gray-700 border border-gray-300 hover:bg-orange-50 hover:border-orange-300"
+                    }`}
                   >
-                    All
+                    All Projects
                   </motion.button>
                   <motion.button
-                    className={`${activeFilter === "web" ? "bg-orange-500 text-white" : "text-gray-600 hover:text-gray-900"} px-6 py-2 rounded-lg font-medium`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => setActiveFilter("web")}
+                    onClick={() => setActiveFilter("web-dev-branding")}
+                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform ${
+                      activeFilter === "web-dev-branding"
+                        ? "bg-orange-500 text-white shadow-lg"
+                        : "bg-white text-gray-700 border border-gray-300 hover:bg-orange-50 hover:border-orange-300"
+                    }`}
+                  >
+                    Web Dev & Branding
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setActiveFilter("web-development")}
+                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform ${
+                      activeFilter === "web-development"
+                        ? "bg-orange-500 text-white shadow-lg"
+                        : "bg-white text-gray-700 border border-gray-300 hover:bg-orange-50 hover:border-orange-300"
+                    }`}
                   >
                     Web Development
                   </motion.button>
                   <motion.button
-                    className={`${activeFilter === "branding" ? "bg-orange-500 text-white" : "text-gray-600 hover:text-gray-900"} px-6 py-2 rounded-lg font-medium`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setActiveFilter("branding")}
+                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform ${
+                      activeFilter === "branding"
+                        ? "bg-orange-500 text-white shadow-lg"
+                        : "bg-white text-gray-700 border border-gray-300 hover:bg-orange-50 hover:border-orange-300"
+                    }`}
                   >
                     Branding
                   </motion.button>
@@ -205,20 +241,52 @@ export default function WorkPage() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeFilter}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ 
+                    duration: 0.4,
+                    ease: "easeInOut"
+                  }}
                   className="space-y-20"
                 >
                   {filteredProjects.map((project, index) => (
-                    <React.Fragment key={project.slug}>
+                    <motion.div
+                      key={project.slug}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ 
+                        duration: 0.5,
+                        delay: index * 0.1,
+                        ease: "easeOut"
+                      }}
+                    >
                       <ProjectCard {...project} />
                       {index < filteredProjects.length - 1 && (
-                        <hr className="border-orange-200" />
+                        <motion.hr 
+                          className="border-orange-200 mt-20"
+                          initial={{ scaleX: 0 }}
+                          animate={{ scaleX: 1 }}
+                          transition={{ 
+                            duration: 0.3,
+                            delay: (index * 0.1) + 0.2
+                          }}
+                        />
                       )}
-                    </React.Fragment>
+                    </motion.div>
                   ))}
+                  
+                  {/* Show message when no projects match filter */}
+                  {filteredProjects.length === 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className="text-center py-20"
+                    >
+                      <p className="text-gray-500 text-lg">No projects found in this category.</p>
+                    </motion.div>
+                  )}
                 </motion.div>
               </AnimatePresence>
             </div>

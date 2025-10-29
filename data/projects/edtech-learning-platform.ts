@@ -1,7 +1,7 @@
 export const edtechLearningPlatformProject = {
   slug: "edtech-learning-platform",
   title: "EdTech Learning Platform",
-  category: "Web Design & Development",
+  category: "Web Development & Branding",
   categoryColor: "bg-blue-100 text-blue-800",
   client: "EduTech Solutions",
   clientDesignation: "Educational Technology",

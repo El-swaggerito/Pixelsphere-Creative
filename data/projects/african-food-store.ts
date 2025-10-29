@@ -53,6 +53,7 @@ Our color palette features contemporary blues and clean whites, representing tru
     clientPosition: "E-commerce Director",
     clientCompany: "TechRetail Solutions"
   },
+  brandingLink: "/portfolio/african-food-store/branding",
   technologies: ["HTML5", "CSS3", "JavaScript"],
   deliverables: [
     "Complete E-commerce Platform with Cultural Focus",

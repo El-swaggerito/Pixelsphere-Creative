@@ -1,7 +1,7 @@
 export const realEstateProProject = {
   slug: "real-estate-pro",
   title: "Real Estate Pro",
-  category: "Web Development & Branding",
+  category: "Web Development",
   categoryColor: "bg-blue-100 text-blue-800",
   client: "Real Estate Pro",
   clientDesignation: "Property Management Platform",
