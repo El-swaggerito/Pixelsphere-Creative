@@ -1,0 +1,1658 @@
+/* Time Burner Font Implementation for Beauty-Hub Page Only */
+
+/* Font Face Declarations with Cross-Browser Compatibility */
+@font-face {
+  font-family: 'Time Burner';
+  src: url('/fonts/timeburnernormal.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Time Burner';
+  src: url('/fonts/timeburnerbold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Beauty-Hub Page Specific Font Implementation */
+/* High specificity targeting for beauty-hub page only */
+.beauty-hub-page,
+.beauty-hub-page * {
+  font-family: 'Time Burner', 'Georgia', 'Times New Roman', serif !important;
+}
+
+/* Specific targeting for all text elements within beauty-hub */
+.beauty-hub-page h1,
+.beauty-hub-page h2,
+.beauty-hub-page h3,
+.beauty-hub-page h4,
+.beauty-hub-page h5,
+.beauty-hub-page h6,
+.beauty-hub-page span,
+.beauty-hub-page div,
+.beauty-hub-page a,
+.beauty-hub-page button,
+.beauty-hub-page input,
+.beauty-hub-page textarea,
+.beauty-hub-page label,
+.beauty-hub-page li,
+.beauty-hub-page td,
+.beauty-hub-page th {
+  font-family: 'Time Burner', 'Georgia', 'Times New Roman', serif !important;
+}
+
+/* Override paragraphs to use Inter font */
+.beauty-hub-page p {
+  font-family: 'Time Burner', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif !important;
+}
+
+/* Navigation and Footer within beauty-hub page */
+.beauty-hub-page nav,
+.beauty-hub-page nav *,
+.beauty-hub-page footer,
+.beauty-hub-page footer * {
+  font-family: 'Time Burner', 'Georgia', 'Times New Roman', serif !important;
+}
+
+/* Ensure proper font weights are maintained */
+.beauty-hub-page .font-bold,
+.beauty-hub-page [class*="font-bold"],
+.beauty-hub-page strong,
+.beauty-hub-page b,
+.beauty-hub-page h1,
+.beauty-hub-page h2,
+.beauty-hub-page h3 {
+  font-weight: 700 !important;
+}
+
+/* ===== NEW FOOTER STYLES ===== */
+/* Footer Container */
+.beauty-hub-page footer {
+  background-color: #F5F1E8 !important;
+  color: #2D2D2D !important;
+  padding: 4rem 1rem !important;
+  font-family: 'Time Burner', 'Georgia', 'Times New Roman', serif !important;
+}
+
+/* Footer Grid Layout */
+.beauty-hub-page footer .max-w-7xl {
+  max-width: 80rem !important;
+  margin: 0 auto !important;
+}
+
+.beauty-hub-page footer .grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 3rem !important;
+}
+
+@media (min-width: 1024px) {
+  .beauty-hub-page footer .grid {
+    grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr !important;
+    gap: 4rem !important;
+  }
+}
+
+/* Brand Section */
+.beauty-hub-page footer .lg\\:col-span-1 {
+  grid-column: span 1 !important;
+}
+
+.beauty-hub-page footer .space-y-6 > * + * {
+  margin-top: 1.5rem !important;
+}
+
+/* Logo Circle */
+.beauty-hub-page footer .w-12.h-12.rounded-full {
+  width: 3rem !important;
+  height: 3rem !important;
+  background-color: #E8DDD0 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.beauty-hub-page footer .w-12.h-12.rounded-full span {
+  color: #8B7355 !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  font-family: 'Time Burner', 'Georgia', 'Times New Roman', serif !important;
+}
+
+
+/* Social Media Icons */
+.beauty-hub-page footer .flex.space-x-4 {
+  display: flex !important;
+  gap: 1rem !important;
+}
+
+.beauty-hub-page footer .w-8.h-8.rounded-full {
+  width: 2rem !important;
+  height: 2rem !important;
+  background-color: #E8DDD0 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #8B7355 !important;
+  transition: background-color 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.beauty-hub-page footer .w-8.h-8.rounded-full:hover {
+  background-color: #D4C4B0 !important;
+}
+
+.beauty-hub-page footer .w-8.h-8.rounded-full svg,
+.beauty-hub-page footer .w-8.h-8.rounded-full .lucide {
+  width: 1rem !important;
+  height: 1rem !important;
+}
+
+/* Section Headings */
+.beauty-hub-page footer h3 {
+  color: #2D2D2D !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 1.5rem !important;
+  font-family: 'Time Burner', 'Georgia', 'Times New Roman', serif !important;
+}
+
+/* Navigation Lists */
+.beauty-hub-page footer ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.beauty-hub-page footer .space-y-3 > li + li {
+  margin-top: 0.75rem !important;
+}
+
+/* Footer Links */
+.beauty-hub-page footer a {
+  color: #666666 !important;
+  font-size: 0.875rem !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+  font-family: 'Time Burner', 'Georgia', 'Times New Roman', serif !important;
+  line-height: 1.4 !important;
+}
+
+.beauty-hub-page footer a:hover {
+  color: #2D2D2D !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1023px) {
+  .beauty-hub-page footer {
+    padding: 3rem 1rem !important;
+  }
+  
+  .beauty-hub-page footer .grid {
+    gap: 2.5rem !important;
+  }
+  
+  .beauty-hub-page footer .space-y-6 > * + * {
+    margin-top: 1.25rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .beauty-hub-page footer {
+    padding: 2.5rem 1rem !important;
+  }
+  
+  .beauty-hub-page footer .grid {
+    gap: 2rem !important;
+  }
+  
+  .beauty-hub-page footer .flex.space-x-4 {
+    gap: 0.75rem !important;
+  }
+  
+  .beauty-hub-page footer .w-8.h-8.rounded-full {
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+  }
+  
+  .beauty-hub-page footer .w-8.h-8.rounded-full svg,
+  .beauty-hub-page footer .w-8.h-8.rounded-full .lucide {
+    width: 0.875rem !important;
+    height: 0.875rem !important;
+  }
+}
+
+/* Focus States for Accessibility */
+.beauty-hub-page footer a:focus,
+.beauty-hub-page footer .w-8.h-8.rounded-full:focus {
+  outline: 2px solid #8B7355 !important;
+  outline-offset: 2px !important;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .beauty-hub-page footer {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  
+  .beauty-hub-page footer a {
+    color: #333333 !important;
+  }
+  
+  .beauty-hub-page footer a:hover {
+    color: #000000 !important;
+  }
+  
+  .beauty-hub-page footer .w-12.h-12.rounded-full,
+  .beauty-hub-page footer .w-8.h-8.rounded-full {
+    background-color: #E0E0E0 !important;
+    color: #000000 !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .beauty-hub-page footer {
+    background-color: transparent !important;
+    color: #000000 !important;
+    padding: 1rem 0 !important;
+  }
+  
+  .beauty-hub-page footer .w-8.h-8.rounded-full {
+    display: none !important;
+  }
+}
+
+/* Performance Optimizations */
+.beauty-hub-page footer * {
+  will-change: auto !important;
+}
+
+.beauty-hub-page footer a,
+.beauty-hub-page footer .w-8.h-8.rounded-full {
+  transform: translateZ(0) !important;
+}
+
+.beauty-hub-page .font-normal,
+.beauty-hub-page [class*="font-normal"],
+.beauty-hub-page span {
+  font-weight: 400 !important;
+}
+
+/* Paragraph specific font weights with Inter */
+.beauty-hub-page p {
+  font-weight: 400 !important;
+}
+
+.beauty-hub-page .font-light,
+.beauty-hub-page [class*="font-light"] {
+  font-weight: 300 !important;
+}
+
+.beauty-hub-page .font-medium,
+.beauty-hub-page [class*="font-medium"] {
+  font-weight: 500 !important;
+}
+
+.beauty-hub-page .font-semibold,
+.beauty-hub-page [class*="font-semibold"] {
+  font-weight: 600 !important;
+}
+
+/* Ensure font inheritance for dynamic content */
+.beauty-hub-page [class*="text-"],
+.beauty-hub-page [class*="font-"] {
+  font-family: 'Time Burner', 'Georgia', 'Times New Roman', serif !important;
+}
+
+/* Override for paragraph elements with text classes */
+.beauty-hub-page p[class*="text-"],
+.beauty-hub-page p[class*="font-"] {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif !important;
+}
+
+/* Benefits of Wellness Section Styles */
+.benefits-wellness-section {
+  background: linear-gradient(135deg, #F8F6F3 0%, #F5F2EE 100%);
+}
+
+.benefit-card {
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.benefit-card:hover {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(45, 90, 61, 0.1);
+}
+
+.benefit-icon-wrapper {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.benefit-icon-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(135deg, #2D5A3D, #8B4513);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.benefit-card:hover .benefit-icon-wrapper::before {
+  opacity: 0.1;
+}
+
+/* Typography refinements for Benefits section */
+.benefits-wellness-section h2 {
+  font-family: 'Time Burner', serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(45, 90, 61, 0.1);
+}
+
+.benefits-wellness-section h3 {
+  font-family: 'Time Burner', serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.benefits-wellness-section p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .benefit-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .benefits-wellness-section {
+    padding: 4rem 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .benefits-wellness-section h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .benefit-icon-wrapper {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .benefit-icon-wrapper svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+/* Focus states for accessibility */
+.benefit-card:focus-visible {
+  outline: 2px solid #2D5A3D;
+  outline-offset: 4px;
+}
+
+.benefit-icon-wrapper:focus-visible {
+  outline: 2px solid #2D5A3D;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+/* Animation performance optimization */
+.benefit-card {
+  will-change: transform;
+}
+
+.benefit-icon-wrapper svg {
+  will-change: transform;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .benefit-card,
+  .benefit-icon-wrapper,
+  .benefit-icon-wrapper svg {
+    transition: none;
+  }
+  
+  .animate-pulse {
+    animation: none;
+  }
+}
+
+/* ===== BENEFITS OF WELLNESS SECTION ===== */
+.benefits-wellness-section {
+  position: relative;
+  background: linear-gradient(135deg, #F8F9FA 0%, #F1F3F4 100%);
+}
+
+/* Wellness Products Grid */
+.wellness-products-grid {
+  position: relative;
+}
+
+/* Wellness Product Cards */
+.wellness-product-card {
+  position: relative;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.wellness-product-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Product Image Container */
+.product-image-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.product-image-container > div {
+  aspect-ratio: 1;
+  border-radius: 24px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wellness-product-card:hover .product-image-container > div {
+  transform: scale(1.02);
+}
+
+.product-image-container img {
+  width: 100%;
+  height: 100%;
+  max-width: 280px;
+  max-height: 280px;
+  object-fit: contain;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+}
+
+.wellness-product-card:hover .product-image-container img {
+  transform: scale(1.1);
+}
+
+/* Product Info Styling */
+.wellness-product-card .product-info {
+  text-align: center;
+}
+
+.wellness-product-card h3 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: #722F37;
+  transition: color 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .wellness-product-card h3 {
+    font-size: 1.875rem;
+  }
+}
+
+.wellness-product-card:hover h3 {
+  color: #5A252A;
+}
+
+/* Price Container */
+.price-container {
+  margin: 1.5rem 0;
+}
+
+.price-container span {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 1.2;
+  color: #4ADE80;
+  text-shadow: 0 2px 4px rgba(74, 222, 128, 0.2);
+}
+
+@media (min-width: 1024px) {
+  .price-container span {
+    font-size: 2.25rem;
+  }
+}
+
+/* Buy Button Styling */
+.buy-button {
+  background: linear-gradient(135deg, #722F37 0%, #5A252A 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 14px rgba(114, 47, 55, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.buy-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.buy-button:hover::before {
+  left: 100%;
+}
+
+.buy-button:hover {
+  background: linear-gradient(135deg, #5A252A 0%, #4A1F24 100%);
+  transform: scale(1.05);
+  box-shadow: 
+    0 8px 25px rgba(114, 47, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.buy-button:active {
+  transform: scale(0.95);
+}
+
+.buy-button:focus {
+  outline: none;
+  box-shadow: 
+    0 4px 14px rgba(114, 47, 55, 0.3),
+    0 0 0 4px rgba(114, 47, 55, 0.3);
+}
+
+.buy-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.buy-button:hover svg {
+  transform: translateX(4px);
+}
+
+/* Section Header Styling */
+.benefits-wellness-section h2 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #2D2D2D;
+  margin-bottom: 1.5rem;
+}
+
+.benefits-wellness-section p {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #6B7280;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .benefits-wellness-section {
+    padding: 4rem 0;
+  }
+  
+  .wellness-product-card {
+    padding: 1.5rem;
+  }
+  
+  .product-image-container {
+    margin-bottom: 1.5rem;
+  }
+  
+  .product-image-container > div {
+    padding: 1.5rem;
+  }
+  
+  .wellness-product-card h3 {
+    font-size: 1.5rem;
+  }
+  
+  .price-container span {
+    font-size: 1.875rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefits-wellness-section {
+    padding: 3rem 0;
+  }
+  
+  .wellness-products-grid .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .wellness-product-card {
+    padding: 1.25rem;
+    border-radius: 20px;
+  }
+  
+  .product-image-container > div {
+    border-radius: 20px;
+    padding: 1.25rem;
+  }
+  
+  .wellness-product-card h3 {
+    font-size: 1.375rem;
+  }
+  
+  .price-container span {
+    font-size: 1.75rem;
+  }
+  
+  .buy-button {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .benefits-wellness-section {
+    padding: 2.5rem 0;
+  }
+  
+  .benefits-wellness-section h2 {
+    font-size: 1.875rem;
+  }
+  
+  .wellness-product-card {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+  
+  .product-image-container > div {
+    border-radius: 16px;
+    padding: 1rem;
+  }
+  
+  .product-image-container img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+  
+  .wellness-product-card h3 {
+    font-size: 1.25rem;
+  }
+  
+  .price-container span {
+    font-size: 1.5rem;
+  }
+  
+  .buy-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Performance Optimizations */
+.wellness-product-card img {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .wellness-product-card,
+  .product-image-container > div,
+  .product-image-container img,
+  .buy-button {
+    transition: none;
+  }
+  
+  .wellness-product-card:hover,
+  .wellness-product-card:hover .product-image-container > div,
+  .wellness-product-card:hover .product-image-container img {
+    transform: none;
+  }
+}
+
+/* Focus States for Accessibility */
+.wellness-product-card:focus-within {
+  outline: 2px solid #4ADE80;
+  outline-offset: 4px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .wellness-product-card {
+    background: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .wellness-product-card h3 {
+    color: #000000;
+  }
+  
+  .price-container span {
+    color: #006600;
+  }
+  
+  .buy-button {
+    background: #000000;
+    border: 2px solid #ffffff;
+  }
+}
+/* ===== CUSTOMER TESTIMONIAL SECTION ===== */
+.customer-testimonial-section {
+  position: relative;
+  background: linear-gradient(135deg, #FDF8F3 0%, #F9F1E6 50%, #F5EBD8 100%);
+  overflow: hidden;
+}
+
+.customer-testimonial-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(74, 222, 128, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Testimonial Product Container */
+.testimonial-product-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Product Showcase */
+.product-showcase {
+  position: relative;
+  background: linear-gradient(145deg, #ffffff 0%, #fefefe 100%);
+  border-radius: 32px;
+  padding: 3rem;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.08),
+    0 8px 25px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-showcase:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 35px 80px rgba(0, 0, 0, 0.12),
+    0 15px 35px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.product-showcase img {
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
+}
+
+.product-showcase:hover img {
+  transform: scale(1.05) rotate(2deg);
+}
+
+/* Product Label Styling */
+.product-showcase .absolute {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-showcase:hover .absolute {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 35px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Decorative Elements */
+.testimonial-product-container .absolute svg {
+  filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.3));
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-product-container:hover .absolute svg {
+  transform: rotate(10deg) scale(1.1);
+  filter: drop-shadow(0 6px 12px rgba(212, 175, 55, 0.4));
+}
+
+/* Testimonial Content */
+.testimonial-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Large Quotation Marks */
+.testimonial-content > div:first-child svg {
+  filter: drop-shadow(0 4px 12px rgba(74, 222, 128, 0.2));
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-content:hover > div:first-child svg {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 16px rgba(74, 222, 128, 0.3));
+}
+
+/* Testimonial Text Styling */
+.testimonial-content blockquote {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: #2D2D2D;
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 3rem;
+}
+
+.testimonial-content blockquote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #4ADE80 0%, #22C55E 100%);
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+/* Customer Information Styling */
+.testimonial-content h4 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  color: #722F37;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.testimonial-content:hover h4 {
+  color: #5A252A;
+}
+
+.testimonial-content p {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 500;
+  color: #6B7280;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+/* Decorative Line Elements */
+.testimonial-content .flex.items-center {
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-content .w-2.h-2 {
+  background: linear-gradient(135deg, #4ADE80 0%, #22C55E 100%);
+  box-shadow: 0 2px 8px rgba(74, 222, 128, 0.3);
+  animation: pulse-dot 2s infinite;
+}
+
+.testimonial-content .w-8.h-0\.5 {
+  background: linear-gradient(90deg, #4ADE80 0%, transparent 100%);
+  border-radius: 2px;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(74, 222, 128, 0.3);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(74, 222, 128, 0.5);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .customer-testimonial-section {
+    padding: 4rem 0;
+  }
+  
+  .product-showcase {
+    padding: 2rem;
+    border-radius: 28px;
+  }
+  
+  .testimonial-content blockquote {
+    font-size: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  .testimonial-content h4 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .customer-testimonial-section {
+    padding: 3rem 0;
+  }
+  
+  .customer-testimonial-section .grid {
+    gap: 3rem;
+  }
+  
+  .product-showcase {
+    padding: 1.5rem;
+    border-radius: 24px;
+  }
+  
+  .testimonial-content blockquote {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .testimonial-content h4 {
+    font-size: 1.375rem;
+  }
+  
+  .testimonial-content p {
+    font-size: 1rem;
+  }
+  
+  /* Adjust decorative elements for mobile */
+  .testimonial-product-container .absolute.-top-8 {
+    top: -1rem;
+    left: -1rem;
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .testimonial-product-container .absolute.-bottom-6 {
+    bottom: -0.5rem;
+    right: -0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .testimonial-content > div:first-child {
+    top: -2rem;
+    left: -1rem;
+  }
+  
+  .testimonial-content > div:first-child svg {
+    width: 80px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .customer-testimonial-section {
+    padding: 2.5rem 0;
+  }
+  
+  .customer-testimonial-section .grid {
+    gap: 2rem;
+  }
+  
+  .product-showcase {
+    padding: 1rem;
+    border-radius: 20px;
+  }
+  
+  .testimonial-content blockquote {
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+  
+  .testimonial-content h4 {
+    font-size: 1.25rem;
+  }
+  
+  .testimonial-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Performance Optimizations */
+.product-showcase,
+.product-showcase img,
+.testimonial-product-container .absolute svg,
+.testimonial-content > div:first-child svg {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .product-showcase,
+  .product-showcase img,
+  .testimonial-product-container .absolute svg,
+  .testimonial-content > div:first-child svg,
+  .testimonial-content h4 {
+    transition: none;
+  }
+  
+  .product-showcase:hover,
+  .product-showcase:hover img,
+  .testimonial-product-container:hover .absolute svg,
+  .testimonial-content:hover > div:first-child svg {
+    transform: none;
+  }
+  
+  .w-2.h-2 {
+    animation: none;
+  }
+}
+
+/* Focus States for Accessibility */
+.testimonial-content:focus-within {
+  outline: 2px solid #4ADE80;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .customer-testimonial-section {
+    background: #ffffff;
+  }
+  
+  .product-showcase {
+    background: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .testimonial-content blockquote {
+    color: #000000;
+  }
+  
+  .testimonial-content h4 {
+    color: #000000;
+  }
+  
+  .testimonial-content p {
+    color: #333333;
+  }
+  
+  .testimonial-content .w-2.h-2 {
+    background: #006600;
+  }
+  
+  .testimonial-content .w-8.h-0\.5 {
+    background: #006600;
+  }
+}
+
+/* ===== WHERE BEAUTY MEETS SERENITY SECTION ===== */
+.beauty-serenity-section {
+  position: relative;
+  background: linear-gradient(135deg, #fefefe 0%, #f9f9f9 100%);
+}
+
+/* Image Grid Container */
+.image-grid-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Primary Image Wrapper */
+.primary-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75%;
+  height: 70%;
+  z-index: 10;
+}
+
+.primary-image-wrapper > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.primary-image-wrapper:hover > div {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 35px 60px -12px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.primary-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.primary-image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+/* Secondary Image Wrapper */
+.secondary-image-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 55%;
+  height: 50%;
+  z-index: 20;
+}
+
+.secondary-image-wrapper > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  box-shadow: 
+    0 20px 40px -8px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.secondary-image-wrapper:hover > div {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 
+    0 25px 50px -8px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.secondary-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.secondary-image-wrapper:hover img {
+  transform: scale(1.08);
+}
+
+/* Content Area Styling */
+.content-area h2 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #2D2D2D;
+}
+
+.content-area p {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #6B7280;
+}
+
+/* Feature List Styling */
+.features-list .feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  transition: all 0.3s ease;
+}
+
+.features-list .feature-item:hover {
+  transform: translateX(4px);
+}
+
+.features-list .checkmark {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #4ADE80 0%, #22C55E 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(74, 222, 128, 0.3);
+  transition: all 0.3s ease;
+}
+
+.features-list .feature-item:hover .checkmark {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.4);
+}
+
+.features-list .checkmark svg {
+  width: 12px;
+  height: 12px;
+  color: white;
+}
+
+.features-list span {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 500;
+  color: #2D2D2D;
+  transition: color 0.3s ease;
+}
+
+.features-list .feature-item:hover span {
+  color: #1F2937;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .beauty-serenity-section {
+    padding: 64px 0;
+  }
+  
+  .image-grid-container {
+    max-width: 500px;
+  }
+  
+  .image-grid-container > div {
+    height: 500px;
+  }
+  
+  .content-area h2 {
+    font-size: 2.25rem;
+    line-height: 1.25;
+  }
+  
+  .content-area p {
+    font-size: 1rem;
+  }
+  
+  .features-list span {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .beauty-serenity-section {
+    padding: 48px 0;
+  }
+  
+  .beauty-serenity-section .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .image-grid-container {
+    max-width: 400px;
+    order: 2;
+  }
+  
+  .image-grid-container > div {
+    height: 400px;
+  }
+  
+  .content-area {
+    order: 1;
+    text-align: center;
+  }
+  
+  .content-area h2 {
+    font-size: 2rem;
+  }
+  
+  .features-list {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .beauty-serenity-section {
+    padding: 40px 0;
+  }
+  
+  .image-grid-container {
+    max-width: 320px;
+  }
+  
+  .image-grid-container > div {
+    height: 320px;
+  }
+  
+  .content-area h2 {
+    font-size: 1.75rem;
+  }
+  
+  .content-area p {
+    font-size: 0.9rem;
+  }
+  
+  .features-list span {
+    font-size: 0.9rem;
+  }
+  
+  .primary-image-wrapper > div {
+    border-radius: 20px;
+  }
+  
+  .secondary-image-wrapper > div {
+    border-radius: 14px;
+    border-width: 3px;
+  }
+}
+
+/* Performance Optimizations */
+.image-grid-container img {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .primary-image-wrapper,
+  .secondary-image-wrapper,
+  .features-list .feature-item,
+  .features-list .checkmark {
+    transition: none;
+  }
+  
+  .primary-image-wrapper:hover > div,
+  .secondary-image-wrapper:hover > div,
+  .primary-image-wrapper:hover img,
+  .secondary-image-wrapper:hover img {
+    transform: none;
+  }
+}
+
+/* Focus States for Accessibility */
+.image-grid-container:focus-within .primary-image-wrapper > div,
+.image-grid-container:focus-within .secondary-image-wrapper > div {
+  outline: 2px solid #4ADE80;
+  outline-offset: 4px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .features-list .checkmark {
+    background: #000000;
+    border: 2px solid #ffffff;
+  }
+  
+  .content-area h2 {
+    color: #000000;
+  }
+  
+  .content-area p {
+    color: #333333;
+  }
+}
+
+/* Our Latest Products Section */
+.latest-products-section {
+  position: relative;
+  background: #ffffff;
+}
+
+.latest-products-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(114, 47, 55, 0.02) 0%, rgba(255, 255, 255, 0.98) 50%, rgba(114, 47, 55, 0.02) 100%);
+  pointer-events: none;
+}
+
+.latest-products-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Product Cards */
+.product-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+.product-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  aspect-ratio: 1;
+  background: #f5f5f5;
+  transition: all 0.3s ease;
+}
+
+.product-card:nth-child(2) .product-image-wrapper {
+  background: #A8C5E8;
+}
+
+.product-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1.5rem;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover .product-image-wrapper img {
+  transform: scale(1.1);
+}
+
+.product-info h3 {
+  font-family: 'Time Burner', sans-serif;
+  font-weight: 600;
+  color: #2D2D2D;
+  transition: color 0.3s ease;
+  line-height: 1.3;
+}
+
+.product-card:hover .product-info h3 {
+  color: #722F37;
+}
+
+.product-info p {
+  font-family: 'Inter', sans-serif;
+  color: #6B7280;
+  font-weight: 400;
+}
+
+/* View All Button */
+.view-all-btn {
+  background: #722F37;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 1rem 2rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+  will-change: transform, background-color, box-shadow;
+}
+
+.view-all-btn:hover {
+  background: #5A252A;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(114, 47, 55, 0.3);
+}
+
+.view-all-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(114, 47, 55, 0.3);
+}
+
+.view-all-btn:active {
+  transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .latest-products-section {
+    padding: 5rem 0;
+  }
+  
+  .latest-products-section .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .latest-products-section .space-y-8 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 767px) {
+  .latest-products-section .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .latest-products-section .space-y-8 {
+    grid-column: span 2;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .latest-products-section .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  .latest-products-section .space-y-8 {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .latest-products-section {
+    padding: 8rem 0;
+  }
+  
+  .latest-products-section .grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+  
+  .latest-products-section .space-y-8 {
+    grid-column: span 1;
+  }
+}
+
+/* Performance Optimizations */
+.product-card,
+.product-image-wrapper,
+.view-all-btn {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .product-image-wrapper img,
+  .view-all-btn {
+    transition: none;
+  }
+  
+  .product-card:hover {
+    transform: none;
+  }
+  
+  .product-card:hover .product-image-wrapper img {
+    transform: none;
+  }
+}
+
+/* Focus states for keyboard navigation */
+.product-card:focus-visible {
+  outline: 2px solid #722F37;
+  outline-offset: 4px;
+  border-radius: 1rem;
+}
+
+.view-all-btn:focus-visible {
+  outline: 2px solid #722F37;
+  outline-offset: 4px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .product-info h3 {
+    color: #000000;
+  }
+  
+  .product-info p {
+    color: #333333;
+  }
+  
+  .view-all-btn {
+    border: 2px solid #722F37;
+  }
+}

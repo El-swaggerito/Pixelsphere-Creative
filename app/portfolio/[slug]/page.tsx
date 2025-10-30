@@ -27,13 +27,16 @@ export default function WorkSinglePage({ params }: WorkSinglePageProps) {
       'hope-foundation': '/hope-foundation',
       'drip-and-grind': '/drip-grind',
       'edtech-learning-platform': '/edtech-platform',
-      'real-estate-pro': '/real-estate-pro'
+      'real-estate-pro': '/real-estate-pro',
+      'beauty-hub': '/beauty-hub',
+      'african-food-store': '/african-food-store',
+      
     }
     return routes[slug] || '#'
   }
 
   const hasLivePreview = (slug: string) => {
-    return ['hope-foundation', 'drip-and-grind', 'edtech-learning-platform', 'real-estate-pro'].includes(slug)
+    return ['hope-foundation', 'drip-and-grind', 'edtech-learning-platform', 'real-estate-pro', 'beauty-hub', 'african-food-store'].includes(slug)
   }
 
   return (
