@@ -3,7 +3,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import { usePathname } from 'next/navigation'
+import type { KeyboardEvent } from 'react'
 
 type NavbarProps = {
   isMobileMenuOpen: boolean
@@ -14,6 +16,16 @@ type NavbarProps = {
 export default function Navbar({ isMobileMenuOpen, toggleMobileMenu, closeMobileMenu }: NavbarProps) {
   const shouldReduceMotion = useReducedMotion()
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+  const pathname = usePathname()
+
+  const isActive = (href: string) => {
+    if (!href) return false
+    try {
+      return pathname === href || pathname.startsWith(href)
+    } catch {
+      return false
+    }
+  }
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -37,25 +49,42 @@ export default function Navbar({ isMobileMenuOpen, toggleMobileMenu, closeMobile
       </div>
 
       <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-        <Link href="/real-estate-pro" className="text-white hover:text-gray-200 transition-colors font-medium text-sm xl:text-base">Home</Link>
-        <Link href="/real-estate-pro/about" className="text-white hover:text-gray-200 transition-colors font-medium text-sm xl:text-base">About</Link>
-        <div className="relative group">
-          <a href="#" className="text-white hover:text-gray-200 transition-colors font-medium flex items-center text-sm xl:text-base">
-            Properties
-            <svg className="w-3 h-3 xl:w-4 xl:h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </a>
-        </div>
-        <div className="relative group">
-          <a href="#" className="text-white hover:text-gray-200 transition-colors font-medium flex items-center text-sm xl:text-base">
-            Agents
-            <svg className="w-3 h-3 xl:w-4 xl:h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </a>
-        </div>
-        <a href="#" className="text-white hover:text-gray-200 transition-colors font-medium text-sm xl:text-base">Contact</a>
+        <Link
+          href="/real-estate-pro"
+          className={`text-white transition-colors font-medium text-sm xl:text-base hover:text-orange-400 focus:text-orange-400 ${isActive('/real-estate-pro') ? 'text-orange-500' : ''}`}
+          aria-current={isActive('/real-estate-pro') ? 'page' : undefined}
+        >
+          Home
+        </Link>
+        <Link
+          href="/real-estate-pro/about"
+          className={`text-white transition-colors font-medium text-sm xl:text-base hover:text-orange-400 focus:text-orange-400 ${isActive('/real-estate-pro/about') ? 'text-orange-500' : ''}`}
+          aria-current={isActive('/real-estate-pro/about') ? 'page' : undefined}
+        >
+          About
+        </Link>
+        {/** Listings dropdown (hover + accessible) **/}
+        <DropdownNav
+          label="Listings"
+          href="/real-estate-pro/listings"
+          items={[
+            { label: 'For Sale', href: '/real-estate-pro/listings?type=sale' },
+            { label: 'For Rent', href: '/real-estate-pro/listings?type=rent' },
+            { label: 'Commercial', href: '/real-estate-pro/listings?type=commercial' },
+          ]}
+        />
+
+        {/** Agents dropdown (hover + accessible) **/}
+        <DropdownNav
+          label="Agents"
+          href="/real-estate-pro/agents"
+          items={[
+            { label: 'Top Rated', href: '/real-estate-pro/agents?sort=top' },
+            { label: 'New Agents', href: '/real-estate-pro/agents?sort=new' },
+            { label: 'All Agents', href: '/real-estate-pro/agents' },
+          ]}
+        />
+        <a href="#" className="text-white transition-colors font-medium text-sm xl:text-base hover:text-orange-400 focus:text-orange-400">Contact</a>
       </div>
 
       <div className="hidden md:flex items-center">
@@ -248,5 +277,128 @@ export default function Navbar({ isMobileMenuOpen, toggleMobileMenu, closeMobile
         </motion.div>
       </motion.div>
     </nav>
+  )
+}
+
+/**
+ * DropdownNav - Hover-triggered, accessible dropdown for top navbar.
+ * - Immediate open on hover/focus
+ * - 120ms delayed close on mouse leave/blur (prevents accidental flicker)
+ * - Smooth transition (0.3s ease-in-out)
+ * - Keyboard and touch-friendly
+ */
+function DropdownNav({
+  label,
+  href,
+  items,
+}: {
+  label: string
+  href: string
+  items: { label: string; href: string }[]
+}) {
+  const [open, setOpen] = useState(false)
+  const closeTimer = useRef<number | null>(null)
+  const pathname = usePathname()
+
+  const isTriggerActive = (() => {
+    try {
+      return pathname === href || pathname.startsWith(href)
+    } catch {
+      return false
+    }
+  })()
+
+  const clearCloseTimer = () => {
+    if (closeTimer.current) {
+      window.clearTimeout(closeTimer.current)
+      closeTimer.current = null
+    }
+  }
+
+  const handleEnter = () => {
+    clearCloseTimer()
+    setOpen(true)
+  }
+  const handleLeave = () => {
+    clearCloseTimer()
+    closeTimer.current = window.setTimeout(() => setOpen(false), 120)
+  }
+  const handleTouch = () => {
+    // Mobile-friendly: first tap opens, second navigates
+    if (!open) {
+      setOpen(true)
+    }
+  }
+  const handleKeyDown = (e: KeyboardEvent<HTMLAnchorElement>) => {
+    if (e.key === 'Escape') {
+      setOpen(false)
+      ;(e.target as HTMLElement).blur()
+    }
+    if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      const firstItem = document.querySelector<HTMLAnchorElement>(`#menu-${label}-list a`)
+      firstItem?.focus()
+    }
+  }
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+      onTouchStart={handleTouch}
+      role="presentation"
+    >
+      <a
+        href={href}
+        className={`text-white transition-colors font-medium flex items-center text-sm xl:text-base hover:text-orange-400 focus:text-orange-400 ${isTriggerActive ? 'text-orange-500' : ''}`}
+        aria-haspopup="menu"
+        aria-expanded={open}
+        aria-controls={`menu-${label}-list`}
+        aria-current={isTriggerActive ? 'page' : undefined}
+        onFocus={handleEnter}
+        onBlur={handleLeave}
+        onKeyDown={handleKeyDown}
+      >
+        {label}
+        <svg className="w-3 h-3 xl:w-4 xl:h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </a>
+
+      {/* Dropdown panel */}
+      <div
+        id={`menu-${label}-list`}
+        role="menu"
+        aria-label={`${label} submenu`}
+        className={`absolute left-0 top-full mt-2 w-52 rounded-lg bg-white shadow-xl z-30 border border-gray-200 transition-opacity transition-transform duration-300 ease-in-out ${open ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-1 pointer-events-none'}`}
+      >
+        <ul className="py-2">
+          {items.map((item) => {
+            const isItemActive = (() => {
+              try {
+                return pathname === item.href || pathname.startsWith(item.href)
+              } catch {
+                return false
+              }
+            })()
+            return (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  role="menuitem"
+                  aria-current={isItemActive ? 'page' : undefined}
+                  className={`block px-3 py-2 text-sm hover:bg-gray-100 focus:bg-gray-100 focus:text-gray-900 focus:outline-none ${isItemActive ? 'bg-gray-100 text-gray-900 font-medium' : 'text-gray-700 hover:text-gray-900'}`}
+                  onFocus={handleEnter}
+                  onBlur={handleLeave}
+                >
+                  {item.label}
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    </div>
   )
 }

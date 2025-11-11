@@ -5,7 +5,7 @@ import PageTransition from '@/components/PageTransition'
 import AnimatedSection from '@/components/AnimatedSection'
 import { motion, useReducedMotion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { Footer, CTASection, TestimonialsSection, AboutUsSection, RealtorHelpSection, Navbar } from '@/components/real-estate-pro/'
+import { Footer, CTASection, TestimonialsSection, AboutUsSection, RealtorHelpSection, Navbar } from '@/components/real-estate-pro'
 
 export default function RealEstatePro() {
   const shouldReduceMotion = useReducedMotion()
@@ -205,6 +205,7 @@ export default function RealEstatePro() {
           </div>
         </div>
       </div>
+      
 
       {/* Explore Apartment Types Section */}
       <AnimatedSection>
