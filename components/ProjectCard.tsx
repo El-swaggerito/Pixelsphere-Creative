@@ -160,11 +160,11 @@ export default function ProjectCard({
                   className="object-contain rounded-lg transition-all duration-500 ease-in-out"
                   priority={false}
                   style={{
-                    filter: isHovered ? 'brightness(1.1) contrast(1.05)' : 'brightness(1) contrast(1)',
+                    filter: isHovered ? 'brightness(1.1) contrast(1.05)' : 'brightness(1.1) contrast(1.05)',
                   }}
                 />
                 {/* Optional: Add a subtle overlay to indicate it's clickable */}
-                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-all duration-300 rounded-lg flex items-center justify-center">
+                <div className="absolute inset-0  bg-opacity-0 hover:bg-opacity-10 transition-all duration-300 rounded-lg flex items-center justify-center">
                   <motion.div
                     className="opacity-0 hover:opacity-100 transition-opacity duration-300"
                     initial={{ scale: 0.8 }}
