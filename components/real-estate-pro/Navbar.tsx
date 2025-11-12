@@ -84,7 +84,7 @@ export default function Navbar({ isMobileMenuOpen, toggleMobileMenu, closeMobile
             { label: 'All Agents', href: '/real-estate-pro/agents' },
           ]}
         />
-        <a href="#" className="text-white transition-colors font-medium text-sm xl:text-base hover:text-orange-400 focus:text-orange-400">Contact</a>
+        <a href="/real-estate-pro/contact" className="text-white transition-colors font-medium text-sm xl:text-base hover:text-orange-400 focus:text-orange-400">Contact</a>
       </div>
 
       <div className="hidden md:flex items-center">
