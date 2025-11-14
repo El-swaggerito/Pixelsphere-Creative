@@ -1,2 +1,8 @@
 export { Navbar } from './Navbar'
 export { Footer } from './Footer'
+export { BenefitsWellnessSection } from './BenefitsWellnessSection'
+export { BeautySerenitySection } from './BeautySerenitySection'
+export { BenefitsWellnessSectionTwo } from './BenefitsWellnessSectionTwo'
+export { CustomerTestimonialSection } from './CustomerTestimonialSection'
+export { HeritageSection } from './HeritageSection'
+export { ProductSection } from './ProductSection'

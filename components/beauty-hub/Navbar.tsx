@@ -59,19 +59,19 @@ export function Navbar() {
               {isProductsOpen && (
                 <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-[#E5E1DC] py-2 z-50">
                   <Link 
-                    href="/beauty-hub/products/skincare" 
+                    href="/beauty-hub/products" 
                     className="block px-4 py-2 text-[#8B4513] hover:bg-[#F5F3F0] hover:text-[#2D5A3D] transition-colors duration-200"
                   >
                     Skincare
                   </Link>
                   <Link 
-                    href="/beauty-hub/products/wellness" 
+                    href="/beauty-hub/products" 
                     className="block px-4 py-2 text-[#8B4513] hover:bg-[#F5F3F0] hover:text-[#2D5A3D] transition-colors duration-200"
                   >
                     Wellness
                   </Link>
                   <Link 
-                    href="/beauty-hub/products/tools" 
+                    href="/beauty-hub/products" 
                     className="block px-4 py-2 text-[#8B4513] hover:bg-[#F5F3F0] hover:text-[#2D5A3D] transition-colors duration-200"
                   >
                     Beauty Tools
