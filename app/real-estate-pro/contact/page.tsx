@@ -214,16 +214,16 @@ export default function RealEstateProAbout() {
                   </nav>
                 </div>
 
-                {/* Map image */}
+                {/* Interactive map */}
                 <div className="rounded-xl overflow-hidden bg-white ring-1 ring-black/5 shadow-sm">
-                  <div className="relative w-full h-[340px] sm:h-[380px] lg:h-[420px] xl:h-[460px]">
-                    <Image
-                      src="/images/realestatepro/map.png"
-                      alt="Coverage areas map for our realtor services"
-                      fill
-                      className="object-cover object-center"
-                      sizes="(min-width:1024px) 50vw, 100vw"
-                      quality={90}
+                  <div className="relative w-full aspect-[5/3]">
+                    <iframe
+                      width="500"
+                      height="300"
+                      allow="geolocation"
+                      src="https://api.maptiler.com/maps/base-v4/?key=YkevWyPDtyrnWT9C5xa7#7.8/37.91034/-100.02787"
+                      className="absolute inset-0 w-full h-full"
+                      title="Interactive Map"
                     />
                   </div>
                 </div>
