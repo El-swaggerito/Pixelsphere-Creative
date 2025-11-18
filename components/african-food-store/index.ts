@@ -1,0 +1,6 @@
+export { AfricanFoodHeaderNav } from './HeaderNav'
+export { AfricanFoodNewsletter } from './NewsletterSubscription'
+export { AfricanFoodFooter } from './Footer'
+export { AfricanFoodProductShowcase } from './ProductShowcase'
+export { AfricanFoodTrendingProducts } from './TrendingProducts'
+export { AfricanFoodSupportSection } from './SupportSection'
