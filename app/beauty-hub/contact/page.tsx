@@ -63,13 +63,13 @@ export default function BeautyHubAboutPage() {
             </div>
             <div className="flex flex-col items-end">
               <div className="flex flex-col gap-4">
-                <a href="#" aria-label="Facebook" className="h-10 w-10 rounded-full bg-white shadow-sm border border-[#E5E1DC] flex items-center justify-center text-[#2D2D2D]">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="h-10 w-10 rounded-full bg-white shadow-sm border border-[#E5E1DC] flex items-center justify-center text-[#2D2D2D]">
                   <Facebook className="h-4 w-4" />
                 </a>
-                <a href="#" aria-label="Instagram" className="h-10 w-10 rounded-full bg-white shadow-sm border border-[#E5E1DC] flex items-center justify-center text-[#2D2D2D]">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="h-10 w-10 rounded-full bg-white shadow-sm border border-[#E5E1DC] flex items-center justify-center text-[#2D2D2D]">
                   <Instagram className="h-4 w-4" />
                 </a>
-                <a href="#" aria-label="Twitter" className="h-10 w-10 rounded-full bg-white shadow-sm border border-[#E5E1DC] flex items-center justify-center text-[#2D2D2D]">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="h-10 w-10 rounded-full bg-white shadow-sm border border-[#E5E1DC] flex items-center justify-center text-[#2D2D2D]">
                   <Twitter className="h-4 w-4" />
                 </a>
               </div>

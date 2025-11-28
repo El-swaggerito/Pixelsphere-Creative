@@ -169,21 +169,21 @@ export function Navbar() {
                 {isProductsOpen && (
                   <div className="ml-4 space-y-2">
                     <Link 
-                      href="/beauty-hub/products/skincare" 
+                      href="/beauty-hub/products?category=skincare#products-heading" 
                       className="block text-[#8B4513] hover:text-[#2D5A3D] transition-colors duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Skincare
                     </Link>
                     <Link 
-                      href="/beauty-hub/products/wellness" 
+                      href="/beauty-hub/products?category=wellness#products-heading" 
                       className="block text-[#8B4513] hover:text-[#2D5A3D] transition-colors duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Wellness
                     </Link>
                     <Link 
-                      href="/beauty-hub/products/tools" 
+                      href="/beauty-hub/products?category=tools#products-heading" 
                       className="block text-[#8B4513] hover:text-[#2D5A3D] transition-colors duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >

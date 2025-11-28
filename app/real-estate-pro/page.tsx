@@ -110,7 +110,7 @@ export default function RealEstatePro() {
         onTouchEnd={onTouchEnd}
       >
       {/* Hero Section with Background */}
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen" id="hero">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -209,7 +209,7 @@ export default function RealEstatePro() {
 
       {/* Explore Apartment Types Section */}
       <AnimatedSection>
-        <section className="py-16 sm:py-20 lg:py-28 bg-white">
+        <section id="types" className="py-16 sm:py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           {/* Section Header */}
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12 sm:mb-16 lg:mb-20">
@@ -308,7 +308,7 @@ export default function RealEstatePro() {
 
       {/* Featured Listings Section */}
       <AnimatedSection>
-        <section className="py-16 bg-[#F7F7F7]">
+        <section id="featured" className="py-16 bg-[#F7F7F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="flex justify-between items-start mb-12">
@@ -321,7 +321,7 @@ export default function RealEstatePro() {
               </p>
             </div>
             <a 
-              href="#" 
+              href="/real-estate-pro/listings" 
               className="flex items-center gap-2 text-gray-900 font-medium hover:text-orange-500 transition-colors group"
             >
               See All Properties
@@ -632,7 +632,7 @@ export default function RealEstatePro() {
 
     {/* Explore Cities Section */}
     <AnimatedSection>
-      <section className="py-20 bg-gray-50">
+      <section id="cities" className="py-20 bg-gray-50">
   <div className="max-w-[1200px] mx-auto px-6">
     {/* Section Header */}
     <div className="text-center mb-16">
@@ -763,10 +763,14 @@ export default function RealEstatePro() {
 
 
       {/* Testimonials Section */}
-     <TestimonialsSection  />
+      <section id="testimonials">
+        <TestimonialsSection />
+      </section>
 
       {/* CTA Section */}
-      <CTASection getAnimationProps={getAnimationProps} />
+      <section id="cta">
+        <CTASection getAnimationProps={getAnimationProps} />
+      </section>
 
       {/* Footer Section */}
      <Footer /> 

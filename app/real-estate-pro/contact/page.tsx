@@ -162,10 +162,10 @@ export default function RealEstateProAbout() {
 
                 <p id="contact-terms" className="mt-4 text-center text-gray-600 text-xs sm:text-sm">
                   By contacting us, you agree to our
-                  <a href="#" className="mx-1 font-medium text-gray-900 hover:text-orange-600 focus:text-orange-600 underline">Terms Of</a>
+                  <a href="/real-estate-pro/contact#contact-terms" className="mx-1 font-medium text-gray-900 hover:text-orange-600 focus:text-orange-600 underline">Terms Of</a>
                   <span className="mx-1">Service</span>
                   and
-                  <a href="#" className="ml-1 font-medium text-gray-900 hover:text-orange-600 focus:text-orange-600 underline">Privacy Policy</a>
+                  <a href="/real-estate-pro/contact#contact-terms" className="ml-1 font-medium text-gray-900 hover:text-orange-600 focus:text-orange-600 underline">Privacy Policy</a>
                 </p>
               </div>
             </div>
@@ -199,16 +199,16 @@ export default function RealEstateProAbout() {
 
                   {/* Social links */}
                   <nav aria-label="Social media" className="mt-6 flex items-center gap-3">
-                    <a href="#" aria-label="Twitter" className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gray-100 text-gray-600 hover:text-orange-600 hover:bg-gray-200 transition">
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gray-100 text-gray-600 hover:text-orange-600 hover:bg-gray-200 transition">
                       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0016 3a4.5 4.5 0 00-4.5 4.5c0 .35.04.69.11 1A12.8 12.8 0 013 4s-4 9 5 13a13.1 13.1 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
                     </a>
-                    <a href="#" aria-label="Facebook" className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gray-100 text-gray-600 hover:text-orange-600 hover:bg-gray-200 transition">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gray-100 text-gray-600 hover:text-orange-600 hover:bg-gray-200 transition">
                       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 10-11.5 9.95v-7.04H7.9V12h2.6V9.8c0-2.57 1.53-3.99 3.87-3.99 1.12 0 2.3.2 2.3.2v2.53h-1.29c-1.27 0-1.66.79-1.66 1.6V12h2.83l-.45 2.91h-2.38v7.04A10 10 0 0022 12z"/></svg>
                     </a>
-                    <a href="#" aria-label="Instagram" className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gray-100 text-gray-600 hover:text-orange-600 hover:bg-gray-200 transition">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gray-100 text-gray-600 hover:text-orange-600 hover:bg-gray-200 transition">
                       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3a5 5 0 110 10 5 5 0 010-10zm6.5-.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z"/></svg>
                     </a>
-                    <a href="#" aria-label="YouTube" className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gray-100 text-gray-600 hover:text-orange-600 hover:bg-gray-200 transition">
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gray-100 text-gray-600 hover:text-orange-600 hover:bg-gray-200 transition">
                       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.1 3.1 0 00-2.2-2.2C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.3.5A3.1 3.1 0 00.5 6.2 33 33 0 000 12a33 33 0 00.5 5.8 3.1 3.1 0 002.2 2.2c2 .5 9.3.5 9.3.5s7.3 0 9.3-.5a3.1 3.1 0 002.2-2.2A33 33 0 0024 12a33 33 0 00-.5-5.8zM9.8 15.5V8.5L16 12l-6.2 3.5z"/></svg>
                     </a>
                   </nav>

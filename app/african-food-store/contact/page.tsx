@@ -24,7 +24,7 @@ export default function AfricanFoodStorePage() {
               <p className="mt-3 text-sm sm:text-base text-black/70 max-w-3xl">Explore our hassle-free return policy designed to ensure your satisfaction with every purchase.</p>
             </div>
             <div className="flex items-start lg:items-center">
-              <a href="#" className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/5 text-black hover:bg-black/10 transition-colors text-sm font-medium">Read Return Policy <ArrowRight className="h-4 w-4" /> </a>
+              <a href="#support-heading" className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/5 text-black hover:bg-black/10 transition-colors text-sm font-medium">Read Return Policy <ArrowRight className="h-4 w-4" /> </a>
             </div>
           </div>
 
@@ -36,7 +36,7 @@ export default function AfricanFoodStorePage() {
               </div>
               <div className="px-0 sm:px-6 py-4">
                 <div className="text-base font-semibold">Process</div>
-                <p className="mt-2 text-sm text-black/70">Initiate returns through our <a href="#" className="underline">Return Center</a> for a smooth and efficient process.</p>
+                <p className="mt-2 text-sm text-black/70">Initiate returns through our <a href="#support-heading" className="underline">Return Center</a> for a smooth and efficient process.</p>
               </div>
               <div className="px-0 sm:px-6 py-4">
                 <div className="text-base font-semibold">Refund</div>
@@ -51,7 +51,7 @@ export default function AfricanFoodStorePage() {
               <p className="mt-3 text-sm sm:text-base text-black/70 max-w-3xl">Familiarize yourself with our cancellation policy to make changes to your order with ease.</p>
             </div>
             <div className="flex items-start lg:items-center">
-              <a href="#" className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/5 text-black hover:bg-black/10 transition-colors text-sm font-medium">Read Cancellation Policy <ArrowRight className="h-4 w-4" /> </a>
+              <a href="#support-heading" className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/5 text-black hover:bg-black/10 transition-colors text-sm font-medium">Read Cancellation Policy <ArrowRight className="h-4 w-4" /> </a>
             </div>
           </div>
 

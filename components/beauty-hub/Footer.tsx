@@ -28,7 +28,7 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="#" 
+                href="https://google.com" target="_blank" rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full bg-[#E8DDD0] flex items-center justify-center text-[#8B7355] hover:bg-[#D4C4B0] transition-colors duration-200"
                 aria-label="Google"
               >
@@ -40,21 +40,21 @@ export function Footer() {
                 </svg>
               </a>
               <a 
-                href="#" 
+                href="https://twitter.com" target="_blank" rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full bg-[#E8DDD0] flex items-center justify-center text-[#8B7355] hover:bg-[#D4C4B0] transition-colors duration-200"
                 aria-label="Twitter"
               >
                 <Twitter className="h-4 w-4" />
               </a>
               <a 
-                href="#" 
+                href="https://instagram.com" target="_blank" rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full bg-[#E8DDD0] flex items-center justify-center text-[#8B7355] hover:bg-[#D4C4B0] transition-colors duration-200"
                 aria-label="Instagram"
               >
                 <Instagram className="h-4 w-4" />
               </a>
               <a 
-                href="#" 
+                href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full bg-[#E8DDD0] flex items-center justify-center text-[#8B7355] hover:bg-[#D4C4B0] transition-colors duration-200"
                 aria-label="LinkedIn"
               >
@@ -85,7 +85,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/beauty-hub/services" 
+                  href="/beauty-hub/about#benefits-title" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Services
@@ -93,7 +93,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/beauty-hub/shop" 
+                  href="/beauty-hub/products#products-heading" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Shop products
@@ -108,7 +108,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link 
-                  href="/beauty-hub/products/vitamin-c-serum" 
+                  href="/beauty-hub/products#products-heading" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Vitamin C Serum
@@ -116,7 +116,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/beauty-hub/products/hydrating-face-mist" 
+                  href="/beauty-hub/products#products-heading" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Hydrating Face Mist
@@ -124,7 +124,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/beauty-hub/products/body-polish-scrub" 
+                  href="/beauty-hub/products#products-heading" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Body Polish Scrub
@@ -132,7 +132,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/beauty-hub/products/hair-repair-mask" 
+                  href="/beauty-hub/products#products-heading" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Hair Repair Mask
@@ -140,7 +140,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/beauty-hub/products/essential-oils" 
+                  href="/beauty-hub/products#products-heading" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Essential Oils
@@ -155,7 +155,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link 
-                  href="/beauty-hub/services/facials-skin-therapy" 
+                  href="/beauty-hub/about#benefits-title" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Facials & Skin Therapy
@@ -163,7 +163,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/beauty-hub/services/body-spa-treatments" 
+                  href="/beauty-hub/about#benefits-title" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Body Spa Treatments
@@ -171,7 +171,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/beauty-hub/services/hair-scalp-care" 
+                  href="/beauty-hub/about#benefits-title" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Hair & Scalp Care
@@ -179,7 +179,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/beauty-hub/services/wellness-consultation" 
+                  href="/beauty-hub/about#benefits-title" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Wellness Consultation
@@ -187,7 +187,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/beauty-hub/services/massage-therapy" 
+                  href="/beauty-hub/about#benefits-title" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Massage Therapy
@@ -202,7 +202,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link 
-                  href="/beauty-hub/shipping-returns" 
+                  href="/beauty-hub/contact" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Shipping & Returns
@@ -210,7 +210,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/beauty-hub/track-order" 
+                  href="/beauty-hub/contact" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Track Your Order
@@ -218,7 +218,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/beauty-hub/privacy-policy" 
+                  href="/beauty-hub/contact" 
                   className="text-[#666666] hover:text-[#2D2D2D] transition-colors duration-200 text-sm"
                 >
                   Privacy Policy

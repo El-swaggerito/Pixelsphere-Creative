@@ -20,6 +20,10 @@ export default function EdTechPlatformPage() {
   };
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
+  const isYearly = billingCycle === 'yearly';
+  const proMonthly = 79;
+  const proYearly = 790;
 
   // Prevent layout shifts during initial load
   useEffect(() => {
@@ -1109,10 +1113,20 @@ export default function EdTechPlatformPage() {
               <div className="flex items-center justify-center">
                 <div className="bg-white rounded-lg p-1 shadow-sm border border-gray-200">
                   <div className="flex items-center">
-                    <button className="px-6 py-2 text-sm font-medium text-white bg-green-600 rounded-md transition-all duration-200 font-montserrat">
+                    <button
+                      onClick={() => setBillingCycle('monthly')}
+                      className={(billingCycle === 'monthly' ? 'text-white bg-green-600' : 'text-gray-600 hover:text-gray-900') +
+                        ' px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 font-montserrat'}
+                      aria-pressed={billingCycle === 'monthly'}
+                    >
                       Monthly
                     </button>
-                    <button className="px-6 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 rounded-md transition-all duration-200 font-montserrat">
+                    <button
+                      onClick={() => setBillingCycle('yearly')}
+                      className={(billingCycle === 'yearly' ? 'text-white bg-green-600' : 'text-gray-600 hover:text-gray-900') +
+                        ' px-6 py-2 text-sm font-medium rounded-md transition-all duration-200 font-montserrat'}
+                      aria-pressed={billingCycle === 'yearly'}
+                    >
                       Yearly
                     </button>
                   </div>
@@ -1155,7 +1169,7 @@ export default function EdTechPlatformPage() {
                       $0
                     </span>
                     <span className="text-gray-600 font-montserrat">
-                      /month
+                      {isYearly ? '/year' : '/month'}
                     </span>
                   </div>
                 </div>
@@ -1302,10 +1316,10 @@ export default function EdTechPlatformPage() {
                   </div>
                   <div className="mb-6">
                     <span className="text-5xl font-bold text-gray-900 font-montserrat">
-                      $79
+                      ${isYearly ? proYearly : proMonthly}
                     </span>
                     <span className="text-gray-600 font-montserrat">
-                      /month
+                      {isYearly ? '/year' : '/month'}
                     </span>
                   </div>
                 </div>

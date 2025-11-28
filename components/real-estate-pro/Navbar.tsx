@@ -183,6 +183,31 @@ export default function Navbar({ isMobileMenuOpen, toggleMobileMenu, closeMobile
                 >
                   Home
                 </motion.a>
+                {pathname === '/real-estate-pro' && (
+                  <div className="space-y-3" role="group" aria-label="On this page">
+                    <div className="pl-1 space-y-3">
+                      {[
+                        { label: 'Explore', href: '#types' },
+                        { label: 'Featured', href: '#featured' },
+                        { label: 'Cities', href: '#cities' },
+                        { label: 'Testimonials', href: '#testimonials' },
+                        { label: 'Get Started', href: '#cta' },
+                      ].map((item) => (
+                        <motion.a
+                          key={item.href}
+                          href={item.href}
+                          className="block text-gray-700 hover:text-orange-500 focus:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-2 py-1 font-medium transition-colors"
+                          onClick={closeMobileMenu}
+                          whileHover={{ x: 8 }}
+                          whileTap={{ scale: 0.98 }}
+                          tabIndex={isMobileMenuOpen ? 0 : -1}
+                        >
+                          {item.label}
+                        </motion.a>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 <motion.div
                   whileHover={{ x: 8 }}
                   whileTap={{ scale: 0.98 }}
@@ -202,7 +227,7 @@ export default function Navbar({ isMobileMenuOpen, toggleMobileMenu, closeMobile
                   <span id="properties-heading" className="block text-gray-900 font-medium text-lg">Properties</span>
                   <div className="pl-4 space-y-3">
                     <motion.a
-                      href="#"
+                      href="/real-estate-pro/listings?type=sale"
                       className="block text-gray-600 hover:text-orange-500 focus:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-2 py-1 font-medium transition-colors"
                       onClick={closeMobileMenu}
                       whileHover={{ x: 8 }}
@@ -212,7 +237,7 @@ export default function Navbar({ isMobileMenuOpen, toggleMobileMenu, closeMobile
                       For Sale
                     </motion.a>
                     <motion.a
-                      href="#"
+                      href="/real-estate-pro/listings?type=rent"
                       className="block text-gray-600 hover:text-orange-500 focus:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-2 py-1 font-medium transition-colors"
                       onClick={closeMobileMenu}
                       whileHover={{ x: 8 }}
@@ -222,7 +247,7 @@ export default function Navbar({ isMobileMenuOpen, toggleMobileMenu, closeMobile
                       For Rent
                     </motion.a>
                     <motion.a
-                      href="#"
+                      href="/real-estate-pro/listings?type=commercial"
                       className="block text-gray-600 hover:text-orange-500 focus:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-2 py-1 font-medium transition-colors"
                       onClick={closeMobileMenu}
                       whileHover={{ x: 8 }}
@@ -235,7 +260,7 @@ export default function Navbar({ isMobileMenuOpen, toggleMobileMenu, closeMobile
                 </div>
 
                 <motion.a
-                  href="#"
+                  href="/real-estate-pro/about"
                   className="block text-gray-900 hover:text-orange-500 focus:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-2 py-1 font-medium text-lg transition-colors"
                   onClick={closeMobileMenu}
                   whileHover={{ x: 8 }}
@@ -245,7 +270,7 @@ export default function Navbar({ isMobileMenuOpen, toggleMobileMenu, closeMobile
                   Services
                 </motion.a>
                 <motion.a
-                  href="#"
+                  href="/real-estate-pro/contact"
                   className="block text-gray-900 hover:text-orange-500 focus:text-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 rounded-md px-2 py-1 font-medium text-lg transition-colors"
                   onClick={closeMobileMenu}
                   whileHover={{ x: 8 }}

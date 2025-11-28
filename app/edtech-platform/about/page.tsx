@@ -35,8 +35,7 @@ export default function EdtechAboutPage() {
         <main className="flex-grow">
           <AboutHeroSection />
           
-          {/* Grow with EdTech LMS Section */}
-          <section className="py-16 md:py-24 bg-white">
+          <section id="grow-with-edtech" className="py-16 md:py-24 bg-white">
             <div className="container mx-auto px-4">
               <motion.div 
                 className="flex flex-col md:flex-row items-center gap-12"
@@ -110,19 +109,6 @@ export default function EdtechAboutPage() {
                 </p>
               </motion.div>
 
-              <div className="flex justify-between items-center mb-4">
-                <div></div>
-                <motion.a 
-                  href="#" 
-                  className="text-sm font-medium text-gray-700 hover:text-[#2E7D32] transition-colors"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  viewport={{ once: true }}
-                >
-                  View All
-                </motion.a>
-              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Card 01 */}

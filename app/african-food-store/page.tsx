@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import {
   AfricanFoodHeaderNav,
   AfricanFoodNewsletter,
@@ -10,6 +11,7 @@ import {
 } from "@/components/african-food-store";
 
 export default function AfricanFoodStorePage() {
+  const router = useRouter();
   return (
     <div className="min-h-screen bg-white">
       <AfricanFoodHeaderNav />
@@ -64,25 +66,20 @@ export default function AfricanFoodStorePage() {
                   {/* CTA Button - positioned right under the offer card */}
                   <div className="mb-8">
                     <button
-                      className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-opacity-50 active:scale-95"
+                      type="button"
+                      onClick={() => router.push("/african-food-store/shop")}
+                      className="relative z-10 inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-opacity-50 active:scale-95"
                       aria-label="Shop now for African groceries"
                     >
-                      <span className="flex items-center justify-center space-x-2">
-                        <span>Shop Now</span>
-                        <svg
-                          className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        </svg>
-                      </span>
+                      Shop Now
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
                     </button>
                   </div>
                 </div>
@@ -102,16 +99,16 @@ export default function AfricanFoodStorePage() {
                 </div>
 
                 {/* Decorative Elements */}
-                <div className="absolute top-10 right-10 w-16 h-16 sm:w-20 sm:h-20 bg-yellow-400 rounded-full opacity-20 animate-pulse"></div>
-                <div className="absolute bottom-20 right-20 w-10 h-10 sm:w-12 sm:h-12 bg-green-400 rounded-full opacity-30 animate-bounce"></div>
-                <div className="absolute top-1/2 right-0 w-6 h-6 sm:w-8 sm:h-8 bg-orange-400 rounded-full opacity-25"></div>
-                <div className="absolute top-1/4 left-10 w-4 h-4 bg-red-400 rounded-full opacity-30 animate-ping"></div>
+                <div className="pointer-events-none absolute top-10 right-10 w-16 h-16 sm:w-20 sm:h-20 bg-yellow-400 rounded-full opacity-20 animate-pulse"></div>
+                <div className="pointer-events-none absolute bottom-20 right-20 w-10 h-10 sm:w-12 sm:h-12 bg-green-400 rounded-full opacity-30 animate-bounce"></div>
+                <div className="pointer-events-none absolute top-1/2 right-0 w-6 h-6 sm:w-8 sm:h-8 bg-orange-400 rounded-full opacity-25"></div>
+                <div className="pointer-events-none absolute top-1/4 left-10 w-4 h-4 bg-red-400 rounded-full opacity-30 animate-ping"></div>
 
                 {/* Floating Elements */}
-                <div className="absolute top-20 left-5 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg animate-float">
+                <div className="pointer-events-none absolute top-20 left-5 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg animate-float">
                   <div className="w-6 h-6 bg-green-500 rounded-full"></div>
                 </div>
-                <div className="absolute bottom-32 left-8 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg animate-float-delayed">
+                <div className="pointer-events-none absolute bottom-32 left-8 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg animate-float-delayed">
                   <div className="w-4 h-4 bg-yellow-500 rounded-full"></div>
                 </div>
               </div>
@@ -119,7 +116,7 @@ export default function AfricanFoodStorePage() {
           </div>
 
           {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 opacity-5 pointer-events-none -z-10">
             <div className="absolute top-20 left-20 w-24 h-24 sm:w-32 sm:h-32 border-2 border-green-600 rounded-full"></div>
             <div className="absolute bottom-20 left-40 w-20 h-20 sm:w-24 sm:h-24 border-2 border-yellow-500 rounded-full"></div>
             <div className="absolute top-40 right-60 w-12 h-12 sm:w-16 sm:h-16 border-2 border-orange-500 rounded-full"></div>

@@ -314,7 +314,7 @@ export default function Footer() {
         {/* Bottom section */}
         <div className="border-t border-blue-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
           <p className="text-blue-200 text-sm sm:text-base text-center sm:text-left">
-            All rights reserved by © PixelSphere 2025
+            All rights reserved by © PixelSphere Creatives 2025
           </p>
           <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-8 text-blue-200 text-sm sm:text-base">
             <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
