@@ -138,7 +138,7 @@ export default function Footer() {
               />
             </motion.div>
             <p className="text-blue-200 sm:mb-8 leading-relaxed text-sm sm:text-base max-w-md">
-              PixelSphere Creative – Your trusted partner for custom websites, smart branding, and
+              PixelSphere Creatives – Your trusted partner for custom websites, smart branding, and
               digital growth strategies in Canada and beyond.
             </p>
             <div className="mb-6 sm:mb-8">

@@ -73,6 +73,7 @@ export default function ContactPage() {
     phone: "",
     service: "",
     source: "",
+    socialPlatform: "",
     budget: "",
     customBudget: "",
     message: "",
@@ -125,6 +126,7 @@ export default function ContactPage() {
         phone: formData.phone,
         service: formData.service,
         source: formData.source || "Not specified",
+        socialPlatform: formData.socialPlatform || (formData.source === "social-media" ? "Not specified" : "N/A"),
         budget: formData.budget,
         customBudget: formData.customBudget || "Not specified",
         message: formData.message,
@@ -140,6 +142,7 @@ export default function ContactPage() {
         phone: formData.phone,
         service: formData.service,
         source: formData.source || "Not specified",
+        socialPlatform: formData.socialPlatform || (formData.source === "social-media" ? "Not specified" : "N/A"),
         budget: formData.budget,
         customBudget: formData.customBudget || "Not specified",
         message: formData.message,
@@ -185,6 +188,7 @@ export default function ContactPage() {
             phone: "",
             service: "",
             source: "",
+            socialPlatform: "",
             budget: "",
             customBudget: "",
             message: "",
@@ -512,6 +516,46 @@ export default function ContactPage() {
                         </div>
                       </motion.div>
 
+                      {/* Conditional Social Platform Field */}
+                      <AnimatePresence>
+                        {formData.source === "social-media" && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0, y: -10 }}
+                            animate={{ opacity: 1, height: "auto", y: 0 }}
+                            exit={{ opacity: 0, height: 0, y: -10 }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            className="group"
+                          >
+                            <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
+                              Which social media app?
+                            </label>
+                            <div className="relative">
+                              <select
+                                name="socialPlatform"
+                                value={formData.socialPlatform}
+                                onChange={handleInputChange}
+                                className="w-full h-12 px-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
+                              >
+                                <option value="">Select a platform</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="facebook">Facebook</option>
+                                <option value="twitter">Twitter / X</option>
+                                <option value="linkedin">LinkedIn</option>
+                                <option value="tiktok">TikTok</option>
+                                <option value="youtube">YouTube</option>
+                                <option value="other">Other</option>
+                              </select>
+                              <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                              </div>
+                              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+
                       {/* Budget Field */}
                       <motion.div className="group" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
                         <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
@@ -793,9 +837,9 @@ export default function ContactPage() {
                   <div className="space-y-4">
                     {[
                       {
-                        question: "What services does PixelSphere offer?",
+                        question: "What services does PixelSphere Creatives offer?",
                         answer:
-                          "PixelSphere specializes in strategic brand consulting including Brand Positioning & Messaging, Visual Identity Systems, Brand Architecture, Rebranding & Brand Refreshes, Digital Brand Strategy, and Employer Branding.",
+                          "PixelSphere Creatives specializes in strategic brand consulting including Brand Positioning & Messaging, Visual Identity Systems, Brand Architecture, Rebranding & Brand Refreshes, Digital Brand Strategy, and Employer Branding.",
                       },
                       {
                         question: "How long does it take to complete a brand strategy project?",
