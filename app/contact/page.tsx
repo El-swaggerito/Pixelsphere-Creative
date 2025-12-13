@@ -74,6 +74,7 @@ export default function ContactPage() {
     service: "",
     source: "",
     socialPlatform: "",
+    socialUsername: "",
     budget: "",
     customBudget: "",
     message: "",
@@ -127,6 +128,7 @@ export default function ContactPage() {
         service: formData.service,
         source: formData.source || "Not specified",
         socialPlatform: formData.socialPlatform || (formData.source === "social-media" ? "Not specified" : "N/A"),
+        socialUsername: formData.socialUsername || (formData.source === "social-media" ? "Not provided" : "N/A"),
         budget: formData.budget,
         customBudget: formData.customBudget || "Not specified",
         message: formData.message,
@@ -143,6 +145,7 @@ export default function ContactPage() {
         service: formData.service,
         source: formData.source || "Not specified",
         socialPlatform: formData.socialPlatform || (formData.source === "social-media" ? "Not specified" : "N/A"),
+        socialUsername: formData.socialUsername || (formData.source === "social-media" ? "Not provided" : "N/A"),
         budget: formData.budget,
         customBudget: formData.customBudget || "Not specified",
         message: formData.message,
@@ -189,6 +192,7 @@ export default function ContactPage() {
             service: "",
             source: "",
             socialPlatform: "",
+            socialUsername: "",
             budget: "",
             customBudget: "",
             message: "",
@@ -550,6 +554,33 @@ export default function ContactPage() {
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                 </svg>
                               </div>
+                              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+
+                      {/* Conditional Social Username Field */}
+                      <AnimatePresence>
+                        {formData.source === "social-media" && formData.socialPlatform !== "" && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0, y: -10 }}
+                            animate={{ opacity: 1, height: "auto", y: 0 }}
+                            exit={{ opacity: 0, height: 0, y: -10 }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            className="group"
+                          >
+                            <label className="block text-sm font-semibold text-gray-700 mb-3 group-hover:text-orange-600 transition-colors">
+                              Your username (handle)
+                            </label>
+                            <div className="relative">
+                              <Input
+                                name="socialUsername"
+                                value={formData.socialUsername}
+                                onChange={handleInputChange}
+                                placeholder="@yourhandle"
+                                className="w-full h-12 px-4 bg-gray-50/50 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:bg-white transition-all duration-300"
+                              />
                               <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-pink-500/0 group-hover:from-orange-500/5 group-hover:to-pink-500/5 transition-all duration-300 pointer-events-none"></div>
                             </div>
                           </motion.div>
