@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { ArrowDown } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Navbar } from '@/components/beauty-hub/Navbar'
@@ -185,12 +186,13 @@ export default function BeautyHubPage() {
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
                 >
-                  <button 
+                  <Link 
+                    href="/beauty-hub/products#products-heading"
                     className="view-all-btn bg-[#722F37] hover:bg-[#5A252A] text-white px-6 py-3 lg:px-8 lg:py-4 rounded-full font-medium text-sm lg:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#722F37] focus:ring-opacity-30"
                     aria-label="View all products"
                   >
                     View All
-                  </button>
+                  </Link>
                 </motion.div>
               </motion.div>
 

@@ -192,7 +192,7 @@ export default function RealEstateProAbout() {
                   <div className="p-5">
                     <div className="flex items-center justify-between">
                       <h3 className="text-gray-900 font-semibold text-base sm:text-lg">{i===1? 'Comfortable Villa Green':'Quality House For Sale'}</h3>
-                      <button className="text-xs sm:text-sm px-3 py-1.5 border border-[#EB6753] text-[#EB6753] rounded-lg hover:bg-[#EB6753] hover:text-white transition-colors">View Detail</button>
+                      <a href={`/real-estate-pro/listings/${i}`} className="text-xs sm:text-sm px-3 py-1.5 border border-[#EB6753] text-[#EB6753] rounded-lg hover:bg-[#EB6753] hover:text-white transition-colors">View Detail</a>
                     </div>
                     <p className="mt-1 text-gray-600 text-sm">Southwestern Ontario, Ontario, Canada</p>
 

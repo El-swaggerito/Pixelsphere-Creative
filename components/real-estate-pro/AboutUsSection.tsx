@@ -42,12 +42,12 @@ export default function AboutUsSection() {
                   us and see!
                 </p>
               </div>
-              <button className="inline-flex items-center px-8 py-4 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-300 mt-8">
+              <a href="/real-estate-pro/about#vision-heading" className="inline-flex items-center px-8 py-4 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-300 mt-8">
                 Explore Now
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </button>
+              </a>
             </div>
             <div className="order-1 lg:order-2">
               <div className="relative">

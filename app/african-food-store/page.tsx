@@ -420,22 +420,12 @@ export default function AfricanFoodStorePage() {
                 </div>
               </div>
 
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300 flex items-center space-x-2">
+              <a href="/african-food-store/shop" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300 flex items-center space-x-2">
                 <span>View All Deals</span>
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </button>
+              </a>
             </div>
 
             {/* Deal Cards Grid */}
@@ -684,9 +674,9 @@ export default function AfricanFoodStorePage() {
                       <br />
                       Products
                     </h2>
-                    <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    <a href="/african-food-store/shop" className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
                       Shop Now
-                    </button>
+                    </a>
                   </div>
 
                   {/* Image */}
@@ -712,9 +702,9 @@ export default function AfricanFoodStorePage() {
                       <br />
                       Healthy and Easy
                     </h2>
-                    <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    <a href="/african-food-store/shop" className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
                       Shop Now
-                    </button>
+                    </a>
                   </div>
 
                   {/* Image */}
