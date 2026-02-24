@@ -200,14 +200,24 @@ export default function Header({ currentPage = "home", textColor = "white", back
       services: [
         { 
           name: "Brand Audit", 
-          href: "/services/digital-growth#brand-audit",
+          href: "/services/brand-audit",
           icon: Shield
         },
         { 
           name: "SEO Optimization",
-          href: "/services/digital-growth#seo-optimization",
+          href: "/services/seo-optimization",
           icon: Search
         },
+        {
+          name: "Social Media Marketing",
+          href: "/services/social-media-marketing",
+          icon: Megaphone
+        },
+        {
+          name: "Content Marketing",
+          href: "/services/content-marketing",
+          icon: FileText
+        }
       ],
     },
   ]

@@ -417,7 +417,7 @@ const testimonials = [
                           transition={{ duration: 0.2 }}
                         >
                           <Link
-                            href="/services/digital-growth"
+                            href="/services/social-media-marketing"
                             className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
                           >
                             Discover More →
@@ -464,7 +464,7 @@ const testimonials = [
                           transition={{ duration: 0.2 }}
                         >
                           <Link
-                            href="/services/digital-growth"
+                            href="/services/content-marketing"
                             className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
                           >
                             Discover More →
@@ -508,7 +508,7 @@ const testimonials = [
                           transition={{ duration: 0.2 }}
                         >
                           <Link
-                            href="/services/digital-growth"
+                            href="/services/seo-optimization"
                             className="text-orange-500 hover:text-orange-600 font-medium text-base sm:text-lg"
                           >
                             Discover More →
