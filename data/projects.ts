@@ -64,6 +64,7 @@ const mobileApplicationProjects: ProjectProps[] = [
     technologies: ["Mobile Application", "EdTech", "On-Demand Learning"],
     visualType: "Mobile Application",
     visualColor: "blue",
+    isReversed: true,
     image: "/images/apt learn card.jpeg",
     hoverImage: null,
     detailHref: "/portfolio/apt-learn",
