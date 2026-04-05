@@ -23,6 +23,9 @@ export interface ProjectProps {
   visualType: string
   visualColor: string
   image: string
+  hoverImage?: string | null
+  detailHref?: string
+  detailButtonText?: string
   onContactClick: () => void
 }
 
@@ -40,29 +43,39 @@ export default function ProjectCard({
   visualType,
   visualColor,
   image,
+  hoverImage,
+  detailHref,
+  detailButtonText = "View Project",
   onContactClick,
 }: ProjectProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [hoverImageLoaded, setHoverImageLoaded] = useState(false)
   const [hoverImageLoading, setHoverImageLoading] = useState(true)
 
-  // Generate hover image path by adding '-hover' before the file extension
-  const hoverImage = image.replace(/\.(png|jpg|jpeg|webp)$/i, '-hover.$1')
+  const projectHref = detailHref ?? `/portfolio/${slug}`
+  const resolvedHoverImage =
+    hoverImage === undefined ? image.replace(/\.(png|jpg|jpeg|webp)$/i, '-hover.$1') : hoverImage
+  const hasHoverImage = Boolean(resolvedHoverImage && resolvedHoverImage !== image)
 
-  // Preload hover image
   useEffect(() => {
+    if (!hasHoverImage || !resolvedHoverImage) {
+      setHoverImageLoaded(false)
+      setHoverImageLoading(false)
+      return
+    }
+
     const img = new window.Image() as HTMLImageElement
-    img.src = hoverImage
+    img.src = resolvedHoverImage
     img.onload = () => {
       setHoverImageLoaded(true)
       setHoverImageLoading(false)
     }
     img.onerror = () => {
-      console.warn(`Failed to load hover image: ${hoverImage}`)
+      console.warn(`Failed to load hover image: ${resolvedHoverImage}`)
       setHoverImageLoaded(false)
       setHoverImageLoading(false)
     }
-  }, [hoverImage])
+  }, [hasHoverImage, resolvedHoverImage])
 
   return (
     <motion.div
@@ -87,13 +100,13 @@ export default function ProjectCard({
           )}
           <span className="text-gray-900 font-semibold text-lg">{title}</span>
           <motion.div className="ml-auto" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link href={`/portfolio/${slug}`}>
+            <Link href={projectHref}>
               <Button
                 size="sm"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium text-sm"
               >
                 <Eye className="h-4 w-4 mr-2" />
-                View Project
+                {detailButtonText}
               </Button>
             </Link>
           </motion.div>
@@ -139,7 +152,7 @@ export default function ProjectCard({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Link href={`/portfolio/${slug}`} className="block cursor-pointer">
+        <Link href={projectHref} className="block cursor-pointer">
           <div className="rounded-lg p-6 aspect-[4/3]">
             <div className="w-full h-full rounded-lg overflow-hidden relative">
               <motion.div
@@ -147,13 +160,13 @@ export default function ProjectCard({
                 animate={{ scale: isHovered ? 1.05 : 1 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               >
-                {hoverImageLoading && isHovered && (
+                {hasHoverImage && hoverImageLoading && isHovered && (
                   <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10 animate-pulse">
                     <span className="text-gray-400">Loading preview...</span>
                   </div>
                 )}
                 <Image
-                  src={isHovered && hoverImageLoaded ? hoverImage : image}
+                  src={isHovered && hoverImageLoaded && resolvedHoverImage ? resolvedHoverImage : image}
                   alt={title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

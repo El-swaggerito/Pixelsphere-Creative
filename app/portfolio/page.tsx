@@ -17,7 +17,9 @@ import { projects } from "@/data/projects";
 import React from "react";
 
 export default function WorkPage() {
-  const [activeFilter, setActiveFilter] = React.useState<"all" | "web-dev-branding" | "web-development" | "branding">("all");
+  const [activeFilter, setActiveFilter] = React.useState<
+    "all" | "web-dev-branding" | "web-development" | "branding" | "mobile-application"
+  >("all");
 
   const scrollToContactForm = () => {
     const contactForm = document.getElementById("contact-form");
@@ -52,6 +54,11 @@ export default function WorkPage() {
     []
   );
 
+  const mobileApplicationSlugs = React.useMemo(
+    () => ["revva", "apt-learn", "echo-vaults"],
+    []
+  );
+
   const filteredProjects = React.useMemo(() => {
     switch (activeFilter) {
       case "web-dev-branding":
@@ -60,10 +67,12 @@ export default function WorkPage() {
         return projects.filter((p) => webDevelopmentSlugs.includes(p.slug));
       case "branding":
         return projects.filter((p) => brandingSlugs.includes(p.slug));
+      case "mobile-application":
+        return projects.filter((p) => mobileApplicationSlugs.includes(p.slug));
       default:
         return projects;
     }
-  }, [activeFilter, webDevBrandingSlugs, webDevelopmentSlugs, brandingSlugs]);
+  }, [activeFilter, webDevBrandingSlugs, webDevelopmentSlugs, brandingSlugs, mobileApplicationSlugs]);
 
   return (
     <PageTransition>
@@ -234,6 +243,18 @@ export default function WorkPage() {
                     }`}
                   >
                     Branding
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setActiveFilter("mobile-application")}
+                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform ${
+                      activeFilter === "mobile-application"
+                        ? "bg-orange-500 text-white shadow-lg"
+                        : "bg-white text-gray-700 border border-gray-300 hover:bg-orange-50 hover:border-orange-300"
+                    }`}
+                  >
+                    Mobile Application
                   </motion.button>
                 </div>
               </motion.div>

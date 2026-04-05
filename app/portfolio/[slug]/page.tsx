@@ -8,6 +8,8 @@ import FinalCTA from "@/components/final-cta"
 import WorkCTA from "@/components/work-cta"
 import AnimatedSection from "@/components/AnimatedSection"
 import { getProjectBySlug, type ProjectData } from "@/data/projects/index"
+import { getMobileAppProjectBySlug } from "@/data/mobile-app-projects"
+import MobileAppProjectPage from "@/components/MobileAppProjectPage"
 import { notFound } from "next/navigation"
 
 interface WorkSinglePageProps {
@@ -15,6 +17,12 @@ interface WorkSinglePageProps {
 }
 
 export default function WorkSinglePage({ params }: WorkSinglePageProps) {
+  const mobileAppProject = getMobileAppProjectBySlug(params.slug)
+
+  if (mobileAppProject) {
+    return <MobileAppProjectPage project={mobileAppProject} />
+  }
+
   const project = getProjectBySlug(params.slug)
   
   if (!project) {
